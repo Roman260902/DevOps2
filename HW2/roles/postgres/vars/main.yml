@@ -1,0 +1,14 @@
+#SPDX-License-Identifier: MIT-0
+---
+__pg_bin_dir: "/usr/lib/postgresql/{{ postgres__version }}/bin"
+
+__exporter_archive: >-
+  postgres_exporter-{{ postgres__exporter_version }}.linux-{{ postgres__exporter_arch }}.tar.gz
+
+__exporter_url: >-
+  https://github.com/prometheus-community/postgres_exporter/releases/download/v{{ postgres__exporter_version }}/{{ __exporter_archive }}
+
+__exporter_local_dir: "/tmp/postgres_exporter-{{ postgres__exporter_version }}"
+__exporter_local_binary: >-
+  {{ __exporter_local_dir }}/postgres_exporter-{{ postgres__exporter_version }}.linux-{{ postgres__exporter_arch }}/postgres_exporter
+# vars file for roles/postgres

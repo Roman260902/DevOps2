@@ -1,0 +1,57 @@
+---
+- name: Initialize PostgreSQL cluster
+  ansible.builtin.command:
+    cmd: >-
+      {{ __pg_bin_dir }}/pg_ctl
+      initdb
+      -D {{ postgres__data_dir }}
+    creates: "{{ postgres__data_dir }}/PG_VERSION"
+  become: true
+  become_user: postgres
+
+- name: Configure postgresql.conf
+  ansible.builtin.lineinfile:
+    path: "{{ postgres__data_dir }}/postgresql.conf"
+    regexp: "^#?{{ item.key | regex_escape() }}\\s*="
+    line: "{{ item.key }} = {{ item.value }}"
+    create: false
+  loop: "{{ postgres__opts | dict2items }}"
+  loop_control:
+    label: "{{ item.key }}"
+  notify:
+    - Restart PostgreSQL
+  become: true
+
+- name: Configure pg_hba.conf
+  ansible.builtin.template:
+    src: pg_hba.conf.j2
+    dest: "{{ postgres__data_dir }}/pg_hba.conf"
+    owner: postgres
+    group: postgres
+    mode: "0600"
+  notify:
+    - Restart PostgreSQL
+  become: true
+
+- name: Install PostgreSQL systemd unit
+  ansible.builtin.template:
+    src: postgresql-course.service.j2
+    dest: "/etc/systemd/system/{{ postgres__service_name }}"
+    owner: root
+    group: root
+    mode: "0644"
+  notify:
+    - Reload systemd
+    - Restart PostgreSQL
+  become: true
+
+- name: Enable and start PostgreSQL
+  ansible.builtin.systemd_service:
+    name: "{{ postgres__service_name }}"
+    enabled: true
+    state: started
+    daemon_reload: true
+  become: true
+
+- name: Apply PostgreSQL handlers before creating users
+  ansible.builtin.meta: flush_handlers

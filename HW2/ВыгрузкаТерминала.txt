@@ -1,0 +1,1873 @@
+rkart@TIRoman:~$ sudo apt update
+[sudo: authenticate] Password:
+Hit:1 http://archive.ubuntu.com/ubuntu resolute InRelease
+Get:2 http://archive.ubuntu.com/ubuntu resolute-updates InRelease [137 kB]
+Get:3 http://security.ubuntu.com/ubuntu resolute-security InRelease [137 kB]
+Get:4 http://archive.ubuntu.com/ubuntu resolute-backports InRelease [137 kB]
+Get:5 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 Packages [744 kB]
+Get:6 http://archive.ubuntu.com/ubuntu resolute-updates/main Translation-en [176 kB]
+Get:7 http://security.ubuntu.com/ubuntu resolute-security/main amd64 Packages [606 kB]
+Get:8 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 Components [110 kB]
+Get:9 http://archive.ubuntu.com/ubuntu resolute-updates/universe amd64 Packages [334 kB]
+Get:10 http://archive.ubuntu.com/ubuntu resolute-updates/universe Translation-en [110 kB]
+Get:11 http://archive.ubuntu.com/ubuntu resolute-updates/universe amd64 Components [201 kB]
+Get:12 http://archive.ubuntu.com/ubuntu resolute-updates/restricted amd64 Packages [508 kB]
+Get:13 http://archive.ubuntu.com/ubuntu resolute-updates/restricted Translation-en [101 kB]
+Get:14 http://archive.ubuntu.com/ubuntu resolute-updates/multiverse amd64 Packages [21.0 kB]
+Get:15 http://archive.ubuntu.com/ubuntu resolute-updates/multiverse Translation-en [4168 B]
+Get:16 http://archive.ubuntu.com/ubuntu resolute-backports/universe amd64 Packages [3136 B]
+Get:17 http://archive.ubuntu.com/ubuntu resolute-backports/universe amd64 Components [1056 B]
+Get:18 http://security.ubuntu.com/ubuntu resolute-security/main Translation-en [141 kB]
+Get:19 http://security.ubuntu.com/ubuntu resolute-security/main amd64 Components [46.8 kB]
+Get:20 http://security.ubuntu.com/ubuntu resolute-security/universe amd64 Packages [205 kB]
+Get:21 http://security.ubuntu.com/ubuntu resolute-security/universe Translation-en [67.7 kB]
+Get:22 http://security.ubuntu.com/ubuntu resolute-security/universe amd64 Components [55.5 kB]
+Get:23 http://security.ubuntu.com/ubuntu resolute-security/restricted amd64 Packages [495 kB]
+Get:24 http://security.ubuntu.com/ubuntu resolute-security/restricted Translation-en [99.6 kB]
+Get:25 http://security.ubuntu.com/ubuntu resolute-security/multiverse amd64 Packages [20.0 kB]
+Get:26 http://security.ubuntu.com/ubuntu resolute-security/multiverse Translation-en [3728 B]
+Fetched 4466 kB in 1s (4357 kB/s)
+76 packages can be upgraded. Run 'apt list --upgradable' to see them.
+rkart@TIRoman:~$ ^C
+rkart@TIRoman:~$ sudo apt install -y ansible openssh-server git openssl
+Upgrading:
+  git  git-man  libssl3t64  openssh-client  openssl  openssl-provider-legacy
+
+Installing:
+  ansible  openssh-server
+
+Installing dependencies:
+  ansible-core  openssh-sftp-server  python3-gssapi    python3-netaddr        python3-selinux
+  ieee-data     python3-argcomplete  python3-jmespath  python3-pyspnego       python3-winrm
+  libwrap0      python3-decorator    python3-kerberos  python3-requests-ntlm  python3-xmltodict
+  ncurses-term  python3-dnspython    python3-libcloud  python3-resolvelib     ssh-import-id
+
+Suggested packages:
+  cowsay       monkeysphere  python3-aioquic   python3-httpx  python-netaddr-docs
+  sshpass      ssh-askpass   python3-h2        python3-trio
+  molly-guard  ufw           python3-httpcore  ipython3
+
+Summary:
+  Upgrading: 6, Installing: 22, Removing: 0, Not Upgrading: 70
+  Download size: 36.1 MB
+  Space needed: 270 MB / 1021 GB available
+
+Get:1 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 openssl-provider-legacy amd64 3.5.5-1ubuntu3.7 [39.7 kB]
+Get:2 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 libssl3t64 amd64 3.5.5-1ubuntu3.7 [2368 kB]
+Get:3 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 openssl amd64 3.5.5-1ubuntu3.7 [1243 kB]
+Get:4 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 git-man all 1:2.53.0-1ubuntu1.1 [1197 kB]
+Get:5 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 git amd64 1:2.53.0-1ubuntu1.1 [4223 kB]
+Get:6 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 openssh-client amd64 1:10.2p1-2ubuntu3.8 [936 kB]
+Get:7 http://archive.ubuntu.com/ubuntu resolute/universe amd64 python3-resolvelib all 1.2.1-2 [26.1 kB]
+Get:8 http://archive.ubuntu.com/ubuntu resolute/main amd64 python3-dnspython all 2.8.0-1ubuntu1 [178 kB]
+Get:9 http://archive.ubuntu.com/ubuntu resolute/main amd64 ieee-data all 20240722build1 [2299 kB]
+Get:10 http://archive.ubuntu.com/ubuntu resolute/main amd64 python3-netaddr all 1.3.0-1build1 [361 kB]
+Get:11 http://archive.ubuntu.com/ubuntu resolute/universe amd64 ansible-core all 2.20.1-1 [1379 kB]
+Get:12 http://archive.ubuntu.com/ubuntu resolute/universe amd64 ansible all 13.1.0+dfsg-1ubuntu1 [19.1 MB]
+Get:13 http://archive.ubuntu.com/ubuntu resolute/main amd64 libwrap0 amd64 7.6.q-36build2 [48.5 kB]
+Get:14 http://archive.ubuntu.com/ubuntu resolute/main amd64 ncurses-term all 6.6+20251231-1 [280 kB]
+Get:15 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 openssh-sftp-server amd64 1:10.2p1-2ubuntu3.8 [37.4 kB]
+Get:16 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 openssh-server amd64 1:10.2p1-2ubuntu3.8 [622 kB]
+Get:17 http://archive.ubuntu.com/ubuntu resolute/universe amd64 python3-argcomplete all 3.6.3-1 [36.1 kB]
+Get:18 http://archive.ubuntu.com/ubuntu resolute/main amd64 python3-decorator all 5.2.1-2 [28.1 kB]
+Get:19 http://archive.ubuntu.com/ubuntu resolute/universe amd64 python3-gssapi amd64 1.10.1-1build1 [501 kB]
+Get:20 http://archive.ubuntu.com/ubuntu resolute/main amd64 python3-jmespath all 1.0.1-1build1 [21.2 kB]
+Get:21 http://archive.ubuntu.com/ubuntu resolute/universe amd64 python3-kerberos amd64 1.1.14-3.1build13 [20.9 kB]
+Get:22 http://archive.ubuntu.com/ubuntu resolute/universe amd64 python3-libcloud all 3.8.0+repack-5ubuntu1 [827 kB]
+Get:23 http://archive.ubuntu.com/ubuntu resolute/universe amd64 python3-pyspnego all 0.10.2-3 [96.4 kB]
+Get:24 http://archive.ubuntu.com/ubuntu resolute/universe amd64 python3-requests-ntlm all 1.3.0-1 [7652 B]
+Get:25 http://archive.ubuntu.com/ubuntu resolute/universe amd64 python3-selinux amd64 3.9-4build1 [171 kB]
+Get:26 http://archive.ubuntu.com/ubuntu resolute/main amd64 python3-xmltodict all 1.0.3-1 [19.4 kB]
+Get:27 http://archive.ubuntu.com/ubuntu resolute/universe amd64 python3-winrm all 0.5.0-2build1 [37.7 kB]
+Get:28 http://archive.ubuntu.com/ubuntu resolute/main amd64 ssh-import-id all 5.11-0ubuntu4 [10.2 kB]
+Fetched 36.1 MB in 3s (13.9 MB/s)
+Preconfiguring packages ...
+(Reading database ... 37760 files and directories currently installed.)
+Preparing to unpack .../openssl-provider-legacy_3.5.5-1ubuntu3.7_amd64.deb ...
+Unpacking openssl-provider-legacy (3.5.5-1ubuntu3.7) over (3.5.5-1ubuntu3.5) ...
+Setting up openssl-provider-legacy (3.5.5-1ubuntu3.7) ...
+(Reading database ... 37760 files and directories currently installed.)
+Preparing to unpack .../libssl3t64_3.5.5-1ubuntu3.7_amd64.deb ...
+Unpacking libssl3t64:amd64 (3.5.5-1ubuntu3.7) over (3.5.5-1ubuntu3.5) ...
+Setting up libssl3t64:amd64 (3.5.5-1ubuntu3.7) ...
+(Reading database ... 37760 files and directories currently installed.)
+Preparing to unpack .../00-openssl_3.5.5-1ubuntu3.7_amd64.deb ...
+Unpacking openssl (3.5.5-1ubuntu3.7) over (3.5.5-1ubuntu3.5) ...
+Preparing to unpack .../01-git-man_1%3a2.53.0-1ubuntu1.1_all.deb ...
+Unpacking git-man (1:2.53.0-1ubuntu1.1) over (1:2.53.0-1ubuntu1) ...
+Preparing to unpack .../02-git_1%3a2.53.0-1ubuntu1.1_amd64.deb ...
+Unpacking git (1:2.53.0-1ubuntu1.1) over (1:2.53.0-1ubuntu1) ...
+Preparing to unpack .../03-openssh-client_1%3a10.2p1-2ubuntu3.8_amd64.deb ...
+Unpacking openssh-client (1:10.2p1-2ubuntu3.8) over (1:10.2p1-2ubuntu3.6) ...
+Selecting previously unselected package python3-resolvelib.
+Preparing to unpack .../04-python3-resolvelib_1.2.1-2_all.deb ...
+Unpacking python3-resolvelib (1.2.1-2) ...
+Selecting previously unselected package python3-dnspython.
+Preparing to unpack .../05-python3-dnspython_2.8.0-1ubuntu1_all.deb ...
+Unpacking python3-dnspython (2.8.0-1ubuntu1) ...
+Selecting previously unselected package ieee-data.
+Preparing to unpack .../06-ieee-data_20240722build1_all.deb ...
+Unpacking ieee-data (20240722build1) ...
+Selecting previously unselected package python3-netaddr.
+Preparing to unpack .../07-python3-netaddr_1.3.0-1build1_all.deb ...
+Unpacking python3-netaddr (1.3.0-1build1) ...
+Selecting previously unselected package ansible-core.
+Preparing to unpack .../08-ansible-core_2.20.1-1_all.deb ...
+Unpacking ansible-core (2.20.1-1) ...
+Selecting previously unselected package ansible.
+Preparing to unpack .../09-ansible_13.1.0+dfsg-1ubuntu1_all.deb ...
+Unpacking ansible (13.1.0+dfsg-1ubuntu1) ...
+Selecting previously unselected package libwrap0:amd64.
+Preparing to unpack .../10-libwrap0_7.6.q-36build2_amd64.deb ...
+Unpacking libwrap0:amd64 (7.6.q-36build2) ...
+Selecting previously unselected package ncurses-term.
+Preparing to unpack .../11-ncurses-term_6.6+20251231-1_all.deb ...
+Unpacking ncurses-term (6.6+20251231-1) ...
+Selecting previously unselected package openssh-sftp-server.
+Preparing to unpack .../12-openssh-sftp-server_1%3a10.2p1-2ubuntu3.8_amd64.deb ...
+Unpacking openssh-sftp-server (1:10.2p1-2ubuntu3.8) ...
+Selecting previously unselected package openssh-server.
+Preparing to unpack .../13-openssh-server_1%3a10.2p1-2ubuntu3.8_amd64.deb ...
+Unpacking openssh-server (1:10.2p1-2ubuntu3.8) ...
+Selecting previously unselected package python3-argcomplete.
+Preparing to unpack .../14-python3-argcomplete_3.6.3-1_all.deb ...
+Unpacking python3-argcomplete (3.6.3-1) ...
+Selecting previously unselected package python3-decorator.
+Preparing to unpack .../15-python3-decorator_5.2.1-2_all.deb ...
+Unpacking python3-decorator (5.2.1-2) ...
+Selecting previously unselected package python3-gssapi.
+Preparing to unpack .../16-python3-gssapi_1.10.1-1build1_amd64.deb ...
+Unpacking python3-gssapi (1.10.1-1build1) ...
+Selecting previously unselected package python3-jmespath.
+Preparing to unpack .../17-python3-jmespath_1.0.1-1build1_all.deb ...
+Unpacking python3-jmespath (1.0.1-1build1) ...
+Selecting previously unselected package python3-kerberos.
+Preparing to unpack .../18-python3-kerberos_1.1.14-3.1build13_amd64.deb ...
+Unpacking python3-kerberos (1.1.14-3.1build13) ...
+Selecting previously unselected package python3-libcloud.
+Preparing to unpack .../19-python3-libcloud_3.8.0+repack-5ubuntu1_all.deb ...
+Unpacking python3-libcloud (3.8.0+repack-5ubuntu1) ...
+Selecting previously unselected package python3-pyspnego.
+Preparing to unpack .../20-python3-pyspnego_0.10.2-3_all.deb ...
+Unpacking python3-pyspnego (0.10.2-3) ...
+Selecting previously unselected package python3-requests-ntlm.
+Preparing to unpack .../21-python3-requests-ntlm_1.3.0-1_all.deb ...
+Unpacking python3-requests-ntlm (1.3.0-1) ...
+Selecting previously unselected package python3-selinux.
+Preparing to unpack .../22-python3-selinux_3.9-4build1_amd64.deb ...
+Unpacking python3-selinux (3.9-4build1) ...
+Selecting previously unselected package python3-xmltodict.
+Preparing to unpack .../23-python3-xmltodict_1.0.3-1_all.deb ...
+Unpacking python3-xmltodict (1.0.3-1) ...
+Selecting previously unselected package python3-winrm.
+Preparing to unpack .../24-python3-winrm_0.5.0-2build1_all.deb ...
+Unpacking python3-winrm (0.5.0-2build1) ...
+Selecting previously unselected package ssh-import-id.
+Preparing to unpack .../25-ssh-import-id_5.11-0ubuntu4_all.deb ...
+Unpacking ssh-import-id (5.11-0ubuntu4) ...
+Setting up openssh-client (1:10.2p1-2ubuntu3.8) ...
+Setting up ssh-import-id (5.11-0ubuntu4) ...
+Setting up python3-resolvelib (1.2.1-2) ...
+Setting up python3-kerberos (1.1.14-3.1build13) ...
+Setting up python3-libcloud (3.8.0+repack-5ubuntu1) ...
+Setting up python3-decorator (5.2.1-2) ...
+Setting up python3-xmltodict (1.0.3-1) ...
+Setting up python3-gssapi (1.10.1-1build1) ...
+Setting up libwrap0:amd64 (7.6.q-36build2) ...
+Setting up python3-jmespath (1.0.1-1build1) ...
+Setting up python3-pyspnego (0.10.2-3) ...
+Setting up ieee-data (20240722build1) ...
+Setting up python3-dnspython (2.8.0-1ubuntu1) ...
+Setting up python3-selinux (3.9-4build1) ...
+Setting up git-man (1:2.53.0-1ubuntu1.1) ...
+Setting up python3-argcomplete (3.6.3-1) ...
+Setting up openssl (3.5.5-1ubuntu3.7) ...
+Setting up ncurses-term (6.6+20251231-1) ...
+Setting up python3-requests-ntlm (1.3.0-1) ...
+Setting up openssh-sftp-server (1:10.2p1-2ubuntu3.8) ...
+Setting up openssh-server (1:10.2p1-2ubuntu3.8) ...
+Creating config file /etc/ssh/sshd_config with new version
+Creating SSH2 RSA key; this may take some time ...
+3072 SHA256:PbHEGVxxq32V8aZ8uUozE/sIJ+tFLNuA+mx3vf/NEf8 root@TIRoman (RSA)
+Creating SSH2 ECDSA key; this may take some time ...
+256 SHA256:fIBQQrD7gH//yz8LAaJpxS7GmLjGV31ugxvqcSPueZ4 root@TIRoman (ECDSA)
+Creating SSH2 ED25519 key; this may take some time ...
+256 SHA256:FXSVMSkNQpZatEovzcAdVeQi8xaFxrqdYAtPjiIL2KY root@TIRoman (ED25519)
+Creating user 'sshd' (sshd user) with UID 986 and GID 65534.
+Created symlink '/etc/systemd/system/sockets.target.wants/ssh.socket' → '/usr/lib/systemd/system/ssh.socket'.
+Created symlink '/etc/systemd/system/ssh.service.requires/ssh.socket' → '/usr/lib/systemd/system/ssh.socket'.
+Created symlink '/etc/systemd/system/ssh.service.wants/sshd-keygen.service' → '/usr/lib/systemd/system/sshd-keygen.service'.
+Created symlink '/etc/systemd/system/sshd.service.wants/sshd-keygen.service' → '/usr/lib/systemd/system/sshd-keygen.service'.
+Created symlink '/etc/systemd/system/sshd@.service.wants/sshd-keygen.service' → '/usr/lib/systemd/system/sshd-keygen.service'.
+Created symlink '/etc/systemd/system/ssh.socket.wants/sshd-keygen.service' → '/usr/lib/systemd/system/sshd-keygen.service'.
+Setting up git (1:2.53.0-1ubuntu1.1) ...
+Setting up python3-netaddr (1.3.0-1build1) ...
+Setting up python3-winrm (0.5.0-2build1) ...
+Setting up ansible-core (2.20.1-1) ...
+Setting up ansible (13.1.0+dfsg-1ubuntu1) ...
+Processing triggers for man-db (2.13.1-1build1) ...
+Processing triggers for libc-bin (2.43-2ubuntu2.4) ...
+rkart@TIRoman:~$ sudo systemctl enable --now ssh
+Synchronizing state of ssh.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable ssh
+Created symlink '/etc/systemd/system/sshd.service' → '/usr/lib/systemd/system/ssh.service'.
+Created symlink '/etc/systemd/system/multi-user.target.wants/ssh.service' → '/usr/lib/systemd/system/ssh.service'.
+rkart@TIRoman:~$ id ans-user
+id: 'ans-user': no such user
+rkart@TIRoman:~$ sudo useradd -m -s /bin/bash ans-user
+rkart@TIRoman:~$ id ans-user
+uid=1002(ans-user) gid=1002(ans-user) groups=1002(ans-user)
+rkart@TIRoman:~$ echo 'ans-user ALL=(ALL) NOPASSWD: ALL' \
+  | sudo tee /etc/sudoers.d/ans-user
+ans-user ALL=(ALL) NOPASSWD: ALL
+rkart@TIRoman:~$ sudo tee /etc/sudoers.d/ans-user
+^C
+rkart@TIRoman:~$ echo 'ans-user ALL=(ALL) NOPASSWD: ALL'   | sudo tee /etc/sudoers.d/ans-user
+ans-user ALL=(ALL) NOPASSWD: ALL
+rkart@TIRoman:~$ sudo chmod 0440 /etc/sudoers.d/ans-user
+rkart@TIRoman:~$ sudo visudo -cf /etc/sudoers.d/ans-user
+/etc/sudoers.d/ans-user: parsed OK
+rkart@TIRoman:~$ ssh-keygen -t ed25519 -f ~/.ssh/id_ans_user -N ''
+Generating public/private ed25519 key pair.
+Your identification has been saved in /home/rkart/.ssh/id_ans_user
+Your public key has been saved in /home/rkart/.ssh/id_ans_user.pub
+The key fingerprint is:
+SHA256:blQcRDLohzipnj+oAjJCN+FdD4UUqHDMR93KdBQkwQs rkart@TIRoman
+The key's randomart image is:
++--[ED25519 256]--+
+|  o ..=*@B=      |
+| . = E.B.* .     |
+|  + =+=.* o      |
+| . =+.o+.o       |
+|. .... .S        |
+|= .    o         |
+|+o o    o        |
+|. + .  .         |
+|o. ...           |
++----[SHA256]-----+
+rkart@TIRoman:~$ sudo install -d -m 0700 -o ans-user -g ans-user /home/ans-user/.ssh
+rkart@TIRoman:~$ sudo install -m 0600 -o ans-user -g ans-user \
+  ~/.ssh/id_ans_user.pub \
+  /home/ans-user/.ssh/authorized_keys
+rkart@TIRoman:~$ ssh -i ~/.ssh/id_ans_user ans-user@localhost
+The authenticity of host 'localhost (127.0.0.1)' can't be established.
+ED25519 key fingerprint is: SHA256:FXSVMSkNQpZatEovzcAdVeQi8xaFxrqdYAtPjiIL2KY
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'localhost' (ED25519) to the list of known hosts.
+Welcome to Ubuntu 26.04.1 LTS (GNU/Linux 6.6.87.2-microsoft-standard-WSL2 x86_64)
+
+ * Documentation:  https://docs.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Thu Oct 22 21:11:45 MSK 2026
+
+  System load:  0.02                Processes:             70
+  Usage of /:   0.6% of 1006.85GB   Users logged in:       0
+  Memory usage: 4%                  IPv4 address for eth0: 172.18.9.38
+  Swap usage:   0%
+
+ * Canonical Workshop gives developers fast, composable, reproducible, and
+   secure developer environments that are perfect for agentic workflows.
+
+   https://ubuntu.com/workshop
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+Welcome to Ubuntu 26.04.1 LTS (GNU/Linux 6.6.87.2-microsoft-standard-WSL2 x86_64)
+
+ * Documentation:  https://docs.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Thu Oct 22 21:11:45 MSK 2026
+
+  System load:  0.02                Processes:             70
+  Usage of /:   0.6% of 1006.85GB   Users logged in:       0
+  Memory usage: 4%                  IPv4 address for eth0: 172.18.9.38
+  Swap usage:   0%
+
+ * Canonical Workshop gives developers fast, composable, reproducible, and
+   secure developer environments that are perfect for agentic workflows.
+
+   https://ubuntu.com/workshop
+
+This message is shown once a day. To disable it please create the
+/home/ans-user/.hushlogin file.
+ans-user@TIRoman:~$ sudo id
+uid=0(root) gid=0(root) groups=0(root)
+ans-user@TIRoman:~$ exit
+logout
+Connection to localhost closed.
+rkart@TIRoman:~$ mkdir -p ~/projects/hw2
+rkart@TIRoman:~$ cd ~/projects/hw2
+rkart@TIRoman:~/projects/hw2$ mkdir -p roles inventories/main/{group_vars,host_vars}
+rkart@TIRoman:~/projects/hw2$ ansible-galaxy init roles/postgres
+- Role roles/postgres was created successfully
+rkart@TIRoman:~/projects/hw2$ la
+inventories  roles
+rkart@TIRoman:~/projects/hw2$ cd roles/
+rkart@TIRoman:~/projects/hw2/roles$ la
+postgres
+rkart@TIRoman:~/projects/hw2/roles$ cd postgres/
+defaults/  files/     handlers/  meta/      tasks/     templates/ tests/     vars/
+rkart@TIRoman:~/projects/hw2/roles$ cd ..
+rkart@TIRoman:~/projects/hw2$ rm -rf roles/postgres/tests roles/postgres/meta
+rkart@TIRoman:~/projects/hw2$ touch ansible.cfg
+rkart@TIRoman:~/projects/hw2$ touch requirements.yml
+rkart@TIRoman:~/projects/hw2$ touch postgres.play.yml
+rkart@TIRoman:~/projects/hw2$ touch README.md
+rkart@TIRoman:~/projects/hw2$ nano ansible.cfg
+rkart@TIRoman:~/projects/hw2$ cat ansible.cfg
+[defaults]
+inventory = inventories/main
+host_key_checking = false
+vault_password_file = ./vault-pass
+interpreter_python = auto_silent
+rkart@TIRoman:~/projects/hw2$ nano inventories/main/hosts.yaml
+rkart@TIRoman:~/projects/hw2$ cat inventories/main/hosts.yaml
+all:
+  vars:
+    ansible_user: ans-user
+    ansible_ssh_private_key_file: ~/.ssh/id_ans_user
+
+  hosts:
+    vm1:
+      ansible_host: 127.0.0.1
+rkart@TIRoman:~/projects/hw2$ nano requirements.yml
+rkart@TIRoman:~/projects/hw2$ cat requirements.yml
+collections:
+  - name: community.postgresql
+rkart@TIRoman:~/projects/hw2$ nano postgres.play.yml
+rkart@TIRoman:~/projects/hw2$ cat postgres.play.yml
+---
+- name: Configure PostgreSQL on vm1
+  hosts: vm1
+  gather_facts: true
+
+  roles:
+    - postgres
+rkart@TIRoman:~/projects/hw2$ ansible-galaxy collection install -r requirements.yml
+Starting galaxy collection install process
+Nothing to do. All requested collections are already installed. If you want to reinstall them, consider using `--force`.
+rkart@TIRoman:~/projects/hw2$ ansible vm1 -m ping
+[WARNING]: Error getting vault password file (default): The vault password file /home/rkart/projects/hw2/vault-pass was not found
+[ERROR]: The vault password file /home/rkart/projects/hw2/vault-pass was not found
+rkart@TIRoman:~/projects/hw2$ printf '%s\n' 'hard_pass' > vault-pass
+chmod 600 vault-pass
+rkart@TIRoman:~/projects/hw2$ la
+README.md  ansible.cfg  inventories  postgres.play.yml  requirements.yml  roles  vault-pass
+rkart@TIRoman:~/projects/hw2$ ansible vm1 -m ping
+vm1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.14"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+rkart@TIRoman:~/projects/hw2$ ansible vm1 -b -m command -a 'id'
+vm1 | CHANGED | rc=0 >>
+uid=0(root) gid=0(root) groups=0(root)
+rkart@TIRoman:~/projects/hw2$ lsb_release -ds
+Ubuntu 26.04.1 LTS
+rkart@TIRoman:~/projects/hw2$ nano roles/postgres/defaults/main.yml
+rkart@TIRoman:~/projects/hw2$ cat roles/postgres/defaults/main.yml
+#SPDX-License-Identifier: MIT-0
+---
+postgres__version: "16"
+postgres__data_dir: /data/postgres/data
+postgres__service_name: postgresql-course.service
+
+postgres__opts:
+  listen_addresses: "'127.0.0.1'"
+  port: 5432
+  max_connections: 100
+  password_encryption: "'scram-sha-256'"
+  unix_socket_directories: "'/var/run/postgresql'"
+
+postgres__hba:
+  - type: local
+    database: all
+    user: postgres
+    method: peer
+
+  - type: local
+    database: all
+    user: postgres_exporter
+    method: peer
+
+  - type: local
+    database: all
+    user: all
+    method: scram-sha-256
+
+  - type: host
+    database: all
+    user: all
+    address: 127.0.0.1/32
+    method: scram-sha-256
+
+postgres__users: []
+postgres__databases: []
+
+postgres__exporter_version: "0.20.1"
+postgres__exporter_arch: amd64
+postgres__exporter_port: 9187
+# defaults file for roles/postgres
+rkart@TIRoman:~/projects/hw2$ nano roles/postgres/vars/main.yml
+rkart@TIRoman:~/projects/hw2$ nano roles/postgres/vars/main.yml
+rkart@TIRoman:~/projects/hw2$ uname -m
+x86_64
+rkart@TIRoman:~/projects/hw2$ mkdir inventories/main/group_vars/all
+rkart@TIRoman:~/projects/hw2$ nano inventories/main/group_vars/all/maim.yml
+rkart@TIRoman:~/projects/hw2$ ansible-vault create inventories/main/group_vars/all/vault.yml
+rkart@TIRoman:~/projects/hw2$ head inventories/main/group_vars/all/vault.yml
+$ANSIBLE_VAULT;1.1;AES256
+30386263646538373265613634646137313466343034316561323339633436306165663139303866
+3038383535323665306465306137616266303139313135620a383131633363376138666137373436
+39653736356163336533363533656130646330383335343536356665366265343330373866393038
+6136383662333962330a306265393536616661373861626462613434663061323566633762326162
+30336233626232616634616666386636633761653362383664303539613333353335646338333138
+6239303834633862336163626330326566393934313163326434
+rkart@TIRoman:~/projects/hw2$ ansible-vault view inventories/main/group_vars/all/vault.yml
+---
+vault_app_user_password: "hard_pass"
+rkart@TIRoman:~/projects/hw2$ nano roles/postgres/t
+tasks/     templates/
+rkart@TIRoman:~/projects/hw2$ nano roles/postgres/t
+tasks/     templates/
+rkart@TIRoman:~/projects/hw2$ nano roles/postgres/tasks/main.yml
+rkart@TIRoman:~/projects/hw2$ nano roles/postgres/tasks/install.yml
+rkart@TIRoman:~/projects/hw2$ nano roles/postgres/tasks/configure.yml
+rkart@TIRoman:~/projects/hw2$ nano roles/postgres/templates/pg_hba.conf.j2
+rkart@TIRoman:~/projects/hw2$ nano roles/postgres/templates/postgresql-course.service.j2
+rkart@TIRoman:~/projects/hw2$ nano roles/postgres/tasks/database.yml
+rkart@TIRoman:~/projects/hw2$ nano roles/postgres/handlers/main.yml
+rkart@TIRoman:~/projects/hw2$ nano roles/postgres/tasks/exporter.yml
+rkart@TIRoman:~/projects/hw2$ nano roles/postgres/templates/postgres-exporter.service.j2
+rkart@TIRoman:~/projects/hw2$ mkdir -p logs
+rkart@TIRoman:~/projects/hw2$ set -o pipefail
+rkart@TIRoman:~/projects/hw2$ ansible-playbook postgres.play.yml 2>&1 | tee logs/first-run.txt
+[ERROR]: Unable to retrieve file contents.
+Could not find or access '/home/rkart/projects/hw2/databases.yml' on the Ansible Controller.
+If you are using a module and expect the file to exist on the remote, see the remote_src option: [Errno 2] No such file or directory: '/home/rkart/projects/hw2/databases.yml'
+
+rkart@TIRoman:~/projects/hw2$ cd /home/rkart/projects/hw2
+grep -RIn "databases.yml" .
+./logs/first-run.txt:2:Could not find or access '/home/rkart/projects/hw2/databases.yml' on the Ansible Controller.
+./logs/first-run.txt:3:If you are using a module and expect the file to exist on the remote, see the remote_src option: [Errno 2] No such file or directory: '/home/rkart/projects/hw2/databases.yml'
+./roles/postgres/tasks/main.yml:10:  ansible.builtin.import_tasks: databases.yml
+rkart@TIRoman:~/projects/hw2$ la roles/postgres/tasks/
+configure.yml  database.yml  exporter.yml  install.yml  main.yml
+rkart@TIRoman:~/projects/hw2$ mv roles/postgres/tasks/database.yml roles/postgres/tasks/databases.yml
+rkart@TIRoman:~/projects/hw2$ la roles/postgres/tasks/
+configure.yml  databases.yml  exporter.yml  install.yml  main.yml
+rkart@TIRoman:~/projects/hw2$ ansible-playbook postgres.play.yml 2>&1 | tee logs/first-run.txt
+
+PLAY [Configure PostgreSQL on vm1] *********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [vm1]
+
+TASK [postgres : Install PostgreSQL packages] **********************************
+changed: [vm1]
+
+TASK [postgres : Stop default Ubuntu PostgreSQL cluster] ***********************
+ok: [vm1]
+
+TASK [postgres : Create PostgreSQL directories] ********************************
+changed: [vm1] => (item={'path': '/data', 'owner': 'root', 'group': 'root', 'mode': '0755'})
+changed: [vm1] => (item={'path': '/data/postgres', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+changed: [vm1] => (item={'path': '/data/postgres/data', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+
+TASK [postgres : Initialize PostgreSQL cluster] ********************************
+[ERROR]: Task failed: Failed to set permissions on the temporary files Ansible needs to create when becoming an unprivileged user (rc: 1, err: chmod: invalid operator (expected +, -, or =, but found A)
+}). For information on working around this, see https://docs.ansible.com/ansible-core/2.20/playbook_guide/playbooks_privilege_escalation.html#risks-of-becoming-an-unprivileged-user
+Origin: /home/rkart/projects/hw2/roles/postgres/tasks/configure.yml:2:3
+
+1 ---
+2 - name: Initialize PostgreSQL cluster
+    ^ column 3
+
+fatal: [vm1]: FAILED! => {"changed": false, "msg": "Task failed: Failed to set permissions on the temporary files Ansible needs to create when becoming an unprivileged user (rc: 1, err: chmod: invalid operator (expected +, -, or =, but found A)\n}). For information on working around this, see https://docs.ansible.com/ansible-core/2.20/playbook_guide/playbooks_privilege_escalation.html#risks-of-becoming-an-unprivileged-user"}
+
+PLAY RECAP *********************************************************************
+vm1                        : ok=4    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+
+rkart@TIRoman:~/projects/hw2$ nano roles/postgres/vars/main.yml
+rkart@TIRoman:~/projects/hw2$ grep -RIn "__postgres_packages:" .
+rkart@TIRoman:~/projects/hw2$ grep -RIn "__postgres" .
+rkart@TIRoman:~/projects/hw2$ grep -RIn "postgres" .
+./requirements.yml:2:  - name: community.postgresql
+./inventories/main/group_vars/all/maim.yml:2:postgres__users:
+./inventories/main/group_vars/all/maim.yml:8:postgres__databases:
+./postgres.play.yml:7:    - postgres
+./logs/first-run.txt:7:TASK [postgres : Install PostgreSQL packages] **********************************
+./logs/first-run.txt:10:TASK [postgres : Stop default Ubuntu PostgreSQL cluster] ***********************
+./logs/first-run.txt:13:TASK [postgres : Create PostgreSQL directories] ********************************
+./logs/first-run.txt:15:changed: [vm1] => (item={'path': '/data/postgres', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+./logs/first-run.txt:16:changed: [vm1] => (item={'path': '/data/postgres/data', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+./logs/first-run.txt:18:TASK [postgres : Initialize PostgreSQL cluster] ********************************
+./logs/first-run.txt:21:Origin: /home/rkart/projects/hw2/roles/postgres/tasks/configure.yml:2:3
+./roles/postgres/defaults/main.yml:3:postgres__version: "16"
+./roles/postgres/defaults/main.yml:4:postgres__data_dir: /data/postgres/data
+./roles/postgres/defaults/main.yml:5:postgres__service_name: postgresql-course.service
+./roles/postgres/defaults/main.yml:7:postgres__opts:
+./roles/postgres/defaults/main.yml:12:  unix_socket_directories: "'/var/run/postgresql'"
+./roles/postgres/defaults/main.yml:14:postgres__hba:
+./roles/postgres/defaults/main.yml:17:    user: postgres
+./roles/postgres/defaults/main.yml:22:    user: postgres_exporter
+./roles/postgres/defaults/main.yml:36:postgres__users: []
+./roles/postgres/defaults/main.yml:37:postgres__databases: []
+./roles/postgres/defaults/main.yml:39:postgres__exporter_version: "0.20.1"
+./roles/postgres/defaults/main.yml:40:postgres__exporter_arch: amd64
+./roles/postgres/defaults/main.yml:41:postgres__exporter_port: 9187
+./roles/postgres/defaults/main.yml:42:# defaults file for roles/postgres
+./roles/postgres/handlers/main.yml:10:    name: "{{ postgres__service_name }}"
+./roles/postgres/handlers/main.yml:16:    name: "{{ postgres__service_name }}"
+./roles/postgres/handlers/main.yml:20:- name: Restart postgres exporter
+./roles/postgres/handlers/main.yml:22:    name: postgres-exporter.service
+./roles/postgres/handlers/main.yml:25:# handlers file for roles/postgres
+./roles/postgres/vars/main.yml:3:__pg_bin_dir: "/usr/lib/postgresql/{{ postgres__version }}/bin"
+./roles/postgres/vars/main.yml:6:  postgres_exporter-{{ postgres__exporter_version }}.linux-{{ postgres__exporter_arch }}.tar.gz
+./roles/postgres/vars/main.yml:9:  https://github.com/prometheus-community/postgres_exporter/releases/download/v{{ postgres__exporter_version }}/{{ __exporter_archive }}
+./roles/postgres/vars/main.yml:11:__exporter_local_dir: "/tmp/postgres_exporter-{{ postgres__exporter_version }}"
+./roles/postgres/vars/main.yml:13:  {{ __exporter_local_dir }}/postgres_exporter-{{ postgres__exporter_version }}.linux-{{ postgres__exporter_arch }}/postgres_exporter
+./roles/postgres/vars/main.yml:14:# vars file for roles/postgres
+./roles/postgres/templates/pg_hba.conf.j2:3:{% for rule in postgres__hba %}
+./roles/postgres/templates/postgresql-course.service.j2:9:User=postgres
+./roles/postgres/templates/postgresql-course.service.j2:10:Group=postgres
+./roles/postgres/templates/postgresql-course.service.j2:11:RuntimeDirectory=postgresql
+./roles/postgres/templates/postgresql-course.service.j2:13:ExecStart={{ __pg_bin_dir }}/postgres -D {{ postgres__data_dir }}
+./roles/postgres/templates/postgres-exporter.service.j2:5:After={{ postgres__service_name }}
+./roles/postgres/templates/postgres-exporter.service.j2:6:Wants={{ postgres__service_name }}
+./roles/postgres/templates/postgres-exporter.service.j2:10:User=postgres_exporter
+./roles/postgres/templates/postgres-exporter.service.j2:11:Group=postgres_exporter
+./roles/postgres/templates/postgres-exporter.service.j2:12:Environment="DATA_SOURCE_NAME=postgresql:///postgres?host=/var/run/postgresql"
+./roles/postgres/templates/postgres-exporter.service.j2:13:ExecStart=/usr/local/bin/postgres_exporter --web.listen-address=:{{ postgres__exporter_port }}
+./roles/postgres/tasks/configure.yml:7:      -D {{ postgres__data_dir }}
+./roles/postgres/tasks/configure.yml:8:    creates: "{{ postgres__data_dir }}/PG_VERSION"
+./roles/postgres/tasks/configure.yml:10:  become_user: postgres
+./roles/postgres/tasks/configure.yml:12:- name: Configure postgresql.conf
+./roles/postgres/tasks/configure.yml:14:    path: "{{ postgres__data_dir }}/postgresql.conf"
+./roles/postgres/tasks/configure.yml:18:  loop: "{{ postgres__opts | dict2items }}"
+./roles/postgres/tasks/configure.yml:28:    dest: "{{ postgres__data_dir }}/pg_hba.conf"
+./roles/postgres/tasks/configure.yml:29:    owner: postgres
+./roles/postgres/tasks/configure.yml:30:    group: postgres
+./roles/postgres/tasks/configure.yml:38:    src: postgresql-course.service.j2
+./roles/postgres/tasks/configure.yml:39:    dest: "/etc/systemd/system/{{ postgres__service_name }}"
+./roles/postgres/tasks/configure.yml:50:    name: "{{ postgres__service_name }}"
+./roles/postgres/tasks/main.yml:12:- name: Install postgres exporter
+./roles/postgres/tasks/main.yml:14:# tasks file for roles/postgres
+./roles/postgres/tasks/databases.yml:3:  community.postgresql.postgresql_user:
+./roles/postgres/tasks/databases.yml:8:    login_unix_socket: /var/run/postgresql
+./roles/postgres/tasks/databases.yml:11:  loop: "{{ postgres__users }}"
+./roles/postgres/tasks/databases.yml:15:  become_user: postgres
+./roles/postgres/tasks/databases.yml:19:  community.postgresql.postgresql_db:
+./roles/postgres/tasks/databases.yml:24:    login_unix_socket: /var/run/postgresql
+./roles/postgres/tasks/databases.yml:25:  loop: "{{ postgres__databases }}"
+./roles/postgres/tasks/databases.yml:29:  become_user: postgres
+./roles/postgres/tasks/databases.yml:33:    cmd: psql -d postgres -tAc "SELECT 1"
+./roles/postgres/tasks/databases.yml:38:  become_user: postgres
+./roles/postgres/tasks/install.yml:5:      - postgresql
+./roles/postgres/tasks/install.yml:13:    name: "postgresql@{{ postgres__version }}-main.service"
+./roles/postgres/tasks/install.yml:31:    - path: /data/postgres
+./roles/postgres/tasks/install.yml:32:      owner: postgres
+./roles/postgres/tasks/install.yml:33:      group: postgres
+./roles/postgres/tasks/install.yml:36:    - path: "{{ postgres__data_dir }}"
+./roles/postgres/tasks/install.yml:37:      owner: postgres
+./roles/postgres/tasks/install.yml:38:      group: postgres
+./roles/postgres/tasks/exporter.yml:2:- name: Create postgres-exporter system user
+./roles/postgres/tasks/exporter.yml:4:    name: postgres_exporter
+./roles/postgres/tasks/exporter.yml:11:  community.postgresql.postgresql_user:
+./roles/postgres/tasks/exporter.yml:12:    name: postgres_exporter
+./roles/postgres/tasks/exporter.yml:15:    login_unix_socket: /var/run/postgresql
+./roles/postgres/tasks/exporter.yml:17:  become_user: postgres
+./roles/postgres/tasks/exporter.yml:20:  community.postgresql.postgresql_membership:
+./roles/postgres/tasks/exporter.yml:24:      - postgres_exporter
+./roles/postgres/tasks/exporter.yml:26:    login_unix_socket: /var/run/postgresql
+./roles/postgres/tasks/exporter.yml:28:  become_user: postgres
+./roles/postgres/tasks/exporter.yml:57:    dest: /usr/local/bin/postgres_exporter
+./roles/postgres/tasks/exporter.yml:62:    - Restart postgres exporter
+./roles/postgres/tasks/exporter.yml:67:    src: postgres-exporter.service.j2
+./roles/postgres/tasks/exporter.yml:68:    dest: /etc/systemd/system/postgres-exporter.service
+./roles/postgres/tasks/exporter.yml:74:    - Restart postgres exporter
+./roles/postgres/tasks/exporter.yml:79:    name: postgres-exporter.service
+rkart@TIRoman:~/projects/hw2$ nano roles/postgres/tasks/install.yml
+rkart@TIRoman:~/projects/hw2$ ansible-playbook postgres.play.yml 2>&1 | tee logs/first-run.txt
+
+PLAY [Configure PostgreSQL on vm1] *********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [vm1]
+
+TASK [postgres : Install PostgreSQL packages] **********************************
+changed: [vm1]
+
+TASK [postgres : Stop default Ubuntu PostgreSQL cluster] ***********************
+ok: [vm1]
+
+TASK [postgres : Create PostgreSQL directories] ********************************
+ok: [vm1] => (item={'path': '/data', 'owner': 'root', 'group': 'root', 'mode': '0755'})
+ok: [vm1] => (item={'path': '/data/postgres', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+ok: [vm1] => (item={'path': '/data/postgres/data', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+
+TASK [postgres : Initialize PostgreSQL cluster] ********************************
+[WARNING]: Module remote_tmp /var/lib/postgresql/.ansible/tmp did not exist and was created with a mode of 0700, this may cause issues when running as another user. To avoid this, create the remote_tmp dir with the correct permissions manually
+[ERROR]: Task failed: Module failed: Error executing command: [Errno 2] No such file or directory: b'/usr/lib/postgresql/16/bin/pg_ctl'
+Origin: /home/rkart/projects/hw2/roles/postgres/tasks/configure.yml:2:3
+
+1 ---
+2 - name: Initialize PostgreSQL cluster
+    ^ column 3
+
+fatal: [vm1]: FAILED! => {"changed": false, "cmd": "/usr/lib/postgresql/16/bin/pg_ctl initdb -D /data/postgres/data", "msg": "Error executing command.", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+
+PLAY RECAP *********************************************************************
+vm1                        : ok=4    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+
+rkart@TIRoman:~/projects/hw2$ psql --version
+psql (PostgreSQL) 18.6 (Ubuntu 18.6-0ubuntu0.26.04.1)
+rkart@TIRoman:~/projects/hw2$ ls -la /usr/lib/postgresql/
+total 12
+drwxr-xr-x  3 root root 4096 Oct 22 22:03 .
+drwxr-xr-x 61 root root 4096 Oct 22 22:03 ..
+drwxr-xr-x  4 root root 4096 Oct 22 22:03 18
+rkart@TIRoman:~/projects/hw2$ nano roles/postgres/defaults/main.yml
+rkart@TIRoman:~/projects/hw2$ ansible-playbook postgres.play.yml 2>&1 | tee logs/first-run.txt
+
+PLAY [Configure PostgreSQL on vm1] *********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [vm1]
+
+TASK [postgres : Install PostgreSQL packages] **********************************
+ok: [vm1]
+
+TASK [postgres : Stop default Ubuntu PostgreSQL cluster] ***********************
+changed: [vm1]
+
+TASK [postgres : Create PostgreSQL directories] ********************************
+ok: [vm1] => (item={'path': '/data', 'owner': 'root', 'group': 'root', 'mode': '0755'})
+ok: [vm1] => (item={'path': '/data/postgres', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+ok: [vm1] => (item={'path': '/data/postgres/data', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+
+TASK [postgres : Initialize PostgreSQL cluster] ********************************
+changed: [vm1]
+
+TASK [postgres : Configure postgresql.conf] ************************************
+changed: [vm1] => (item=listen_addresses)
+changed: [vm1] => (item=port)
+changed: [vm1] => (item=max_connections)
+changed: [vm1] => (item=password_encryption)
+changed: [vm1] => (item=unix_socket_directories)
+
+TASK [postgres : Configure pg_hba.conf] ****************************************
+changed: [vm1]
+
+TASK [postgres : Install PostgreSQL systemd unit] ******************************
+changed: [vm1]
+
+TASK [postgres : Enable and start PostgreSQL] **********************************
+changed: [vm1]
+
+TASK [postgres : Apply PostgreSQL handlers before creating users] **************
+
+RUNNING HANDLER [postgres : Reload systemd] ************************************
+ok: [vm1]
+
+RUNNING HANDLER [postgres : Restart PostgreSQL] ********************************
+changed: [vm1]
+
+RUNNING HANDLER [postgres : Reload PostgreSQL] *********************************
+[ERROR]: Task failed: Module failed: Unable to reload service postgresql-course.service: Job for postgresql-course.service canceled.
+
+Origin: /home/rkart/projects/hw2/roles/postgres/handlers/main.yml:14:3
+
+12   become: true
+13
+14 - name: Reload PostgreSQL
+     ^ column 3
+
+fatal: [vm1]: FAILED! => {"changed": false, "msg": "Unable to reload service postgresql-course.service: Job for postgresql-course.service canceled.\n"}
+
+PLAY RECAP *********************************************************************
+vm1                        : ok=11   changed=7    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+
+rkart@TIRoman:~/projects/hw2$ nano roles/postgres/tasks/configure.yml
+rkart@TIRoman:~/projects/hw2$ nano roles/postgres/handlers/main.yml
+rkart@TIRoman:~/projects/hw2$ sudo systemctl status postgresql-course.service --no-pager -l
+[sudo: authenticate] Password:
+× postgresql-course.service - Course PostgreSQL cluster
+     Loaded: loaded (/etc/systemd/system/postgresql-course.service; enabled; preset: enabled)
+     Active: failed (Result: exit-code) since Thu 2026-10-22 22:24:10 MSK; 8min ago
+   Duration: 78ms
+ Invocation: 232395e92d904dcda2ed0ff674947038
+    Process: 16240 ExecStart=/usr/lib/postgresql/18/bin/postgres -D /data/postgres/data (code=exited, status=1/FAILURE)
+    Process: 16245 ExecReload=/bin/kill -HUP $MAINPID (code=exited, status=0/SUCCESS)
+   Main PID: 16240 (code=exited, status=1/FAILURE)
+   Mem peak: 17.9M
+        CPU: 23ms
+
+Oct 22 22:24:10 TIRoman systemd[1]: postgresql-course.service: Scheduled restart job, restart counter is at 2.
+Oct 22 22:24:10 TIRoman systemd[1]: postgresql-course.service: Start request repeated too quickly.
+Oct 22 22:24:10 TIRoman systemd[1]: postgresql-course.service: Failed with result 'exit-code'.
+Oct 22 22:24:10 TIRoman systemd[1]: Failed to start postgresql-course.service - Course PostgreSQL cluster.
+rkart@TIRoman:~/projects/hw2$ ansible-playbook postgres.play.yml 2>&1 | tee logs/first-run.txt
+
+PLAY [Configure PostgreSQL on vm1] *********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [vm1]
+
+TASK [postgres : Install PostgreSQL packages] **********************************
+ok: [vm1]
+
+TASK [postgres : Stop default Ubuntu PostgreSQL cluster] ***********************
+ok: [vm1]
+
+TASK [postgres : Create PostgreSQL directories] ********************************
+ok: [vm1] => (item={'path': '/data', 'owner': 'root', 'group': 'root', 'mode': '0755'})
+ok: [vm1] => (item={'path': '/data/postgres', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+ok: [vm1] => (item={'path': '/data/postgres/data', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+
+TASK [postgres : Initialize PostgreSQL cluster] ********************************
+ok: [vm1]
+
+TASK [postgres : Configure postgresql.conf] ************************************
+ok: [vm1] => (item=listen_addresses)
+ok: [vm1] => (item=port)
+ok: [vm1] => (item=max_connections)
+ok: [vm1] => (item=password_encryption)
+ok: [vm1] => (item=unix_socket_directories)
+
+TASK [postgres : Configure pg_hba.conf] ****************************************
+ok: [vm1]
+
+TASK [postgres : Install PostgreSQL systemd unit] ******************************
+ok: [vm1]
+
+TASK [postgres : Enable and start PostgreSQL] **********************************
+changed: [vm1]
+
+TASK [postgres : Apply PostgreSQL handlers before creating users] **************
+
+TASK [postgres : Create PostgreSQL users] **************************************
+[ERROR]: Task failed: Module failed: unable to connect to database: connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: No such file or directory
+        Is the server running locally and accepting connections on that socket?
+
+Origin: /home/rkart/projects/hw2/roles/postgres/tasks/databases.yml:2:3
+
+1 ---
+2 - name: Create PostgreSQL users
+    ^ column 3
+
+failed: [vm1] (item=(censored due to no_log)) => {"censored": "the output has been hidden due to the fact that 'no_log: true' was specified for this result", "changed": false}
+
+PLAY RECAP *********************************************************************
+vm1                        : ok=9    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+
+rkart@TIRoman:~/projects/hw2$ sudo systemctl is-active postgresql-course.service
+failed
+rkart@TIRoman:~/projects/hw2$ sudo systemctl status postgresql-course.service --no-pager -l
+× postgresql-course.service - Course PostgreSQL cluster
+     Loaded: loaded (/etc/systemd/system/postgresql-course.service; enabled; preset: enabled)
+     Active: failed (Result: exit-code) since Thu 2026-10-22 22:32:37 MSK; 3min 31s ago
+   Duration: 70ms
+ Invocation: 4c7ce14316db47a2ad90781e066d3f9b
+    Process: 17187 ExecStart=/usr/lib/postgresql/18/bin/postgres -D /data/postgres/data (code=exited, status=1/FAILURE)
+   Main PID: 17187 (code=exited, status=1/FAILURE)
+   Mem peak: 15.9M
+        CPU: 18ms
+
+Oct 22 22:32:37 TIRoman systemd[1]: postgresql-course.service: Scheduled restart job, restart counter is at 5.
+Oct 22 22:32:37 TIRoman systemd[1]: postgresql-course.service: Start request repeated too quickly.
+Oct 22 22:32:37 TIRoman systemd[1]: postgresql-course.service: Failed with result 'exit-code'.
+Oct 22 22:32:37 TIRoman systemd[1]: Failed to start postgresql-course.service - Course PostgreSQL cluster.
+rkart@TIRoman:~/projects/hw2$ sudo journalctl -u postgresql-course.service -b -n 100 --no-pager
+Oct 22 22:24:09 TIRoman systemd[1]: postgresql-course.service: Scheduled restart job, restart counter is at 1.
+Oct 22 22:24:09 TIRoman systemd[1]: Started postgresql-course.service - Course PostgreSQL cluster.
+Oct 22 22:24:09 TIRoman postgres[16112]: 2026-10-22 22:24:09.775 MSK [16112] LOG:  starting PostgreSQL 18.6 (Ubuntu 18.6-0ubuntu0.26.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0, 64-bit
+Oct 22 22:24:09 TIRoman postgres[16112]: 2026-10-22 22:24:09.775 MSK [16112] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+Oct 22 22:24:09 TIRoman postgres[16112]: 2026-10-22 22:24:09.784 MSK [16112] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+Oct 22 22:24:09 TIRoman postgres[16112]: 2026-10-22 22:24:09.791 MSK [16112] LOG:  invalid authentication method "peerlocal"
+Oct 22 22:24:09 TIRoman postgres[16112]: 2026-10-22 22:24:09.791 MSK [16112] CONTEXT:  line 5 of configuration file "/data/postgres/data/pg_hba.conf"
+Oct 22 22:24:09 TIRoman postgres[16112]: 2026-10-22 22:24:09.791 MSK [16112] FATAL:  could not load /data/postgres/data/pg_hba.conf
+Oct 22 22:24:09 TIRoman postgres[16112]: 2026-10-22 22:24:09.792 MSK [16112] LOG:  database system is shut down
+Oct 22 22:24:09 TIRoman systemd[1]: postgresql-course.service: Main process exited, code=exited, status=1/FAILURE
+Oct 22 22:24:09 TIRoman systemd[1]: postgresql-course.service: Failed with result 'exit-code'.
+Oct 22 22:24:10 TIRoman systemd[1]: postgresql-course.service: Scheduled restart job, restart counter is at 2.
+Oct 22 22:24:10 TIRoman systemd[1]: Started postgresql-course.service - Course PostgreSQL cluster.
+Oct 22 22:24:10 TIRoman systemd[1]: Stopping postgresql-course.service - Course PostgreSQL cluster...
+Oct 22 22:24:10 TIRoman systemd[1]: postgresql-course.service: Deactivated successfully.
+Oct 22 22:24:10 TIRoman systemd[1]: Stopped postgresql-course.service - Course PostgreSQL cluster.
+Oct 22 22:24:10 TIRoman systemd[1]: Started postgresql-course.service - Course PostgreSQL cluster.
+Oct 22 22:24:10 TIRoman postgres[16205]: 2026-10-22 22:24:10.111 MSK [16205] LOG:  starting PostgreSQL 18.6 (Ubuntu 18.6-0ubuntu0.26.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0, 64-bit
+Oct 22 22:24:10 TIRoman postgres[16205]: 2026-10-22 22:24:10.111 MSK [16205] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+Oct 22 22:24:10 TIRoman postgres[16205]: 2026-10-22 22:24:10.118 MSK [16205] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+Oct 22 22:24:10 TIRoman postgres[16205]: 2026-10-22 22:24:10.127 MSK [16205] LOG:  invalid authentication method "peerlocal"
+Oct 22 22:24:10 TIRoman postgres[16205]: 2026-10-22 22:24:10.127 MSK [16205] CONTEXT:  line 5 of configuration file "/data/postgres/data/pg_hba.conf"
+Oct 22 22:24:10 TIRoman postgres[16205]: 2026-10-22 22:24:10.127 MSK [16205] FATAL:  could not load /data/postgres/data/pg_hba.conf
+Oct 22 22:24:10 TIRoman postgres[16205]: 2026-10-22 22:24:10.128 MSK [16205] LOG:  database system is shut down
+Oct 22 22:24:10 TIRoman systemd[1]: postgresql-course.service: Main process exited, code=exited, status=1/FAILURE
+Oct 22 22:24:10 TIRoman systemd[1]: postgresql-course.service: Failed with result 'exit-code'.
+Oct 22 22:24:10 TIRoman systemd[1]: postgresql-course.service: Scheduled restart job, restart counter is at 1.
+Oct 22 22:24:10 TIRoman systemd[1]: Started postgresql-course.service - Course PostgreSQL cluster.
+Oct 22 22:24:10 TIRoman systemd[1]: Reloading postgresql-course.service - Course PostgreSQL cluster...
+Oct 22 22:24:10 TIRoman postgres[16240]: 2026-10-22 22:24:10.423 MSK [16240] LOG:  starting PostgreSQL 18.6 (Ubuntu 18.6-0ubuntu0.26.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0, 64-bit
+Oct 22 22:24:10 TIRoman postgres[16240]: 2026-10-22 22:24:10.423 MSK [16240] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+Oct 22 22:24:10 TIRoman postgres[16240]: 2026-10-22 22:24:10.428 MSK [16240] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+Oct 22 22:24:10 TIRoman postgres[16240]: 2026-10-22 22:24:10.435 MSK [16240] LOG:  invalid authentication method "peerlocal"
+Oct 22 22:24:10 TIRoman postgres[16240]: 2026-10-22 22:24:10.435 MSK [16240] CONTEXT:  line 5 of configuration file "/data/postgres/data/pg_hba.conf"
+Oct 22 22:24:10 TIRoman postgres[16240]: 2026-10-22 22:24:10.435 MSK [16240] FATAL:  could not load /data/postgres/data/pg_hba.conf
+Oct 22 22:24:10 TIRoman postgres[16240]: 2026-10-22 22:24:10.436 MSK [16240] LOG:  database system is shut down
+Oct 22 22:24:10 TIRoman systemd[1]: postgresql-course.service: Main process exited, code=exited, status=1/FAILURE
+Oct 22 22:24:10 TIRoman systemd[1]: postgresql-course.service: Failed with result 'exit-code'.
+Oct 22 22:24:10 TIRoman systemd[1]: postgresql-course.service: Scheduled restart job, restart counter is at 2.
+Oct 22 22:24:10 TIRoman systemd[1]: postgresql-course.service: Start request repeated too quickly.
+Oct 22 22:24:10 TIRoman systemd[1]: postgresql-course.service: Failed with result 'exit-code'.
+Oct 22 22:24:10 TIRoman systemd[1]: Failed to start postgresql-course.service - Course PostgreSQL cluster.
+Oct 22 22:32:36 TIRoman systemd[1]: Started postgresql-course.service - Course PostgreSQL cluster.
+Oct 22 22:32:36 TIRoman postgres[17135]: 2026-10-22 22:32:36.698 MSK [17135] LOG:  starting PostgreSQL 18.6 (Ubuntu 18.6-0ubuntu0.26.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0, 64-bit
+Oct 22 22:32:36 TIRoman postgres[17135]: 2026-10-22 22:32:36.698 MSK [17135] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+Oct 22 22:32:36 TIRoman postgres[17135]: 2026-10-22 22:32:36.703 MSK [17135] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+Oct 22 22:32:36 TIRoman postgres[17135]: 2026-10-22 22:32:36.708 MSK [17135] LOG:  invalid authentication method "peerlocal"
+Oct 22 22:32:36 TIRoman postgres[17135]: 2026-10-22 22:32:36.708 MSK [17135] CONTEXT:  line 5 of configuration file "/data/postgres/data/pg_hba.conf"
+Oct 22 22:32:36 TIRoman postgres[17135]: 2026-10-22 22:32:36.708 MSK [17135] FATAL:  could not load /data/postgres/data/pg_hba.conf
+Oct 22 22:32:36 TIRoman postgres[17135]: 2026-10-22 22:32:36.709 MSK [17135] LOG:  database system is shut down
+Oct 22 22:32:36 TIRoman systemd[1]: postgresql-course.service: Main process exited, code=exited, status=1/FAILURE
+Oct 22 22:32:36 TIRoman systemd[1]: postgresql-course.service: Failed with result 'exit-code'.
+Oct 22 22:32:36 TIRoman systemd[1]: postgresql-course.service: Scheduled restart job, restart counter is at 1.
+Oct 22 22:32:36 TIRoman systemd[1]: Started postgresql-course.service - Course PostgreSQL cluster.
+Oct 22 22:32:36 TIRoman postgres[17168]: 2026-10-22 22:32:36.864 MSK [17168] LOG:  starting PostgreSQL 18.6 (Ubuntu 18.6-0ubuntu0.26.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0, 64-bit
+Oct 22 22:32:36 TIRoman postgres[17168]: 2026-10-22 22:32:36.864 MSK [17168] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+Oct 22 22:32:36 TIRoman postgres[17168]: 2026-10-22 22:32:36.870 MSK [17168] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+Oct 22 22:32:36 TIRoman postgres[17168]: 2026-10-22 22:32:36.875 MSK [17168] LOG:  invalid authentication method "peerlocal"
+Oct 22 22:32:36 TIRoman postgres[17168]: 2026-10-22 22:32:36.875 MSK [17168] CONTEXT:  line 5 of configuration file "/data/postgres/data/pg_hba.conf"
+Oct 22 22:32:36 TIRoman postgres[17168]: 2026-10-22 22:32:36.875 MSK [17168] FATAL:  could not load /data/postgres/data/pg_hba.conf
+Oct 22 22:32:36 TIRoman postgres[17168]: 2026-10-22 22:32:36.876 MSK [17168] LOG:  database system is shut down
+Oct 22 22:32:36 TIRoman systemd[1]: postgresql-course.service: Main process exited, code=exited, status=1/FAILURE
+Oct 22 22:32:36 TIRoman systemd[1]: postgresql-course.service: Failed with result 'exit-code'.
+Oct 22 22:32:36 TIRoman systemd[1]: postgresql-course.service: Scheduled restart job, restart counter is at 2.
+Oct 22 22:32:36 TIRoman systemd[1]: Started postgresql-course.service - Course PostgreSQL cluster.
+Oct 22 22:32:37 TIRoman postgres[17173]: 2026-10-22 22:32:37.042 MSK [17173] LOG:  starting PostgreSQL 18.6 (Ubuntu 18.6-0ubuntu0.26.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0, 64-bit
+Oct 22 22:32:37 TIRoman postgres[17173]: 2026-10-22 22:32:37.042 MSK [17173] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+Oct 22 22:32:37 TIRoman postgres[17173]: 2026-10-22 22:32:37.049 MSK [17173] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+Oct 22 22:32:37 TIRoman postgres[17173]: 2026-10-22 22:32:37.055 MSK [17173] LOG:  invalid authentication method "peerlocal"
+Oct 22 22:32:37 TIRoman postgres[17173]: 2026-10-22 22:32:37.055 MSK [17173] CONTEXT:  line 5 of configuration file "/data/postgres/data/pg_hba.conf"
+Oct 22 22:32:37 TIRoman postgres[17173]: 2026-10-22 22:32:37.055 MSK [17173] FATAL:  could not load /data/postgres/data/pg_hba.conf
+Oct 22 22:32:37 TIRoman postgres[17173]: 2026-10-22 22:32:37.056 MSK [17173] LOG:  database system is shut down
+Oct 22 22:32:37 TIRoman systemd[1]: postgresql-course.service: Main process exited, code=exited, status=1/FAILURE
+Oct 22 22:32:37 TIRoman systemd[1]: postgresql-course.service: Failed with result 'exit-code'.
+Oct 22 22:32:37 TIRoman systemd[1]: postgresql-course.service: Scheduled restart job, restart counter is at 3.
+Oct 22 22:32:37 TIRoman systemd[1]: Started postgresql-course.service - Course PostgreSQL cluster.
+Oct 22 22:32:37 TIRoman postgres[17184]: 2026-10-22 22:32:37.412 MSK [17184] LOG:  starting PostgreSQL 18.6 (Ubuntu 18.6-0ubuntu0.26.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0, 64-bit
+Oct 22 22:32:37 TIRoman postgres[17184]: 2026-10-22 22:32:37.412 MSK [17184] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+Oct 22 22:32:37 TIRoman postgres[17184]: 2026-10-22 22:32:37.419 MSK [17184] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+Oct 22 22:32:37 TIRoman postgres[17184]: 2026-10-22 22:32:37.425 MSK [17184] LOG:  invalid authentication method "peerlocal"
+Oct 22 22:32:37 TIRoman postgres[17184]: 2026-10-22 22:32:37.425 MSK [17184] CONTEXT:  line 5 of configuration file "/data/postgres/data/pg_hba.conf"
+Oct 22 22:32:37 TIRoman postgres[17184]: 2026-10-22 22:32:37.425 MSK [17184] FATAL:  could not load /data/postgres/data/pg_hba.conf
+Oct 22 22:32:37 TIRoman postgres[17184]: 2026-10-22 22:32:37.426 MSK [17184] LOG:  database system is shut down
+Oct 22 22:32:37 TIRoman systemd[1]: postgresql-course.service: Main process exited, code=exited, status=1/FAILURE
+Oct 22 22:32:37 TIRoman systemd[1]: postgresql-course.service: Failed with result 'exit-code'.
+Oct 22 22:32:37 TIRoman systemd[1]: postgresql-course.service: Scheduled restart job, restart counter is at 4.
+Oct 22 22:32:37 TIRoman systemd[1]: Started postgresql-course.service - Course PostgreSQL cluster.
+Oct 22 22:32:37 TIRoman postgres[17187]: 2026-10-22 22:32:37.662 MSK [17187] LOG:  starting PostgreSQL 18.6 (Ubuntu 18.6-0ubuntu0.26.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0, 64-bit
+Oct 22 22:32:37 TIRoman postgres[17187]: 2026-10-22 22:32:37.662 MSK [17187] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+Oct 22 22:32:37 TIRoman postgres[17187]: 2026-10-22 22:32:37.670 MSK [17187] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+Oct 22 22:32:37 TIRoman postgres[17187]: 2026-10-22 22:32:37.676 MSK [17187] LOG:  invalid authentication method "peerlocal"
+Oct 22 22:32:37 TIRoman postgres[17187]: 2026-10-22 22:32:37.676 MSK [17187] CONTEXT:  line 5 of configuration file "/data/postgres/data/pg_hba.conf"
+Oct 22 22:32:37 TIRoman postgres[17187]: 2026-10-22 22:32:37.676 MSK [17187] FATAL:  could not load /data/postgres/data/pg_hba.conf
+Oct 22 22:32:37 TIRoman postgres[17187]: 2026-10-22 22:32:37.678 MSK [17187] LOG:  database system is shut down
+Oct 22 22:32:37 TIRoman systemd[1]: postgresql-course.service: Main process exited, code=exited, status=1/FAILURE
+Oct 22 22:32:37 TIRoman systemd[1]: postgresql-course.service: Failed with result 'exit-code'.
+Oct 22 22:32:37 TIRoman systemd[1]: postgresql-course.service: Scheduled restart job, restart counter is at 5.
+Oct 22 22:32:37 TIRoman systemd[1]: postgresql-course.service: Start request repeated too quickly.
+Oct 22 22:32:37 TIRoman systemd[1]: postgresql-course.service: Failed with result 'exit-code'.
+Oct 22 22:32:37 TIRoman systemd[1]: Failed to start postgresql-course.service - Course PostgreSQL cluster.
+rkart@TIRoman:~/projects/hw2$ sudo -u postgres /usr/lib/postgresql/18/bin/postgres \
+  -D /data/postgres/data \
+  -C port
+5432
+rkart@TIRoman:~/projects/hw2$ sudo systemctl cat postgresql-course.service
+# /etc/systemd/system/postgresql-course.service
+#
+# Ansible managed
+#
+
+[Unit]
+Description=Course PostgreSQL cluster
+After=network.target
+
+[Service]
+Type=simple
+User=postgres
+Group=postgres
+RuntimeDirectory=postgresql
+RuntimeDirectoryMode=2775
+ExecStart=/usr/lib/postgresql/18/bin/postgres -D /data/postgres/data
+ExecReload=/bin/kill -HUP $MAINPID
+KillSignal=SIGINT
+TimeoutStopSec=0
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+rkart@TIRoman:~/projects/hw2$ sudo nl -ba /data/postgres/data/pg_hba.conf | sed -n '1,15p'
+     1  #
+     2  # Ansible managed
+     3  #
+     4
+     5  local all postgres peerlocal all postgres_exporter peerlocal all all scram-sha-256host all all 127.0.0.1/32 scram-sha-256
+rkart@TIRoman:~/projects/hw2$ nano roles/postgres/templates/pg_hba.conf.j2
+rkart@TIRoman:~/projects/hw2$ grep -RIn 'peerlocal' roles group_vars postgres.play.yml
+grep: group_vars: No such file or directory
+rkart@TIRoman:~/projects/hw2$ grep -RIn 'peerlocal' .
+rkart@TIRoman:~/projects/hw2$  nano roles/postgres/handlers/main.yml
+rkart@TIRoman:~/projects/hw2$ nano roles/postgres/tasks/configure.yml
+rkart@TIRoman:~/projects/hw2$ sudo systemctl reset-failed postgresql-course.service
+rkart@TIRoman:~/projects/hw2$ ansible-playbook postgres.play.yml 2>&1 | tee logs/retry-run.txt
+
+PLAY [Configure PostgreSQL on vm1] *********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [vm1]
+
+TASK [postgres : Install PostgreSQL packages] **********************************
+ok: [vm1]
+
+TASK [postgres : Stop default Ubuntu PostgreSQL cluster] ***********************
+ok: [vm1]
+
+TASK [postgres : Create PostgreSQL directories] ********************************
+ok: [vm1] => (item={'path': '/data', 'owner': 'root', 'group': 'root', 'mode': '0755'})
+ok: [vm1] => (item={'path': '/data/postgres', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+ok: [vm1] => (item={'path': '/data/postgres/data', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+
+TASK [postgres : Initialize PostgreSQL cluster] ********************************
+ok: [vm1]
+
+TASK [postgres : Configure postgresql.conf] ************************************
+ok: [vm1] => (item=listen_addresses)
+ok: [vm1] => (item=port)
+ok: [vm1] => (item=max_connections)
+ok: [vm1] => (item=password_encryption)
+ok: [vm1] => (item=unix_socket_directories)
+
+TASK [postgres : Configure pg_hba.conf] ****************************************
+[ERROR]: Task failed: 'postgres__hba_rules' is undefined
+
+Task failed.
+Origin: /home/rkart/projects/hw2/roles/postgres/tasks/configure.yml:25:3
+
+23   become: true
+24
+25 - name: Configure pg_hba.conf
+     ^ column 3
+
+<<< caused by >>>
+
+'postgres__hba_rules' is undefined
+Origin: /home/rkart/projects/hw2/roles/postgres/templates/pg_hba.conf.j2
+
+fatal: [vm1]: FAILED! => {"changed": false, "msg": "Task failed: 'postgres__hba_rules' is undefined"}
+
+PLAY RECAP *********************************************************************
+vm1                        : ok=6    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+
+rkart@TIRoman:~/projects/hw2$ grep -RInE 'postgres__.*hba|hba.*rules' \
+  roles/postgres/defaults \
+  roles/postgres/vars \
+  group_vars \
+  postgres.play.yml
+roles/postgres/defaults/main.yml:14:postgres__hba:
+grep: group_vars: No such file or directory
+rkart@TIRoman:~/projects/hw2$ nano roles/postgres/defaults/main.yml
+rkart@TIRoman:~/projects/hw2$ nano roles/postgres/tasks/configure.yml
+rkart@TIRoman:~/projects/hw2$ nano roles/postgres/templates/pg_hba.conf.j2
+rkart@TIRoman:~/projects/hw2$ sudo systemctl reset-failed postgresql-course.service
+rkart@TIRoman:~/projects/hw2$ ansible-playbook postgres.play.yml 2>&1 | tee logs/retry-run.txt
+
+PLAY [Configure PostgreSQL on vm1] *********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [vm1]
+
+TASK [postgres : Install PostgreSQL packages] **********************************
+ok: [vm1]
+
+TASK [postgres : Stop default Ubuntu PostgreSQL cluster] ***********************
+ok: [vm1]
+
+TASK [postgres : Create PostgreSQL directories] ********************************
+ok: [vm1] => (item={'path': '/data', 'owner': 'root', 'group': 'root', 'mode': '0755'})
+ok: [vm1] => (item={'path': '/data/postgres', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+ok: [vm1] => (item={'path': '/data/postgres/data', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+
+TASK [postgres : Initialize PostgreSQL cluster] ********************************
+ok: [vm1]
+
+TASK [postgres : Configure postgresql.conf] ************************************
+ok: [vm1] => (item=listen_addresses)
+ok: [vm1] => (item=port)
+ok: [vm1] => (item=max_connections)
+ok: [vm1] => (item=password_encryption)
+ok: [vm1] => (item=unix_socket_directories)
+
+TASK [postgres : Configure pg_hba.conf] ****************************************
+changed: [vm1]
+
+TASK [postgres : Install PostgreSQL systemd unit] ******************************
+ok: [vm1]
+
+TASK [postgres : Enable and start PostgreSQL] **********************************
+changed: [vm1]
+
+TASK [postgres : Apply PostgreSQL handlers before creating users] **************
+
+RUNNING HANDLER [postgres : Restart PostgreSQL] ********************************
+changed: [vm1]
+
+TASK [postgres : Create PostgreSQL users] **************************************
+changed: [vm1] => (item=(censored due to no_log))
+
+TASK [postgres : Create PostgreSQL databases] **********************************
+changed: [vm1] => (item=app_db)
+
+TASK [postgres : Execute SELECT 1] *********************************************
+ok: [vm1]
+
+TASK [postgres : Create postgres-exporter system user] *************************
+changed: [vm1]
+
+TASK [postgres : Create PostgreSQL role for exporter] **************************
+changed: [vm1]
+
+TASK [postgres : Grant pg_monitor to exporter] *********************************
+changed: [vm1]
+
+TASK [postgres : Create local exporter directory] ******************************
+changed: [vm1 -> localhost]
+
+TASK [postgres : Download exporter archive] ************************************
+[ERROR]: Task failed: Module failed: Request failed: <urlopen error [Errno 104] Connection reset by peer>
+Origin: /home/rkart/projects/hw2/roles/postgres/tasks/exporter.yml:41:7
+
+39         mode: "0755"
+40
+41     - name: Download exporter archive
+         ^ column 7
+
+fatal: [vm1 -> localhost]: FAILED! => {"changed": false, "dest": "/tmp/postgres_exporter-0.20.1/postgres_exporter-0.20.1.linux-amd64.tar.gz", "elapsed": 0, "msg": "Request failed: <urlopen error [Errno 104] Connection reset by peer>", "url": "https://github.com/prometheus-community/postgres_exporter/releases/download/v0.20.1/postgres_exporter-0.20.1.linux-amd64.tar.gz"}
+
+PLAY RECAP *********************************************************************
+vm1                        : ok=17   changed=9    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+
+rkart@TIRoman:~/projects/hw2$ EXPORTER_URL="https://github.com/prometheus-community/postgres_exporter/releases/download/v0.20.1/postgres_exporter-0.20.1.linux-amd64.tar.gz"
+
+curl -IL --retry 3 --retry-all-errors "$EXPORTER_URL"
+HTTP/2 302
+date: Thu, 22 Oct 2026 19:51:41 GMT
+content-type: text/html; charset=utf-8
+location: https://release-assets.githubusercontent.com/github-production-release-asset/41317079/8ede9288-e565-4241-8b61-fcce1c3289e4?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-10-22T20%3A46%3A53Z&rscd=attachment%3B+filename%3Dpostgres_exporter-0.20.1.linux-amd64.tar.gz&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-10-22T19%3A46%3A47Z&ske=2026-10-22T20%3A46%3A53Z&sks=b&skv=2018-11-09&sig=SxsSBIO6837ctjVxr9jmSIw%2BiQ%2Bt7cGoYk4XjD6pR64%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5MjcwMDUwMSwibmJmIjoxNzkyNjk4NzAxLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.tBphdGVTcHWFxul4YXrEfCtLtHUwW47aaH7vK1EiHtY&response-content-disposition=attachment%3B%20filename%3Dpostgres_exporter-0.20.1.linux-amd64.tar.gz&response-content-type=application%2Foctet-stream
+vary: X-PJAX, X-PJAX-Container, Turbo-Visit, Turbo-Frame, X-Requested-With, X-GitHub-Client-Version, Sec-Fetch-Site,Accept-Encoding, Accept, X-Requested-With
+cache-control: no-cache
+strict-transport-security: max-age=31536000; includeSubdomains; preload
+x-frame-options: deny
+x-content-type-options: nosniff
+x-xss-protection: 0
+referrer-policy: no-referrer-when-downgrade
+content-security-policy: default-src 'none'; base-uri 'self'; child-src github.githubassets.com github.com/assets-cdn/worker/ github.com/assets/ gist.github.com/assets-cdn/worker/; connect-src 'self' uploads.github.com www.githubstatus.com collector.github.com raw.githubusercontent.com api.github.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-upload-manifest-file-7fdce7.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com *.rel.tunnels.api.visualstudio.com wss://*.rel.tunnels.api.visualstudio.com github.githubassets.com objects-origin.githubusercontent.com copilot-proxy.githubusercontent.com proxy.individual.githubcopilot.com proxy.business.githubcopilot.com proxy.enterprise.githubcopilot.com *.actions.githubusercontent.com wss://*.actions.githubusercontent.com productionresultssa0.blob.core.windows.net productionresultssa1.blob.core.windows.net productionresultssa2.blob.core.windows.net productionresultssa3.blob.core.windows.net productionresultssa4.blob.core.windows.net productionresultssa5.blob.core.windows.net productionresultssa6.blob.core.windows.net productionresultssa7.blob.core.windows.net productionresultssa8.blob.core.windows.net productionresultssa9.blob.core.windows.net productionresultssa10.blob.core.windows.net productionresultssa11.blob.core.windows.net productionresultssa12.blob.core.windows.net productionresultssa13.blob.core.windows.net productionresultssa14.blob.core.windows.net productionresultssa15.blob.core.windows.net productionresultssa16.blob.core.windows.net productionresultssa17.blob.core.windows.net productionresultssa18.blob.core.windows.net productionresultssa19.blob.core.windows.net github-production-repository-image-32fea6.s3.amazonaws.com github-production-release-asset-2e65be.s3.amazonaws.com insights.github.com wss://alive.github.com wss://alive-staging.github.com api.githubcopilot.com api.individual.githubcopilot.com api.business.githubcopilot.com api.enterprise.githubcopilot.com wss://production-copilot-host.webpubsub.azure.com wss://production-copilot-host-centralus.webpubsub.azure.com wss://production-copilot-host-centralus-02.webpubsub.azure.com wss://production-copilot-host-westus.webpubsub.azure.com api.github.com/cmc_internal/api/; font-src github.githubassets.com; form-action 'self' github.com gist.github.com copilot-workspace.githubnext.com objects-origin.githubusercontent.com; frame-ancestors 'none'; frame-src viewscreen.githubusercontent.com notebooks.githubusercontent.com; img-src 'self' data: blob: github.githubassets.com media.githubusercontent.com camo.githubusercontent.com identicons.github.com avatars.githubusercontent.com private-avatars.githubusercontent.com github-cloud.s3.amazonaws.com objects.githubusercontent.com release-assets.githubusercontent.com secured-user-images.githubusercontent.com user-images.githubusercontent.com private-user-images.githubusercontent.com opengraph.githubassets.com repository-images.githubusercontent.com marketplace-screenshots.githubusercontent.com copilotprodattachments.blob.core.windows.net/github-production-copilot-attachments/ github-production-user-asset-6210df.s3.amazonaws.com customer-stories-feed.github.com spotlights-feed.github.com explore-feed.github.com *.googleusercontent.com objects-origin.githubusercontent.com *.githubusercontent.com; manifest-src 'self'; media-src github.com user-images.githubusercontent.com secured-user-images.githubusercontent.com private-user-images.githubusercontent.com github-production-user-asset-6210df.s3.amazonaws.com gist.github.com github.githubassets.com; script-src github.githubassets.com; style-src 'unsafe-inline' github.githubassets.com; upgrade-insecure-requests; worker-src github.githubassets.com github.com/assets-cdn/worker/ github.com/assets/ gist.github.com/assets-cdn/worker/
+server: github.com
+content-length: 0
+x-github-request-id: 07B9:935A0:B82185A:F84D57E:6ADA694D
+x-github-edge-region: fra
+
+HTTP/2 200
+last-modified: Wed, 08 Jul 2026 01:51:39 GMT
+etag: "0x8DEDC9373F26AAD"
+server: Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
+x-ms-request-id: 7ab41b91-901e-0007-055e-588d36000000
+x-ms-version: 2018-11-09
+x-ms-creation-time: Wed, 08 Jul 2026 01:51:39 GMT
+x-ms-lease-status: unlocked
+x-ms-lease-state: available
+x-ms-blob-type: BlockBlob
+x-ms-server-encrypted: true
+x-ms-access-tier: Hot
+x-ms-access-tier-inferred: true
+via: 1.1 varnish, 1.1 varnish
+accept-ranges: bytes
+age: 0
+date: Thu, 22 Oct 2026 19:51:41 GMT
+x-served-by: cache-iad-kiad7000080-IAD, cache-bma-essb1270072-BMA
+x-cache: HIT, MISS
+x-cache-hits: 276, 0
+x-timer: S1792698702.702335,VS0,VE93
+content-disposition: attachment; filename=postgres_exporter-0.20.1.linux-amd64.tar.gz
+content-type: application/octet-stream
+content-length: 10557302
+
+rkart@TIRoman:~/projects/hw2$ ansible-playbook postgres.play.yml 2>&1 | tee logs/retry-run.txt
+
+PLAY [Configure PostgreSQL on vm1] *********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [vm1]
+
+TASK [postgres : Install PostgreSQL packages] **********************************
+ok: [vm1]
+
+TASK [postgres : Stop default Ubuntu PostgreSQL cluster] ***********************
+ok: [vm1]
+
+TASK [postgres : Create PostgreSQL directories] ********************************
+ok: [vm1] => (item={'path': '/data', 'owner': 'root', 'group': 'root', 'mode': '0755'})
+ok: [vm1] => (item={'path': '/data/postgres', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+ok: [vm1] => (item={'path': '/data/postgres/data', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+
+TASK [postgres : Initialize PostgreSQL cluster] ********************************
+ok: [vm1]
+
+TASK [postgres : Configure postgresql.conf] ************************************
+ok: [vm1] => (item=listen_addresses)
+ok: [vm1] => (item=port)
+ok: [vm1] => (item=max_connections)
+ok: [vm1] => (item=password_encryption)
+ok: [vm1] => (item=unix_socket_directories)
+
+TASK [postgres : Configure pg_hba.conf] ****************************************
+ok: [vm1]
+
+TASK [postgres : Install PostgreSQL systemd unit] ******************************
+ok: [vm1]
+
+TASK [postgres : Enable and start PostgreSQL] **********************************
+ok: [vm1]
+
+TASK [postgres : Apply PostgreSQL handlers before creating users] **************
+
+TASK [postgres : Create PostgreSQL users] **************************************
+ok: [vm1] => (item=(censored due to no_log))
+
+TASK [postgres : Create PostgreSQL databases] **********************************
+ok: [vm1] => (item=app_db)
+
+TASK [postgres : Execute SELECT 1] *********************************************
+ok: [vm1]
+
+TASK [postgres : Create postgres-exporter system user] *************************
+ok: [vm1]
+
+TASK [postgres : Create PostgreSQL role for exporter] **************************
+ok: [vm1]
+
+TASK [postgres : Grant pg_monitor to exporter] *********************************
+ok: [vm1]
+
+TASK [postgres : Create local exporter directory] ******************************
+ok: [vm1 -> localhost]
+
+TASK [postgres : Download exporter archive] ************************************
+[ERROR]: Task failed: Module failed: Request failed: <urlopen error [Errno 104] Connection reset by peer>
+Origin: /home/rkart/projects/hw2/roles/postgres/tasks/exporter.yml:41:7
+
+39         mode: "0755"
+40
+41     - name: Download exporter archive
+         ^ column 7
+
+fatal: [vm1 -> localhost]: FAILED! => {"changed": false, "dest": "/tmp/postgres_exporter-0.20.1/postgres_exporter-0.20.1.linux-amd64.tar.gz", "elapsed": 0, "msg": "Request failed: <urlopen error [Errno 104] Connection reset by peer>", "url": "https://github.com/prometheus-community/postgres_exporter/releases/download/v0.20.1/postgres_exporter-0.20.1.linux-amd64.tar.gz"}
+
+PLAY RECAP *********************************************************************
+vm1                        : ok=16   changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+
+rkart@TIRoman:~/projects/hw2$ nano roles/postgres/tasks/exporter.yml
+rkart@TIRoman:~/projects/hw2$ mv inventories/main/group_vars/all/maim.yml inventories/main/group_vars/all/main.yml
+rkart@TIRoman:~/projects/hw2$ ansible-playbook postgres.play.yml 2>&1 | tee logs/retry-run.txt
+
+PLAY [Configure PostgreSQL on vm1] *********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [vm1]
+
+TASK [postgres : Install PostgreSQL packages] **********************************
+ok: [vm1]
+
+TASK [postgres : Stop default Ubuntu PostgreSQL cluster] ***********************
+ok: [vm1]
+
+TASK [postgres : Create PostgreSQL directories] ********************************
+ok: [vm1] => (item={'path': '/data', 'owner': 'root', 'group': 'root', 'mode': '0755'})
+ok: [vm1] => (item={'path': '/data/postgres', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+ok: [vm1] => (item={'path': '/data/postgres/data', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+
+TASK [postgres : Initialize PostgreSQL cluster] ********************************
+ok: [vm1]
+
+TASK [postgres : Configure postgresql.conf] ************************************
+ok: [vm1] => (item=listen_addresses)
+ok: [vm1] => (item=port)
+ok: [vm1] => (item=max_connections)
+ok: [vm1] => (item=password_encryption)
+ok: [vm1] => (item=unix_socket_directories)
+
+TASK [postgres : Configure pg_hba.conf] ****************************************
+ok: [vm1]
+
+TASK [postgres : Install PostgreSQL systemd unit] ******************************
+ok: [vm1]
+
+TASK [postgres : Enable and start PostgreSQL] **********************************
+ok: [vm1]
+
+TASK [postgres : Apply PostgreSQL handlers before creating users] **************
+
+TASK [postgres : Create PostgreSQL users] **************************************
+ok: [vm1] => (item=(censored due to no_log))
+
+TASK [postgres : Create PostgreSQL databases] **********************************
+ok: [vm1] => (item=app_db)
+
+TASK [postgres : Execute SELECT 1] *********************************************
+ok: [vm1]
+
+TASK [postgres : Create postgres-exporter system user] *************************
+ok: [vm1]
+
+TASK [postgres : Create PostgreSQL role for exporter] **************************
+ok: [vm1]
+
+TASK [postgres : Grant pg_monitor to exporter] *********************************
+ok: [vm1]
+
+TASK [postgres : Create local exporter directory] ******************************
+ok: [vm1 -> localhost]
+
+TASK [postgres : Download exporter archive] ************************************
+changed: [vm1 -> localhost]
+
+TASK [postgres : Extract exporter archive] *************************************
+changed: [vm1 -> localhost]
+
+TASK [postgres : Install exporter binary] **************************************
+changed: [vm1]
+
+TASK [postgres : Install exporter systemd unit] ********************************
+changed: [vm1]
+
+TASK [postgres : Enable and start exporter] ************************************
+changed: [vm1]
+
+RUNNING HANDLER [postgres : Reload systemd] ************************************
+ok: [vm1]
+
+RUNNING HANDLER [postgres : Restart postgres exporter] *************************
+changed: [vm1]
+
+PLAY RECAP *********************************************************************
+vm1                        : ok=23   changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+rkart@TIRoman:~/projects/hw2$ ansible-playbook postgres.play.yml 2>&1 | tee logs/first-run.txt
+
+PLAY [Configure PostgreSQL on vm1] *********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [vm1]
+
+TASK [postgres : Install PostgreSQL packages] **********************************
+ok: [vm1]
+
+TASK [postgres : Stop default Ubuntu PostgreSQL cluster] ***********************
+ok: [vm1]
+
+TASK [postgres : Create PostgreSQL directories] ********************************
+ok: [vm1] => (item={'path': '/data', 'owner': 'root', 'group': 'root', 'mode': '0755'})
+ok: [vm1] => (item={'path': '/data/postgres', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+ok: [vm1] => (item={'path': '/data/postgres/data', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+
+TASK [postgres : Initialize PostgreSQL cluster] ********************************
+ok: [vm1]
+
+TASK [postgres : Configure postgresql.conf] ************************************
+ok: [vm1] => (item=listen_addresses)
+ok: [vm1] => (item=port)
+ok: [vm1] => (item=max_connections)
+ok: [vm1] => (item=password_encryption)
+ok: [vm1] => (item=unix_socket_directories)
+
+TASK [postgres : Configure pg_hba.conf] ****************************************
+ok: [vm1]
+
+TASK [postgres : Install PostgreSQL systemd unit] ******************************
+ok: [vm1]
+
+TASK [postgres : Enable and start PostgreSQL] **********************************
+ok: [vm1]
+
+TASK [postgres : Apply PostgreSQL handlers before creating users] **************
+
+TASK [postgres : Create PostgreSQL users] **************************************
+ok: [vm1] => (item=(censored due to no_log))
+
+TASK [postgres : Create PostgreSQL databases] **********************************
+ok: [vm1] => (item=app_db)
+
+TASK [postgres : Execute SELECT 1] *********************************************
+ok: [vm1]
+
+TASK [postgres : Create postgres-exporter system user] *************************
+ok: [vm1]
+
+TASK [postgres : Create PostgreSQL role for exporter] **************************
+ok: [vm1]
+
+TASK [postgres : Grant pg_monitor to exporter] *********************************
+ok: [vm1]
+
+TASK [postgres : Create local exporter directory] ******************************
+ok: [vm1 -> localhost]
+
+TASK [postgres : Download exporter archive] ************************************
+FAILED - RETRYING: [vm1 -> localhost]: Download exporter archive (5 retries left).
+FAILED - RETRYING: [vm1 -> localhost]: Download exporter archive (4 retries left).
+FAILED - RETRYING: [vm1 -> localhost]: Download exporter archive (3 retries left).
+FAILED - RETRYING: [vm1 -> localhost]: Download exporter archive (2 retries left).
+FAILED - RETRYING: [vm1 -> localhost]: Download exporter archive (1 retries left).
+[ERROR]: Task failed: Module failed: Request failed: <urlopen error [Errno 104] Connection reset by peer>
+Origin: /home/rkart/projects/hw2/roles/postgres/tasks/exporter.yml:41:7
+
+39         mode: "0755"
+40
+41     - name: Download exporter archive
+         ^ column 7
+
+fatal: [vm1 -> localhost]: FAILED! => {"attempts": 5, "changed": false, "dest": "/tmp/postgres_exporter-0.20.1/postgres_exporter-0.20.1.linux-amd64.tar.gz", "elapsed": 0, "gid": 1000, "group": "rkart", "mode": "0644", "msg": "Request failed: <urlopen error [Errno 104] Connection reset by peer>", "owner": "rkart", "size": 10557302, "state": "file", "uid": 1000, "url": "https://github.com/prometheus-community/postgres_exporter/releases/download/v0.20.1/postgres_exporter-0.20.1.linux-amd64.tar.gz"}
+
+PLAY RECAP *********************************************************************
+vm1                        : ok=16   changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+
+rkart@TIRoman:~/projects/hw2$ set -o pipefail
+ansible-playbook postgres.play.yml 2>&1 | tee logs/first-run.txt
+
+PLAY [Configure PostgreSQL on vm1] *********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [vm1]
+
+TASK [postgres : Install PostgreSQL packages] **********************************
+ok: [vm1]
+
+TASK [postgres : Stop default Ubuntu PostgreSQL cluster] ***********************
+ok: [vm1]
+
+TASK [postgres : Create PostgreSQL directories] ********************************
+ok: [vm1] => (item={'path': '/data', 'owner': 'root', 'group': 'root', 'mode': '0755'})
+ok: [vm1] => (item={'path': '/data/postgres', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+ok: [vm1] => (item={'path': '/data/postgres/data', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+
+TASK [postgres : Initialize PostgreSQL cluster] ********************************
+ok: [vm1]
+
+TASK [postgres : Configure postgresql.conf] ************************************
+ok: [vm1] => (item=listen_addresses)
+ok: [vm1] => (item=port)
+ok: [vm1] => (item=max_connections)
+ok: [vm1] => (item=password_encryption)
+ok: [vm1] => (item=unix_socket_directories)
+
+TASK [postgres : Configure pg_hba.conf] ****************************************
+ok: [vm1]
+
+TASK [postgres : Install PostgreSQL systemd unit] ******************************
+ok: [vm1]
+
+TASK [postgres : Enable and start PostgreSQL] **********************************
+ok: [vm1]
+
+TASK [postgres : Apply PostgreSQL handlers before creating users] **************
+
+TASK [postgres : Create PostgreSQL users] **************************************
+ok: [vm1] => (item=(censored due to no_log))
+
+TASK [postgres : Create PostgreSQL databases] **********************************
+ok: [vm1] => (item=app_db)
+
+TASK [postgres : Execute SELECT 1] *********************************************
+ok: [vm1]
+
+TASK [postgres : Create postgres-exporter system user] *************************
+ok: [vm1]
+
+TASK [postgres : Create PostgreSQL role for exporter] **************************
+ok: [vm1]
+
+TASK [postgres : Grant pg_monitor to exporter] *********************************
+ok: [vm1]
+
+TASK [postgres : Create local exporter directory] ******************************
+ok: [vm1 -> localhost]
+
+TASK [postgres : Download exporter archive] ************************************
+FAILED - RETRYING: [vm1 -> localhost]: Download exporter archive (5 retries left).
+ok: [vm1 -> localhost]
+
+TASK [postgres : Extract exporter archive] *************************************
+skipping: [vm1]
+
+TASK [postgres : Install exporter binary] **************************************
+ok: [vm1]
+
+TASK [postgres : Install exporter systemd unit] ********************************
+ok: [vm1]
+
+TASK [postgres : Enable and start exporter] ************************************
+ok: [vm1]
+
+PLAY RECAP *********************************************************************
+vm1                        : ok=20   changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+rkart@TIRoman:~/projects/hw2$ mv logs/first-run.txt logs/second-run.txt
+rkart@TIRoman:~/projects/hw2$ mv logs/retry-run.txt logs/first-run.txt
+rkart@TIRoman:~/projects/hw2$ ansible-galaxy collection install -r requirements.yml
+Starting galaxy collection install process
+Nothing to do. All requested collections are already installed. If you want to reinstall them, consider using `--force`.
+rkart@TIRoman:~/projects/hw2$ ansible-playbook postgres.play.yml
+
+PLAY [Configure PostgreSQL on vm1] *******************************************************************
+
+TASK [Gathering Facts] *******************************************************************************
+ok: [vm1]
+
+TASK [postgres : Install PostgreSQL packages] ********************************************************
+ok: [vm1]
+
+TASK [postgres : Stop default Ubuntu PostgreSQL cluster] *********************************************
+ok: [vm1]
+
+TASK [postgres : Create PostgreSQL directories] ******************************************************
+ok: [vm1] => (item={'path': '/data', 'owner': 'root', 'group': 'root', 'mode': '0755'})
+ok: [vm1] => (item={'path': '/data/postgres', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+ok: [vm1] => (item={'path': '/data/postgres/data', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+
+TASK [postgres : Initialize PostgreSQL cluster] ******************************************************
+ok: [vm1]
+
+TASK [postgres : Configure postgresql.conf] **********************************************************
+ok: [vm1] => (item=listen_addresses)
+ok: [vm1] => (item=port)
+ok: [vm1] => (item=max_connections)
+ok: [vm1] => (item=password_encryption)
+ok: [vm1] => (item=unix_socket_directories)
+
+TASK [postgres : Configure pg_hba.conf] **************************************************************
+ok: [vm1]
+
+TASK [postgres : Install PostgreSQL systemd unit] ****************************************************
+ok: [vm1]
+
+TASK [postgres : Enable and start PostgreSQL] ********************************************************
+ok: [vm1]
+
+TASK [postgres : Apply PostgreSQL handlers before creating users] ************************************
+
+TASK [postgres : Create PostgreSQL users] ************************************************************
+ok: [vm1] => (item=(censored due to no_log))
+
+TASK [postgres : Create PostgreSQL databases] ********************************************************
+ok: [vm1] => (item=app_db)
+
+TASK [postgres : Execute SELECT 1] *******************************************************************
+ok: [vm1]
+
+TASK [postgres : Create postgres-exporter system user] ***********************************************
+ok: [vm1]
+
+TASK [postgres : Create PostgreSQL role for exporter] ************************************************
+ok: [vm1]
+
+TASK [postgres : Grant pg_monitor to exporter] *******************************************************
+ok: [vm1]
+
+TASK [postgres : Create local exporter directory] ****************************************************
+ok: [vm1 -> localhost]
+
+TASK [postgres : Download exporter archive] **********************************************************
+FAILED - RETRYING: [vm1 -> localhost]: Download exporter archive (5 retries left).
+FAILED - RETRYING: [vm1 -> localhost]: Download exporter archive (4 retries left).
+FAILED - RETRYING: [vm1 -> localhost]: Download exporter archive (3 retries left).
+FAILED - RETRYING: [vm1 -> localhost]: Download exporter archive (2 retries left).
+FAILED - RETRYING: [vm1 -> localhost]: Download exporter archive (1 retries left).
+[ERROR]: Task failed: Module failed: Request failed: <urlopen error [Errno 104] Connection reset by peer>
+Origin: /home/rkart/projects/hw2/roles/postgres/tasks/exporter.yml:41:7
+
+39         mode: "0755"
+40
+41     - name: Download exporter archive
+         ^ column 7
+
+fatal: [vm1 -> localhost]: FAILED! => {"attempts": 5, "changed": false, "dest": "/tmp/postgres_exporter-0.20.1/postgres_exporter-0.20.1.linux-amd64.tar.gz", "elapsed": 0, "gid": 1000, "group": "rkart", "mode": "0644", "msg": "Request failed: <urlopen error [Errno 104] Connection reset by peer>", "owner": "rkart", "size": 10557302, "state": "file", "uid": 1000, "url": "https://github.com/prometheus-community/postgres_exporter/releases/download/v0.20.1/postgres_exporter-0.20.1.linux-amd64.tar.gz"}
+
+PLAY RECAP *******************************************************************************************
+vm1                        : ok=16   changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+
+rkart@TIRoman:~/projects/hw2$ ansible-playbook postgres.play.yml
+
+PLAY [Configure PostgreSQL on vm1] *******************************************************************
+
+TASK [Gathering Facts] *******************************************************************************
+ok: [vm1]
+
+TASK [postgres : Install PostgreSQL packages] ********************************************************
+ok: [vm1]
+
+TASK [postgres : Stop default Ubuntu PostgreSQL cluster] *********************************************
+ok: [vm1]
+
+TASK [postgres : Create PostgreSQL directories] ******************************************************
+ok: [vm1] => (item={'path': '/data', 'owner': 'root', 'group': 'root', 'mode': '0755'})
+ok: [vm1] => (item={'path': '/data/postgres', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+ok: [vm1] => (item={'path': '/data/postgres/data', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+
+TASK [postgres : Initialize PostgreSQL cluster] ******************************************************
+ok: [vm1]
+
+TASK [postgres : Configure postgresql.conf] **********************************************************
+ok: [vm1] => (item=listen_addresses)
+ok: [vm1] => (item=port)
+ok: [vm1] => (item=max_connections)
+ok: [vm1] => (item=password_encryption)
+ok: [vm1] => (item=unix_socket_directories)
+
+TASK [postgres : Configure pg_hba.conf] **************************************************************
+ok: [vm1]
+
+TASK [postgres : Install PostgreSQL systemd unit] ****************************************************
+ok: [vm1]
+
+TASK [postgres : Enable and start PostgreSQL] ********************************************************
+ok: [vm1]
+
+TASK [postgres : Apply PostgreSQL handlers before creating users] ************************************
+
+TASK [postgres : Create PostgreSQL users] ************************************************************
+ok: [vm1] => (item=(censored due to no_log))
+
+TASK [postgres : Create PostgreSQL databases] ********************************************************
+ok: [vm1] => (item=app_db)
+
+TASK [postgres : Execute SELECT 1] *******************************************************************
+ok: [vm1]
+
+TASK [postgres : Create postgres-exporter system user] ***********************************************
+ok: [vm1]
+
+TASK [postgres : Create PostgreSQL role for exporter] ************************************************
+ok: [vm1]
+
+TASK [postgres : Grant pg_monitor to exporter] *******************************************************
+ok: [vm1]
+
+TASK [postgres : Create local exporter directory] ****************************************************
+ok: [vm1 -> localhost]
+
+TASK [postgres : Download exporter archive] **********************************************************
+FAILED - RETRYING: [vm1 -> localhost]: Download exporter archive (5 retries left).
+FAILED - RETRYING: [vm1 -> localhost]: Download exporter archive (4 retries left).
+FAILED - RETRYING: [vm1 -> localhost]: Download exporter archive (3 retries left).
+FAILED - RETRYING: [vm1 -> localhost]: Download exporter archive (2 retries left).
+FAILED - RETRYING: [vm1 -> localhost]: Download exporter archive (1 retries left).
+[ERROR]: Task failed: Module failed: Request failed: <urlopen error [Errno 104] Connection reset by peer>
+Origin: /home/rkart/projects/hw2/roles/postgres/tasks/exporter.yml:41:7
+
+39         mode: "0755"
+40
+41     - name: Download exporter archive
+         ^ column 7
+
+fatal: [vm1 -> localhost]: FAILED! => {"attempts": 5, "changed": false, "dest": "/tmp/postgres_exporter-0.20.1/postgres_exporter-0.20.1.linux-amd64.tar.gz", "elapsed": 0, "gid": 1000, "group": "rkart", "mode": "0644", "msg": "Request failed: <urlopen error [Errno 104] Connection reset by peer>", "owner": "rkart", "size": 10557302, "state": "file", "uid": 1000, "url": "https://github.com/prometheus-community/postgres_exporter/releases/download/v0.20.1/postgres_exporter-0.20.1.linux-amd64.tar.gz"}
+
+PLAY RECAP *******************************************************************************************
+vm1                        : ok=16   changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+
+rkart@TIRoman:~/projects/hw2$ ansible-playbook postgres.play.yml
+
+PLAY [Configure PostgreSQL on vm1] *******************************************************************
+
+TASK [Gathering Facts] *******************************************************************************
+ok: [vm1]
+
+TASK [postgres : Install PostgreSQL packages] ********************************************************
+ok: [vm1]
+
+TASK [postgres : Stop default Ubuntu PostgreSQL cluster] *********************************************
+ok: [vm1]
+
+TASK [postgres : Create PostgreSQL directories] ******************************************************
+ok: [vm1] => (item={'path': '/data', 'owner': 'root', 'group': 'root', 'mode': '0755'})
+ok: [vm1] => (item={'path': '/data/postgres', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+ok: [vm1] => (item={'path': '/data/postgres/data', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+
+TASK [postgres : Initialize PostgreSQL cluster] ******************************************************
+ok: [vm1]
+
+TASK [postgres : Configure postgresql.conf] **********************************************************
+ok: [vm1] => (item=listen_addresses)
+ok: [vm1] => (item=port)
+ok: [vm1] => (item=max_connections)
+ok: [vm1] => (item=password_encryption)
+ok: [vm1] => (item=unix_socket_directories)
+
+TASK [postgres : Configure pg_hba.conf] **************************************************************
+ok: [vm1]
+
+TASK [postgres : Install PostgreSQL systemd unit] ****************************************************
+ok: [vm1]
+
+TASK [postgres : Enable and start PostgreSQL] ********************************************************
+ok: [vm1]
+
+TASK [postgres : Apply PostgreSQL handlers before creating users] ************************************
+
+TASK [postgres : Create PostgreSQL users] ************************************************************
+ok: [vm1] => (item=(censored due to no_log))
+
+TASK [postgres : Create PostgreSQL databases] ********************************************************
+ok: [vm1] => (item=app_db)
+
+TASK [postgres : Execute SELECT 1] *******************************************************************
+ok: [vm1]
+
+TASK [postgres : Create postgres-exporter system user] ***********************************************
+ok: [vm1]
+
+TASK [postgres : Create PostgreSQL role for exporter] ************************************************
+ok: [vm1]
+
+TASK [postgres : Grant pg_monitor to exporter] *******************************************************
+ok: [vm1]
+
+TASK [postgres : Create local exporter directory] ****************************************************
+ok: [vm1 -> localhost]
+
+TASK [postgres : Download exporter archive] **********************************************************
+FAILED - RETRYING: [vm1 -> localhost]: Download exporter archive (5 retries left).
+FAILED - RETRYING: [vm1 -> localhost]: Download exporter archive (4 retries left).
+FAILED - RETRYING: [vm1 -> localhost]: Download exporter archive (3 retries left).
+FAILED - RETRYING: [vm1 -> localhost]: Download exporter archive (2 retries left).
+FAILED - RETRYING: [vm1 -> localhost]: Download exporter archive (1 retries left).
+[ERROR]: Task failed: Module failed: Request failed: <urlopen error [Errno 104] Connection reset by peer>
+Origin: /home/rkart/projects/hw2/roles/postgres/tasks/exporter.yml:41:7
+
+39         mode: "0755"
+40
+41     - name: Download exporter archive
+         ^ column 7
+
+fatal: [vm1 -> localhost]: FAILED! => {"attempts": 5, "changed": false, "dest": "/tmp/postgres_exporter-0.20.1/postgres_exporter-0.20.1.linux-amd64.tar.gz", "elapsed": 0, "gid": 1000, "group": "rkart", "mode": "0644", "msg": "Request failed: <urlopen error [Errno 104] Connection reset by peer>", "owner": "rkart", "size": 10557302, "state": "file", "uid": 1000, "url": "https://github.com/prometheus-community/postgres_exporter/releases/download/v0.20.1/postgres_exporter-0.20.1.linux-amd64.tar.gz"}
+
+PLAY RECAP *******************************************************************************************
+vm1                        : ok=16   changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+
+rkart@TIRoman:~/projects/hw2$
+rkart@TIRoman:~$ ansible-galaxy collection install -r requirements.yml
+[ERROR]: The requirements file '/home/rkart/requirements.yml' does not exist.
+rkart@TIRoman:~$ cd projects/hw2/
+rkart@TIRoman:~/projects/hw2$ ansible-galaxy collection install -r requirements.yml
+Starting galaxy collection install process
+Nothing to do. All requested collections are already installed. If you want to reinstall them, consider using `--force`.
+rkart@TIRoman:~/projects/hw2$ ansible-playbook postgres.play.yml
+
+PLAY [Configure PostgreSQL on vm1] *************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************
+ok: [vm1]
+
+TASK [postgres : Install PostgreSQL packages] **************************************************************************
+ok: [vm1]
+
+TASK [postgres : Stop default Ubuntu PostgreSQL cluster] ***************************************************************
+ok: [vm1]
+
+TASK [postgres : Create PostgreSQL directories] ************************************************************************
+ok: [vm1] => (item={'path': '/data', 'owner': 'root', 'group': 'root', 'mode': '0755'})
+ok: [vm1] => (item={'path': '/data/postgres', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+ok: [vm1] => (item={'path': '/data/postgres/data', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+
+TASK [postgres : Initialize PostgreSQL cluster] ************************************************************************
+ok: [vm1]
+
+TASK [postgres : Configure postgresql.conf] ****************************************************************************
+ok: [vm1] => (item=listen_addresses)
+ok: [vm1] => (item=port)
+ok: [vm1] => (item=max_connections)
+ok: [vm1] => (item=password_encryption)
+ok: [vm1] => (item=unix_socket_directories)
+
+TASK [postgres : Configure pg_hba.conf] ********************************************************************************
+ok: [vm1]
+
+TASK [postgres : Install PostgreSQL systemd unit] **********************************************************************
+ok: [vm1]
+
+TASK [postgres : Enable and start PostgreSQL] **************************************************************************
+ok: [vm1]
+
+TASK [postgres : Apply PostgreSQL handlers before creating users] ******************************************************
+
+TASK [postgres : Create PostgreSQL users] ******************************************************************************
+ok: [vm1] => (item=(censored due to no_log))
+
+TASK [postgres : Create PostgreSQL databases] **************************************************************************
+ok: [vm1] => (item=app_db)
+
+TASK [postgres : Execute SELECT 1] *************************************************************************************
+ok: [vm1]
+
+TASK [postgres : Create postgres-exporter system user] *****************************************************************
+ok: [vm1]
+
+TASK [postgres : Create PostgreSQL role for exporter] ******************************************************************
+ok: [vm1]
+
+TASK [postgres : Grant pg_monitor to exporter] *************************************************************************
+ok: [vm1]
+
+TASK [postgres : Create local exporter directory] **********************************************************************
+changed: [vm1 -> localhost]
+
+TASK [postgres : Download exporter archive] ****************************************************************************
+changed: [vm1 -> localhost]
+
+TASK [postgres : Extract exporter archive] *****************************************************************************
+changed: [vm1 -> localhost]
+
+TASK [postgres : Install exporter binary] ******************************************************************************
+ok: [vm1]
+
+TASK [postgres : Install exporter systemd unit] ************************************************************************
+ok: [vm1]
+
+TASK [postgres : Enable and start exporter] ****************************************************************************
+ok: [vm1]
+
+PLAY RECAP *************************************************************************************************************
+vm1                        : ok=21   changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+rkart@TIRoman:~/projects/hw2$ ansible-playbook postgres.play.yml
+
+PLAY [Configure PostgreSQL on vm1] *************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************
+ok: [vm1]
+
+TASK [postgres : Install PostgreSQL packages] **************************************************************************
+ok: [vm1]
+
+TASK [postgres : Stop default Ubuntu PostgreSQL cluster] ***************************************************************
+ok: [vm1]
+
+TASK [postgres : Create PostgreSQL directories] ************************************************************************
+ok: [vm1] => (item={'path': '/data', 'owner': 'root', 'group': 'root', 'mode': '0755'})
+ok: [vm1] => (item={'path': '/data/postgres', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+ok: [vm1] => (item={'path': '/data/postgres/data', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+
+TASK [postgres : Initialize PostgreSQL cluster] ************************************************************************
+ok: [vm1]
+
+TASK [postgres : Configure postgresql.conf] ****************************************************************************
+ok: [vm1] => (item=listen_addresses)
+ok: [vm1] => (item=port)
+ok: [vm1] => (item=max_connections)
+ok: [vm1] => (item=password_encryption)
+ok: [vm1] => (item=unix_socket_directories)
+
+TASK [postgres : Configure pg_hba.conf] ********************************************************************************
+ok: [vm1]
+
+TASK [postgres : Install PostgreSQL systemd unit] **********************************************************************
+ok: [vm1]
+
+TASK [postgres : Enable and start PostgreSQL] **************************************************************************
+ok: [vm1]
+
+TASK [postgres : Apply PostgreSQL handlers before creating users] ******************************************************
+
+TASK [postgres : Create PostgreSQL users] ******************************************************************************
+ok: [vm1] => (item=(censored due to no_log))
+
+TASK [postgres : Create PostgreSQL databases] **************************************************************************
+ok: [vm1] => (item=app_db)
+
+TASK [postgres : Execute SELECT 1] *************************************************************************************
+ok: [vm1]
+
+TASK [postgres : Create postgres-exporter system user] *****************************************************************
+ok: [vm1]
+
+TASK [postgres : Create PostgreSQL role for exporter] ******************************************************************
+ok: [vm1]
+
+TASK [postgres : Grant pg_monitor to exporter] *************************************************************************
+ok: [vm1]
+
+TASK [postgres : Create local exporter directory] **********************************************************************
+ok: [vm1 -> localhost]
+
+TASK [postgres : Download exporter archive] ****************************************************************************
+ok: [vm1 -> localhost]
+
+TASK [postgres : Extract exporter archive] *****************************************************************************
+skipping: [vm1]
+
+TASK [postgres : Install exporter binary] ******************************************************************************
+ok: [vm1]
+
+TASK [postgres : Install exporter systemd unit] ************************************************************************
+ok: [vm1]
+
+TASK [postgres : Enable and start exporter] ****************************************************************************
+ok: [vm1]
+
+PLAY RECAP *************************************************************************************************************
+vm1                        : ok=20   changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+rkart@TIRoman:~/projects/hw2$ ansible vm1 -b -m command -a 'systemctl is-active postgresql@... postgres-exporter'
+vm1 | CHANGED | rc=0 >>
+inactive
+active
+rkart@TIRoman:~/projects/hw2$ ansible vm1 -b --become-user postgres -m command -a 'psql -c "SELECT 1"'
+vm1 | CHANGED | rc=0 >>
+ ?column?
+----------
+        1
+(1 row)
+rkart@TIRoman:~/projects/hw2$ ansible vm1 -b --become-user postgres -m command -a 'psql -c "\l"'
+vm1 | CHANGED | rc=0 >>
+                                                 List of databases
+   Name    |  Owner   | Encoding | Locale Provider | Collate |  Ctype  | Locale | ICU Rules |   Access privileges
+-----------+----------+----------+-----------------+---------+---------+--------+-----------+-----------------------
+ app_db    | app_user | UTF8     | libc            | C.UTF-8 | C.UTF-8 |        |           |
+ postgres  | postgres | UTF8     | libc            | C.UTF-8 | C.UTF-8 |        |           |
+ template0 | postgres | UTF8     | libc            | C.UTF-8 | C.UTF-8 |        |           | =c/postgres          +
+           |          |          |                 |         |         |        |           | postgres=CTc/postgres
+ template1 | postgres | UTF8     | libc            | C.UTF-8 | C.UTF-8 |        |           | =c/postgres          +
+           |          |          |                 |         |         |        |           | postgres=CTc/postgres
+(4 rows)
+rkart@TIRoman:~/projects/hw2$ ansible vm1 -b --become-user postgres -m command -a 'psql -c "\du"'
+vm1 | CHANGED | rc=0 >>
+                                 List of roles
+     Role name     |                         Attributes
+-------------------+------------------------------------------------------------
+ app_user          |
+ postgres          | Superuser, Create role, Create DB, Replication, Bypass RLS
+ postgres_exporter |
+rkart@TIRoman:~/projects/hw2$ ansible vm1 -m uri -a 'url=http://127.0.0.1:9187/metrics return_content=true' | grep 'pg_up 1'
+    "content": "# HELP go_gc_duration_seconds A summary of the wall-time pause (stop-the-world) duration in garbage collection cycles.\n# TYPE go_gc_duration_seconds summary\ngo_gc_duration_seconds{quantile=\"0\"} 0\ngo_gc_duration_seconds{quantile=\"0.25\"} 0\ngo_gc_duration_seconds{quantile=\"0.5\"} 0\ngo_gc_duration_seconds{quantile=\"0.75\"} 0\ngo_gc_duration_seconds{quantile=\"1\"} 0\ngo_gc_duration_seconds_sum 0\ngo_gc_duration_seconds_count 0\n# HELP go_gc_gogc_percent Heap size target percentage configured by the user, otherwise 100. This value is set by the GOGC environment variable, and the runtime/debug.SetGCPercent function. Sourced from /gc/gogc:percent.\n# TYPE go_gc_gogc_percent gauge\ngo_gc_gogc_percent 100\n# HELP go_gc_gomemlimit_bytes Go runtime memory limit configured by the user, otherwise math.MaxInt64. This value is set by the GOMEMLIMIT environment variable, and the runtime/debug.SetMemoryLimit function. Sourced from /gc/gomemlimit:bytes.\n# TYPE go_gc_gomemlimit_bytes gauge\ngo_gc_gomemlimit_bytes 9.223372036854776e+18\n# HELP go_goroutines Number of goroutines that currently exist.\n# TYPE go_goroutines gauge\ngo_goroutines 10\n# HELP go_info Information about the Go environment.\n# TYPE go_info gauge\ngo_info{version=\"go1.26.4\"} 1\n# HELP go_memstats_alloc_bytes Number of bytes allocated in heap and currently in use. Equals to /memory/classes/heap/objects:bytes.\n# TYPE go_memstats_alloc_bytes gauge\ngo_memstats_alloc_bytes 734864\n# HELP go_memstats_alloc_bytes_total Total number of bytes allocated in heap until now, even if released already. Equals to /gc/heap/allocs:bytes.\n# TYPE go_memstats_alloc_bytes_total counter\ngo_memstats_alloc_bytes_total 734864\n# HELP go_memstats_buck_hash_sys_bytes Number of bytes used by the profiling bucket hash table. Equals to /memory/classes/profiling/buckets:bytes.\n# TYPE go_memstats_buck_hash_sys_bytes gauge\ngo_memstats_buck_hash_sys_bytes 1.44565e+06\n# HELP go_memstats_frees_total Total number of heap objects frees. Equals to /gc/heap/frees:objects + /gc/heap/tiny/allocs:objects.\n# TYPE go_memstats_frees_total counter\ngo_memstats_frees_total 241\n# HELP go_memstats_gc_sys_bytes Number of bytes used for garbage collection system metadata. Equals to /memory/classes/metadata/other:bytes.\n# TYPE go_memstats_gc_sys_bytes gauge\ngo_memstats_gc_sys_bytes 1.53576e+06\n# HELP go_memstats_heap_alloc_bytes Number of heap bytes allocated and currently in use, same as go_memstats_alloc_bytes. Equals to /memory/classes/heap/objects:bytes.\n# TYPE go_memstats_heap_alloc_bytes gauge\ngo_memstats_heap_alloc_bytes 734864\n# HELP go_memstats_heap_idle_bytes Number of heap bytes waiting to be used. Equals to /memory/classes/heap/released:bytes + /memory/classes/heap/free:bytes.\n# TYPE go_memstats_heap_idle_bytes gauge\ngo_memstats_heap_idle_bytes 5.021696e+06\n# HELP go_memstats_heap_inuse_bytes Number of heap bytes that are in use. Equals to /memory/classes/heap/objects:bytes + /memory/classes/heap/unused:bytes\n# TYPE go_memstats_heap_inuse_bytes gauge\ngo_memstats_heap_inuse_bytes 2.809856e+06\n# HELP go_memstats_heap_objects Number of currently allocated objects. Equals to /gc/heap/objects:objects.\n# TYPE go_memstats_heap_objects gauge\ngo_memstats_heap_objects 3265\n# HELP go_memstats_heap_released_bytes Number of heap bytes released to OS. Equals to /memory/classes/heap/released:bytes.\n# TYPE go_memstats_heap_released_bytes gauge\ngo_memstats_heap_released_bytes 5.021696e+06\n# HELP go_memstats_heap_sys_bytes Number of heap bytes obtained from system. Equals to /memory/classes/heap/objects:bytes + /memory/classes/heap/unused:bytes + /memory/classes/heap/released:bytes + /memory/classes/heap/free:bytes.\n# TYPE go_memstats_heap_sys_bytes gauge\ngo_memstats_heap_sys_bytes 7.831552e+06\n# HELP go_memstats_last_gc_time_seconds Number of seconds since 1970 of last garbage collection.\n# TYPE go_memstats_last_gc_time_seconds gauge\ngo_memstats_last_gc_time_seconds 0\n# HELP go_memstats_mallocs_total Total number of heap objects allocated, both live and gc-ed. Semantically a counter version for go_memstats_heap_objects gauge. Equals to /gc/heap/allocs:objects + /gc/heap/tiny/allocs:objects.\n# TYPE go_memstats_mallocs_total counter\ngo_memstats_mallocs_total 3506\n# HELP go_memstats_mcache_inuse_bytes Number of bytes in use by mcache structures. Equals to /memory/classes/metadata/mcache/inuse:bytes.\n# TYPE go_memstats_mcache_inuse_bytes gauge\ngo_memstats_mcache_inuse_bytes 36736\n# HELP go_memstats_mcache_sys_bytes Number of bytes used for mcache structures obtained from system. Equals to /memory/classes/metadata/mcache/inuse:bytes + /memory/classes/metadata/mcache/free:bytes.\n# TYPE go_memstats_mcache_sys_bytes gauge\ngo_memstats_mcache_sys_bytes 48216\n# HELP go_memstats_mspan_inuse_bytes Number of bytes in use by mspan structures. Equals to /memory/classes/metadata/mspan/inuse:bytes.\n# TYPE go_memstats_mspan_inuse_bytes gauge\ngo_memstats_mspan_inuse_bytes 67200\n# HELP go_memstats_mspan_sys_bytes Number of bytes used for mspan structures obtained from system. Equals to /memory/classes/metadata/mspan/inuse:bytes + /memory/classes/metadata/mspan/free:bytes.\n# TYPE go_memstats_mspan_sys_bytes gauge\ngo_memstats_mspan_sys_bytes 81600\n# HELP go_memstats_next_gc_bytes Number of heap bytes when next garbage collection will take place. Equals to /gc/heap/goal:bytes.\n# TYPE go_memstats_next_gc_bytes gauge\ngo_memstats_next_gc_bytes 4.194304e+06\n# HELP go_memstats_other_sys_bytes Number of bytes used for other system allocations. Equals to /memory/classes/other:bytes.\n# TYPE go_memstats_other_sys_bytes gauge\ngo_memstats_other_sys_bytes 1.302478e+06\n# HELP go_memstats_stack_inuse_bytes Number of bytes obtained from system for stack allocator in non-CGO environments. Equals to /memory/classes/heap/stacks:bytes.\n# TYPE go_memstats_stack_inuse_bytes gauge\ngo_memstats_stack_inuse_bytes 557056\n# HELP go_memstats_stack_sys_bytes Number of bytes obtained from system for stack allocator. Equals to /memory/classes/heap/stacks:bytes + /memory/classes/os-stacks:bytes.\n# TYPE go_memstats_stack_sys_bytes gauge\ngo_memstats_stack_sys_bytes 557056\n# HELP go_memstats_sys_bytes Number of bytes obtained from system. Equals to /memory/classes/total:byte.\n# TYPE go_memstats_sys_bytes gauge\ngo_memstats_sys_bytes 1.2802312e+07\n# HELP go_sched_gomaxprocs_threads The current runtime.GOMAXPROCS setting, or the number of operating system threads that can execute user-level Go code simultaneously. Sourced from /sched/gomaxprocs:threads.\n# TYPE go_sched_gomaxprocs_threads gauge\ngo_sched_gomaxprocs_threads 16\n# HELP go_threads Number of OS threads created.\n# TYPE go_threads gauge\ngo_threads 7\n# HELP pg_database_connection_limit Connection limit set for the database\n# TYPE pg_database_connection_limit gauge\npg_database_connection_limit{datname=\"app_db\"} -1\npg_database_connection_limit{datname=\"postgres\"} -1\npg_database_connection_limit{datname=\"template0\"} -1\npg_database_connection_limit{datname=\"template1\"} -1\n# HELP pg_database_size_bytes Disk space used by the database\n# TYPE pg_database_size_bytes gauge\npg_database_size_bytes{datname=\"app_db\"} 7.701007e+06\npg_database_size_bytes{datname=\"postgres\"} 7.861951e+06\npg_database_size_bytes{datname=\"template0\"} 7.701007e+06\npg_database_size_bytes{datname=\"template1\"} 7.935679e+06\n# HELP pg_exporter_last_scrape_duration_seconds Duration of the last scrape of metrics from PostgreSQL.\n# TYPE pg_exporter_last_scrape_duration_seconds gauge\npg_exporter_last_scrape_duration_seconds 0.005675217\n# HELP pg_exporter_last_scrape_error Whether the last scrape of metrics from PostgreSQL resulted in an error (1 for error, 0 for success).\n# TYPE pg_exporter_last_scrape_error gauge\npg_exporter_last_scrape_error 0\n# HELP pg_exporter_scrapes_total Total number of times PostgreSQL was scraped for metrics.\n# TYPE pg_exporter_scrapes_total counter\npg_exporter_scrapes_total 1\n# HELP pg_locks_count Number of locks\n# TYPE pg_locks_count gauge\npg_locks_count{datname=\"app_db\",mode=\"accessexclusivelock\"} 0\npg_locks_count{datname=\"app_db\",mode=\"accesssharelock\"} 0\npg_locks_count{datname=\"app_db\",mode=\"exclusivelock\"} 0\npg_locks_count{datname=\"app_db\",mode=\"rowexclusivelock\"} 0\npg_locks_count{datname=\"app_db\",mode=\"rowsharelock\"} 0\npg_locks_count{datname=\"app_db\",mode=\"sharelock\"} 0\npg_locks_count{datname=\"app_db\",mode=\"sharerowexclusivelock\"} 0\npg_locks_count{datname=\"app_db\",mode=\"shareupdateexclusivelock\"} 0\npg_locks_count{datname=\"app_db\",mode=\"sireadlock\"} 0\npg_locks_count{datname=\"postgres\",mode=\"accessexclusivelock\"} 0\npg_locks_count{datname=\"postgres\",mode=\"accesssharelock\"} 1\npg_locks_count{datname=\"postgres\",mode=\"exclusivelock\"} 0\npg_locks_count{datname=\"postgres\",mode=\"rowexclusivelock\"} 0\npg_locks_count{datname=\"postgres\",mode=\"rowsharelock\"} 0\npg_locks_count{datname=\"postgres\",mode=\"sharelock\"} 0\npg_locks_count{datname=\"postgres\",mode=\"sharerowexclusivelock\"} 0\npg_locks_count{datname=\"postgres\",mode=\"shareupdateexclusivelock\"} 0\npg_locks_count{datname=\"postgres\",mode=\"sireadlock\"} 0\npg_locks_count{datname=\"template0\",mode=\"accessexclusivelock\"} 0\npg_locks_count{datname=\"template0\",mode=\"accesssharelock\"} 0\npg_locks_count{datname=\"template0\",mode=\"exclusivelock\"} 0\npg_locks_count{datname=\"template0\",mode=\"rowexclusivelock\"} 0\npg_locks_count{datname=\"template0\",mode=\"rowsharelock\"} 0\npg_locks_count{datname=\"template0\",mode=\"sharelock\"} 0\npg_locks_count{datname=\"template0\",mode=\"sharerowexclusivelock\"} 0\npg_locks_count{datname=\"template0\",mode=\"shareupdateexclusivelock\"} 0\npg_locks_count{datname=\"template0\",mode=\"sireadlock\"} 0\npg_locks_count{datname=\"template1\",mode=\"accessexclusivelock\"} 0\npg_locks_count{datname=\"template1\",mode=\"accesssharelock\"} 0\npg_locks_count{datname=\"template1\",mode=\"exclusivelock\"} 0\npg_locks_count{datname=\"template1\",mode=\"rowexclusivelock\"} 0\npg_locks_count{datname=\"template1\",mode=\"rowsharelock\"} 0\npg_locks_count{datname=\"template1\",mode=\"sharelock\"} 0\npg_locks_count{datname=\"template1\",mode=\"sharerowexclusivelock\"} 0\npg_locks_count{datname=\"template1\",mode=\"shareupdateexclusivelock\"} 0\npg_locks_count{datname=\"template1\",mode=\"sireadlock\"} 0\n# HELP pg_replication_is_replica Indicates if the server is a replica\n# TYPE pg_replication_is_replica gauge\npg_replication_is_replica 0\n# HELP pg_replication_lag_seconds Replication lag behind master in seconds\n# TYPE pg_replication_lag_seconds gauge\npg_replication_lag_seconds 0\n# HELP pg_replication_last_replay_seconds Age of last replay in seconds\n# TYPE pg_replication_last_replay_seconds gauge\npg_replication_last_replay_seconds 0\n# HELP pg_roles_connection_limit Connection limit set for the role\n# TYPE pg_roles_connection_limit gauge\npg_roles_connection_limit{rolname=\"app_user\"} -1\npg_roles_connection_limit{rolname=\"pg_checkpoint\"} -1\npg_roles_connection_limit{rolname=\"pg_create_subscription\"} -1\npg_roles_connection_limit{rolname=\"pg_database_owner\"} -1\npg_roles_connection_limit{rolname=\"pg_execute_server_program\"} -1\npg_roles_connection_limit{rolname=\"pg_maintain\"} -1\npg_roles_connection_limit{rolname=\"pg_monitor\"} -1\npg_roles_connection_limit{rolname=\"pg_read_all_data\"} -1\npg_roles_connection_limit{rolname=\"pg_read_all_settings\"} -1\npg_roles_connection_limit{rolname=\"pg_read_all_stats\"} -1\npg_roles_connection_limit{rolname=\"pg_read_server_files\"} -1\npg_roles_connection_limit{rolname=\"pg_signal_autovacuum_worker\"} -1\npg_roles_connection_limit{rolname=\"pg_signal_backend\"} -1\npg_roles_connection_limit{rolname=\"pg_stat_scan_tables\"} -1\npg_roles_connection_limit{rolname=\"pg_use_reserved_connections\"} -1\npg_roles_connection_limit{rolname=\"pg_write_all_data\"} -1\npg_roles_connection_limit{rolname=\"pg_write_server_files\"} -1\npg_roles_connection_limit{rolname=\"postgres\"} -1\npg_roles_connection_limit{rolname=\"postgres_exporter\"} -1\n# HELP pg_scrape_collector_duration_seconds postgres_exporter: Duration of a collector scrape.\n# TYPE pg_scrape_collector_duration_seconds gauge\npg_scrape_collector_duration_seconds{collector=\"database\"} 0.029368498\npg_scrape_collector_duration_seconds{collector=\"locks\"} 0.021128614\npg_scrape_collector_duration_seconds{collector=\"replication\"} 0.021726155\npg_scrape_collector_duration_seconds{collector=\"replication_slots\"} 0.018675218\npg_scrape_collector_duration_seconds{collector=\"roles\"} 0.021998113\npg_scrape_collector_duration_seconds{collector=\"settings\"} 0.014037224\npg_scrape_collector_duration_seconds{collector=\"stat_activity\"} 0.00925512\npg_scrape_collector_duration_seconds{collector=\"stat_archiver\"} 0.009606117\npg_scrape_collector_duration_seconds{collector=\"stat_bgwriter\"} 0.02461974\npg_scrape_collector_duration_seconds{collector=\"stat_database\"} 0.010448169\npg_scrape_collector_duration_seconds{collector=\"stat_progress_vacuum\"} 0.011623446\npg_scrape_collector_duration_seconds{collector=\"stat_replication\"} 0.004759831\npg_scrape_collector_duration_seconds{collector=\"stat_user_tables\"} 0.01829369\npg_scrape_collector_duration_seconds{collector=\"statio_user_tables\"} 0.023989586\npg_scrape_collector_duration_seconds{collector=\"wal\"} 0.022693199\n# HELP pg_scrape_collector_success postgres_exporter: Whether a collector succeeded.\n# TYPE pg_scrape_collector_success gauge\npg_scrape_collector_success{collector=\"database\"} 1\npg_scrape_collector_success{collector=\"locks\"} 1\npg_scrape_collector_success{collector=\"replication\"} 1\npg_scrape_collector_success{collector=\"replication_slots\"} 1\npg_scrape_collector_success{collector=\"roles\"} 1\npg_scrape_collector_success{collector=\"settings\"} 1\npg_scrape_collector_success{collector=\"stat_activity\"} 1\npg_scrape_collector_success{collector=\"stat_archiver\"} 1\npg_scrape_collector_success{collector=\"stat_bgwriter\"} 1\npg_scrape_collector_success{collector=\"stat_database\"} 1\npg_scrape_collector_success{collector=\"stat_progress_vacuum\"} 1\npg_scrape_collector_success{collector=\"stat_replication\"} 1\npg_scrape_collector_success{collector=\"stat_user_tables\"} 1\npg_scrape_collector_success{collector=\"statio_user_tables\"} 1\npg_scrape_collector_success{collector=\"wal\"} 1\n# HELP pg_settings_allow_alter_system Server Parameter: allow_alter_system\n# TYPE pg_settings_allow_alter_system gauge\npg_settings_allow_alter_system 1\n# HELP pg_settings_allow_in_place_tablespaces Server Parameter: allow_in_place_tablespaces\n# TYPE pg_settings_allow_in_place_tablespaces gauge\npg_settings_allow_in_place_tablespaces 0\n# HELP pg_settings_allow_system_table_mods Server Parameter: allow_system_table_mods\n# TYPE pg_settings_allow_system_table_mods gauge\npg_settings_allow_system_table_mods 0\n# HELP pg_settings_archive_timeout_seconds Server Parameter: archive_timeout [Units converted to seconds.]\n# TYPE pg_settings_archive_timeout_seconds gauge\npg_settings_archive_timeout_seconds 0\n# HELP pg_settings_array_nulls Server Parameter: array_nulls\n# TYPE pg_settings_array_nulls gauge\npg_settings_array_nulls 1\n# HELP pg_settings_authentication_timeout_seconds Server Parameter: authentication_timeout [Units converted to seconds.]\n# TYPE pg_settings_authentication_timeout_seconds gauge\npg_settings_authentication_timeout_seconds 60\n# HELP pg_settings_autovacuum Server Parameter: autovacuum\n# TYPE pg_settings_autovacuum gauge\npg_settings_autovacuum 1\n# HELP pg_settings_autovacuum_analyze_scale_factor Server Parameter: autovacuum_analyze_scale_factor\n# TYPE pg_settings_autovacuum_analyze_scale_factor gauge\npg_settings_autovacuum_analyze_scale_factor 0.1\n# HELP pg_settings_autovacuum_analyze_threshold Server Parameter: autovacuum_analyze_threshold\n# TYPE pg_settings_autovacuum_analyze_threshold gauge\npg_settings_autovacuum_analyze_threshold 50\n# HELP pg_settings_autovacuum_freeze_max_age Server Parameter: autovacuum_freeze_max_age\n# TYPE pg_settings_autovacuum_freeze_max_age gauge\npg_settings_autovacuum_freeze_max_age 2e+08\n# HELP pg_settings_autovacuum_max_workers Server Parameter: autovacuum_max_workers\n# TYPE pg_settings_autovacuum_max_workers gauge\npg_settings_autovacuum_max_workers 3\n# HELP pg_settings_autovacuum_multixact_freeze_max_age Server Parameter: autovacuum_multixact_freeze_max_age\n# TYPE pg_settings_autovacuum_multixact_freeze_max_age gauge\npg_settings_autovacuum_multixact_freeze_max_age 4e+08\n# HELP pg_settings_autovacuum_naptime_seconds Server Parameter: autovacuum_naptime [Units converted to seconds.]\n# TYPE pg_settings_autovacuum_naptime_seconds gauge\npg_settings_autovacuum_naptime_seconds 60\n# HELP pg_settings_autovacuum_vacuum_cost_delay_seconds Server Parameter: autovacuum_vacuum_cost_delay [Units converted to seconds.]\n# TYPE pg_settings_autovacuum_vacuum_cost_delay_seconds gauge\npg_settings_autovacuum_vacuum_cost_delay_seconds 0.002\n# HELP pg_settings_autovacuum_vacuum_cost_limit Server Parameter: autovacuum_vacuum_cost_limit\n# TYPE pg_settings_autovacuum_vacuum_cost_limit gauge\npg_settings_autovacuum_vacuum_cost_limit -1\n# HELP pg_settings_autovacuum_vacuum_insert_scale_factor Server Parameter: autovacuum_vacuum_insert_scale_factor\n# TYPE pg_settings_autovacuum_vacuum_insert_scale_factor gauge\npg_settings_autovacuum_vacuum_insert_scale_factor 0.2\n# HELP pg_settings_autovacuum_vacuum_insert_threshold Server Parameter: autovacuum_vacuum_insert_threshold\n# TYPE pg_settings_autovacuum_vacuum_insert_threshold gauge\npg_settings_autovacuum_vacuum_insert_threshold 1000\n# HELP pg_settings_autovacuum_vacuum_max_threshold Server Parameter: autovacuum_vacuum_max_threshold\n# TYPE pg_settings_autovacuum_vacuum_max_threshold gauge\npg_settings_autovacuum_vacuum_max_threshold 1e+08\n# HELP pg_settings_autovacuum_vacuum_scale_factor Server Parameter: autovacuum_vacuum_scale_factor\n# TYPE pg_settings_autovacuum_vacuum_scale_factor gauge\npg_settings_autovacuum_vacuum_scale_factor 0.2\n# HELP pg_settings_autovacuum_vacuum_threshold Server Parameter: autovacuum_vacuum_threshold\n# TYPE pg_settings_autovacuum_vacuum_threshold gauge\npg_settings_autovacuum_vacuum_threshold 50\n# HELP pg_settings_autovacuum_work_mem_bytes Server Parameter: autovacuum_work_mem [Units converted to bytes.]\n# TYPE pg_settings_autovacuum_work_mem_bytes gauge\npg_settings_autovacuum_work_mem_bytes -1\n# HELP pg_settings_autovacuum_worker_slots Server Parameter: autovacuum_worker_slots\n# TYPE pg_settings_autovacuum_worker_slots gauge\npg_settings_autovacuum_worker_slots 16\n# HELP pg_settings_backend_flush_after_bytes Server Parameter: backend_flush_after [Units converted to bytes.]\n# TYPE pg_settings_backend_flush_after_bytes gauge\npg_settings_backend_flush_after_bytes 0\n# HELP pg_settings_bgwriter_delay_seconds Server Parameter: bgwriter_delay [Units converted to seconds.]\n# TYPE pg_settings_bgwriter_delay_seconds gauge\npg_settings_bgwriter_delay_seconds 0.2\n# HELP pg_settings_bgwriter_flush_after_bytes Server Parameter: bgwriter_flush_after [Units converted to bytes.]\n# TYPE pg_settings_bgwriter_flush_after_bytes gauge\npg_settings_bgwriter_flush_after_bytes 524288\n# HELP pg_settings_bgwriter_lru_maxpages Server Parameter: bgwriter_lru_maxpages\n# TYPE pg_settings_bgwriter_lru_maxpages gauge\npg_settings_bgwriter_lru_maxpages 100\n# HELP pg_settings_bgwriter_lru_multiplier Server Parameter: bgwriter_lru_multiplier\n# TYPE pg_settings_bgwriter_lru_multiplier gauge\npg_settings_bgwriter_lru_multiplier 2\n# HELP pg_settings_block_size Server Parameter: block_size\n# TYPE pg_settings_block_size gauge\npg_settings_block_size 8192\n# HELP pg_settings_bonjour Server Parameter: bonjour\n# TYPE pg_settings_bonjour gauge\npg_settings_bonjour 0\n# HELP pg_settings_check_function_bodies Server Parameter: check_function_bodies\n# TYPE pg_settings_check_function_bodies gauge\npg_settings_check_function_bodies 1\n# HELP pg_settings_checkpoint_completion_target Server Parameter: checkpoint_completion_target\n# TYPE pg_settings_checkpoint_completion_target gauge\npg_settings_checkpoint_completion_target 0.9\n# HELP pg_settings_checkpoint_flush_after_bytes Server Parameter: checkpoint_flush_after [Units converted to bytes.]\n# TYPE pg_settings_checkpoint_flush_after_bytes gauge\npg_settings_checkpoint_flush_after_bytes 262144\n# HELP pg_settings_checkpoint_timeout_seconds Server Parameter: checkpoint_timeout [Units converted to seconds.]\n# TYPE pg_settings_checkpoint_timeout_seconds gauge\npg_settings_checkpoint_timeout_seconds 300\n# HELP pg_settings_checkpoint_warning_seconds Server Parameter: checkpoint_warning [Units converted to seconds.]\n# TYPE pg_settings_checkpoint_warning_seconds gauge\npg_settings_checkpoint_warning_seconds 30\n# HELP pg_settings_client_connection_check_interval_seconds Server Parameter: client_connection_check_interval [Units converted to seconds.]\n# TYPE pg_settings_client_connection_check_interval_seconds gauge\npg_settings_client_connection_check_interval_seconds 0\n# HELP pg_settings_commit_delay Server Parameter: commit_delay\n# TYPE pg_settings_commit_delay gauge\npg_settings_commit_delay 0\n# HELP pg_settings_commit_siblings Server Parameter: commit_siblings\n# TYPE pg_settings_commit_siblings gauge\npg_settings_commit_siblings 5\n# HELP pg_settings_commit_timestamp_buffers_bytes Server Parameter: commit_timestamp_buffers [Units converted to bytes.]\n# TYPE pg_settings_commit_timestamp_buffers_bytes gauge\npg_settings_commit_timestamp_buffers_bytes 262144\n# HELP pg_settings_cpu_index_tuple_cost Server Parameter: cpu_index_tuple_cost\n# TYPE pg_settings_cpu_index_tuple_cost gauge\npg_settings_cpu_index_tuple_cost 0.005\n# HELP pg_settings_cpu_operator_cost Server Parameter: cpu_operator_cost\n# TYPE pg_settings_cpu_operator_cost gauge\npg_settings_cpu_operator_cost 0.0025\n# HELP pg_settings_cpu_tuple_cost Server Parameter: cpu_tuple_cost\n# TYPE pg_settings_cpu_tuple_cost gauge\npg_settings_cpu_tuple_cost 0.01\n# HELP pg_settings_cursor_tuple_fraction Server Parameter: cursor_tuple_fraction\n# TYPE pg_settings_cursor_tuple_fraction gauge\npg_settings_cursor_tuple_fraction 0.1\n# HELP pg_settings_data_checksums Server Parameter: data_checksums\n# TYPE pg_settings_data_checksums gauge\npg_settings_data_checksums 1\n# HELP pg_settings_data_directory_mode Server Parameter: data_directory_mode\n# TYPE pg_settings_data_directory_mode gauge\npg_settings_data_directory_mode 700\n# HELP pg_settings_data_sync_retry Server Parameter: data_sync_retry\n# TYPE pg_settings_data_sync_retry gauge\npg_settings_data_sync_retry 0\n# HELP pg_settings_deadlock_timeout_seconds Server Parameter: deadlock_timeout [Units converted to seconds.]\n# TYPE pg_settings_deadlock_timeout_seconds gauge\npg_settings_deadlock_timeout_seconds 1\n# HELP pg_settings_debug_assertions Server Parameter: debug_assertions\n# TYPE pg_settings_debug_assertions gauge\npg_settings_debug_assertions 0\n# HELP pg_settings_debug_discard_caches Server Parameter: debug_discard_caches\n# TYPE pg_settings_debug_discard_caches gauge\npg_settings_debug_discard_caches 0\n# HELP pg_settings_debug_pretty_print Server Parameter: debug_pretty_print\n# TYPE pg_settings_debug_pretty_print gauge\npg_settings_debug_pretty_print 1\n# HELP pg_settings_debug_print_parse Server Parameter: debug_print_parse\n# TYPE pg_settings_debug_print_parse gauge\npg_settings_debug_print_parse 0\n# HELP pg_settings_debug_print_plan Server Parameter: debug_print_plan\n# TYPE pg_settings_debug_print_plan gauge\npg_settings_debug_print_plan 0\n# HELP pg_settings_debug_print_rewritten Server Parameter: debug_print_rewritten\n# TYPE pg_settings_debug_print_rewritten gauge\npg_settings_debug_print_rewritten 0\n# HELP pg_settings_default_statistics_target Server Parameter: default_statistics_target\n# TYPE pg_settings_default_statistics_target gauge\npg_settings_default_statistics_target 100\n# HELP pg_settings_default_transaction_deferrable Server Parameter: default_transaction_deferrable\n# TYPE pg_settings_default_transaction_deferrable gauge\npg_settings_default_transaction_deferrable 0\n# HELP pg_settings_default_transaction_read_only Server Parameter: default_transaction_read_only\n# TYPE pg_settings_default_transaction_read_only gauge\npg_settings_default_transaction_read_only 0\n# HELP pg_settings_effective_cache_size_bytes Server Parameter: effective_cache_size [Units converted to bytes.]\n# TYPE pg_settings_effective_cache_size_bytes gauge\npg_settings_effective_cache_size_bytes 4.294967296e+09\n# HELP pg_settings_effective_io_concurrency Server Parameter: effective_io_concurrency\n# TYPE pg_settings_effective_io_concurrency gauge\npg_settings_effective_io_concurrency 16\n# HELP pg_settings_enable_async_append Server Parameter: enable_async_append\n# TYPE pg_settings_enable_async_append gauge\npg_settings_enable_async_append 1\n# HELP pg_settings_enable_bitmapscan Server Parameter: enable_bitmapscan\n# TYPE pg_settings_enable_bitmapscan gauge\npg_settings_enable_bitmapscan 1\n# HELP pg_settings_enable_distinct_reordering Server Parameter: enable_distinct_reordering\n# TYPE pg_settings_enable_distinct_reordering gauge\npg_settings_enable_distinct_reordering 1\n# HELP pg_settings_enable_gathermerge Server Parameter: enable_gathermerge\n# TYPE pg_settings_enable_gathermerge gauge\npg_settings_enable_gathermerge 1\n# HELP pg_settings_enable_group_by_reordering Server Parameter: enable_group_by_reordering\n# TYPE pg_settings_enable_group_by_reordering gauge\npg_settings_enable_group_by_reordering 1\n# HELP pg_settings_enable_hashagg Server Parameter: enable_hashagg\n# TYPE pg_settings_enable_hashagg gauge\npg_settings_enable_hashagg 1\n# HELP pg_settings_enable_hashjoin Server Parameter: enable_hashjoin\n# TYPE pg_settings_enable_hashjoin gauge\npg_settings_enable_hashjoin 1\n# HELP pg_settings_enable_incremental_sort Server Parameter: enable_incremental_sort\n# TYPE pg_settings_enable_incremental_sort gauge\npg_settings_enable_incremental_sort 1\n# HELP pg_settings_enable_indexonlyscan Server Parameter: enable_indexonlyscan\n# TYPE pg_settings_enable_indexonlyscan gauge\npg_settings_enable_indexonlyscan 1\n# HELP pg_settings_enable_indexscan Server Parameter: enable_indexscan\n# TYPE pg_settings_enable_indexscan gauge\npg_settings_enable_indexscan 1\n# HELP pg_settings_enable_material Server Parameter: enable_material\n# TYPE pg_settings_enable_material gauge\npg_settings_enable_material 1\n# HELP pg_settings_enable_memoize Server Parameter: enable_memoize\n# TYPE pg_settings_enable_memoize gauge\npg_settings_enable_memoize 1\n# HELP pg_settings_enable_mergejoin Server Parameter: enable_mergejoin\n# TYPE pg_settings_enable_mergejoin gauge\npg_settings_enable_mergejoin 1\n# HELP pg_settings_enable_nestloop Server Parameter: enable_nestloop\n# TYPE pg_settings_enable_nestloop gauge\npg_settings_enable_nestloop 1\n# HELP pg_settings_enable_parallel_append Server Parameter: enable_parallel_append\n# TYPE pg_settings_enable_parallel_append gauge\npg_settings_enable_parallel_append 1\n# HELP pg_settings_enable_parallel_hash Server Parameter: enable_parallel_hash\n# TYPE pg_settings_enable_parallel_hash gauge\npg_settings_enable_parallel_hash 1\n# HELP pg_settings_enable_partition_pruning Server Parameter: enable_partition_pruning\n# TYPE pg_settings_enable_partition_pruning gauge\npg_settings_enable_partition_pruning 1\n# HELP pg_settings_enable_partitionwise_aggregate Server Parameter: enable_partitionwise_aggregate\n# TYPE pg_settings_enable_partitionwise_aggregate gauge\npg_settings_enable_partitionwise_aggregate 0\n# HELP pg_settings_enable_partitionwise_join Server Parameter: enable_partitionwise_join\n# TYPE pg_settings_enable_partitionwise_join gauge\npg_settings_enable_partitionwise_join 0\n# HELP pg_settings_enable_presorted_aggregate Server Parameter: enable_presorted_aggregate\n# TYPE pg_settings_enable_presorted_aggregate gauge\npg_settings_enable_presorted_aggregate 1\n# HELP pg_settings_enable_self_join_elimination Server Parameter: enable_self_join_elimination\n# TYPE pg_settings_enable_self_join_elimination gauge\npg_settings_enable_self_join_elimination 1\n# HELP pg_settings_enable_seqscan Server Parameter: enable_seqscan\n# TYPE pg_settings_enable_seqscan gauge\npg_settings_enable_seqscan 1\n# HELP pg_settings_enable_sort Server Parameter: enable_sort\n# TYPE pg_settings_enable_sort gauge\npg_settings_enable_sort 1\n# HELP pg_settings_enable_tidscan Server Parameter: enable_tidscan\n# TYPE pg_settings_enable_tidscan gauge\npg_settings_enable_tidscan 1\n# HELP pg_settings_escape_string_warning Server Parameter: escape_string_warning\n# TYPE pg_settings_escape_string_warning gauge\npg_settings_escape_string_warning 1\n# HELP pg_settings_event_triggers Server Parameter: event_triggers\n# TYPE pg_settings_event_triggers gauge\npg_settings_event_triggers 1\n# HELP pg_settings_exit_on_error Server Parameter: exit_on_error\n# TYPE pg_settings_exit_on_error gauge\npg_settings_exit_on_error 0\n# HELP pg_settings_extra_float_digits Server Parameter: extra_float_digits\n# TYPE pg_settings_extra_float_digits gauge\npg_settings_extra_float_digits 2\n# HELP pg_settings_from_collapse_limit Server Parameter: from_collapse_limit\n# TYPE pg_settings_from_collapse_limit gauge\npg_settings_from_collapse_limit 8\n# HELP pg_settings_fsync Server Parameter: fsync\n# TYPE pg_settings_fsync gauge\npg_settings_fsync 1\n# HELP pg_settings_full_page_writes Server Parameter: full_page_writes\n# TYPE pg_settings_full_page_writes gauge\npg_settings_full_page_writes 1\n# HELP pg_settings_geqo Server Parameter: geqo\n# TYPE pg_settings_geqo gauge\npg_settings_geqo 1\n# HELP pg_settings_geqo_effort Server Parameter: geqo_effort\n# TYPE pg_settings_geqo_effort gauge\npg_settings_geqo_effort 5\n# HELP pg_settings_geqo_generations Server Parameter: geqo_generations\n# TYPE pg_settings_geqo_generations gauge\npg_settings_geqo_generations 0\n# HELP pg_settings_geqo_pool_size Server Parameter: geqo_pool_size\n# TYPE pg_settings_geqo_pool_size gauge\npg_settings_geqo_pool_size 0\n# HELP pg_settings_geqo_seed Server Parameter: geqo_seed\n# TYPE pg_settings_geqo_seed gauge\npg_settings_geqo_seed 0\n# HELP pg_settings_geqo_selection_bias Server Parameter: geqo_selection_bias\n# TYPE pg_settings_geqo_selection_bias gauge\npg_settings_geqo_selection_bias 2\n# HELP pg_settings_geqo_threshold Server Parameter: geqo_threshold\n# TYPE pg_settings_geqo_threshold gauge\npg_settings_geqo_threshold 12\n# HELP pg_settings_gin_fuzzy_search_limit Server Parameter: gin_fuzzy_search_limit\n# TYPE pg_settings_gin_fuzzy_search_limit gauge\npg_settings_gin_fuzzy_search_limit 0\n# HELP pg_settings_gin_pending_list_limit_bytes Server Parameter: gin_pending_list_limit [Units converted to bytes.]\n# TYPE pg_settings_gin_pending_list_limit_bytes gauge\npg_settings_gin_pending_list_limit_bytes 4.194304e+06\n# HELP pg_settings_gss_accept_delegation Server Parameter: gss_accept_delegation\n# TYPE pg_settings_gss_accept_delegation gauge\npg_settings_gss_accept_delegation 0\n# HELP pg_settings_hash_mem_multiplier Server Parameter: hash_mem_multiplier\n# TYPE pg_settings_hash_mem_multiplier gauge\npg_settings_hash_mem_multiplier 2\n# HELP pg_settings_hot_standby Server Parameter: hot_standby\n# TYPE pg_settings_hot_standby gauge\npg_settings_hot_standby 1\n# HELP pg_settings_hot_standby_feedback Server Parameter: hot_standby_feedback\n# TYPE pg_settings_hot_standby_feedback gauge\npg_settings_hot_standby_feedback 0\n# HELP pg_settings_huge_page_size_bytes Server Parameter: huge_page_size [Units converted to bytes.]\n# TYPE pg_settings_huge_page_size_bytes gauge\npg_settings_huge_page_size_bytes 0\n# HELP pg_settings_idle_in_transaction_session_timeout_seconds Server Parameter: idle_in_transaction_session_timeout [Units converted to seconds.]\n# TYPE pg_settings_idle_in_transaction_session_timeout_seconds gauge\npg_settings_idle_in_transaction_session_timeout_seconds 0\n# HELP pg_settings_idle_replication_slot_timeout_seconds Server Parameter: idle_replication_slot_timeout [Units converted to seconds.]\n# TYPE pg_settings_idle_replication_slot_timeout_seconds gauge\npg_settings_idle_replication_slot_timeout_seconds 0\n# HELP pg_settings_idle_session_timeout_seconds Server Parameter: idle_session_timeout [Units converted to seconds.]\n# TYPE pg_settings_idle_session_timeout_seconds gauge\npg_settings_idle_session_timeout_seconds 0\n# HELP pg_settings_ignore_checksum_failure Server Parameter: ignore_checksum_failure\n# TYPE pg_settings_ignore_checksum_failure gauge\npg_settings_ignore_checksum_failure 0\n# HELP pg_settings_ignore_invalid_pages Server Parameter: ignore_invalid_pages\n# TYPE pg_settings_ignore_invalid_pages gauge\npg_settings_ignore_invalid_pages 0\n# HELP pg_settings_ignore_system_indexes Server Parameter: ignore_system_indexes\n# TYPE pg_settings_ignore_system_indexes gauge\npg_settings_ignore_system_indexes 0\n# HELP pg_settings_in_hot_standby Server Parameter: in_hot_standby\n# TYPE pg_settings_in_hot_standby gauge\npg_settings_in_hot_standby 0\n# HELP pg_settings_integer_datetimes Server Parameter: integer_datetimes\n# TYPE pg_settings_integer_datetimes gauge\npg_settings_integer_datetimes 1\n# HELP pg_settings_io_combine_limit_bytes Server Parameter: io_combine_limit [Units converted to bytes.]\n# TYPE pg_settings_io_combine_limit_bytes gauge\npg_settings_io_combine_limit_bytes 131072\n# HELP pg_settings_io_max_combine_limit_bytes Server Parameter: io_max_combine_limit [Units converted to bytes.]\n# TYPE pg_settings_io_max_combine_limit_bytes gauge\npg_settings_io_max_combine_limit_bytes 131072\n# HELP pg_settings_io_max_concurrency Server Parameter: io_max_concurrency\n# TYPE pg_settings_io_max_concurrency gauge\npg_settings_io_max_concurrency 64\n# HELP pg_settings_io_workers Server Parameter: io_workers\n# TYPE pg_settings_io_workers gauge\npg_settings_io_workers 3\n# HELP pg_settings_jit Server Parameter: jit\n# TYPE pg_settings_jit gauge\npg_settings_jit 1\n# HELP pg_settings_jit_above_cost Server Parameter: jit_above_cost\n# TYPE pg_settings_jit_above_cost gauge\npg_settings_jit_above_cost 100000\n# HELP pg_settings_jit_debugging_support Server Parameter: jit_debugging_support\n# TYPE pg_settings_jit_debugging_support gauge\npg_settings_jit_debugging_support 0\n# HELP pg_settings_jit_dump_bitcode Server Parameter: jit_dump_bitcode\n# TYPE pg_settings_jit_dump_bitcode gauge\npg_settings_jit_dump_bitcode 0\n# HELP pg_settings_jit_expressions Server Parameter: jit_expressions\n# TYPE pg_settings_jit_expressions gauge\npg_settings_jit_expressions 1\n# HELP pg_settings_jit_inline_above_cost Server Parameter: jit_inline_above_cost\n# TYPE pg_settings_jit_inline_above_cost gauge\npg_settings_jit_inline_above_cost 500000\n# HELP pg_settings_jit_optimize_above_cost Server Parameter: jit_optimize_above_cost\n# TYPE pg_settings_jit_optimize_above_cost gauge\npg_settings_jit_optimize_above_cost 500000\n# HELP pg_settings_jit_profiling_support Server Parameter: jit_profiling_support\n# TYPE pg_settings_jit_profiling_support gauge\npg_settings_jit_profiling_support 0\n# HELP pg_settings_jit_tuple_deforming Server Parameter: jit_tuple_deforming\n# TYPE pg_settings_jit_tuple_deforming gauge\npg_settings_jit_tuple_deforming 1\n# HELP pg_settings_join_collapse_limit Server Parameter: join_collapse_limit\n# TYPE pg_settings_join_collapse_limit gauge\npg_settings_join_collapse_limit 8\n# HELP pg_settings_krb_caseins_users Server Parameter: krb_caseins_users\n# TYPE pg_settings_krb_caseins_users gauge\npg_settings_krb_caseins_users 0\n# HELP pg_settings_lo_compat_privileges Server Parameter: lo_compat_privileges\n# TYPE pg_settings_lo_compat_privileges gauge\npg_settings_lo_compat_privileges 0\n# HELP pg_settings_lock_timeout_seconds Server Parameter: lock_timeout [Units converted to seconds.]\n# TYPE pg_settings_lock_timeout_seconds gauge\npg_settings_lock_timeout_seconds 0\n# HELP pg_settings_log_autovacuum_min_duration_seconds Server Parameter: log_autovacuum_min_duration [Units converted to seconds.]\n# TYPE pg_settings_log_autovacuum_min_duration_seconds gauge\npg_settings_log_autovacuum_min_duration_seconds 600\n# HELP pg_settings_log_checkpoints Server Parameter: log_checkpoints\n# TYPE pg_settings_log_checkpoints gauge\npg_settings_log_checkpoints 1\n# HELP pg_settings_log_disconnections Server Parameter: log_disconnections\n# TYPE pg_settings_log_disconnections gauge\npg_settings_log_disconnections 0\n# HELP pg_settings_log_duration Server Parameter: log_duration\n# TYPE pg_settings_log_duration gauge\npg_settings_log_duration 0\n# HELP pg_settings_log_executor_stats Server Parameter: log_executor_stats\n# TYPE pg_settings_log_executor_stats gauge\npg_settings_log_executor_stats 0\n# HELP pg_settings_log_file_mode Server Parameter: log_file_mode\n# TYPE pg_settings_log_file_mode gauge\npg_settings_log_file_mode 600\n# HELP pg_settings_log_hostname Server Parameter: log_hostname\n# TYPE pg_settings_log_hostname gauge\npg_settings_log_hostname 0\n# HELP pg_settings_log_lock_failures Server Parameter: log_lock_failures\n# TYPE pg_settings_log_lock_failures gauge\npg_settings_log_lock_failures 0\n# HELP pg_settings_log_lock_waits Server Parameter: log_lock_waits\n# TYPE pg_settings_log_lock_waits gauge\npg_settings_log_lock_waits 0\n# HELP pg_settings_log_min_duration_sample_seconds Server Parameter: log_min_duration_sample [Units converted to seconds.]\n# TYPE pg_settings_log_min_duration_sample_seconds gauge\npg_settings_log_min_duration_sample_seconds -1\n# HELP pg_settings_log_min_duration_statement_seconds Server Parameter: log_min_duration_statement [Units converted to seconds.]\n# TYPE pg_settings_log_min_duration_statement_seconds gauge\npg_settings_log_min_duration_statement_seconds -1\n# HELP pg_settings_log_parameter_max_length_bytes Server Parameter: log_parameter_max_length [Units converted to bytes.]\n# TYPE pg_settings_log_parameter_max_length_bytes gauge\npg_settings_log_parameter_max_length_bytes -1\n# HELP pg_settings_log_parameter_max_length_on_error_bytes Server Parameter: log_parameter_max_length_on_error [Units converted to bytes.]\n# TYPE pg_settings_log_parameter_max_length_on_error_bytes gauge\npg_settings_log_parameter_max_length_on_error_bytes 0\n# HELP pg_settings_log_parser_stats Server Parameter: log_parser_stats\n# TYPE pg_settings_log_parser_stats gauge\npg_settings_log_parser_stats 0\n# HELP pg_settings_log_planner_stats Server Parameter: log_planner_stats\n# TYPE pg_settings_log_planner_stats gauge\npg_settings_log_planner_stats 0\n# HELP pg_settings_log_recovery_conflict_waits Server Parameter: log_recovery_conflict_waits\n# TYPE pg_settings_log_recovery_conflict_waits gauge\npg_settings_log_recovery_conflict_waits 0\n# HELP pg_settings_log_replication_commands Server Parameter: log_replication_commands\n# TYPE pg_settings_log_replication_commands gauge\npg_settings_log_replication_commands 0\n# HELP pg_settings_log_rotation_age_seconds Server Parameter: log_rotation_age [Units converted to seconds.]\n# TYPE pg_settings_log_rotation_age_seconds gauge\npg_settings_log_rotation_age_seconds 86400\n# HELP pg_settings_log_rotation_size_bytes Server Parameter: log_rotation_size [Units converted to bytes.]\n# TYPE pg_settings_log_rotation_size_bytes gauge\npg_settings_log_rotation_size_bytes 1.048576e+07\n# HELP pg_settings_log_startup_progress_interval_seconds Server Parameter: log_startup_progress_interval [Units converted to seconds.]\n# TYPE pg_settings_log_startup_progress_interval_seconds gauge\npg_settings_log_startup_progress_interval_seconds 10\n# HELP pg_settings_log_statement_sample_rate Server Parameter: log_statement_sample_rate\n# TYPE pg_settings_log_statement_sample_rate gauge\npg_settings_log_statement_sample_rate 1\n# HELP pg_settings_log_statement_stats Server Parameter: log_statement_stats\n# TYPE pg_settings_log_statement_stats gauge\npg_settings_log_statement_stats 0\n# HELP pg_settings_log_temp_files_bytes Server Parameter: log_temp_files [Units converted to bytes.]\n# TYPE pg_settings_log_temp_files_bytes gauge\npg_settings_log_temp_files_bytes -1\n# HELP pg_settings_log_transaction_sample_rate Server Parameter: log_transaction_sample_rate\n# TYPE pg_settings_log_transaction_sample_rate gauge\npg_settings_log_transaction_sample_rate 0\n# HELP pg_settings_log_truncate_on_rotation Server Parameter: log_truncate_on_rotation\n# TYPE pg_settings_log_truncate_on_rotation gauge\npg_settings_log_truncate_on_rotation 0\n# HELP pg_settings_logging_collector Server Parameter: logging_collector\n# TYPE pg_settings_logging_collector gauge\npg_settings_logging_collector 0\n# HELP pg_settings_logical_decoding_work_mem_bytes Server Parameter: logical_decoding_work_mem [Units converted to bytes.]\n# TYPE pg_settings_logical_decoding_work_mem_bytes gauge\npg_settings_logical_decoding_work_mem_bytes 6.7108864e+07\n# HELP pg_settings_maintenance_io_concurrency Server Parameter: maintenance_io_concurrency\n# TYPE pg_settings_maintenance_io_concurrency gauge\npg_settings_maintenance_io_concurrency 16\n# HELP pg_settings_maintenance_work_mem_bytes Server Parameter: maintenance_work_mem [Units converted to bytes.]\n# TYPE pg_settings_maintenance_work_mem_bytes gauge\npg_settings_maintenance_work_mem_bytes 6.7108864e+07\n# HELP pg_settings_max_active_replication_origins Server Parameter: max_active_replication_origins\n# TYPE pg_settings_max_active_replication_origins gauge\npg_settings_max_active_replication_origins 10\n# HELP pg_settings_max_connections Server Parameter: max_connections\n# TYPE pg_settings_max_connections gauge\npg_settings_max_connections 100\n# HELP pg_settings_max_files_per_process Server Parameter: max_files_per_process\n# TYPE pg_settings_max_files_per_process gauge\npg_settings_max_files_per_process 1000\n# HELP pg_settings_max_function_args Server Parameter: max_function_args\n# TYPE pg_settings_max_function_args gauge\npg_settings_max_function_args 100\n# HELP pg_settings_max_identifier_length Server Parameter: max_identifier_length\n# TYPE pg_settings_max_identifier_length gauge\npg_settings_max_identifier_length 63\n# HELP pg_settings_max_index_keys Server Parameter: max_index_keys\n# TYPE pg_settings_max_index_keys gauge\npg_settings_max_index_keys 32\n# HELP pg_settings_max_locks_per_transaction Server Parameter: max_locks_per_transaction\n# TYPE pg_settings_max_locks_per_transaction gauge\npg_settings_max_locks_per_transaction 64\n# HELP pg_settings_max_logical_replication_workers Server Parameter: max_logical_replication_workers\n# TYPE pg_settings_max_logical_replication_workers gauge\npg_settings_max_logical_replication_workers 4\n# HELP pg_settings_max_notify_queue_pages Server Parameter: max_notify_queue_pages\n# TYPE pg_settings_max_notify_queue_pages gauge\npg_settings_max_notify_queue_pages 1.048576e+06\n# HELP pg_settings_max_parallel_apply_workers_per_subscription Server Parameter: max_parallel_apply_workers_per_subscription\n# TYPE pg_settings_max_parallel_apply_workers_per_subscription gauge\npg_settings_max_parallel_apply_workers_per_subscription 2\n# HELP pg_settings_max_parallel_maintenance_workers Server Parameter: max_parallel_maintenance_workers\n# TYPE pg_settings_max_parallel_maintenance_workers gauge\npg_settings_max_parallel_maintenance_workers 2\n# HELP pg_settings_max_parallel_workers Server Parameter: max_parallel_workers\n# TYPE pg_settings_max_parallel_workers gauge\npg_settings_max_parallel_workers 8\n# HELP pg_settings_max_parallel_workers_per_gather Server Parameter: max_parallel_workers_per_gather\n# TYPE pg_settings_max_parallel_workers_per_gather gauge\npg_settings_max_parallel_workers_per_gather 2\n# HELP pg_settings_max_pred_locks_per_page Server Parameter: max_pred_locks_per_page\n# TYPE pg_settings_max_pred_locks_per_page gauge\npg_settings_max_pred_locks_per_page 2\n# HELP pg_settings_max_pred_locks_per_relation Server Parameter: max_pred_locks_per_relation\n# TYPE pg_settings_max_pred_locks_per_relation gauge\npg_settings_max_pred_locks_per_relation -2\n# HELP pg_settings_max_pred_locks_per_transaction Server Parameter: max_pred_locks_per_transaction\n# TYPE pg_settings_max_pred_locks_per_transaction gauge\npg_settings_max_pred_locks_per_transaction 64\n# HELP pg_settings_max_prepared_transactions Server Parameter: max_prepared_transactions\n# TYPE pg_settings_max_prepared_transactions gauge\npg_settings_max_prepared_transactions 0\n# HELP pg_settings_max_replication_slots Server Parameter: max_replication_slots\n# TYPE pg_settings_max_replication_slots gauge\npg_settings_max_replication_slots 10\n# HELP pg_settings_max_slot_wal_keep_size_bytes Server Parameter: max_slot_wal_keep_size [Units converted to bytes.]\n# TYPE pg_settings_max_slot_wal_keep_size_bytes gauge\npg_settings_max_slot_wal_keep_size_bytes -1\n# HELP pg_settings_max_stack_depth_bytes Server Parameter: max_stack_depth [Units converted to bytes.]\n# TYPE pg_settings_max_stack_depth_bytes gauge\npg_settings_max_stack_depth_bytes 2.097152e+06\n# HELP pg_settings_max_standby_archive_delay_seconds Server Parameter: max_standby_archive_delay [Units converted to seconds.]\n# TYPE pg_settings_max_standby_archive_delay_seconds gauge\npg_settings_max_standby_archive_delay_seconds 30\n# HELP pg_settings_max_standby_streaming_delay_seconds Server Parameter: max_standby_streaming_delay [Units converted to seconds.]\n# TYPE pg_settings_max_standby_streaming_delay_seconds gauge\npg_settings_max_standby_streaming_delay_seconds 30\n# HELP pg_settings_max_sync_workers_per_subscription Server Parameter: max_sync_workers_per_subscription\n# TYPE pg_settings_max_sync_workers_per_subscription gauge\npg_settings_max_sync_workers_per_subscription 2\n# HELP pg_settings_max_wal_senders Server Parameter: max_wal_senders\n# TYPE pg_settings_max_wal_senders gauge\npg_settings_max_wal_senders 10\n# HELP pg_settings_max_wal_size_bytes Server Parameter: max_wal_size [Units converted to bytes.]\n# TYPE pg_settings_max_wal_size_bytes gauge\npg_settings_max_wal_size_bytes 1.073741824e+09\n# HELP pg_settings_max_worker_processes Server Parameter: max_worker_processes\n# TYPE pg_settings_max_worker_processes gauge\npg_settings_max_worker_processes 8\n# HELP pg_settings_md5_password_warnings Server Parameter: md5_password_warnings\n# TYPE pg_settings_md5_password_warnings gauge\npg_settings_md5_password_warnings 1\n# HELP pg_settings_min_dynamic_shared_memory_bytes Server Parameter: min_dynamic_shared_memory [Units converted to bytes.]\n# TYPE pg_settings_min_dynamic_shared_memory_bytes gauge\npg_settings_min_dynamic_shared_memory_bytes 0\n# HELP pg_settings_min_parallel_index_scan_size_bytes Server Parameter: min_parallel_index_scan_size [Units converted to bytes.]\n# TYPE pg_settings_min_parallel_index_scan_size_bytes gauge\npg_settings_min_parallel_index_scan_size_bytes 524288\n# HELP pg_settings_min_parallel_table_scan_size_bytes Server Parameter: min_parallel_table_scan_size [Units converted to bytes.]\n# TYPE pg_settings_min_parallel_table_scan_size_bytes gauge\npg_settings_min_parallel_table_scan_size_bytes 8.388608e+06\n# HELP pg_settings_min_wal_size_bytes Server Parameter: min_wal_size [Units converted to bytes.]\n# TYPE pg_settings_min_wal_size_bytes gauge\npg_settings_min_wal_size_bytes 8.388608e+07\n# HELP pg_settings_multixact_member_buffers_bytes Server Parameter: multixact_member_buffers [Units converted to bytes.]\n# TYPE pg_settings_multixact_member_buffers_bytes gauge\npg_settings_multixact_member_buffers_bytes 262144\n# HELP pg_settings_multixact_offset_buffers_bytes Server Parameter: multixact_offset_buffers [Units converted to bytes.]\n# TYPE pg_settings_multixact_offset_buffers_bytes gauge\npg_settings_multixact_offset_buffers_bytes 131072\n# HELP pg_settings_notify_buffers_bytes Server Parameter: notify_buffers [Units converted to bytes.]\n# TYPE pg_settings_notify_buffers_bytes gauge\npg_settings_notify_buffers_bytes 131072\n# HELP pg_settings_num_os_semaphores Server Parameter: num_os_semaphores\n# TYPE pg_settings_num_os_semaphores gauge\npg_settings_num_os_semaphores 174\n# HELP pg_settings_parallel_leader_participation Server Parameter: parallel_leader_participation\n# TYPE pg_settings_parallel_leader_participation gauge\npg_settings_parallel_leader_participation 1\n# HELP pg_settings_parallel_setup_cost Server Parameter: parallel_setup_cost\n# TYPE pg_settings_parallel_setup_cost gauge\npg_settings_parallel_setup_cost 1000\n# HELP pg_settings_parallel_tuple_cost Server Parameter: parallel_tuple_cost\n# TYPE pg_settings_parallel_tuple_cost gauge\npg_settings_parallel_tuple_cost 0.1\n# HELP pg_settings_port Server Parameter: port\n# TYPE pg_settings_port gauge\npg_settings_port 5432\n# HELP pg_settings_post_auth_delay_seconds Server Parameter: post_auth_delay [Units converted to seconds.]\n# TYPE pg_settings_post_auth_delay_seconds gauge\npg_settings_post_auth_delay_seconds 0\n# HELP pg_settings_pre_auth_delay_seconds Server Parameter: pre_auth_delay [Units converted to seconds.]\n# TYPE pg_settings_pre_auth_delay_seconds gauge\npg_settings_pre_auth_delay_seconds 0\n# HELP pg_settings_quote_all_identifiers Server Parameter: quote_all_identifiers\n# TYPE pg_settings_quote_all_identifiers gauge\npg_settings_quote_all_identifiers 0\n# HELP pg_settings_random_page_cost Server Parameter: random_page_cost\n# TYPE pg_settings_random_page_cost gauge\npg_settings_random_page_cost 4\n# HELP pg_settings_recovery_min_apply_delay_seconds Server Parameter: recovery_min_apply_delay [Units converted to seconds.]\n# TYPE pg_settings_recovery_min_apply_delay_seconds gauge\npg_settings_recovery_min_apply_delay_seconds 0\n# HELP pg_settings_recovery_target_inclusive Server Parameter: recovery_target_inclusive\n# TYPE pg_settings_recovery_target_inclusive gauge\npg_settings_recovery_target_inclusive 1\n# HELP pg_settings_recursive_worktable_factor Server Parameter: recursive_worktable_factor\n# TYPE pg_settings_recursive_worktable_factor gauge\npg_settings_recursive_worktable_factor 10\n# HELP pg_settings_remove_temp_files_after_crash Server Parameter: remove_temp_files_after_crash\n# TYPE pg_settings_remove_temp_files_after_crash gauge\npg_settings_remove_temp_files_after_crash 1\n# HELP pg_settings_reserved_connections Server Parameter: reserved_connections\n# TYPE pg_settings_reserved_connections gauge\npg_settings_reserved_connections 0\n# HELP pg_settings_restart_after_crash Server Parameter: restart_after_crash\n# TYPE pg_settings_restart_after_crash gauge\npg_settings_restart_after_crash 1\n# HELP pg_settings_row_security Server Parameter: row_security\n# TYPE pg_settings_row_security gauge\npg_settings_row_security 1\n# HELP pg_settings_scram_iterations Server Parameter: scram_iterations\n# TYPE pg_settings_scram_iterations gauge\npg_settings_scram_iterations 4096\n# HELP pg_settings_segment_size_bytes Server Parameter: segment_size [Units converted to bytes.]\n# TYPE pg_settings_segment_size_bytes gauge\npg_settings_segment_size_bytes 1.073741824e+09\n# HELP pg_settings_send_abort_for_crash Server Parameter: send_abort_for_crash\n# TYPE pg_settings_send_abort_for_crash gauge\npg_settings_send_abort_for_crash 0\n# HELP pg_settings_send_abort_for_kill Server Parameter: send_abort_for_kill\n# TYPE pg_settings_send_abort_for_kill gauge\npg_settings_send_abort_for_kill 0\n# HELP pg_settings_seq_page_cost Server Parameter: seq_page_cost\n# TYPE pg_settings_seq_page_cost gauge\npg_settings_seq_page_cost 1\n# HELP pg_settings_serializable_buffers_bytes Server Parameter: serializable_buffers [Units converted to bytes.]\n# TYPE pg_settings_serializable_buffers_bytes gauge\npg_settings_serializable_buffers_bytes 262144\n# HELP pg_settings_server_version_num Server Parameter: server_version_num\n# TYPE pg_settings_server_version_num gauge\npg_settings_server_version_num 180006\n# HELP pg_settings_shared_buffers_bytes Server Parameter: shared_buffers [Units converted to bytes.]\n# TYPE pg_settings_shared_buffers_bytes gauge\npg_settings_shared_buffers_bytes 1.34217728e+08\n# HELP pg_settings_shared_memory_size_bytes Server Parameter: shared_memory_size [Units converted to bytes.]\n# TYPE pg_settings_shared_memory_size_bytes gauge\npg_settings_shared_memory_size_bytes 1.572864e+08\n# HELP pg_settings_shared_memory_size_in_huge_pages Server Parameter: shared_memory_size_in_huge_pages\n# TYPE pg_settings_shared_memory_size_in_huge_pages gauge\npg_settings_shared_memory_size_in_huge_pages 75\n# HELP pg_settings_ssl Server Parameter: ssl\n# TYPE pg_settings_ssl gauge\npg_settings_ssl 0\n# HELP pg_settings_ssl_passphrase_command_supports_reload Server Parameter: ssl_passphrase_command_supports_reload\n# TYPE pg_settings_ssl_passphrase_command_supports_reload gauge\npg_settings_ssl_passphrase_command_supports_reload 0\n# HELP pg_settings_ssl_prefer_server_ciphers Server Parameter: ssl_prefer_server_ciphers\n# TYPE pg_settings_ssl_prefer_server_ciphers gauge\npg_settings_ssl_prefer_server_ciphers 1\n# HELP pg_settings_standard_conforming_strings Server Parameter: standard_conforming_strings\n# TYPE pg_settings_standard_conforming_strings gauge\npg_settings_standard_conforming_strings 1\n# HELP pg_settings_statement_timeout_seconds Server Parameter: statement_timeout [Units converted to seconds.]\n# TYPE pg_settings_statement_timeout_seconds gauge\npg_settings_statement_timeout_seconds 0\n# HELP pg_settings_subtransaction_buffers_bytes Server Parameter: subtransaction_buffers [Units converted to bytes.]\n# TYPE pg_settings_subtransaction_buffers_bytes gauge\npg_settings_subtransaction_buffers_bytes 262144\n# HELP pg_settings_summarize_wal Server Parameter: summarize_wal\n# TYPE pg_settings_summarize_wal gauge\npg_settings_summarize_wal 0\n# HELP pg_settings_superuser_reserved_connections Server Parameter: superuser_reserved_connections\n# TYPE pg_settings_superuser_reserved_connections gauge\npg_settings_superuser_reserved_connections 3\n# HELP pg_settings_sync_replication_slots Server Parameter: sync_replication_slots\n# TYPE pg_settings_sync_replication_slots gauge\npg_settings_sync_replication_slots 0\n# HELP pg_settings_synchronize_seqscans Server Parameter: synchronize_seqscans\n# TYPE pg_settings_synchronize_seqscans gauge\npg_settings_synchronize_seqscans 1\n# HELP pg_settings_syslog_sequence_numbers Server Parameter: syslog_sequence_numbers\n# TYPE pg_settings_syslog_sequence_numbers gauge\npg_settings_syslog_sequence_numbers 1\n# HELP pg_settings_syslog_split_messages Server Parameter: syslog_split_messages\n# TYPE pg_settings_syslog_split_messages gauge\npg_settings_syslog_split_messages 1\n# HELP pg_settings_tcp_keepalives_count Server Parameter: tcp_keepalives_count\n# TYPE pg_settings_tcp_keepalives_count gauge\npg_settings_tcp_keepalives_count 0\n# HELP pg_settings_tcp_keepalives_idle_seconds Server Parameter: tcp_keepalives_idle [Units converted to seconds.]\n# TYPE pg_settings_tcp_keepalives_idle_seconds gauge\npg_settings_tcp_keepalives_idle_seconds 0\n# HELP pg_settings_tcp_keepalives_interval_seconds Server Parameter: tcp_keepalives_interval [Units converted to seconds.]\n# TYPE pg_settings_tcp_keepalives_interval_seconds gauge\npg_settings_tcp_keepalives_interval_seconds 0\n# HELP pg_settings_tcp_user_timeout_seconds Server Parameter: tcp_user_timeout [Units converted to seconds.]\n# TYPE pg_settings_tcp_user_timeout_seconds gauge\npg_settings_tcp_user_timeout_seconds 0\n# HELP pg_settings_temp_buffers_bytes Server Parameter: temp_buffers [Units converted to bytes.]\n# TYPE pg_settings_temp_buffers_bytes gauge\npg_settings_temp_buffers_bytes 8.388608e+06\n# HELP pg_settings_temp_file_limit_bytes Server Parameter: temp_file_limit [Units converted to bytes.]\n# TYPE pg_settings_temp_file_limit_bytes gauge\npg_settings_temp_file_limit_bytes -1\n# HELP pg_settings_trace_connection_negotiation Server Parameter: trace_connection_negotiation\n# TYPE pg_settings_trace_connection_negotiation gauge\npg_settings_trace_connection_negotiation 0\n# HELP pg_settings_trace_notify Server Parameter: trace_notify\n# TYPE pg_settings_trace_notify gauge\npg_settings_trace_notify 0\n# HELP pg_settings_trace_sort Server Parameter: trace_sort\n# TYPE pg_settings_trace_sort gauge\npg_settings_trace_sort 0\n# HELP pg_settings_track_activities Server Parameter: track_activities\n# TYPE pg_settings_track_activities gauge\npg_settings_track_activities 1\n# HELP pg_settings_track_activity_query_size_bytes Server Parameter: track_activity_query_size [Units converted to bytes.]\n# TYPE pg_settings_track_activity_query_size_bytes gauge\npg_settings_track_activity_query_size_bytes 1024\n# HELP pg_settings_track_commit_timestamp Server Parameter: track_commit_timestamp\n# TYPE pg_settings_track_commit_timestamp gauge\npg_settings_track_commit_timestamp 0\n# HELP pg_settings_track_cost_delay_timing Server Parameter: track_cost_delay_timing\n# TYPE pg_settings_track_cost_delay_timing gauge\npg_settings_track_cost_delay_timing 0\n# HELP pg_settings_track_counts Server Parameter: track_counts\n# TYPE pg_settings_track_counts gauge\npg_settings_track_counts 1\n# HELP pg_settings_track_io_timing Server Parameter: track_io_timing\n# TYPE pg_settings_track_io_timing gauge\npg_settings_track_io_timing 0\n# HELP pg_settings_track_wal_io_timing Server Parameter: track_wal_io_timing\n# TYPE pg_settings_track_wal_io_timing gauge\npg_settings_track_wal_io_timing 0\n# HELP pg_settings_transaction_buffers_bytes Server Parameter: transaction_buffers [Units converted to bytes.]\n# TYPE pg_settings_transaction_buffers_bytes gauge\npg_settings_transaction_buffers_bytes 262144\n# HELP pg_settings_transaction_deferrable Server Parameter: transaction_deferrable\n# TYPE pg_settings_transaction_deferrable gauge\npg_settings_transaction_deferrable 0\n# HELP pg_settings_transaction_read_only Server Parameter: transaction_read_only\n# TYPE pg_settings_transaction_read_only gauge\npg_settings_transaction_read_only 0\n# HELP pg_settings_transaction_timeout_seconds Server Parameter: transaction_timeout [Units converted to seconds.]\n# TYPE pg_settings_transaction_timeout_seconds gauge\npg_settings_transaction_timeout_seconds 0\n# HELP pg_settings_transform_null_equals Server Parameter: transform_null_equals\n# TYPE pg_settings_transform_null_equals gauge\npg_settings_transform_null_equals 0\n# HELP pg_settings_unix_socket_permissions Server Parameter: unix_socket_permissions\n# TYPE pg_settings_unix_socket_permissions gauge\npg_settings_unix_socket_permissions 777\n# HELP pg_settings_update_process_title Server Parameter: update_process_title\n# TYPE pg_settings_update_process_title gauge\npg_settings_update_process_title 1\n# HELP pg_settings_vacuum_buffer_usage_limit_bytes Server Parameter: vacuum_buffer_usage_limit [Units converted to bytes.]\n# TYPE pg_settings_vacuum_buffer_usage_limit_bytes gauge\npg_settings_vacuum_buffer_usage_limit_bytes 2.097152e+06\n# HELP pg_settings_vacuum_cost_delay_seconds Server Parameter: vacuum_cost_delay [Units converted to seconds.]\n# TYPE pg_settings_vacuum_cost_delay_seconds gauge\npg_settings_vacuum_cost_delay_seconds 0\n# HELP pg_settings_vacuum_cost_limit Server Parameter: vacuum_cost_limit\n# TYPE pg_settings_vacuum_cost_limit gauge\npg_settings_vacuum_cost_limit 200\n# HELP pg_settings_vacuum_cost_page_dirty Server Parameter: vacuum_cost_page_dirty\n# TYPE pg_settings_vacuum_cost_page_dirty gauge\npg_settings_vacuum_cost_page_dirty 20\n# HELP pg_settings_vacuum_cost_page_hit Server Parameter: vacuum_cost_page_hit\n# TYPE pg_settings_vacuum_cost_page_hit gauge\npg_settings_vacuum_cost_page_hit 1\n# HELP pg_settings_vacuum_cost_page_miss Server Parameter: vacuum_cost_page_miss\n# TYPE pg_settings_vacuum_cost_page_miss gauge\npg_settings_vacuum_cost_page_miss 2\n# HELP pg_settings_vacuum_failsafe_age Server Parameter: vacuum_failsafe_age\n# TYPE pg_settings_vacuum_failsafe_age gauge\npg_settings_vacuum_failsafe_age 1.6e+09\n# HELP pg_settings_vacuum_freeze_min_age Server Parameter: vacuum_freeze_min_age\n# TYPE pg_settings_vacuum_freeze_min_age gauge\npg_settings_vacuum_freeze_min_age 5e+07\n# HELP pg_settings_vacuum_freeze_table_age Server Parameter: vacuum_freeze_table_age\n# TYPE pg_settings_vacuum_freeze_table_age gauge\npg_settings_vacuum_freeze_table_age 1.5e+08\n# HELP pg_settings_vacuum_max_eager_freeze_failure_rate Server Parameter: vacuum_max_eager_freeze_failure_rate\n# TYPE pg_settings_vacuum_max_eager_freeze_failure_rate gauge\npg_settings_vacuum_max_eager_freeze_failure_rate 0.03\n# HELP pg_settings_vacuum_multixact_failsafe_age Server Parameter: vacuum_multixact_failsafe_age\n# TYPE pg_settings_vacuum_multixact_failsafe_age gauge\npg_settings_vacuum_multixact_failsafe_age 1.6e+09\n# HELP pg_settings_vacuum_multixact_freeze_min_age Server Parameter: vacuum_multixact_freeze_min_age\n# TYPE pg_settings_vacuum_multixact_freeze_min_age gauge\npg_settings_vacuum_multixact_freeze_min_age 5e+06\n# HELP pg_settings_vacuum_multixact_freeze_table_age Server Parameter: vacuum_multixact_freeze_table_age\n# TYPE pg_settings_vacuum_multixact_freeze_table_age gauge\npg_settings_vacuum_multixact_freeze_table_age 1.5e+08\n# HELP pg_settings_vacuum_truncate Server Parameter: vacuum_truncate\n# TYPE pg_settings_vacuum_truncate gauge\npg_settings_vacuum_truncate 1\n# HELP pg_settings_wal_block_size Server Parameter: wal_block_size\n# TYPE pg_settings_wal_block_size gauge\npg_settings_wal_block_size 8192\n# HELP pg_settings_wal_buffers_bytes Server Parameter: wal_buffers [Units converted to bytes.]\n# TYPE pg_settings_wal_buffers_bytes gauge\npg_settings_wal_buffers_bytes 4.194304e+06\n# HELP pg_settings_wal_decode_buffer_size_bytes Server Parameter: wal_decode_buffer_size [Units converted to bytes.]\n# TYPE pg_settings_wal_decode_buffer_size_bytes gauge\npg_settings_wal_decode_buffer_size_bytes 524288\n# HELP pg_settings_wal_init_zero Server Parameter: wal_init_zero\n# TYPE pg_settings_wal_init_zero gauge\npg_settings_wal_init_zero 1\n# HELP pg_settings_wal_keep_size_bytes Server Parameter: wal_keep_size [Units converted to bytes.]\n# TYPE pg_settings_wal_keep_size_bytes gauge\npg_settings_wal_keep_size_bytes 0\n# HELP pg_settings_wal_log_hints Server Parameter: wal_log_hints\n# TYPE pg_settings_wal_log_hints gauge\npg_settings_wal_log_hints 0\n# HELP pg_settings_wal_receiver_create_temp_slot Server Parameter: wal_receiver_create_temp_slot\n# TYPE pg_settings_wal_receiver_create_temp_slot gauge\npg_settings_wal_receiver_create_temp_slot 0\n# HELP pg_settings_wal_receiver_status_interval_seconds Server Parameter: wal_receiver_status_interval [Units converted to seconds.]\n# TYPE pg_settings_wal_receiver_status_interval_seconds gauge\npg_settings_wal_receiver_status_interval_seconds 10\n# HELP pg_settings_wal_receiver_timeout_seconds Server Parameter: wal_receiver_timeout [Units converted to seconds.]\n# TYPE pg_settings_wal_receiver_timeout_seconds gauge\npg_settings_wal_receiver_timeout_seconds 60\n# HELP pg_settings_wal_recycle Server Parameter: wal_recycle\n# TYPE pg_settings_wal_recycle gauge\npg_settings_wal_recycle 1\n# HELP pg_settings_wal_retrieve_retry_interval_seconds Server Parameter: wal_retrieve_retry_interval [Units converted to seconds.]\n# TYPE pg_settings_wal_retrieve_retry_interval_seconds gauge\npg_settings_wal_retrieve_retry_interval_seconds 5\n# HELP pg_settings_wal_segment_size_bytes Server Parameter: wal_segment_size [Units converted to bytes.]\n# TYPE pg_settings_wal_segment_size_bytes gauge\npg_settings_wal_segment_size_bytes 1.6777216e+07\n# HELP pg_settings_wal_sender_timeout_seconds Server Parameter: wal_sender_timeout [Units converted to seconds.]\n# TYPE pg_settings_wal_sender_timeout_seconds gauge\npg_settings_wal_sender_timeout_seconds 60\n# HELP pg_settings_wal_skip_threshold_bytes Server Parameter: wal_skip_threshold [Units converted to bytes.]\n# TYPE pg_settings_wal_skip_threshold_bytes gauge\npg_settings_wal_skip_threshold_bytes 2.097152e+06\n# HELP pg_settings_wal_summary_keep_time_seconds Server Parameter: wal_summary_keep_time [Units converted to seconds.]\n# TYPE pg_settings_wal_summary_keep_time_seconds gauge\npg_settings_wal_summary_keep_time_seconds 864000\n# HELP pg_settings_wal_writer_delay_seconds Server Parameter: wal_writer_delay [Units converted to seconds.]\n# TYPE pg_settings_wal_writer_delay_seconds gauge\npg_settings_wal_writer_delay_seconds 0.2\n# HELP pg_settings_wal_writer_flush_after_bytes Server Parameter: wal_writer_flush_after [Units converted to bytes.]\n# TYPE pg_settings_wal_writer_flush_after_bytes gauge\npg_settings_wal_writer_flush_after_bytes 1.048576e+06\n# HELP pg_settings_work_mem_bytes Server Parameter: work_mem [Units converted to bytes.]\n# TYPE pg_settings_work_mem_bytes gauge\npg_settings_work_mem_bytes 4.194304e+06\n# HELP pg_settings_zero_damaged_pages Server Parameter: zero_damaged_pages\n# TYPE pg_settings_zero_damaged_pages gauge\npg_settings_zero_damaged_pages 0\n# HELP pg_stat_activity_count number of connections in this state\n# TYPE pg_stat_activity_count gauge\npg_stat_activity_count{application_name=\"\",backend_type=\"\",datname=\"app_db\",state=\"active\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_count{application_name=\"\",backend_type=\"\",datname=\"app_db\",state=\"disabled\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_count{application_name=\"\",backend_type=\"\",datname=\"app_db\",state=\"fastpath function call\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_count{application_name=\"\",backend_type=\"\",datname=\"app_db\",state=\"idle\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_count{application_name=\"\",backend_type=\"\",datname=\"app_db\",state=\"idle in transaction\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_count{application_name=\"\",backend_type=\"\",datname=\"app_db\",state=\"idle in transaction (aborted)\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_count{application_name=\"\",backend_type=\"\",datname=\"postgres\",state=\"active\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_count{application_name=\"\",backend_type=\"\",datname=\"postgres\",state=\"disabled\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_count{application_name=\"\",backend_type=\"\",datname=\"postgres\",state=\"fastpath function call\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_count{application_name=\"\",backend_type=\"\",datname=\"postgres\",state=\"idle in transaction\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_count{application_name=\"\",backend_type=\"\",datname=\"postgres\",state=\"idle in transaction (aborted)\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_count{application_name=\"\",backend_type=\"\",datname=\"template0\",state=\"active\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_count{application_name=\"\",backend_type=\"\",datname=\"template0\",state=\"disabled\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_count{application_name=\"\",backend_type=\"\",datname=\"template0\",state=\"fastpath function call\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_count{application_name=\"\",backend_type=\"\",datname=\"template0\",state=\"idle\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_count{application_name=\"\",backend_type=\"\",datname=\"template0\",state=\"idle in transaction\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_count{application_name=\"\",backend_type=\"\",datname=\"template0\",state=\"idle in transaction (aborted)\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_count{application_name=\"\",backend_type=\"\",datname=\"template1\",state=\"active\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_count{application_name=\"\",backend_type=\"\",datname=\"template1\",state=\"disabled\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_count{application_name=\"\",backend_type=\"\",datname=\"template1\",state=\"fastpath function call\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_count{application_name=\"\",backend_type=\"\",datname=\"template1\",state=\"idle\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_count{application_name=\"\",backend_type=\"\",datname=\"template1\",state=\"idle in transaction\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_count{application_name=\"\",backend_type=\"\",datname=\"template1\",state=\"idle in transaction (aborted)\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_count{application_name=\"\",backend_type=\"client backend\",datname=\"postgres\",state=\"idle\",usename=\"postgres_exporter\",wait_event=\"ClientRead\",wait_event_type=\"Client\"} 1\n# HELP pg_stat_activity_max_tx_duration max duration in seconds any active transaction has been running\n# TYPE pg_stat_activity_max_tx_duration gauge\npg_stat_activity_max_tx_duration{application_name=\"\",backend_type=\"\",datname=\"app_db\",state=\"active\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_max_tx_duration{application_name=\"\",backend_type=\"\",datname=\"app_db\",state=\"disabled\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_max_tx_duration{application_name=\"\",backend_type=\"\",datname=\"app_db\",state=\"fastpath function call\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_max_tx_duration{application_name=\"\",backend_type=\"\",datname=\"app_db\",state=\"idle\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_max_tx_duration{application_name=\"\",backend_type=\"\",datname=\"app_db\",state=\"idle in transaction\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_max_tx_duration{application_name=\"\",backend_type=\"\",datname=\"app_db\",state=\"idle in transaction (aborted)\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_max_tx_duration{application_name=\"\",backend_type=\"\",datname=\"postgres\",state=\"active\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_max_tx_duration{application_name=\"\",backend_type=\"\",datname=\"postgres\",state=\"disabled\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_max_tx_duration{application_name=\"\",backend_type=\"\",datname=\"postgres\",state=\"fastpath function call\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_max_tx_duration{application_name=\"\",backend_type=\"\",datname=\"postgres\",state=\"idle in transaction\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_max_tx_duration{application_name=\"\",backend_type=\"\",datname=\"postgres\",state=\"idle in transaction (aborted)\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_max_tx_duration{application_name=\"\",backend_type=\"\",datname=\"template0\",state=\"active\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_max_tx_duration{application_name=\"\",backend_type=\"\",datname=\"template0\",state=\"disabled\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_max_tx_duration{application_name=\"\",backend_type=\"\",datname=\"template0\",state=\"fastpath function call\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_max_tx_duration{application_name=\"\",backend_type=\"\",datname=\"template0\",state=\"idle\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_max_tx_duration{application_name=\"\",backend_type=\"\",datname=\"template0\",state=\"idle in transaction\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_max_tx_duration{application_name=\"\",backend_type=\"\",datname=\"template0\",state=\"idle in transaction (aborted)\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_max_tx_duration{application_name=\"\",backend_type=\"\",datname=\"template1\",state=\"active\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_max_tx_duration{application_name=\"\",backend_type=\"\",datname=\"template1\",state=\"disabled\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_max_tx_duration{application_name=\"\",backend_type=\"\",datname=\"template1\",state=\"fastpath function call\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_max_tx_duration{application_name=\"\",backend_type=\"\",datname=\"template1\",state=\"idle\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_max_tx_duration{application_name=\"\",backend_type=\"\",datname=\"template1\",state=\"idle in transaction\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_max_tx_duration{application_name=\"\",backend_type=\"\",datname=\"template1\",state=\"idle in transaction (aborted)\",usename=\"\",wait_event=\"\",wait_event_type=\"\"} 0\npg_stat_activity_max_tx_duration{application_name=\"\",backend_type=\"client backend\",datname=\"postgres\",state=\"idle\",usename=\"postgres_exporter\",wait_event=\"ClientRead\",wait_event_type=\"Client\"} 0\n# HELP pg_stat_archiver_archived_count Number of WAL files that have been successfully archived\n# TYPE pg_stat_archiver_archived_count counter\npg_stat_archiver_archived_count 0\n# HELP pg_stat_archiver_failed_count Number of failed attempts for archiving WAL files\n# TYPE pg_stat_archiver_failed_count counter\npg_stat_archiver_failed_count 0\n# HELP pg_stat_bgwriter_buffers_alloc_total Number of buffers allocated\n# TYPE pg_stat_bgwriter_buffers_alloc_total counter\npg_stat_bgwriter_buffers_alloc_total 2421\n# HELP pg_stat_bgwriter_buffers_clean_total Number of buffers written by the background writer\n# TYPE pg_stat_bgwriter_buffers_clean_total counter\npg_stat_bgwriter_buffers_clean_total 0\n# HELP pg_stat_bgwriter_maxwritten_clean_total Number of times the background writer stopped a cleaning scan because it had written too many buffers\n# TYPE pg_stat_bgwriter_maxwritten_clean_total counter\npg_stat_bgwriter_maxwritten_clean_total 0\n# HELP pg_stat_bgwriter_stats_reset_total Time at which these statistics were last reset\n# TYPE pg_stat_bgwriter_stats_reset_total counter\npg_stat_bgwriter_stats_reset_total 1.792697045e+09\n# HELP pg_stat_database_active_time_seconds_total Time spent executing SQL statements in this database, in seconds\n# TYPE pg_stat_database_active_time_seconds_total counter\npg_stat_database_active_time_seconds_total{datid=\"1\",datname=\"template1\"} 0\npg_stat_database_active_time_seconds_total{datid=\"16385\",datname=\"app_db\"} 0\npg_stat_database_active_time_seconds_total{datid=\"4\",datname=\"template0\"} 0\npg_stat_database_active_time_seconds_total{datid=\"5\",datname=\"postgres\"} 0.277163\n# HELP pg_stat_database_blk_read_time Time spent reading data file blocks by backends in this database, in milliseconds\n# TYPE pg_stat_database_blk_read_time counter\npg_stat_database_blk_read_time{datid=\"1\",datname=\"template1\"} 0\npg_stat_database_blk_read_time{datid=\"16385\",datname=\"app_db\"} 0\npg_stat_database_blk_read_time{datid=\"4\",datname=\"template0\"} 0\npg_stat_database_blk_read_time{datid=\"5\",datname=\"postgres\"} 0\n# HELP pg_stat_database_blk_write_time Time spent writing data file blocks by backends in this database, in milliseconds\n# TYPE pg_stat_database_blk_write_time counter\npg_stat_database_blk_write_time{datid=\"1\",datname=\"template1\"} 0\npg_stat_database_blk_write_time{datid=\"16385\",datname=\"app_db\"} 0\npg_stat_database_blk_write_time{datid=\"4\",datname=\"template0\"} 0\npg_stat_database_blk_write_time{datid=\"5\",datname=\"postgres\"} 0\n# HELP pg_stat_database_blks_hit Number of times disk blocks were found already in the buffer cache, so that a read was not necessary (this only includes hits in the PostgreSQL buffer cache, not the operating system's file system cache)\n# TYPE pg_stat_database_blks_hit counter\npg_stat_database_blks_hit{datid=\"1\",datname=\"template1\"} 105191\npg_stat_database_blks_hit{datid=\"16385\",datname=\"app_db\"} 0\npg_stat_database_blks_hit{datid=\"4\",datname=\"template0\"} 0\npg_stat_database_blks_hit{datid=\"5\",datname=\"postgres\"} 27013\n# HELP pg_stat_database_blks_read Number of disk blocks read in this database\n# TYPE pg_stat_database_blks_read counter\npg_stat_database_blks_read{datid=\"1\",datname=\"template1\"} 613\npg_stat_database_blks_read{datid=\"16385\",datname=\"app_db\"} 0\npg_stat_database_blks_read{datid=\"4\",datname=\"template0\"} 0\npg_stat_database_blks_read{datid=\"5\",datname=\"postgres\"} 372\n# HELP pg_stat_database_conflicts Number of queries canceled due to conflicts with recovery in this database. (Conflicts occur only on standby servers; see pg_stat_database_conflicts for details.)\n# TYPE pg_stat_database_conflicts counter\npg_stat_database_conflicts{datid=\"1\",datname=\"template1\"} 0\npg_stat_database_conflicts{datid=\"16385\",datname=\"app_db\"} 0\npg_stat_database_conflicts{datid=\"4\",datname=\"template0\"} 0\npg_stat_database_conflicts{datid=\"5\",datname=\"postgres\"} 0\n# HELP pg_stat_database_conflicts_confl_active_logicalslot Unknown metric from pg_stat_database_conflicts\n# TYPE pg_stat_database_conflicts_confl_active_logicalslot untyped\npg_stat_database_conflicts_confl_active_logicalslot{datid=\"1\",datname=\"template1\",server=\"/var/run/postgresql:5432\"} 0\npg_stat_database_conflicts_confl_active_logicalslot{datid=\"16385\",datname=\"app_db\",server=\"/var/run/postgresql:5432\"} 0\npg_stat_database_conflicts_confl_active_logicalslot{datid=\"4\",datname=\"template0\",server=\"/var/run/postgresql:5432\"} 0\npg_stat_database_conflicts_confl_active_logicalslot{datid=\"5\",datname=\"postgres\",server=\"/var/run/postgresql:5432\"} 0\n# HELP pg_stat_database_conflicts_confl_bufferpin Number of queries in this database that have been canceled due to pinned buffers\n# TYPE pg_stat_database_conflicts_confl_bufferpin counter\npg_stat_database_conflicts_confl_bufferpin{datid=\"1\",datname=\"template1\",server=\"/var/run/postgresql:5432\"} 0\npg_stat_database_conflicts_confl_bufferpin{datid=\"16385\",datname=\"app_db\",server=\"/var/run/postgresql:5432\"} 0\npg_stat_database_conflicts_confl_bufferpin{datid=\"4\",datname=\"template0\",server=\"/var/run/postgresql:5432\"} 0\npg_stat_database_conflicts_confl_bufferpin{datid=\"5\",datname=\"postgres\",server=\"/var/run/postgresql:5432\"} 0\n# HELP pg_stat_database_conflicts_confl_deadlock Number of queries in this database that have been canceled due to deadlocks\n# TYPE pg_stat_database_conflicts_confl_deadlock counter\npg_stat_database_conflicts_confl_deadlock{datid=\"1\",datname=\"template1\",server=\"/var/run/postgresql:5432\"} 0\npg_stat_database_conflicts_confl_deadlock{datid=\"16385\",datname=\"app_db\",server=\"/var/run/postgresql:5432\"} 0\npg_stat_database_conflicts_confl_deadlock{datid=\"4\",datname=\"template0\",server=\"/var/run/postgresql:5432\"} 0\npg_stat_database_conflicts_confl_deadlock{datid=\"5\",datname=\"postgres\",server=\"/var/run/postgresql:5432\"} 0\n# HELP pg_stat_database_conflicts_confl_lock Number of queries in this database that have been canceled due to lock timeouts\n# TYPE pg_stat_database_conflicts_confl_lock counter\npg_stat_database_conflicts_confl_lock{datid=\"1\",datname=\"template1\",server=\"/var/run/postgresql:5432\"} 0\npg_stat_database_conflicts_confl_lock{datid=\"16385\",datname=\"app_db\",server=\"/var/run/postgresql:5432\"} 0\npg_stat_database_conflicts_confl_lock{datid=\"4\",datname=\"template0\",server=\"/var/run/postgresql:5432\"} 0\npg_stat_database_conflicts_confl_lock{datid=\"5\",datname=\"postgres\",server=\"/var/run/postgresql:5432\"} 0\n# HELP pg_stat_database_conflicts_confl_snapshot Number of queries in this database that have been canceled due to old snapshots\n# TYPE pg_stat_database_conflicts_confl_snapshot counter\npg_stat_database_conflicts_confl_snapshot{datid=\"1\",datname=\"template1\",server=\"/var/run/postgresql:5432\"} 0\npg_stat_database_conflicts_confl_snapshot{datid=\"16385\",datname=\"app_db\",server=\"/var/run/postgresql:5432\"} 0\npg_stat_database_conflicts_confl_snapshot{datid=\"4\",datname=\"template0\",server=\"/var/run/postgresql:5432\"} 0\npg_stat_database_conflicts_confl_snapshot{datid=\"5\",datname=\"postgres\",server=\"/var/run/postgresql:5432\"} 0\n# HELP pg_stat_database_conflicts_confl_tablespace Number of queries in this database that have been canceled due to dropped tablespaces\n# TYPE pg_stat_database_conflicts_confl_tablespace counter\npg_stat_database_conflicts_confl_tablespace{datid=\"1\",datname=\"template1\",server=\"/var/run/postgresql:5432\"} 0\npg_stat_database_conflicts_confl_tablespace{datid=\"16385\",datname=\"app_db\",server=\"/var/run/postgresql:5432\"} 0\npg_stat_database_conflicts_confl_tablespace{datid=\"4\",datname=\"template0\",server=\"/var/run/postgresql:5432\"} 0\npg_stat_database_conflicts_confl_tablespace{datid=\"5\",datname=\"postgres\",server=\"/var/run/postgresql:5432\"} 0\n# HELP pg_stat_database_deadlocks Number of deadlocks detected in this database\n# TYPE pg_stat_database_deadlocks counter\npg_stat_database_deadlocks{datid=\"1\",datname=\"template1\"} 0\npg_stat_database_deadlocks{datid=\"16385\",datname=\"app_db\"} 0\npg_stat_database_deadlocks{datid=\"4\",datname=\"template0\"} 0\npg_stat_database_deadlocks{datid=\"5\",datname=\"postgres\"} 0\n# HELP pg_stat_database_numbackends Number of backends currently connected to this database. This is the only column in this view that returns a value reflecting current state; all other columns return the accumulated values since the last reset.\n# TYPE pg_stat_database_numbackends gauge\npg_stat_database_numbackends{datid=\"1\",datname=\"template1\"} 0\npg_stat_database_numbackends{datid=\"16385\",datname=\"app_db\"} 0\npg_stat_database_numbackends{datid=\"4\",datname=\"template0\"} 0\npg_stat_database_numbackends{datid=\"5\",datname=\"postgres\"} 2\n# HELP pg_stat_database_stats_reset Time at which these statistics were last reset\n# TYPE pg_stat_database_stats_reset counter\npg_stat_database_stats_reset{datid=\"1\",datname=\"template1\"} 0\npg_stat_database_stats_reset{datid=\"16385\",datname=\"app_db\"} 0\npg_stat_database_stats_reset{datid=\"4\",datname=\"template0\"} 0\npg_stat_database_stats_reset{datid=\"5\",datname=\"postgres\"} 0\n# HELP pg_stat_database_temp_bytes Total amount of data written to temporary files by queries in this database. All temporary files are counted, regardless of why the temporary file was created, and regardless of the log_temp_files setting.\n# TYPE pg_stat_database_temp_bytes counter\npg_stat_database_temp_bytes{datid=\"1\",datname=\"template1\"} 0\npg_stat_database_temp_bytes{datid=\"16385\",datname=\"app_db\"} 0\npg_stat_database_temp_bytes{datid=\"4\",datname=\"template0\"} 0\npg_stat_database_temp_bytes{datid=\"5\",datname=\"postgres\"} 0\n# HELP pg_stat_database_temp_files Number of temporary files created by queries in this database. All temporary files are counted, regardless of why the temporary file was created (e.g., sorting or hashing), and regardless of the log_temp_files setting.\n# TYPE pg_stat_database_temp_files counter\npg_stat_database_temp_files{datid=\"1\",datname=\"template1\"} 0\npg_stat_database_temp_files{datid=\"16385\",datname=\"app_db\"} 0\npg_stat_database_temp_files{datid=\"4\",datname=\"template0\"} 0\npg_stat_database_temp_files{datid=\"5\",datname=\"postgres\"} 0\n# HELP pg_stat_database_tup_deleted Number of rows deleted by queries in this database\n# TYPE pg_stat_database_tup_deleted counter\npg_stat_database_tup_deleted{datid=\"1\",datname=\"template1\"} 35\npg_stat_database_tup_deleted{datid=\"16385\",datname=\"app_db\"} 0\npg_stat_database_tup_deleted{datid=\"4\",datname=\"template0\"} 0\npg_stat_database_tup_deleted{datid=\"5\",datname=\"postgres\"} 0\n# HELP pg_stat_database_tup_fetched Number of rows fetched by queries in this database\n# TYPE pg_stat_database_tup_fetched counter\npg_stat_database_tup_fetched{datid=\"1\",datname=\"template1\"} 31696\npg_stat_database_tup_fetched{datid=\"16385\",datname=\"app_db\"} 0\npg_stat_database_tup_fetched{datid=\"4\",datname=\"template0\"} 0\npg_stat_database_tup_fetched{datid=\"5\",datname=\"postgres\"} 13401\n# HELP pg_stat_database_tup_inserted Number of rows inserted by queries in this database\n# TYPE pg_stat_database_tup_inserted counter\npg_stat_database_tup_inserted{datid=\"1\",datname=\"template1\"} 18159\npg_stat_database_tup_inserted{datid=\"16385\",datname=\"app_db\"} 0\npg_stat_database_tup_inserted{datid=\"4\",datname=\"template0\"} 0\npg_stat_database_tup_inserted{datid=\"5\",datname=\"postgres\"} 0\n# HELP pg_stat_database_tup_returned Number of rows returned by queries in this database\n# TYPE pg_stat_database_tup_returned counter\npg_stat_database_tup_returned{datid=\"1\",datname=\"template1\"} 147892\npg_stat_database_tup_returned{datid=\"16385\",datname=\"app_db\"} 0\npg_stat_database_tup_returned{datid=\"4\",datname=\"template0\"} 0\npg_stat_database_tup_returned{datid=\"5\",datname=\"postgres\"} 80610\n# HELP pg_stat_database_tup_updated Number of rows updated by queries in this database\n# TYPE pg_stat_database_tup_updated counter\npg_stat_database_tup_updated{datid=\"1\",datname=\"template1\"} 782\npg_stat_database_tup_updated{datid=\"16385\",datname=\"app_db\"} 0\npg_stat_database_tup_updated{datid=\"4\",datname=\"template0\"} 0\npg_stat_database_tup_updated{datid=\"5\",datname=\"postgres\"} 0\n# HELP pg_stat_database_xact_commit Number of transactions in this database that have been committed\n# TYPE pg_stat_database_xact_commit counter\npg_stat_database_xact_commit{datid=\"1\",datname=\"template1\"} 1087\npg_stat_database_xact_commit{datid=\"16385\",datname=\"app_db\"} 0\npg_stat_database_xact_commit{datid=\"4\",datname=\"template0\"} 0\npg_stat_database_xact_commit{datid=\"5\",datname=\"postgres\"} 281\n# HELP pg_stat_database_xact_rollback Number of transactions in this database that have been rolled back\n# TYPE pg_stat_database_xact_rollback counter\npg_stat_database_xact_rollback{datid=\"1\",datname=\"template1\"} 0\npg_stat_database_xact_rollback{datid=\"16385\",datname=\"app_db\"} 0\npg_stat_database_xact_rollback{datid=\"4\",datname=\"template0\"} 0\npg_stat_database_xact_rollback{datid=\"5\",datname=\"postgres\"} 0\n# HELP pg_static Version string as reported by postgres\n# TYPE pg_static untyped\npg_static{server=\"/var/run/postgresql:5432\",short_version=\"18.6.0\",version=\"PostgreSQL 18.6 (Ubuntu 18.6-0ubuntu0.26.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0, 64-bit\"} 1\n# HELP pg_up Whether the last scrape of metrics from PostgreSQL was able to connect to the server (1 for yes, 0 for no).\n# TYPE pg_up gauge\npg_up 1\n# HELP pg_wal_segments Number of WAL segments\n# TYPE pg_wal_segments gauge\npg_wal_segments 1\n# HELP pg_wal_size_bytes Total size of WAL segments\n# TYPE pg_wal_size_bytes gauge\npg_wal_size_bytes 1.6777216e+07\n# HELP postgres_exporter_build_info A metric with a constant '1' value labeled by version, revision, branch, goversion from which postgres_exporter was built, and the goos and goarch for the build.\n# TYPE postgres_exporter_build_info gauge\npostgres_exporter_build_info{branch=\"HEAD\",goarch=\"amd64\",goos=\"linux\",goversion=\"go1.26.4\",revision=\"867fbcac31cd18c143e244190ea9168cca069827\",tags=\"unknown\",version=\"0.20.1\"} 1\n# HELP postgres_exporter_config_last_reload_success_timestamp_seconds Timestamp of the last successful configuration reload.\n# TYPE postgres_exporter_config_last_reload_success_timestamp_seconds gauge\npostgres_exporter_config_last_reload_success_timestamp_seconds 0\n# HELP postgres_exporter_config_last_reload_successful Postgres exporter config loaded successfully.\n# TYPE postgres_exporter_config_last_reload_successful gauge\npostgres_exporter_config_last_reload_successful 0\n# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.\n# TYPE process_cpu_seconds_total counter\nprocess_cpu_seconds_total 0.12\n# HELP process_max_fds Maximum number of open file descriptors.\n# TYPE process_max_fds gauge\nprocess_max_fds 1.048575e+06\n# HELP process_network_receive_bytes_total Number of bytes received by the process over the network.\n# TYPE process_network_receive_bytes_total counter\nprocess_network_receive_bytes_total 2.15232149e+08\n# HELP process_network_transmit_bytes_total Number of bytes sent by the process over the network.\n# TYPE process_network_transmit_bytes_total counter\nprocess_network_transmit_bytes_total 6.892395e+07\n# HELP process_open_fds Number of open file descriptors.\n# TYPE process_open_fds gauge\nprocess_open_fds 9\n# HELP process_resident_memory_bytes Resident memory size in bytes.\n# TYPE process_resident_memory_bytes gauge\nprocess_resident_memory_bytes 1.2713984e+07\n# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.\n# TYPE process_start_time_seconds gauge\nprocess_start_time_seconds 1.7927031316e+09\n# HELP process_virtual_memory_bytes Virtual memory size in bytes.\n# TYPE process_virtual_memory_bytes gauge\nprocess_virtual_memory_bytes 1.303240704e+09\n# HELP process_virtual_memory_max_bytes Maximum amount of virtual memory available in bytes.\n# TYPE process_virtual_memory_max_bytes gauge\nprocess_virtual_memory_max_bytes 1.8446744073709552e+19\n# HELP promhttp_metric_handler_requests_in_flight Current number of scrapes being served.\n# TYPE promhttp_metric_handler_requests_in_flight gauge\npromhttp_metric_handler_requests_in_flight 1\n# HELP promhttp_metric_handler_requests_total Total number of scrapes by HTTP status code.\n# TYPE promhttp_metric_handler_requests_total counter\npromhttp_metric_handler_requests_total{code=\"200\"} 0\npromhttp_metric_handler_requests_total{code=\"500\"} 0\npromhttp_metric_handler_requests_total{code=\"503\"} 0\n",
+rkart@TIRoman:~/projects/hw2$

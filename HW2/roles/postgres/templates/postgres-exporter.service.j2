@@ -1,0 +1,18 @@
+{{ ansible_managed | comment }}
+
+[Unit]
+Description=Prometheus PostgreSQL exporter
+After={{ postgres__service_name }}
+Wants={{ postgres__service_name }}
+
+[Service]
+Type=simple
+User=postgres_exporter
+Group=postgres_exporter
+Environment="DATA_SOURCE_NAME=postgresql:///postgres?host=/var/run/postgresql"
+ExecStart=/usr/local/bin/postgres_exporter --web.listen-address=:{{ postgres__exporter_port }}
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

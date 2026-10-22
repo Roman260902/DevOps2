@@ -1,0 +1,12 @@
+---
+postgres__users:
+  - name: app_user
+    password: "{{ vault_app_user_password }}"
+    role_attr_flags: LOGIN
+    state: present
+
+postgres__databases:
+  - name: app_db
+    owner: app_user
+    encoding: UTF8
+    state: present

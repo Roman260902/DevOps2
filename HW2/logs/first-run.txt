@@ -1,0 +1,83 @@
+
+PLAY [Configure PostgreSQL on vm1] *********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [vm1]
+
+TASK [postgres : Install PostgreSQL packages] **********************************
+ok: [vm1]
+
+TASK [postgres : Stop default Ubuntu PostgreSQL cluster] ***********************
+ok: [vm1]
+
+TASK [postgres : Create PostgreSQL directories] ********************************
+ok: [vm1] => (item={'path': '/data', 'owner': 'root', 'group': 'root', 'mode': '0755'})
+ok: [vm1] => (item={'path': '/data/postgres', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+ok: [vm1] => (item={'path': '/data/postgres/data', 'owner': 'postgres', 'group': 'postgres', 'mode': '0700'})
+
+TASK [postgres : Initialize PostgreSQL cluster] ********************************
+ok: [vm1]
+
+TASK [postgres : Configure postgresql.conf] ************************************
+ok: [vm1] => (item=listen_addresses)
+ok: [vm1] => (item=port)
+ok: [vm1] => (item=max_connections)
+ok: [vm1] => (item=password_encryption)
+ok: [vm1] => (item=unix_socket_directories)
+
+TASK [postgres : Configure pg_hba.conf] ****************************************
+ok: [vm1]
+
+TASK [postgres : Install PostgreSQL systemd unit] ******************************
+ok: [vm1]
+
+TASK [postgres : Enable and start PostgreSQL] **********************************
+ok: [vm1]
+
+TASK [postgres : Apply PostgreSQL handlers before creating users] **************
+
+TASK [postgres : Create PostgreSQL users] **************************************
+ok: [vm1] => (item=(censored due to no_log))
+
+TASK [postgres : Create PostgreSQL databases] **********************************
+ok: [vm1] => (item=app_db)
+
+TASK [postgres : Execute SELECT 1] *********************************************
+ok: [vm1]
+
+TASK [postgres : Create postgres-exporter system user] *************************
+ok: [vm1]
+
+TASK [postgres : Create PostgreSQL role for exporter] **************************
+ok: [vm1]
+
+TASK [postgres : Grant pg_monitor to exporter] *********************************
+ok: [vm1]
+
+TASK [postgres : Create local exporter directory] ******************************
+ok: [vm1 -> localhost]
+
+TASK [postgres : Download exporter archive] ************************************
+changed: [vm1 -> localhost]
+
+TASK [postgres : Extract exporter archive] *************************************
+changed: [vm1 -> localhost]
+
+TASK [postgres : Install exporter binary] **************************************
+changed: [vm1]
+
+TASK [postgres : Install exporter systemd unit] ********************************
+changed: [vm1]
+
+TASK [postgres : Enable and start exporter] ************************************
+changed: [vm1]
+
+RUNNING HANDLER [postgres : Reload systemd] ************************************
+ok: [vm1]
+
+RUNNING HANDLER [postgres : Restart postgres exporter] *************************
+changed: [vm1]
+
+PLAY RECAP *********************************************************************
+vm1                        : ok=23   changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

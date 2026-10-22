@@ -1,0 +1,7 @@
+---
+- name: Configure PostgreSQL on vm1
+  hosts: vm1
+  gather_facts: true
+
+  roles:
+    - postgres

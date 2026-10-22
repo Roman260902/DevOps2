@@ -1,0 +1,41 @@
+---
+- name: Install PostgreSQL packages
+  ansible.builtin.apt:
+    name:
+      - postgresql
+      - python3-psycopg2
+      - acl
+    update_cache: true
+    state: present
+  become: true
+
+- name: Stop default Ubuntu PostgreSQL cluster
+  ansible.builtin.systemd_service:
+    name: "postgresql@{{ postgres__version }}-main.service"
+    state: stopped
+    enabled: false
+  become: true
+
+- name: Create PostgreSQL directories
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    owner: "{{ item.owner }}"
+    group: "{{ item.group }}"
+    mode: "{{ item.mode }}"
+    state: directory
+  loop:
+    - path: /data
+      owner: root
+      group: root
+      mode: "0755"
+
+    - path: /data/postgres
+      owner: postgres
+      group: postgres
+      mode: "0700"
+
+    - path: "{{ postgres__data_dir }}"
+      owner: postgres
+      group: postgres
+      mode: "0700"
+  become: true

@@ -1,0 +1,38 @@
+---
+- name: Create PostgreSQL users
+  community.postgresql.postgresql_user:
+    name: "{{ item.name }}"
+    password: "{{ item.password | default(omit) }}"
+    role_attr_flags: "{{ item.role_attr_flags | default('LOGIN') }}"
+    state: "{{ item.state | default('present') }}"
+    login_unix_socket: /var/run/postgresql
+  environment:
+    PGOPTIONS: "-c password_encryption=scram-sha-256"
+  loop: "{{ postgres__users }}"
+  loop_control:
+    label: "{{ item.name }}"
+  become: true
+  become_user: postgres
+  no_log: true
+
+- name: Create PostgreSQL databases
+  community.postgresql.postgresql_db:
+    name: "{{ item.name }}"
+    owner: "{{ item.owner | default(omit) }}"
+    encoding: "{{ item.encoding | default(omit) }}"
+    state: "{{ item.state | default('present') }}"
+    login_unix_socket: /var/run/postgresql
+  loop: "{{ postgres__databases }}"
+  loop_control:
+    label: "{{ item.name }}"
+  become: true
+  become_user: postgres
+
+- name: Execute SELECT 1
+  ansible.builtin.command:
+    cmd: psql -d postgres -tAc "SELECT 1"
+  register: __select_one
+  changed_when: false
+  failed_when: __select_one.stdout | trim != "1"
+  become: true
+  become_user: postgres
