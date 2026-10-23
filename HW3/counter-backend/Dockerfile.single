@@ -1,0 +1,39 @@
+FROM python:3.11.6-slim-bookworm
+
+SHELL ["/bin/sh", "-eu", "-c"]
+
+USER root
+WORKDIR /build
+
+RUN python -m pip install --no-cache-dir \
+    "poetry==1.8.5" \
+    "poetry-plugin-export==1.8.0" \
+    setuptools wheel
+
+COPY pyproject.toml poetry.lock README.md ./
+COPY src/ ./src/
+
+RUN mkdir -p dist \
+    && poetry export \
+        --without-hashes \
+        --format constraints.txt \
+        --output dist/constraints.txt \
+    && poetry run python -m pip wheel \
+        --isolated \
+        --requirement dist/constraints.txt \
+        --wheel-dir dist/vendor \
+    && poetry build --format wheel
+
+RUN python -m pip install \
+    --isolated \
+    --no-index \
+    --no-cache-dir \
+    --no-deps \
+    dist/*.whl dist/vendor/*.whl
+
+ENV HOST=0.0.0.0
+ENV PORT=8080
+
+EXPOSE 8080
+
+CMD ["python", "-m", "counter_backend"]
