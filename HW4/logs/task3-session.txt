@@ -1,0 +1,502 @@
+Script started on 2026-10-25 01:27:22+03:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="102" LINES="51"]
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mdocker pull --platform linux/amd64 \[27m
+[7m  quay.io/prometheus/node-exporter:v1.12.1[27m
+
+[7mdocker pull --platform linux/amd64 \[27m
+[7m  curlimages/curl:8.23.0[27m[A[A[A[A]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ docker pull --platform linux/amd64 \
+  quay.io/prometheus/node-exporter:v1.12.1
+
+docker pull --platform linux/amd64 \
+  curlimages/curl:8.23.0
+[?2004lv1.12.1: Pulling from prometheus/node-exporter
+
+[1A[2Kf5ee56b8245c: Pulling fs layer [1B
+[1A[2Kc93f261857c3: Pulling fs layer [1B
+[1A[2Kbef5f3176279: Pulling fs layer [1B[1A[2Kbef5f3176279: Download complete [1B[2A[2Kc93f261857c3: Download complete [2B[2A[2Kc93f261857c3: Pull complete [2B[1A[2Kbef5f3176279: Pull complete [1B[3A[2Kf5ee56b8245c: Downloading  2.097MB/12.28MB[3B[3A[2Kf5ee56b8245c: Downloading  4.194MB/12.28MB[3B[3A[2Kf5ee56b8245c: Downloading  5.243MB/12.28MB[3B[3A[2Kf5ee56b8245c: Downloading  6.291MB/12.28MB[3B[3A[2Kf5ee56b8245c: Downloading  9.437MB/12.28MB[3B[3A[2Kf5ee56b8245c: Downloading  11.53MB/12.28MB[3B[3A[2Kf5ee56b8245c: Download complete [3B[3A[2Kf5ee56b8245c: Extracting 1 s[3B[3A[2Kf5ee56b8245c: Pull complete [3BDigest: sha256:1b4e4438faca4dd7e001dd445d161a4a2091b0fededa84093b3a8dfeae1f1be0
+Status: Downloaded newer image for quay.io/prometheus/node-exporter:v1.12.1
+quay.io/prometheus/node-exporter:v1.12.1
+8.23.0: Pulling from curlimages/curl
+
+[1A[2K3f72b3b77eb8: Pulling fs layer [1B[1A[2K3f72b3b77eb8: Downloading  1.049MB/10.86MB[1B[1A[2K3f72b3b77eb8: Downloading  3.146MB/10.86MB[1B[1A[2K3f72b3b77eb8: Downloading  4.194MB/10.86MB[1B[1A[2K3f72b3b77eb8: Downloading  8.389MB/10.86MB[1B[1A[2K3f72b3b77eb8: Downloading  9.437MB/10.86MB[1B[1A[2K3f72b3b77eb8: Download complete [1B[1A[2K3f72b3b77eb8: Extracting 1 s[1B[1A[2K3f72b3b77eb8: Extracting 1 s[1B[1A[2K3f72b3b77eb8: Pull complete [1BDigest: sha256:11e64e28c5f58c8d93ee95fcf22ac055f48b0bc440e0ce7d8013bbb5ad6aa8ac
+Status: Downloaded newer image for curlimages/curl:8.23.0
+docker.io/curlimages/curl:8.23.0
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mdocker image save --platform linux/amd64 \[27m
+[7m  --output /tmp/hw4-ops-amd64.tar \[27m
+[7m  quay.io/prometheus/node-exporter:v1.12.1 \[27m
+[7m  curlimages/curl:8.23.0[27m
+
+[7mkind load image-archive /tmp/hw4-ops-amd64.tar --name course[27m[A[A[A[A[Adocker image save --platform linux/amd64 \
+  --output /tmp/hw4-ops-amd64.tar \
+  quay.io/prometheus/node-exporter:v1.12.1 \
+  curlimages/curl:8.23.0
+
+kind load image-archive /tmp/hw4-ops-amd64.tar --name course
+[?2004l[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mfor node in $(kind get nodes --name course); do[27m
+[7m  printf '\n=== %s ===\n' "$node"[27m
+[7m  docker exec "$node" crictl images |[27m
+[7m    grep -E 'node-exporter|curlimages/curl'[27m
+[7mdone[27m[A[A[A[A]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ for node in $(kind get nodes --name course); do
+  printf '\n=== %s ===\n' "$node"
+  docker exec "$node" crictl images |
+    grep -E 'node-exporter|curlimages/curl'
+done
+[?2004l
+=== course-control-plane ===
+docker.io/[01;31m[Kcurlimages/curl[m[K                       8.23.0               8fd1c0283b86a       10.9MB
+quay.io/prometheus/[01;31m[Knode-exporter[m[K                v1.12.1              9bbbca8f5cb8e       13.4MB
+
+=== course-worker2 ===
+docker.io/[01;31m[Kcurlimages/curl[m[K                       8.23.0               8fd1c0283b86a       10.9MB
+quay.io/prometheus/[01;31m[Knode-exporter[m[K                v1.12.1              9bbbca8f5cb8e       13.4MB
+
+=== course-worker ===
+docker.io/[01;31m[Kcurlimages/curl[m[K                       8.23.0               8fd1c0283b86a       10.9MB
+quay.io/prometheus/[01;31m[Knode-exporter[m[K                v1.12.1              9bbbca8f5cb8e       13.4MB
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ nano manifests/ops/01-[7mnode-exporter.yaml[27mnode-exporter.yaml
+[?2004l[?2004h[?1049h[22;0;0t[1;51r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[49;46H(B[0;7m[ New File ](B[m[H(B[0;7m  GNU nano 8.7.1                     manifests/ops/01-node-exporter.yaml                              [1;101H(B[m[50d(B[0;7m^G(B[m Help[15G(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut[50;57H(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste[57G(B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[2d[?12l[?25h[?25l[49d[K[1;74H(B[0;7m*[101G(B[m[2;13H[92mhttpGet[39m:[3;15H[92mpath[39m: (B[m/[4;15H[92mport[39m: (B[mmetrics[5;13H[92minitialDelaySeconds[39m: [95m3[6;13H[92mperiodSeconds[39m: [95m10[8;11H[92mlivenessProbe[39m:[9;13H[92mhttpGet[39m:[10;15H[92mpath[39m: (B[m/[11;15H[92mport[39m: (B[mmetrics[12;13H[92minitialDelaySeconds[39m: [95m10[13;13H[92mperiodSeconds[39m: [95m20[15;11H[92mvolumeMounts[39m:[16;12H(B[0;1m[33m[1K - (B[0m[92mname[39m: (B[mhost-root[17;15H[92mmountPath[39m: (B[m/host[18;15H[92mreadOnly[39m: [95mtrue[19;15H[92mmountPropagation[39m: (B[mHostToContainer[21;7H[92mvolumes[39m:[22;8H(B[0;1m[33m[1K - (B[0m[92mname[39m: (B[mhost-root[23;11H[92mhostPath[39m:[24;13H[92mpath[39m: (B[m/[25;13H[92mtype[39m: (B[mDirectory[?12l[?25h[?25l[50;15H      (B[0;7mM-D(B[m DOS Format      (B[0;7mM-A(B[m Append[57G    (B[0;7mM-B(B[m Backup File     (B[0;7m^T(B[m Browse[K[51;2H(B[0;7mC(B[m Cancel           (B[0;7mM-M(B[m Mac Format      (B[0;7mM-P(B[m Prepend         (B[0;7m^Q(B[m Discard buffer[K[50;90H[A(B[0;7mWrite to File: manifests/ops/01-node-exporter.yaml                                                    [49;51H(B[m[?12l[?25h[?25l[44G[1K (B[0;7m[ Writing... ](B[m[K[1;74H(B[0;7m [101G(B[m[49;42H(B[0;7m[ Wrote 112 lines ](B[m[50;15H(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut  [57G(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51;2H(B[0;7mX(B[m Exit       (B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste      (B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[?12l[?25h[25;28H[?25l[49d[J[51d[?12l[?25h[51;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl apply -f manifests/ops/01-node-exporter.yaml[27m
+
+[7mkubectl -n monitoring rollout status \[27m
+[7m  daemonset/node-exporter --timeout=180s[27m
+
+[7mkubectl get nodes[27m
+
+[7mkubectl -n monitoring get daemonset node-exporter[27m
+
+[7mkubectl -n monitoring get pods \[27m
+[7m  -l app=node-exporter -o wide[27m[A[A[A[A[A[A[A[A[A[Akubectl apply -f manifests/ops/01-node-exporter.yaml
+
+kubectl -n monitoring rollout status \
+  daemonset/node-exporter --timeout=180s
+
+kubectl get nodes
+
+kubectl -n monitoring get daemonset node-exporter
+
+kubectl -n monitoring get pods \
+  -l app=node-exporter -o wide
+[?2004lnamespace/monitoring created
+daemonset.apps/node-exporter created
+Waiting for daemon set "node-exporter" rollout to finish: 0 of 3 updated pods are available...
+Waiting for daemon set "node-exporter" rollout to finish: 1 of 3 updated pods are available...
+Waiting for daemon set "node-exporter" rollout to finish: 2 of 3 updated pods are available...
+daemon set "node-exporter" successfully rolled out
+NAME                   STATUS   ROLES           AGE   VERSION
+course-control-plane   Ready    control-plane   8h    v1.37.0
+course-worker          Ready    <none>          8h    v1.37.0
+course-worker2         Ready    <none>          8h    v1.37.0
+NAME            DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
+node-exporter   3         3         3       3            3           kubernetes.io/os=linux   14s
+NAME                  READY   STATUS    RESTARTS   AGE   IP           NODE                   NOMINATED NODE   READINESS GATES
+node-exporter-4vf5f   1/1     Running   0          14s   172.20.0.3   course-worker2         <none>           <none>
+node-exporter-c5b8r   1/1     Running   0          14s   172.20.0.2   course-worker          <none>           <none>
+node-exporter-l7bzs   1/1     Running   0          14s   172.20.0.4   course-control-plane   <none>           <none>
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mfor pod in $(kubectl -n monitoring get pods \[27m
+[7m  -l app=node-exporter \[27m
+[7m  -o jsonpath='{.items[*].metadata.name}'); do[27m
+
+[7m  printf '\n=== %s ===\n' "$pod"[27m
+
+[7m  kubectl get --raw \[27m
+[7m    "/api/v1/namespaces/monitoring/pods/${pod}:9100/proxy/metrics" |[27m
+[7m    grep -E '^node_(uname_info|memory_MemTotal_bytes)(\{| )'[27m
+[7mdone[27m[A[A[A[A[A[A[A[A[A]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ for pod in $(kubectl -n monitoring get pods \
+  -l app=node-exporter \
+  -o jsonpath='{.items[*].metadata.name}'); do
+
+  printf '\n=== %s ===\n' "$pod"
+
+  kubectl get --raw \
+    "/api/v1/namespaces/monitoring/pods/${pod}:9100/proxy/metrics" |
+    grep -E '^node_(uname_info|memory_MemTotal_bytes)(\{| )'
+done
+[?2004l
+=== node-exporter-4vf5f ===
+[01;31m[Knode_memory_MemTotal_bytes [m[K1.6624316416e+10
+[01;31m[Knode_uname_info{[m[Kdomainname="localdomain",machine="x86_64",nodename="course-worker2",release="6.6.87.2-microsoft-standard-WSL2",sysname="Linux",version="#1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025"} 1
+
+=== node-exporter-c5b8r ===
+[01;31m[Knode_memory_MemTotal_bytes [m[K1.6624316416e+10
+[01;31m[Knode_uname_info{[m[Kdomainname="localdomain",machine="x86_64",nodename="course-worker",release="6.6.87.2-microsoft-standard-WSL2",sysname="Linux",version="#1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025"} 1
+
+=== node-exporter-l7bzs ===
+[01;31m[Knode_memory_MemTotal_bytes [m[K1.6624316416e+10
+[01;31m[Knode_uname_info{[m[Kdomainname="localdomain",machine="x86_64",nodename="course-control-plane",release="6.6.87.2-microsoft-standard-WSL2",sysname="Linux",version="#1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025"} 1
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ nano manifests/ops/[7m02-frontend-scaler-rbac.yaml[27m02-frontend-scaler-rbac.yaml
+[?2004l[?2004h[?1049h[22;0;0t[1;51r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[49;46H(B[0;7m[ New File ](B[m[H(B[0;7m  GNU nano 8.7.1                 manifests/ops/02-frontend-scaler-rbac.yaml                           [1;101H(B[m[50d(B[0;7m^G(B[m Help[15G(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut[50;57H(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste[57G(B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[2d[?12l[?25h[?25l[49d[K[1;77H(B[0;7m*[101G(B[m[2d[92mapiVersion[39m: (B[mv1[3d[92mkind[39m: (B[mServiceAccount[4d[92mmetadata[39m:[5;3H[92mname[39m: (B[mfrontend-scaler[6;3H[92mnamespace[39m: (B[mcounter[8d(B[0;1m[38;5;38m---[9d(B[0m[92mapiVersion[39m: (B[mrbac.authorization.k8s.io/v1[10d[92mkind[39m: (B[mRole[11d[92mmetadata[39m:[12;3H[92mname[39m: (B[mfrontend-scaler[13;3H[92mnamespace[39m: (B[mcounter[15d[92mrules[39m:[16d(B[0;1m[33m  - (B[0m[92mapiGroups[39m:[17;6H(B[0;1m[33m[1K - [39m(B[mapps[18;5H[92mresources[39m:[19;6H(B[0;1m[33m[1K - [39m(B[mdeployments/scale[20;5H[92mresourceNames[39m:[21;6H(B[0;1m[33m[1K - [39m(B[mcounter-frontend[22;5H[92mverbs[39m:[23;6H(B[0;1m[33m[1K - [39m(B[mpatch[25d(B[0;1m[38;5;38m---[26d(B[0m[92mapiVersion[39m: (B[mrbac.authorization.k8s.io/v1[27d[92mkind[39m: (B[mRoleBinding[28d[92mmetadata[39m:[29;3H[92mname[39m: (B[mfrontend-scaler[30;3H[92mnamespace[39m: (B[mcounter[32d[92msubjects[39m:[33d(B[0;1m[33m  - (B[0m[92mkind[39m: (B[mServiceAccount[34;5H[92mname[39m: (B[mfrontend-scaler[35;5H[92mnamespace[39m: (B[mcounter[37d[92mroleRef[39m:[38;3H[92mapiGroup[39m: (B[mrbac.authorization.k8s.io[39;3H[92mkind[39m: (B[mRole[40;3H[92mname[39m: (B[mfrontend-scaler[?12l[?25h[?25l[50;15H      (B[0;7mM-D(B[m DOS Format      (B[0;7mM-A(B[m Append[57G    (B[0;7mM-B(B[m Backup File     (B[0;7m^T(B[m Browse[K[51;2H(B[0;7mC(B[m Cancel           (B[0;7mM-M(B[m Mac Format      (B[0;7mM-P(B[m Prepend         (B[0;7m^Q(B[m Discard buffer[K[50;90H[A(B[0;7mWrite to File: manifests/ops/02-frontend-scaler-rbac.yaml                                             [49;58H(B[m[?12l[?25h[?25l[49;44H[1K (B[0;7m[ Writing... ](B[m[K[1;77H(B[0;7m [101G(B[m[49;43H(B[0;7m[ Wrote 39 lines ](B[m[50;15H(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut  [57G(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51;2H(B[0;7mX(B[m Exit       (B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste      (B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[?12l[?25h[40;24H[?25l[49d[J[51d[?12l[?25h[51;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl apply -f manifests/ops/02-frontend-scaler-rbac.yaml[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ckubectl apply -f manifests/ops/02-frontend-scaler-rbac.yaml
+[?2004lserviceaccount/frontend-scaler created
+role.rbac.authorization.k8s.io/frontend-scaler created
+rolebinding.rbac.authorization.k8s.io/frontend-scaler created
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl auth can-i patch deployments.apps/counter-frontend \[27m
+[7m  --subresource=scale \[27m
+[7m  --namespace=counter \[27m
+[7m  --as=system:serviceaccount:counter:frontend-scaler[27m[A[A[Akubectl auth can-i patch deployments.apps/counter-frontend \
+  --subresource=scale \
+  --namespace=counter \
+  --as=system:serviceaccount:counter:frontend-scaler
+[?2004lyes
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl auth can-i patch deployments.apps/counter-backend \[27m
+[7m  --subresource=scale \[27m
+[7m  --namespace=counter \[27m
+[7m  --as=system:serviceaccount:counter:frontend-scaler[27m[A[A[Akubectl auth can-i patch deployments.apps/counter-backend \
+  --subresource=scale \
+  --namespace=counter \
+  --as=system:serviceaccount:counter:frontend-scaler
+[?2004lno
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl auth can-i patch deployments.apps/counter-frontend \[27m
+[7m  --namespace=counter \[27m
+[7m  --as=system:serviceaccount:counter:frontend-scaler[27m[A[Akubectl auth can-i patch deployments.apps/counter-frontend \
+  --namespace=counter \
+  --as=system:serviceaccount:counter:frontend-scaler
+[?2004lno
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl auth can-i get secrets \[27m
+[7m  --namespace=counter \[27m
+[7m  --as=system:serviceaccount:counter:frontend-scaler[27m
+
+[7mkubectl auth can-i delete pods \[27m
+[7m  --namespace=counter \[27m
+[7m  --as=system:serviceaccount:counter:frontend-scaler[27m[A[A[A[A[A[Akubectl auth can-i get secrets \
+  --namespace=counter \
+  --as=system:serviceaccount:counter:frontend-scaler
+
+kubectl auth can-i delete pods \
+  --namespace=counter \
+  --as=system:serviceaccount:counter:frontend-scaler
+[?2004lno
+no
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ kubectl auth can-i delete pods   --namespace=counter   --as=system:serviceaccount:counter:frontend-scaler[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cget secret
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpatch deployments.apps/counter-frontend   --namespace=[28@counter   --as=system:servic[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cbackend   --subresource[21@=scale   --namespace=[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Afrontend   --subresourc[1@e[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[13Ppply -f manifests/ops/02-frontend-scaler-rbac.yaml
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[12Pnano[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[7m03-frontend-scale-up.yaml[27m03-frontend-scale-up.yaml
+[?2004l[?2004h[?1049h[22;0;0t[1;51r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[49;46H(B[0;7m[ New File ](B[m[H(B[0;7m  GNU nano 8.7.1                   manifests/ops/03-frontend-scale-up.yaml                            [1;101H(B[m[50d(B[0;7m^G(B[m Help[15G(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut[50;57H(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste[57G(B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[2d[?12l[?25h[?25l[49d[K[1;76H(B[0;7m*[101G(B[m[2;21H--noproxy [95m'*'[39m(B[m [38;5;208m\[3;21H[39m(B[m--cacert [95m"$sa/ca.crt"[39m(B[m [38;5;208m\[4;21H[39m(B[m--header [95m"Authorization: Bearer $(cat "[39m(B[m$sa/token[95m")"[39m(B[m [38;5;208m\[5;21H[39m(B[m--header [95m"Content-Type: application/merge-patch+json"[39m(B[m [38;5;208m\[6;21H[39m(B[m--request PATCH [38;5;208m\[7;21H[39m(B[m--data [95m"[33m{[38;5;208m\"[95mspec[38;5;208m\"[95m:[33m{[38;5;208m\"[95mreplicas[38;5;208m\"[95m:$[33m{[95mREPLICAS[33m}}}[95m"[39m(B[m [38;5;208m\[8;21H[39m(B[mhttps://kubernetes.default.svc/apis/apps/v1/namespaces/counter/deployments/counte(B[0;7m>[10;19H(B[mprintf [95m'[38;5;208m\n[95mRequested frontend replicas: %s[38;5;208m\n[95m'[39m(B[m [95m"$REPLICAS"[12;15H[92mresources[39m:[13;17H[92mrequests[39m:[14;19H[92mcpu[39m: (B[m10m[15;19H[92mmemory[39m: (B[m16Mi[16;17H[92mlimits[39m:[17;19H[92mcpu[39m: (B[m100m[18;19H[92mmemory[39m: (B[m64Mi[20;15H[92msecurityContext[39m:[21;17H[92mallowPrivilegeEscalation[39m: [95mfalse[22;17H[92mreadOnlyRootFilesystem[39m: [95mtrue[23;17H[92mcapabilities[39m:[24;19H[92mdrop[39m:[25;20H(B[0;1m[33m[1K - [39m(B[mALL[?12l[?25h[?25l[50;15H      (B[0;7mM-D(B[m DOS Format      (B[0;7mM-A(B[m Append[57G    (B[0;7mM-B(B[m Backup File     (B[0;7m^T(B[m Browse[K[51;2H(B[0;7mC(B[m Cancel           (B[0;7mM-M(B[m Mac Format      (B[0;7mM-P(B[m Prepend         (B[0;7m^Q(B[m Discard buffer[K[50;90H[A(B[0;7mWrite to File: manifests/ops/03-frontend-scale-up.yaml                                                [49;55H(B[m[?12l[?25h[?25l[49;44H[1K (B[0;7m[ Writing... ](B[m[K[1;76H(B[0;7m [101G(B[m[49;43H(B[0;7m[ Wrote 83 lines ](B[m[50;15H(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut  [57G(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51;2H(B[0;7mX(B[m Exit       (B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste      (B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[?12l[?25h[25;26H[?25l[49d[J[51d[?12l[?25h[51;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mcp manifests/ops/03-frontend-scale-up.yaml \[27m
+[7m   manifests/ops/04-frontend-scale-down.yaml[27m[Acp manifests/ops/03-frontend-scale-up.yaml \
+   manifests/ops/04-frontend-scale-down.yaml
+[?2004l[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ nano manifests/ops/04-frontend-scale-down.yaml 
+[?2004l[?2004h[?1049h[22;0;0t[1;51r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[49;45H(B[0;7m[ Reading... ](B[m[49;43H(B[0;7m[ Read 83 lines ](B[m[H(B[0;7m  GNU nano 8.7.1                  manifests/ops/04-frontend-scale-down.yaml                           [1;101H(B[m[50d(B[0;7m^G(B[m Help[15G(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut[50;57H(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste[57G(B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[2d[92mapiVersion[39m: (B[mbatch/v1[3d[92mkind[39m: (B[mCronJob[4d[92mmetadata[39m:[5;3H[92mname[39m: (B[mfrontend-scale-up[6;3H[92mnamespace[39m: (B[mcounter[8d[92mspec[39m:[9;3H[92mschedule[39m: [95m"0 9 * * *"[10;3H[92mtimeZone[39m: (B[mEurope/Moscow[12;3H[92mconcurrencyPolicy[39m: (B[mForbid[13;3H[92mstartingDeadlineSeconds[39m: [95m300[15;3H[92msuccessfulJobsHistoryLimit[39m: [95m3[16;3H[92mfailedJobsHistoryLimit[39m: [95m3[18;3H[92mjobTemplate[39m:[19;5H[92mspec[39m:[20;7H[92mbackoffLimit[39m: [95m1[21;7H[92mactiveDeadlineSeconds[39m: [95m90[23;7H[92mtemplate[39m:[24;9H[92mspec[39m:[25;11H[92mserviceAccountName[39m: (B[mfrontend-scaler[26;11H[92mautomountServiceAccountToken[39m: [95mtrue[27;11H[92mrestartPolicy[39m: (B[mNever[29;11H[92msecurityContext[39m:[30;13H[92mrunAsNonRoot[39m: [95mtrue[31;13H[92mseccompProfile[39m:[32;15H[92mtype[39m: (B[mRuntimeDefault[34;11H[92mcontainers[39m:[35;12H(B[0;1m[33m[1K - (B[0m[92mname[39m: (B[mscaler[36;15H[92mimage[39m: (B[mcurlimages/curl:8.23.0[37;15H[92mimagePullPolicy[39m: (B[mIfNotPresent[39;15H[92menv[39m:[40;16H(B[0;1m[33m[1K - (B[0m[92mname[39m: (B[mREPLICAS[41;19H[92mvalue[39m: [95m"3"[43;15H[92mcommand[39m:[44;16H(B[0;1m[33m[1K - [39m(B[msh[45;16H(B[0;1m[33m[1K - [39m(B[m-eu[46;16H(B[0;1m[33m[1K - [39m(B[m-c[47;16H(B[0;1m[33m[1K - [38;5;38m|[48d[39m(B[mcase [95m"$REPLICAS"[39m(B[m in[2d[?12l[?25h[?25l[?12l[?25h[3d[?25l[?12l[?25h[4d[?25l[?12l[?25h[5d[?25l[?12l[?25h[6d[?25l[?12l[?25h[5;26H[?25l[1;77H(B[0;7m*[101G(B[m[?12l[?25h[5;25H [?25l[?12l[?25h [?25l[?12l[?25hd[?25l[?12l[?25ho[?25l[?12l[?25hw[?25l[?12l[?25hn[?25l[?12l[?25h[6;21H[?25l[?12l[?25h[7d[?25l[?12l[?25h[8;6H[?25l[?12l[?25h[9;24H[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[49d[K[?12l[?25h[9;19H[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[1P[?25l[?12l[?25h[95m1 * * *"[17G[39m(B[m[?25l[?12l[?25h[95m8 * * *"[18G[39m(B[m[?25l[?12l[?25h[10d[?25l[?12l[?25h[11d[?25l[?12l[?25h[12;18H[?25l[?12l[?25h[13d[?25l[?12l[?25h[14d[?25l[?12l[?25h[15;18H[?25l[?12l[?25h[16d[?25l[?12l[?25h[17d[?25l[?12l[?25h[18;15H[?25l[?12l[?25h[19;10H[?25l[?12l[?25h[20;18H[?25l[?12l[?25h[21d[?25l[?12l[?25h[22d[?25l[?12l[?25h[23;16H[?25l[?12l[?25h[24d[?25l[?12l[?25h[25;18H[?25l[?12l[?25h[26d[?25l[?12l[?25h[27d[?25l[?12l[?25h[28d[?25l[?12l[?25h[29;18H[?25l[?12l[?25h[30d[?25l[?12l[?25h[31d[?25l[?12l[?25h[32d[?25l[?12l[?25h[33d[?25l[?12l[?25h[34;18H[?25l[?12l[?25h[35d[?25l[?12l[?25h[36d[?25l[?12l[?25h[37d[?25l[?12l[?25h[38d[?25l[?12l[?25h[39;18H[?25l[?12l[?25h[40d[?25l[?12l[?25h[41d[?25l[?12l[?25h [?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h""[K[?25l[?12l[?25h[95m"1"[39m(B[m[?25l[50;15H      (B[0;7mM-D(B[m DOS Format      (B[0;7mM-A(B[m Append[57G    (B[0;7mM-B(B[m Backup File     (B[0;7m^T(B[m Browse[K[51;2H(B[0;7mC(B[m Cancel           (B[0;7mM-M(B[m Mac Format      (B[0;7mM-P(B[m Prepend         (B[0;7m^Q(B[m Discard buffer[K[50;90H[A(B[0;7mWrite to File: manifests/ops/04-frontend-scale-down.yaml                                              [49;57H(B[m[?12l[?25h[?25l[49;44H[1K (B[0;7m[ Writing... ](B[m[K[1;77H(B[0;7m [101G(B[m[49;43H(B[0;7m[ Wrote 83 lines ](B[m[50;15H(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut  [57G(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51;2H(B[0;7mX(B[m Exit       (B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste      (B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[?12l[?25h[41;28H[?25l[49d[J[51d[?12l[?25h[51;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl apply -f manifests/ops/03-frontend-scale-up.yaml[27m
+[7mkubectl apply -f manifests/ops/04-frontend-scale-down.yaml[27m[Akubectl apply -f manifests/ops/03-frontend-scale-up.yaml
+kubectl apply -f manifests/ops/04-frontend-scale-down.yaml
+[?2004lcronjob.batch/frontend-scale-up created
+cronjob.batch/frontend-scale-down created
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter get cronjobs[27m
+
+[7mkubectl -n counter get cronjobs \[27m
+[7m  -o custom-columns='NAME:.metadata.name,SCHEDULE:.spec.schedule,TIMEZONE:.spec.timeZone,SUSPEND:.spec[27m[7m.[27m[7msuspend'[27m[A[A[A[A]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ kubectl -n counter get cronjobs
+
+kubectl -n counter get cronjobs \
+  -o custom-columns='NAME:.metadata.name,SCHEDULE:.spec.schedule,TIMEZONE:.spec.timeZone,SUSPEND:.spec.suspend'
+[?2004lNAME                  SCHEDULE     TIMEZONE        SUSPEND   ACTIVE   LAST SCHEDULE   AGE
+frontend-scale-down   0 18 * * *   Europe/Moscow   False     0        <none>          7s
+frontend-scale-up     0 9 * * *    Europe/Moscow   False     0        <none>          7s
+NAME                  SCHEDULE     TIMEZONE        SUSPEND
+frontend-scale-down   0 18 * * *   Europe/Moscow   false
+frontend-scale-up     0 9 * * *    Europe/Moscow   false
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mscale_up_job="frontend-up-check-$(date +%s)"[27m
+
+[7mkubectl -n counter create job "$scale_up_job" \[27m
+[7m  --from=cronjob/frontend-scale-up[27m
+
+[7mkubectl -n counter wait --for=condition=complete \[27m
+[7m  "job/$scale_up_job" --timeout=180s[27m
+
+[7mkubectl -n counter logs "job/$scale_up_job"[27m[A[A[A[A[A[A[A[Ascale_up_job="frontend-up-check-$(date +%s)"
+
+kubectl -n counter create job "$scale_up_job" \
+  --from=cronjob/frontend-scale-up
+
+kubectl -n counter wait --for=condition=complete \
+  "job/$scale_up_job" --timeout=180s
+
+kubectl -n counter logs "job/$scale_up_job"
+[?2004ljob.batch/frontend-up-check-1792881335 created
+error: timed out waiting for the condition on jobs/frontend-up-check-1792881335
+error: timed out waiting for the condition
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter get job frontend-up-check-1792881335 -o wide[27m
+
+[7mkubectl -n counter get pods \[27m
+[7m  -l job-name=frontend-up-check-1792881335 -o wide[27m
+
+[7mkubectl -n counter describe pods \[27m
+[7m  -l job-name=frontend-up-check-1792881335[27m[A[A[A[A[A[Akubectl -n counter get job frontend-up-check-1792881335 -o wide
+
+kubectl -n counter get pods \
+  -l job-name=frontend-up-check-1792881335 -o wide
+
+kubectl -n counter describe pods \
+  -l job-name=frontend-up-check-1792881335
+[?2004lNAME                           STATUS   COMPLETIONS   DURATION   AGE     CONTAINERS   IMAGES                   SELECTOR
+frontend-up-check-1792881335   Failed   0/1           5m41s      5m41s   scaler       curlimages/curl:8.23.0   batch.kubernetes.io/controller-uid=a772d8c4-4243-44bf-bd65-1ecf47191ebd
+No resources found in counter namespace.
+No resources found in counter namespace.
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter describe job frontend-up-check-1792881335[27m
+
+[7mkubectl -n counter get events \[27m
+[7m  --sort-by=.metadata.creationTimestamp | tail -n 60[27m[A[A[Akubectl -n counter describe job frontend-up-check-1792881335
+
+kubectl -n counter get events \
+  --sort-by=.metadata.creationTimestamp | tail -n 60
+[?2004lName:                     frontend-up-check-1792881335
+Namespace:                counter
+Selector:                 batch.kubernetes.io/controller-uid=a772d8c4-4243-44bf-bd65-1ecf47191ebd
+Labels:                   batch.kubernetes.io/controller-uid=a772d8c4-4243-44bf-bd65-1ecf47191ebd
+                          batch.kubernetes.io/job-name=frontend-up-check-1792881335
+                          controller-uid=a772d8c4-4243-44bf-bd65-1ecf47191ebd
+                          job-name=frontend-up-check-1792881335
+Annotations:              cronjob.kubernetes.io/instantiate: manual
+Controlled By:            CronJob/frontend-scale-up
+Parallelism:              1
+Completions:              1
+Completion Mode:          NonIndexed
+Suspend:                  false
+Backoff Limit:            1
+Start Time:               Sun, 25 Oct 2026 01:35:35 +0300
+Active Deadline Seconds:  90s
+Pods Statuses:            0 Active (0 Ready) / 0 Succeeded / 1 Failed
+Pod Template:
+  Labels:           batch.kubernetes.io/controller-uid=a772d8c4-4243-44bf-bd65-1ecf47191ebd
+                    batch.kubernetes.io/job-name=frontend-up-check-1792881335
+                    controller-uid=a772d8c4-4243-44bf-bd65-1ecf47191ebd
+                    job-name=frontend-up-check-1792881335
+  Service Account:  frontend-scaler
+  Containers:
+   scaler:
+    Image:      curlimages/curl:8.23.0
+    Port:       <none>
+    Host Port:  <none>
+    Command:
+      sh
+      -eu
+      -c
+      case "$REPLICAS" in
+        1|3) ;;
+        *) echo "Invalid replica count"; exit 1 ;;
+      esac
+      
+      sa=/var/run/secrets/kubernetes.io/serviceaccount
+      
+      curl \
+        --silent \
+        --show-error \
+        --fail-with-body \
+        --connect-timeout 5 \
+        --max-time 30 \
+        --noproxy '*' \
+        --cacert "$sa/ca.crt" \
+        --header "Authorization: Bearer $(cat "$sa/token")" \
+        --header "Content-Type: application/merge-patch+json" \
+        --request PATCH \
+        --data "{\"spec\":{\"replicas\":${REPLICAS}}}" \
+        https://kubernetes.default.svc/apis/apps/v1/namespaces/counter/deployments/counter-frontend/scale
+      
+      printf '\nRequested frontend replicas: %s\n' "$REPLICAS"
+      
+    Limits:
+      cpu:     100m
+      memory:  64Mi
+    Requests:
+      cpu:     10m
+      memory:  16Mi
+    Environment:
+      REPLICAS:    3
+    Mounts:        <none>
+  Volumes:         <none>
+  Node-Selectors:  <none>
+  Tolerations:     <none>
+Events:
+  Type     Reason            Age    From            Message
+  ----     ------            ----   ----            -------
+  Normal   SuccessfulCreate  6m31s  job-controller  Created pod: frontend-up-check-1792881335-t7hbt
+  Normal   SuccessfulDelete  5m1s   job-controller  Deleted pod: frontend-up-check-1792881335-t7hbt
+  Warning  DeadlineExceeded  5m     job-controller  Job was active longer than specified deadline
+LAST SEEN   TYPE      REASON             OBJECT                                   MESSAGE
+54m         Normal    SuccessfulCreate   statefulset/counter-postgres             Create Pod counter-postgres-0 in StatefulSet counter-postgres successful
+54m         Normal    Killing            pod/counter-postgres-0                   Stopping container postgres
+54m         Normal    Scheduled          pod/counter-postgres-0                   Successfully assigned counter/counter-postgres-0 to course-worker2
+54m         Normal    Pulled             pod/counter-postgres-0                   Container image "postgres:18.6-bookworm" already present on machine and can be accessed by the pod
+54m         Normal    Created            pod/counter-postgres-0                   Container created
+54m         Normal    Started            pod/counter-postgres-0                   Container started
+52m         Normal    Killing            pod/counter-postgres-0                   Stopping container postgres
+51m         Normal    Created            pod/counter-postgres-0                   Container created
+51m         Normal    Pulled             pod/counter-postgres-0                   Container image "postgres:18.6-bookworm" already present on machine and can be accessed by the pod
+51m         Normal    Started            pod/counter-postgres-0                   Container started
+51m         Normal    Scheduled          pod/counter-postgres-0                   Successfully assigned counter/counter-postgres-0 to course-worker2
+51m         Normal    SuccessfulCreate   statefulset/counter-postgres             Create Pod counter-postgres-0 in StatefulSet counter-postgres successful
+5m1s        Warning   UnexpectedJob      cronjob/frontend-scale-up                Saw a job that the controller did not create or forgot: frontend-up-check-1792881335
+6m32s       Normal    Scheduled          pod/frontend-up-check-1792881335-t7hbt   Successfully assigned counter/frontend-up-check-1792881335-t7hbt to course-worker
+6m32s       Normal    SuccessfulCreate   job/frontend-up-check-1792881335         Created pod: frontend-up-check-1792881335-t7hbt
+5m6s        Normal    Pulled             pod/frontend-up-check-1792881335-t7hbt   Container image "curlimages/curl:8.23.0" already present on machine and can be accessed by the pod
+5m6s        Warning   Failed             pod/frontend-up-check-1792881335-t7hbt   Error: container has runAsNonRoot and image has non-numeric user (curl_user), cannot verify user is non-root (pod: "frontend-up-check-1792881335-t7hbt_counter(df031dd2-4303-45d1-863b-8f8e9ee265ee)", container: scaler)
+5m2s        Normal    SuccessfulDelete   job/frontend-up-check-1792881335         Deleted pod: frontend-up-check-1792881335-t7hbt
+5m1s        Warning   DeadlineExceeded   job/frontend-up-check-1792881335         Job was active longer than specified deadline
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mdocker image inspect curlimages/curl:8.23.0 \[27m
+[7m  --format '{{.Config.User}}'[27m[A]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ docker image inspect curlimages/curl:8.23.0 \
+  --format '{{.Config.User}}'
+[?2004lcurl_user
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ docker image inspect curlimages/curl:8.23.0   --format '{{.Config.User}}'[A]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cnano manifests/ops/03
+[?2004l[?2004h[?1049h[22;0;0t[1;51r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[49;46H(B[0;7m[ New File ](B[m[H(B[0;7m  GNU nano 8.7.1                              manifests/ops/03                                        [1;101H(B[m[50d(B[0;7m^G(B[m Help[15G(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut[50;57H(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste[57G(B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[2d[?12l[?25h[?25l[49d[J[51d[?12l[?25h[51;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ nano manifests/ops/03-frontend-scale-up.yaml 
+[?2004l[?2004h[?1049h[22;0;0t[1;51r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[49;45H(B[0;7m[ Reading... ](B[m[49;43H(B[0;7m[ Read 83 lines ](B[m[H(B[0;7m  GNU nano 8.7.1                   manifests/ops/03-frontend-scale-up.yaml                            [1;101H(B[m[50d(B[0;7m^G(B[m Help[15G(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut[50;57H(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste[57G(B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[2d[92mapiVersion[39m: (B[mbatch/v1[3d[92mkind[39m: (B[mCronJob[4d[92mmetadata[39m:[5;3H[92mname[39m: (B[mfrontend-scale-up[6;3H[92mnamespace[39m: (B[mcounter[8d[92mspec[39m:[9;3H[92mschedule[39m: [95m"0 9 * * *"[10;3H[92mtimeZone[39m: (B[mEurope/Moscow[12;3H[92mconcurrencyPolicy[39m: (B[mForbid[13;3H[92mstartingDeadlineSeconds[39m: [95m300[15;3H[92msuccessfulJobsHistoryLimit[39m: [95m3[16;3H[92mfailedJobsHistoryLimit[39m: [95m3[18;3H[92mjobTemplate[39m:[19;5H[92mspec[39m:[20;7H[92mbackoffLimit[39m: [95m1[21;7H[92mactiveDeadlineSeconds[39m: [95m90[23;7H[92mtemplate[39m:[24;9H[92mspec[39m:[25;11H[92mserviceAccountName[39m: (B[mfrontend-scaler[26;11H[92mautomountServiceAccountToken[39m: [95mtrue[27;11H[92mrestartPolicy[39m: (B[mNever[29;11H[92msecurityContext[39m:[30;13H[92mrunAsNonRoot[39m: [95mtrue[31;13H[92mseccompProfile[39m:[32;15H[92mtype[39m: (B[mRuntimeDefault[34;11H[92mcontainers[39m:[35;12H(B[0;1m[33m[1K - (B[0m[92mname[39m: (B[mscaler[36;15H[92mimage[39m: (B[mcurlimages/curl:8.23.0[37;15H[92mimagePullPolicy[39m: (B[mIfNotPresent[39;15H[92menv[39m:[40;16H(B[0;1m[33m[1K - (B[0m[92mname[39m: (B[mREPLICAS[41;19H[92mvalue[39m: [95m"3"[43;15H[92mcommand[39m:[44;16H(B[0;1m[33m[1K - [39m(B[msh[45;16H(B[0;1m[33m[1K - [39m(B[m-eu[46;16H(B[0;1m[33m[1K - [39m(B[m-c[47;16H(B[0;1m[33m[1K - [38;5;38m|[48d[39m(B[mcase [95m"$REPLICAS"[39m(B[m in[2d[?12l[?25h[?25l[?12l[?25h[3d[?25l[?12l[?25h[4d[?25l[?12l[?25h[5d[?25l[?12l[?25h[6d[?25l[?12l[?25h[7d[?25l[?12l[?25h[8d[?25l[?12l[?25h[9d[?25l[?12l[?25h[10d[?25l[?12l[?25h[11d[?25l[?12l[?25h[12d[?25l[?12l[?25h[13d[?25l[?12l[?25h[14d[?25l[?12l[?25h[15d[?25l[?12l[?25h[16d[?25l[?12l[?25h[17d[?25l[?12l[?25h[18d[?25l[?12l[?25h[19d[?25l[?12l[?25h[20d[?25l[?12l[?25h[21d[?25l[49d[K[?12l[?25h[22d[?25l[?12l[?25h[23d[?25l[?12l[?25h[24d[?25l[?12l[?25h[25d[?25l[?12l[?25h[26d[?25l[?12l[?25h[27d[?25l[?12l[?25h[28d[?25l[?12l[?25h[29d[?25l[?12l[?25h[30d[?25l[?12l[?25h[31d[?25l[1;76H(B[0;7m*[101G(B[m[32;48r[32;1HM[1;51r[31;13H[92mrunAsUser[39m: [95m10001[32;13H[92mrunAsGroup[39m: (B[m10001[32;42H[92mseccompProfile[39m:[32;30H(B[m[?12l[?25h[?25l7[33;48r8[33dM[1;51r[32;25H[95m10001[39m(B[m[K[33;13H[92mseccompProfile[39m:(B[m[?12l[?25h[?25l[?12l[?25h[34d[?25l[?12l[?25h[35d[?25l[?12l[?25h[36d[?25l[?12l[?25h[37d[?25l[?12l[?25h[38d[?25l[?12l[?25h[39d[?25l[?12l[?25h[40d[?25l[?12l[?25h[41d[?25l[?12l[?25h[42d[?25l[?12l[?25h[43d[?25l[?12l[?25h[44d[?25l[?12l[?25h[45d[?25l[?12l[?25h[46d[?25l[?12l[?25h[47d[?25l[?12l[?25h[48d[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;16H(B[0;1m[33m[1K - [38;5;38m|[39m(B[m[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;19Hcase [95m"$REPLICAS"[39m(B[m in[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;21H1|3) ;;[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;21H*) echo [95m"Invalid replica count"[39m(B[m; exit 1 ;;[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;19Hesac[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;1H[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;19Hsa=/var/run/secrets/kubernetes.io/serviceaccount[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;1H[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;19Hcurl [38;5;208m\[39m(B[m[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;21H--silent [38;5;208m\[39m(B[m[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;21H--show-error [38;5;208m\[39m(B[m[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;21H--fail-with-body [38;5;208m\[39m(B[m[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;21H--connect-timeout 5 [38;5;208m\[39m(B[m[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;21H--max-time 30 [38;5;208m\[39m(B[m[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;21H--noproxy [95m'*'[39m(B[m [38;5;208m\[39m(B[m[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;21H--cacert [95m"$sa/ca.crt"[39m(B[m [38;5;208m\[39m(B[m[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;21H--header [95m"Authorization: Bearer $(cat "[39m(B[m$sa/token[95m")"[39m(B[m [38;5;208m\[39m(B[m[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;21H--header [95m"Content-Type: application/merge-patch+json"[39m(B[m [38;5;208m\[39m(B[m[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;21H--request PATCH [38;5;208m\[39m(B[m[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;21H--data [95m"[33m{[38;5;208m\"[95mspec[38;5;208m\"[95m:[33m{[38;5;208m\"[95mreplicas[38;5;208m\"[95m:$[33m{[95mREPLICAS[33m}}}[95m"[39m(B[m [38;5;208m\[39m(B[m[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;21Hhttps://kubernetes.default.svc/apis/apps/v1/namespaces/counter/deployments/counte(B[0;7m>[48;1H(B[m[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;1H[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;19Hprintf [95m'[38;5;208m\n[95mRequested frontend replicas: %s[38;5;208m\n[95m'[39m(B[m [95m"$REPLICAS"[39m(B[m[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;1H[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;15H[92mresources[39m:(B[m[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;17H[92mrequests[39m:(B[m[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;19H[92mcpu[39m: (B[m10m[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;19H[92mmemory[39m: (B[m16Mi[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;17H[92mlimits[39m:(B[m[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;19H[92mcpu[39m: (B[m100m[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;19H[92mmemory[39m: (B[m64Mi[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;1H[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;15H[92msecurityContext[39m:(B[m[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;17H[92mallowPrivilegeEscalation[39m: [95mfalse[39m(B[m[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;17H[92mreadOnlyRootFilesystem[39m: [95mtrue[39m(B[m[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;17H[92mcapabilities[39m:(B[m[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;19H[92mdrop[39m:(B[m[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;20H(B[0;1m[33m[1K - [39m(B[mALL[?25l[?12l[?25h7[2;49r8[49d
+[1;51r[48;1H[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h7[2;49r8M[1;51r[2;1H[?25l[?12l[?25h7[2;48r8M[1;51r[2;15H[92mimagePullPolicy[39m: (B[mIfNotPresent[?25l[?12l[?25h7[2;48r8M[1;51r[2;15H[92mimage[39m: (B[mcurlimages/curl:8.23.0[?25l[?12l[?25h7[2;48r8M[1;51r[2;12H(B[0;1m[33m[1K - (B[0m[92mname[39m: (B[mscaler[?25l[?12l[?25h7[2;48r8M[1;51r[2;11H[92mcontainers[39m:(B[m[?25l[?12l[?25h7[2;48r8M[1;51r[2;1H[?25l[?12l[?25h7[2;48r8M[1;51r[2;15H[92mtype[39m: (B[mRuntimeDefault[?25l[?12l[?25h7[2;49r8M[1;51r[2;13H[92mseccompProfile[39m:(B[m[?25l[?12l[?25h7[2;48r8M[1;51r[2;13H[92mrunAsGroup[39m: [95m10001[39m(B[m[?25l[?12l[?25h7[2;48r8M[1;51r[2;13H[92mrunAsUser[39m: [95m10001[39m(B[m[?25l[?12l[?25h7[2;48r8M[1;51r[2;13H[92mrunAsNonRoot[39m: [95mtrue[39m(B[m[?25l[?12l[?25h7[2;48r8M[1;51r[2;11H[92msecurityContext[39m:(B[m[?25l[?12l[?25h7[2;48r8M[1;51r[2;1H[?25l[?12l[?25h7[2;48r8M[1;51r[2;11H[92mrestartPolicy[39m: (B[mNever[?25l[?12l[?25h7[2;48r8M[1;51r[2;11H[92mautomountServiceAccountToken[39m: [95mtrue[39m(B[m[?25l[?12l[?25h7[2;49r8M[1;51r[2;11H[92mserviceAccountName[39m: (B[mfrontend-scaler[?25l[?12l[?25h7[2;48r8M[1;51r[2;9H[92mspec[39m:(B[m[?25l[?12l[?25h7[2;49r8M[1;51r[2;7H[92mtemplate[39m:(B[m[?25l[?12l[?25h7[2;48r8M[1;51r[2;1H[?25l[?12l[?25h7[2;48r8M[1;51r[2;7H[92mactiveDeadlineSeconds[39m: [95m90[39m(B[m[?25l[?12l[?25h7[2;48r8M[1;51r[2;7H[92mbackoffLimit[39m: [95m1[39m(B[m[?25l[?12l[?25h7[2;48r8M[1;51r[2;5H[92mspec[39m:(B[m[?25l[?12l[?25h7[2;48r8M[1;51r[2;3H[92mjobTemplate[39m:(B[m[?25l[?12l[?25h7[2;48r8M[1;51r[2;1H[?25l[?12l[?25h7[2;48r8M[1;51r[2;3H[92mfailedJobsHistoryLimit[39m: [95m3[39m(B[m[?25l[?12l[?25h7[2;48r8M[1;51r[2;3H[92msuccessfulJobsHistoryLimit[39m: [95m3[39m(B[m[?25l[?12l[?25h7[2;48r8M[1;51r[2;1H[?25l[?12l[?25h7[2;48r8M[1;51r[2;3H[92mstartingDeadlineSeconds[39m: [95m300[39m(B[m[?25l[?12l[?25h7[2;48r8M[1;51r[2;3H[92mconcurrencyPolicy[39m: (B[mForbid[?25l[?12l[?25h7[2;48r8M[1;51r[2;1H[?25l[?12l[?25h7[2;48r8M[1;51r[2;3H[92mtimeZone[39m: (B[mEurope/Moscow[?25l[?12l[?25h7[2;49r8M[1;51r[2;3H[92mschedule[39m: [95m"0 9 * * *"[39m(B[m[?25l[?12l[?25h7[2;48r8M[1;51r[2;1H[92mspec[39m:(B[m[?25l[?12l[?25h7[2;49r8M[1;51r[2;1H[?25l[?12l[?25h7[2;48r8M[1;51r[2;3H[92mnamespace[39m: (B[mcounter[?25l[?12l[?25h7[2;48r8M[1;51r[2;3H[92mname[39m: (B[mfrontend-scale-up[?25l[?12l[?25h7[2;48r8M[1;51r[2;1H[92mmetadata[39m:(B[m[?25l[?12l[?25h7[2;48r8M[1;51r[2;1H[92mkind[39m: (B[mCronJob[?25l[?12l[?25h7[2;48r8M[1;51r[2;1H[92mapiVersion[39m: (B[mbatch/v1[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[50;15H      (B[0;7mM-D(B[m DOS Format      (B[0;7mM-A(B[m Append[57G    (B[0;7mM-B(B[m Backup File     (B[0;7m^T(B[m Browse[K[51;2H(B[0;7mC(B[m Cancel           (B[0;7mM-M(B[m Mac Format      (B[0;7mM-P(B[m Prepend         (B[0;7m^Q(B[m Discard buffer[K[50;90H[A(B[0;7mWrite to File: manifests/ops/03-frontend-scale-up.yaml                                                [49;55H(B[m[?12l[?25h[?25l[49;44H[1K (B[0;7m[ Writing... ](B[m[K[1;76H(B[0;7m [101G(B[m[49;43H(B[0;7m[ Wrote 85 lines ](B[m[50;15H(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut  [57G(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51;2H(B[0;7mX(B[m Exit       (B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste      (B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[?12l[?25h[2d[?25l[49d[J[51d[?12l[?25h[51;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ nano manifests/ops/03-frontend-scale-up.yaml [K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K4-frontend-scale-down.yaml 
+[?2004l[?2004h[?1049h[22;0;0t[1;51r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[49;45H(B[0;7m[ Reading... ](B[m[49;43H(B[0;7m[ Read 83 lines ](B[m[H(B[0;7m  GNU nano 8.7.1                  manifests/ops/04-frontend-scale-down.yaml                           [1;101H(B[m[50d(B[0;7m^G(B[m Help[15G(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut[50;57H(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste[57G(B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[2d[92mapiVersion[39m: (B[mbatch/v1[3d[92mkind[39m: (B[mCronJob[4d[92mmetadata[39m:[5;3H[92mname[39m: (B[mfrontend-scale-down[6;3H[92mnamespace[39m: (B[mcounter[8d[92mspec[39m:[9;3H[92mschedule[39m: [95m"0 18 * * *"[10;3H[92mtimeZone[39m: (B[mEurope/Moscow[12;3H[92mconcurrencyPolicy[39m: (B[mForbid[13;3H[92mstartingDeadlineSeconds[39m: [95m300[15;3H[92msuccessfulJobsHistoryLimit[39m: [95m3[16;3H[92mfailedJobsHistoryLimit[39m: [95m3[18;3H[92mjobTemplate[39m:[19;5H[92mspec[39m:[20;7H[92mbackoffLimit[39m: [95m1[21;7H[92mactiveDeadlineSeconds[39m: [95m90[23;7H[92mtemplate[39m:[24;9H[92mspec[39m:[25;11H[92mserviceAccountName[39m: (B[mfrontend-scaler[26;11H[92mautomountServiceAccountToken[39m: [95mtrue[27;11H[92mrestartPolicy[39m: (B[mNever[29;11H[92msecurityContext[39m:[30;13H[92mrunAsNonRoot[39m: [95mtrue[31;13H[92mseccompProfile[39m:[32;15H[92mtype[39m: (B[mRuntimeDefault[34;11H[92mcontainers[39m:[35;12H(B[0;1m[33m[1K - (B[0m[92mname[39m: (B[mscaler[36;15H[92mimage[39m: (B[mcurlimages/curl:8.23.0[37;15H[92mimagePullPolicy[39m: (B[mIfNotPresent[39;15H[92menv[39m:[40;16H(B[0;1m[33m[1K - (B[0m[92mname[39m: (B[mREPLICAS[41;19H[92mvalue[39m: [95m"1"[43;15H[92mcommand[39m:[44;16H(B[0;1m[33m[1K - [39m(B[msh[45;16H(B[0;1m[33m[1K - [39m(B[m-eu[46;16H(B[0;1m[33m[1K - [39m(B[m-c[47;16H(B[0;1m[33m[1K - [38;5;38m|[48d[39m(B[mcase [95m"$REPLICAS"[39m(B[m in[2d[?12l[?25h[?25l[?12l[?25h[3d[?25l[?12l[?25h[4d[?25l[?12l[?25h[5d[?25l[?12l[?25h[6d[?25l[?12l[?25h[7d[?25l[?12l[?25h[8d[?25l[?12l[?25h[9d[?25l[?12l[?25h[10d[?25l[?12l[?25h[11d[?25l[?12l[?25h[12d[?25l[?12l[?25h[13d[?25l[?12l[?25h[14d[?25l[?12l[?25h[15d[?25l[?12l[?25h[16d[?25l[?12l[?25h[17d[?25l[?12l[?25h[18d[?25l[?12l[?25h[19d[?25l[?12l[?25h[20d[?25l[?12l[?25h[21d[?25l[49d[K[?12l[?25h[22d[?25l[?12l[?25h[23d[?25l[?12l[?25h[24d[?25l[?12l[?25h[25d[?25l[?12l[?25h[26d[?25l[?12l[?25h[27d[?25l[?12l[?25h[28d[?25l[?12l[?25h[29d[?25l[?12l[?25h[30d[?25l[?12l[?25h[31d[?25l[?12l[?25h[32d[?25l[?12l[?25h[A[?25l[1;77H(B[0;7m*[101G(B[m[32;48r[32;1HM[1;51r[31;13H[92mrunAsUser[39m: [95m10001[32;13H[92mrunAsGroup[39m: (B[m10001[32;42H[92mseccompProfile[39m:[32;30H(B[m[?12l[?25h[?25l7[33;48r8[33dM[1;51r[32;25H[95m10001[39m(B[m[K[33;13H[92mseccompProfile[39m:(B[m[?12l[?25h[?25l[50;15H      (B[0;7mM-D(B[m DOS Format      (B[0;7mM-A(B[m Append[57G    (B[0;7mM-B(B[m Backup File     (B[0;7m^T(B[m Browse[K[51;2H(B[0;7mC(B[m Cancel           (B[0;7mM-M(B[m Mac Format      (B[0;7mM-P(B[m Prepend         (B[0;7m^Q(B[m Discard buffer[K[50;90H[A(B[0;7mWrite to File: manifests/ops/04-frontend-scale-down.yaml                                              [49;57H(B[m[?12l[?25h[?25l[49;44H[1K (B[0;7m[ Writing... ](B[m[K[1;77H(B[0;7m [101G(B[m[49;43H(B[0;7m[ Wrote 85 lines ](B[m[50;15H(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut  [57G(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51;2H(B[0;7mX(B[m Exit       (B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste      (B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[?12l[?25h[33d[?25l[49d[J[51d[?12l[?25h[51;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl apply -f manifests/ops/03-frontend-scale-up.yaml[27m
+[7mkubectl apply -f manifests/ops/04-frontend-scale-down.yaml[27m[Akubectl apply -f manifests/ops/03-frontend-scale-up.yaml
+kubectl apply -f manifests/ops/04-frontend-scale-down.yaml
+[?2004lcronjob.batch/frontend-scale-up configured
+cronjob.batch/frontend-scale-down configured
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mscale_up_job="frontend-up-check-$(date +%s)"[27m
+
+[7mkubectl -n counter create job "$scale_up_job" \[27m
+[7m  --from=cronjob/frontend-scale-up[27m
+
+[7mkubectl -n counter wait --for=condition=complete \[27m
+[7m  "job/$scale_up_job" --timeout=180s[27m
+
+[7mkubectl -n counter logs "job/$scale_up_job"[27m[A[A[A[A[A[A[A[Ascale_up_job="frontend-up-check-$(date +%s)"
+
+kubectl -n counter create job "$scale_up_job" \
+  --from=cronjob/frontend-scale-up
+
+kubectl -n counter wait --for=condition=complete \
+  "job/$scale_up_job" --timeout=180s
+
+kubectl -n counter logs "job/$scale_up_job"
+[?2004ljob.batch/frontend-up-check-1792882079 created
+job.batch/frontend-up-check-1792882079 condition met
+{
+  "kind": "Scale",
+  "apiVersion": "autoscaling/v1",
+  "metadata": {
+    "name": "counter-frontend",
+    "namespace": "counter",
+    "uid": "9dd2ad56-4eb2-4024-a700-4918d08bec1e",
+    "resourceVersion": "52458",
+    "creationTimestamp": "2026-10-24T17:46:49Z"
+  },
+  "spec": {
+    "replicas": 3
+  },
+  "status": {
+    "replicas": 2,
+    "selector": "app=counter-frontend"
+  }
+}
+Requested frontend replicas: 3
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter rollout status \[27m
+[7m  deployment/counter-frontend --timeout=180s[27m
+
+[7mkubectl -n counter get deployment counter-frontend[27m
+
+[7mkubectl -n counter get pods \[27m
+[7m  -l app=counter-frontend -o wide[27m[A[A[A[A[A[Akubectl -n counter rollout status \
+  deployment/counter-frontend --timeout=180s
+
+kubectl -n counter get deployment counter-frontend
+
+kubectl -n counter get pods \
+  -l app=counter-frontend -o wide
+[?2004ldeployment "counter-frontend" successfully rolled out
+NAME               READY   UP-TO-DATE   AVAILABLE   AGE
+counter-frontend   3/3     3            3           5h1m
+NAME                                READY   STATUS    RESTARTS   AGE     IP            NODE             NOMINATED NODE   READINESS GATES
+counter-frontend-6867fdc4f9-bl4ds   1/1     Running   0          4h10m   10.244.2.7    course-worker    <none>           <none>
+counter-frontend-6867fdc4f9-hczs8   1/1     Running   0          35s     10.244.2.14   course-worker    <none>           <none>
+counter-frontend-6867fdc4f9-mcfdj   1/1     Running   0          4h10m   10.244.1.5    course-worker2   <none>           <none>
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mscale_down_job="frontend-down-check-$(date +%s)"[27m
+
+[7mkubectl -n counter create job "$scale_down_job" \[27m
+[7m  --from=cronjob/frontend-scale-down[27m
+
+[7mkubectl -n counter wait --for=condition=complete \[27m
+[7m  "job/$scale_down_job" --timeout=180s[27m
+
+[7mkubectl -n counter logs "job/$scale_down_job"[27m
+
+[7mkubectl -n counter rollout status \[27m
+[7m  deployment/counter-frontend --timeout=180s[27m
+
+[7mkubectl -n counter get deployment counter-frontend[27m
+
+[7mkubectl -n counter get pods \[27m
+[7m  -l app=counter-frontend -o wide[27m[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[Ascale_down_job="frontend-down-check-$(date +%s)"
+
+kubectl -n counter create job "$scale_down_job" \
+  --from=cronjob/frontend-scale-down
+
+kubectl -n counter wait --for=condition=complete \
+  "job/$scale_down_job" --timeout=180s
+
+kubectl -n counter logs "job/$scale_down_job"
+
+kubectl -n counter rollout status \
+  deployment/counter-frontend --timeout=180s
+
+kubectl -n counter get deployment counter-frontend
+
+kubectl -n counter get pods \
+  -l app=counter-frontend -o wide
+[?2004ljob.batch/frontend-down-check-1792882127 created
+job.batch/frontend-down-check-1792882127 condition met
+{
+  "kind": "Scale",
+  "apiVersion": "autoscaling/v1",
+  "metadata": {
+    "name": "counter-frontend",
+    "namespace": "counter",
+    "uid": "9dd2ad56-4eb2-4024-a700-4918d08bec1e",
+    "resourceVersion": "52591",
+    "creationTimestamp": "2026-10-24T17:46:49Z"
+  },
+  "spec": {
+    "replicas": 1
+  },
+  "status": {
+    "replicas": 3,
+    "selector": "app=counter-frontend"
+  }
+}
+Requested frontend replicas: 1
+deployment "counter-frontend" successfully rolled out
+NAME               READY   UP-TO-DATE   AVAILABLE   AGE
+counter-frontend   1/1     1            1           5h2m
+NAME                                READY   STATUS        RESTARTS   AGE     IP            NODE             NOMINATED NODE   READINESS GATES
+counter-frontend-6867fdc4f9-bl4ds   1/1     Terminating   0          4h10m   10.244.2.7    course-worker    <none>           <none>
+counter-frontend-6867fdc4f9-hczs8   1/1     Terminating   0          51s     10.244.2.14   course-worker    <none>           <none>
+counter-frontend-6867fdc4f9-mcfdj   1/1     Running       0          4h10m   10.244.1.5    course-worker2   <none>           <none>
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ exit
+[?2004lexit
+
+Script done on 2026-10-25 01:49:24+03:00 [COMMAND_EXIT_CODE="0"]
