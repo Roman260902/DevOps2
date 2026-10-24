@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: counter-postgres-init
+  namespace: counter
+data:
+  01-init.sql: |
+    CREATE TABLE public.counters (
+      id INTEGER PRIMARY KEY CHECK (id = 1),
+      value BIGINT NOT NULL DEFAULT 0 CHECK (value >= 0)
+    );
+
+    INSERT INTO public.counters (id, value)
+    VALUES (1, 0);

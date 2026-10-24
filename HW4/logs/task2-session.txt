@@ -1,0 +1,811 @@
+Script started on 2026-10-24 23:55:30+03:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="102" LINES="51"]
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl config current-context[27mkubectl config current-context
+[?2004lkind-course
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl get nodes[27mkubectl get nodes
+[?2004lNAME                   STATUS   ROLES           AGE     VERSION
+course-control-plane   Ready    control-plane   6h57m   v1.37.0
+course-worker          Ready    <none>          6h57m   v1.37.0
+course-worker2         Ready    <none>          6h57m   v1.37.0
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl get namespace counter[27mkubectl get namespace counter
+[?2004lNAME      STATUS   AGE
+counter   Active   3h9m
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl get storageclass[27mkubectl get storageclass
+[?2004lNAME                 PROVISIONER             RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
+standard (default)   rancher.io/local-path   Delete          WaitForFirstConsumer   false                  6h57m
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mdocker pull --platform linux/amd64 postgres:18.6-bookworm[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cdocker pull --platform linux/amd64 postgres:18.6-bookworm
+[?2004l18.6-bookworm: Pulling from library/postgres
+
+[1A[2K53caabbf07ef: Pulling fs layer [1B
+[1A[2K666690849feb: Pulling fs layer [1B
+[1A[2K7ccda48b8c8d: Pulling fs layer [1B
+[1A[2Kc521588a20e4: Pulling fs layer [1B
+[1A[2K0eff413432fe: Pulling fs layer [1B
+[1A[2Ke548ddf2aec1: Pulling fs layer [1B
+[1A[2K522fb5153653: Pulling fs layer [1B
+[1A[2K8ae674a5799d: Pulling fs layer [1B
+[1A[2K5394b61f3adb: Pulling fs layer [1B
+[1A[2K5b7f9cdd3a5e: Pulling fs layer [1B
+[1A[2Kc34d64930ea0: Pulling fs layer [1B
+[1A[2Kf3bbebe5f69a: Pulling fs layer [1B[11A[2K666690849feb: Download complete [11B[6A[2K522fb5153653: Download complete [6B[12A[2K53caabbf07ef: Download complete [12B[8A[2K0eff413432fe: Download complete [8B[7A[2Ke548ddf2aec1: Downloading  1.049MB/8.066MB[7B[9A[2Kc521588a20e4: Download complete [9B[10A[2K7ccda48b8c8d: Download complete [10B[9A[2Kc521588a20e4: Extracting 1 s[9B[3A[2K5b7f9cdd3a5e: Download complete [3B[2A[2Kc34d64930ea0: Download complete [2B[7A[2Ke548ddf2aec1: Downloading  4.194MB/8.066MB[7B[9A[2Kc521588a20e4: Extracting 1 s[9B[1A[2Kf3bbebe5f69a: Downloading  1.049MB/113.9MB[1B[7A[2Ke548ddf2aec1: Downloading  5.243MB/8.066MB[7B[9A[2Kc521588a20e4: Pull complete [9B[1A[2Kf3bbebe5f69a: Downloading  1.049MB/113.9MB[1B[7A[2Ke548ddf2aec1: Downloading  6.291MB/8.066MB[7B[1A[2Kf3bbebe5f69a: Downloading  3.146MB/113.9MB[1B[7A[2Ke548ddf2aec1: Download complete [7B[1A[2Kf3bbebe5f69a: Downloading  5.243MB/113.9MB[1B[1A[2Kf3bbebe5f69a: Downloading   7.34MB/113.9MB[1B
+[1A[2Kb4fa61e6269d: Download complete [1B[2A[2Kf3bbebe5f69a: Downloading  8.389MB/113.9MB[2B[2A[2Kf3bbebe5f69a: Downloading  11.53MB/113.9MB[2B[2A[2Kf3bbebe5f69a: Downloading  13.63MB/113.9MB[2B[2A[2Kf3bbebe5f69a: Downloading  14.68MB/113.9MB[2B[2A[2Kf3bbebe5f69a: Downloading  17.83MB/113.9MB[2B[2A[2Kf3bbebe5f69a: Downloading  19.92MB/113.9MB[2B[6A[2K8ae674a5799d: Downloading  1.049MB/4.534MB[6B[2A[2Kf3bbebe5f69a: Downloading  19.92MB/113.9MB[2B[6A[2K8ae674a5799d: Downloading  1.049MB/4.534MB[6B[2A[2Kf3bbebe5f69a: Downloading  24.12MB/113.9MB[2B[6A[2K8ae674a5799d: Downloading  1.049MB/4.534MB[6B[5A[2K5394b61f3adb: Downloading  1.049MB/1.25MB[5B[2A[2Kf3bbebe5f69a: Downloading  26.21MB/113.9MB[2B[6A[2K8ae674a5799d: Downloading  1.049MB/4.534MB[6B[5A[2K5394b61f3adb: Downloading  1.049MB/1.25MB[5B[2A[2Kf3bbebe5f69a: Downloading  29.36MB/113.9MB[2B[6A[2K8ae674a5799d: Downloading  1.049MB/4.534MB[6B[5A[2K5394b61f3adb: Downloading  1.049MB/1.25MB[5B[2A[2Kf3bbebe5f69a: Downloading  29.36MB/113.9MB[2B[6A[2K8ae674a5799d: Downloading  1.049MB/4.534MB[6B[5A[2K5394b61f3adb: Download complete [5B[2A[2Kf3bbebe5f69a: Downloading  32.51MB/113.9MB[2B[2A[2Kf3bbebe5f69a: Downloading  35.65MB/113.9MB[2B[6A[2K8ae674a5799d: Downloading  1.049MB/4.534MB[6B[6A[2K8ae674a5799d: Downloading  2.097MB/4.534MB[6B[2A[2Kf3bbebe5f69a: Downloading  37.75MB/113.9MB[2B
+[1A[2Ka2c197d1953a: Downloading  1.049MB/6.157MB[1B[7A[2K8ae674a5799d: Downloading  2.097MB/4.534MB[7B[3A[2Kf3bbebe5f69a: Downloading   38.8MB/113.9MB[3B[1A[2Ka2c197d1953a: Downloading  1.049MB/6.157MB[1B[3A[2Kf3bbebe5f69a: Downloading  40.89MB/113.9MB[3B[1A[2Ka2c197d1953a: Downloading  1.049MB/6.157MB[1B[7A[2K8ae674a5799d: Downloading  2.097MB/4.534MB[7B[7A[2K8ae674a5799d: Downloading  2.097MB/4.534MB[7B[3A[2Kf3bbebe5f69a: Downloading  42.99MB/113.9MB[3B[1A[2Ka2c197d1953a: Downloading  1.049MB/6.157MB[1B[3A[2Kf3bbebe5f69a: Downloading  46.14MB/113.9MB[3B[1A[2Ka2c197d1953a: Downloading  1.049MB/6.157MB[1B[7A[2K8ae674a5799d: Downloading  2.097MB/4.534MB[7B[3A[2Kf3bbebe5f69a: Downloading  47.19MB/113.9MB[3B[1A[2Ka2c197d1953a: Downloading  1.049MB/6.157MB[1B[7A[2K8ae674a5799d: Downloading  2.097MB/4.534MB[7B[7A[2K8ae674a5799d: Downloading  3.146MB/4.534MB[7B[3A[2Kf3bbebe5f69a: Downloading  50.33MB/113.9MB[3B[1A[2Ka2c197d1953a: Downloading  1.049MB/6.157MB[1B[7A[2K8ae674a5799d: Downloading  3.146MB/4.534MB[7B[3A[2Kf3bbebe5f69a: Downloading  53.48MB/113.9MB[3B[1A[2Ka2c197d1953a: Downloading  1.049MB/6.157MB[1B[3A[2Kf3bbebe5f69a: Downloading  55.57MB/113.9MB[3B[1A[2Ka2c197d1953a: Downloading  2.097MB/6.157MB[1B[7A[2K8ae674a5799d: Downloading  3.146MB/4.534MB[7B[7A[2K8ae674a5799d: Downloading  3.146MB/4.534MB[7B[3A[2Kf3bbebe5f69a: Downloading  56.62MB/113.9MB[3B[1A[2Ka2c197d1953a: Downloading  2.097MB/6.157MB[1B[7A[2K8ae674a5799d: Downloading  4.194MB/4.534MB[7B[3A[2Kf3bbebe5f69a: Downloading  59.77MB/113.9MB[3B[1A[2Ka2c197d1953a: Downloading  2.097MB/6.157MB[1B[3A[2Kf3bbebe5f69a: Downloading  61.87MB/113.9MB[3B[1A[2Ka2c197d1953a: Downloading  2.097MB/6.157MB[1B[7A[2K8ae674a5799d: Downloading  4.194MB/4.534MB[7B[7A[2K8ae674a5799d: Download complete [7B[3A[2Kf3bbebe5f69a: Downloading  63.96MB/113.9MB[3B[1A[2Ka2c197d1953a: Downloading  2.097MB/6.157MB[1B[7A[2K8ae674a5799d: Extracting 1 s[7B[3A[2Kf3bbebe5f69a: Downloading  63.96MB/113.9MB[3B[1A[2Ka2c197d1953a: Downloading  2.097MB/6.157MB[1B[9A[2Ke548ddf2aec1: Extracting 1 s[9B[6A[2K5394b61f3adb: Pull complete [6B[7A[2K8ae674a5799d: Pull complete [7B[3A[2Kf3bbebe5f69a: Downloading  69.21MB/113.9MB[3B[1A[2Ka2c197d1953a: Downloading  3.146MB/6.157MB[1B[9A[2Ke548ddf2aec1: Extracting 1 s[9B[3A[2Kf3bbebe5f69a: Downloading   71.3MB/113.9MB[3B[1A[2Ka2c197d1953a: Downloading  3.146MB/6.157MB[1B[14A[2K53caabbf07ef: Extracting 1 s[14B[9A[2Ke548ddf2aec1: Pull complete [9B[3A[2Kf3bbebe5f69a: Downloading  74.45MB/113.9MB[3B[1A[2Ka2c197d1953a: Downloading  3.146MB/6.157MB[1B[14A[2K53caabbf07ef: Pull complete [14B[10A[2K0eff413432fe: Extracting 1 s[10B[5A[2K5b7f9cdd3a5e: Pull complete [5B[3A[2Kf3bbebe5f69a: Downloading  76.55MB/113.9MB[3B[1A[2Ka2c197d1953a: Downloading  3.146MB/6.157MB[1B[10A[2K0eff413432fe: Pull complete [10B[1A[2Ka2c197d1953a: Downloading  3.146MB/6.157MB[1B[3A[2Kf3bbebe5f69a: Downloading  77.59MB/113.9MB[3B[3A[2Kf3bbebe5f69a: Downloading  80.74MB/113.9MB[3B[1A[2Ka2c197d1953a: Downloading  3.146MB/6.157MB[1B[3A[2Kf3bbebe5f69a: Downloading  83.89MB/113.9MB[3B[1A[2Ka2c197d1953a: Downloading  4.194MB/6.157MB[1B[3A[2Kf3bbebe5f69a: Downloading  87.03MB/113.9MB[3B[1A[2Ka2c197d1953a: Downloading  4.194MB/6.157MB[1B[3A[2Kf3bbebe5f69a: Downloading  89.13MB/113.9MB[3B[1A[2Ka2c197d1953a: Downloading  4.194MB/6.157MB[1B[3A[2Kf3bbebe5f69a: Downloading  89.13MB/113.9MB[3B[1A[2Ka2c197d1953a: Downloading  4.194MB/6.157MB[1B[3A[2Kf3bbebe5f69a: Downloading  93.32MB/113.9MB[3B[1A[2Ka2c197d1953a: Downloading  4.194MB/6.157MB[1B[3A[2Kf3bbebe5f69a: Downloading  96.47MB/113.9MB[3B[1A[2Ka2c197d1953a: Downloading  5.243MB/6.157MB[1B[3A[2Kf3bbebe5f69a: Downloading  98.57MB/113.9MB[3B[1A[2Ka2c197d1953a: Downloading  5.243MB/6.157MB[1B[3A[2Kf3bbebe5f69a: Downloading  101.7MB/113.9MB[3B[1A[2Ka2c197d1953a: Downloading  5.243MB/6.157MB[1B[3A[2Kf3bbebe5f69a: Downloading  103.8MB/113.9MB[3B[1A[2Ka2c197d1953a: Downloading  6.157MB/6.157MB[1B[3A[2Kf3bbebe5f69a: Downloading    107MB/113.9MB[3B[1A[2Ka2c197d1953a: Download complete [1B[3A[2Kf3bbebe5f69a: Downloading  109.1MB/113.9MB[3B[3A[2Kf3bbebe5f69a: Downloading  112.2MB/113.9MB[3B[3A[2Kf3bbebe5f69a: Download complete [3B[3A[2Kf3bbebe5f69a: Extracting 1 s[3B[3A[2Kf3bbebe5f69a: Extracting 1 s[3B[3A[2Kf3bbebe5f69a: Extracting 1 s[3B[3A[2Kf3bbebe5f69a: Extracting 1 s[3B[3A[2Kf3bbebe5f69a: Extracting 1 s[3B[3A[2Kf3bbebe5f69a: Extracting 1 s[3B[3A[2Kf3bbebe5f69a: Extracting 1 s[3B[3A[2Kf3bbebe5f69a: Extracting 1 s[3B[3A[2Kf3bbebe5f69a: Extracting 1 s[3B[3A[2Kf3bbebe5f69a: Extracting 1 s[3B[3A[2Kf3bbebe5f69a: Extracting 2 s[3B[3A[2Kf3bbebe5f69a: Extracting 2 s[3B[3A[2Kf3bbebe5f69a: Extracting 2 s[3B[3A[2Kf3bbebe5f69a: Extracting 2 s[3B[3A[2Kf3bbebe5f69a: Extracting 2 s[3B[12A[2K7ccda48b8c8d: Pull complete [12B[3A[2Kf3bbebe5f69a: Pull complete [3B[13A[2K666690849feb: Pull complete [13B[8A[2K522fb5153653: Pull complete [8B[4A[2Kc34d64930ea0: Pull complete [4BDigest: sha256:bbf83594798e144bff365a9c191c5d779f181fb3135902064ab8ff11918020fc
+Status: Downloaded newer image for postgres:18.6-bookworm
+docker.io/library/postgres:18.6-bookworm
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mdocker image save \[27m
+[7m  --platform linux/amd64 \[27m
+[7m  --output /tmp/hw4-postgres-18.6-amd64.tar \[27m
+[7m  postgres:18.6-bookworm[27m[A[A[A]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ docker image save \
+  --platform linux/amd64 \
+  --output /tmp/hw4-postgres-18.6-amd64.tar \
+  postgres:18.6-bookworm
+[?2004l[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkind load image-archive \[27m
+[7m  /tmp/hw4-postgres-18.6-amd64.tar \[27m
+[7m  --name course[27m[A[A]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ kind load image-archive \
+  /tmp/hw4-postgres-18.6-amd64.tar \
+  --name course
+[?2004l[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7m/home/rkart/.local[27m/home/rkart/.local/share/
+hw4-tls/ nano/    
+]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ /home/rkart/.local/share/[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[7mmkdir -p /home/rkart/.local/share/hw4-secrets[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmkdir -p /home/rkart/.local/share/hw4-secrets
+[?2004l[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mchmod 700 /home/rkart/.local/share/hw4-secrets[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cchmod 700 /home/rkart/.local/share/hw4-secrets
+[?2004l[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7m! -s /home/rkart/.local/share/hw4-secrets/postgres-password[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C! -s /home/rkart/.local/share/hw4-secrets/postgres-password
+[?2004l-s: command not found
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7m[ ! -s /home/rkart/.local/share/hw4-secrets/postgres-password ][27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[ ! -s /home/rkart/.local/share/hw4-secrets/postgres-password ]
+[?2004l[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7m umask 077[27m
+[7m      openssl rand -hex 32 \[27m
+[7m        > /home/rkart/.local/share/hw4-secrets/postgres-password[27m[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C umask 077
+      openssl rand -hex 32 \
+        > /home/rkart/.local/share/hw4-secrets/postgres-password
+[?2004l[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mchmod 600 /home/rkart/.local/share/hw4-secrets/postgres-password[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cchmod 600 /home/rkart/.local/share/hw4-secrets/postgres-password
+[?2004l[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mchmod 600 /home/rkart/.local/share/hw4-secrets/postgres-password[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cchmod 600 /home/rkart/.local/share/hw4-secrets/postgres-password[C [K[Kd 
+app/       infra/     logs/      manifests/ scripts/   snapshots/ 
+]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ chmod 600 /home/rkart/.local/share/hw4-secrets/postgres-password 
+app/       infra/     logs/      manifests/ scripts/   snapshots/ 
+]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ chmod 600 /home/rkart/.local/share/hw4-secrets/postgres-password 
+app/       infra/     logs/      manifests/ scripts/   snapshots/ 
+]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ chmod 600 /home/rkart/.local/share/hw4-secrets/postgres-password 
+app/       infra/     logs/      manifests/ scripts/   snapshots/ 
+]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ chmod 600 /home/rkart/.local/share/hw4-secrets/postgres-password [K[K[Krd 
+app/       infra/     logs/      manifests/ scripts/   snapshots/ 
+]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ chmod 600 /home/rkart/.local/share/hw4-secrets/postgres-password [K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[7m  kubectl -n counter create secret generic counter-postgres-secret \[27m
+[7m    --from-file=password=/home/rkart/.local/share/hw4-secrets/postgres-password[27m[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C  kubectl -n counter create secret generic counter-postgres-secret \
+    --from-file=password=/home/rkart/.local/share/hw4-secrets/postgres-password
+[?2004lsecret/counter-postgres-secret created
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter get secret counter-postgres-secret[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ckubectl -n counter get secret counter-postgres-secret
+[?2004lNAME                      TYPE     DATA   AGE
+counter-postgres-secret   Opaque   1      11s
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ nano manifests/postgres/01-in[C[Cit-configmap/[K.yaml
+[?2004l[?2004h[?1049h[22;0;0t[1;51r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[49;46H(B[0;7m[ New File ](B[m[H(B[0;7m  GNU nano 8.7.1                  manifests/postgres/01-init-configmap.yaml                           [1;101H(B[m[50d(B[0;7m^G(B[m Help[15G(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut[50;57H(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste[57G(B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[2d[?12l[?25h[?25l[49d[K[1;77H(B[0;7m*[101G(B[m[2d[92mapiVersion[39m: (B[mv1[3d[92mkind[39m: (B[mConfigMap[4d[92mmetadata[39m:[5;3H[92mname[39m: (B[mcounter-postgres-init[6;3H[92mnamespace[39m: (B[mcounter[7d[92mdata[39m:[8;3H[92m01-init.sql[39m:(B[0;1m[38;5;38m |[9;5H[39m(B[mCREATE TABLE public.counters ([10;7Hid INTEGER PRIMARY KEY CHECK (id = 1),[11;7H(B[mvalue BIGINT NOT NULL DEFAULT 0 CHECK (value >= 0)[12;5H);[14dINSERT INTO public.counters (id, (B[mvalue)[15;5HVALUES (1, (B[m0);[?12l[?25h[?25l[50;15H      (B[0;7mM-D(B[m DOS Format      (B[0;7mM-A(B[m Append[57G    (B[0;7mM-B(B[m Backup File     (B[0;7m^T(B[m Browse[K[51;2H(B[0;7mC(B[m Cancel           (B[0;7mM-M(B[m Mac Format      (B[0;7mM-P(B[m Prepend         (B[0;7m^Q(B[m Discard buffer[K[50;90H[A(B[0;7mWrite to File: manifests/postgres/01-init-configmap.yaml                                              [49;57H(B[m[?12l[?25h[?25l[49;44H[1K (B[0;7m[ Writing... ](B[m[K[1;77H(B[0;7m [101G(B[m[49;43H(B[0;7m[ Wrote 14 lines ](B[m[50;15H(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut  [57G(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51;2H(B[0;7mX(B[m Exit       (B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste      (B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[?12l[?25h[15;19H[?25l[49d[J[51d[?12l[?25h[51;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ nano mn[Kanifests/postgres/[7m02-headless-service.yaml[27m02-headless-service.yaml
+[?2004l[?2004h[?1049h[22;0;0t[1;51r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[49;46H(B[0;7m[ New File ](B[m[H(B[0;7m  GNU nano 8.7.1                 manifests/postgres/02-headless-service.yaml                          [1;101H(B[m[50d(B[0;7m^G(B[m Help[15G(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut[50;57H(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste[57G(B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[2d[?12l[?25h[?25l[49d[K[1;78H(B[0;7m*[101G(B[m[2d[92mapiVersion[39m: (B[mv1[3d[92mkind[39m: (B[mService[4d[92mmetadata[39m:[5;3H[92mname[39m: (B[mcounter-postgres[6;3H[92mnamespace[39m: (B[mcounter[7d[92mspec[39m:[8;3H[92mclusterIP[39m: (B[mNone[9;3H[92mselector[39m:[10;5H[92mapp[39m: (B[mcounter-postgres[11;3H[92mports[39m:[12d(B[0;1m[33m    - (B[0m[92mname[39m: (B[mpostgres[13;7H[92mport[39m: [95m5432[14;7H[92mtargetPort[39m: (B[mpostgres[15;7H[92mprotocol[39m: (B[mTCP[?12l[?25h[?25l[50;15H      (B[0;7mM-D(B[m DOS Format      (B[0;7mM-A(B[m Append[57G    (B[0;7mM-B(B[m Backup File     (B[0;7m^T(B[m Browse[K[51;2H(B[0;7mC(B[m Cancel           (B[0;7mM-M(B[m Mac Format      (B[0;7mM-P(B[m Prepend         (B[0;7m^Q(B[m Discard buffer[K[50;90H[A(B[0;7mWrite to File: manifests/postgres/02-headless-service.yaml                                            [49;59H(B[m[?12l[?25h[?25l[49;44H[1K (B[0;7m[ Writing... ](B[m[K[1;78H(B[0;7m [101G(B[m[49;43H(B[0;7m[ Wrote 14 lines ](B[m[50;15H(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut  [57G(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51;2H(B[0;7mX(B[m Exit       (B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste      (B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[?12l[?25h[15;20H[?25l[49d[J[51d[?12l[?25h[51;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ nano manifests/postgres/[7m03-statefulset.yaml[27m03-statefulset.yaml
+[?2004l[?2004h[?1049h[22;0;0t[1;51r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[49;46H(B[0;7m[ New File ](B[m[H(B[0;7m  GNU nano 8.7.1                   manifests/postgres/03-statefulset.yaml                             [1;101H(B[m[50d(B[0;7m^G(B[m Help[15G(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut[50;57H(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste[57G(B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[2d[?12l[?25h[?25l[49d[K[1;75H(B[0;7m*[101G(B[m[3;7H[92mvolumes[39m:[4;8H(B[0;1m[33m[1K - (B[0m[92mname[39m: (B[minit-sql[5;11H[92mconfigMap[39m:[6;13H[92mname[39m: (B[mcounter-postgres-init[8;8H(B[0;1m[33m[1K - (B[0m[92mname[39m: (B[mpostgres-password[9;11H[92msecret[39m:[10;13H[92msecretName[39m: (B[mcounter-postgres-secret[11;13H[92mdefaultMode[39m: [95m0444[12;13H[92mitems[39m:[13;14H(B[0;1m[33m[1K - (B[0m[92mkey[39m: (B[mpassword[14;17H[92mpath[39m: (B[mpassword[16;3H[92mvolumeClaimTemplates[39m:[17d(B[0;1m[33m    - (B[0m[92mmetadata[39m:[18;9H[92mname[39m: (B[mdata[19;7H[92mspec[39m:[20;9H[92maccessModes[39m:[21;10H(B[0;1m[33m[1K - [39m(B[mReadWriteOnce[22;9H[92mstorageClassName[39m: (B[mstandard[23;9H[92mresources[39m:[24;11H[92mrequests[39m:[25;13H[92mstorage[39m: (B[m1Gi[?12l[?25h[?25l[?12l[?25h[24;20H[?25l[?12l[?25h[A[?25l[?12l[?25h[22;25H[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[19;12H[?25l[?12l[?25h[18;19H[?25l[?12l[?25h[A[?25l[?12l[?25h[16;24H[?25l[?12l[?25h[A[?25l[?12l[?25h[14;25H[?25l[?12l[?25h[A[?25l[?12l[?25h[12;19H[?25l[?12l[?25h[11;25H[?25l[?12l[?25h[A[?25l[?12l[?25h[9;18H[?25l[?12l[?25h[8;25H[?25l[?12l[?25h[A[?25l[?12l[?25h[6;25H[?25l[?12l[?25h[A[?25l[?12l[?25h[A-sql[?25l[?12l[?25h[3;15H[?25l[?12l[?25h[A[?25l[?12l[?25h7[2;49r8M[1;51r[2;15H[92mreadOnly[39m: [95mtrue[39m(B[m[?25l[?12l[?25h7[2;49r8M[1;51r[2;15H[92mmountPath[39m: (B[m/run/secrets/postgres[2;25H[?25l[?12l[?25h7[2;49r8M[1;51r[2;12H(B[0;1m[33m[1K - (B[0m[92mname[39m: (B[mpostgres-password[2;25H[?25l[?12l[?25h7[2;49r8M[1;51r[2;1H[?25l[?12l[?25h7[2;49r8M[1;51r[2;15H[92mreadOnly[39m: [95mtrue[39m(B[m[?25l[?12l[?25h7[2;49r8M[1;51r[2;15H[92mmountPath[39m: (B[m/docker-entrypoint-initdb.d[2;25H[?25l[?12l[?25h7[2;49r8M[1;51r[2;12H(B[0;1m[33m[1K - (B[0m[92mname[39m: (B[minit-sql[?25l[?12l[?25h7[2;49r8M[1;51r[2;1H[?25l[?12l[?25h7[2;49r8M[1;51r[2;15H[92mmountPath[39m: (B[m/var/lib/postgresql[2;25H[?25l[?12l[?25h7[2;49r8M[1;51r[2;12H(B[0;1m[33m[1K - (B[0m[92mname[39m: (B[mdata[?25l[?12l[?25h7[2;49r8M[1;51r[2;11H[92mvolumeMounts[39m:(B[m[?25l[?12l[?25h7[2;49r8M[1;51r[2;1H[?25l[?12l[?25h7[2;49r8M[1;51r[2;13H[92mfailureThreshold[39m: [95m6[25G[39m(B[m[?25l[?12l[?25h7[2;49r8M[1;51r[2;13H[92mtimeoutSeconds[39m: [95m3[25G[39m(B[m[?25l[?12l[?25h7[2;49r8M[1;51r[2;13H[92mperiodSeconds[39m: [95m10[25G[39m(B[m[?25l[?12l[?25h7[2;49r8M[1;51r[2;16H(B[0;1m[33m[1K - [39m(B[mpg_isready -h 127.0.0.1 -p 5432 -U [95m"$POSTGRES_USER"[39m(B[m -d [95m"$POSTGRES_DB"[2;25H[39m(B[m[?25l[?12l[?25h7[2;49r8M[1;51r[2;16H(B[0;1m[33m[1K - [39m(B[m-ec[?25l[?12l[?25h7[2;49r8M[1;51r[2;16H(B[0;1m[33m[1K - [39m(B[msh[?25l[?12l[?25h7[2;49r8M[1;51r[2;15H[92mcommand[39m:(B[m[?25l[?12l[?25h7[2;49r8M[1;51r[2;13H[92mexec[39m:(B[m[?25l[?12l[?25h7[2;49r8M[1;51r[2;11H[92mlivenessProbe[39m:(B[m[?25l[?12l[?25h7[2;49r8M[1;51r[2;1H[?25l[?12l[?25h7[2;49r8M[1;51r[2;13H[92mfailureThreshold[39m: [95m3[25G[39m(B[m[?25l[?12l[?25h7[2;48r8M[1;51r[2;13H[92mtimeoutSeconds[39m: [95m3[25G[39m(B[m[?25l[?12l[?25h7[2;48r8M[1;51r[2;13H[92mperiodSeconds[39m: [95m5[39m(B[m[?25l[?12l[?25h7[2;48r8M[1;51r[2;16H(B[0;1m[33m[1K - [39m(B[mpg_isready -h 127.0.0.1 -p 5432 -U [95m"$POSTGRES_USER"[39m(B[m -d [95m"$POSTGRES_DB"[2;25H[39m(B[m[?25l[?12l[?25h7[2;48r8M[1;51r[2;16H(B[0;1m[33m[1K - [39m(B[m-ec[?25l[?12l[?25h7[2;48r8M[1;51r[2;16H(B[0;1m[33m[1K - [39m(B[msh[?25l[50;15H      (B[0;7mM-D(B[m DOS Format      (B[0;7mM-A(B[m Append[57G    (B[0;7mM-B(B[m Backup File     (B[0;7m^T(B[m Browse[K[51;2H(B[0;7mC(B[m Cancel           (B[0;7mM-M(B[m Mac Format      (B[0;7mM-P(B[m Prepend         (B[0;7m^Q(B[m Discard buffer[K[50;90H[A(B[0;7mWrite to File: manifests/postgres/03-statefulset.yaml                                                 [49;54H(B[m[?12l[?25h[?25l[49;44H[1K (B[0;7m[ Writing... ](B[m[K[1;75H(B[0;7m [101G(B[m[49;42H(B[0;7m[ Wrote 121 lines ](B[m[50;15H(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut  [57G(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51;2H(B[0;7mX(B[m Exit       (B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste      (B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[?12l[?25h[2;21H[?25l[49d[J[51d[?12l[?25h[51;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ nano manifests/postgres/[7m04-client-pod.yaml[27m04-client-pod.yaml
+[?2004l[?2004h[?1049h[22;0;0t[1;51r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[49;46H(B[0;7m[ New File ](B[m[H(B[0;7m  GNU nano 8.7.1                    manifests/postgres/04-client-pod.yaml                             [1;101H(B[m[50d(B[0;7m^G(B[m Help[15G(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut[50;57H(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste[57G(B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[2d[?12l[?25h[?25l[49d[K[1;75H(B[0;7m*[101G(B[m[2;11H[92mvalue[39m: [95m"5432"[4;8H(B[0;1m[33m[1K - (B[0m[92mname[39m: (B[mPGDATABASE[5;11H[92mvalue[39m: (B[mcounterdb[7;8H(B[0;1m[33m[1K - (B[0m[92mname[39m: (B[mPGUSER[8;11H[92mvalue[39m: (B[mcounteradmin[10;8H(B[0;1m[33m[1K - (B[0m[92mname[39m: (B[mPGCONNECT_TIMEOUT[11;11H[92mvalue[39m: [95m"5"[13;8H(B[0;1m[33m[1K - (B[0m[92mname[39m: (B[mPGPASSWORD[14;11H[92mvalueFrom[39m:[15;13H[92msecretKeyRef[39m:[16;15H[92mname[39m: (B[mcounter-postgres-secret[17;15H[92mkey[39m: (B[mpassword[19;7H[92mresources[39m:[20;9H[92mrequests[39m:[21;11H[92mcpu[39m: (B[m10m[22;11H[92mmemory[39m: (B[m32Mi[23;9H[92mlimits[39m:[24;11H[92mcpu[39m: (B[m100m[25;11H[92mmemory[39m: (B[m128Mi[?12l[?25h[?25l[50;15H      (B[0;7mM-D(B[m DOS Format      (B[0;7mM-A(B[m Append[57G    (B[0;7mM-B(B[m Backup File     (B[0;7m^T(B[m Browse[K[51;2H(B[0;7mC(B[m Cancel           (B[0;7mM-M(B[m Mac Format      (B[0;7mM-P(B[m Prepend         (B[0;7m^Q(B[m Discard buffer[K[50;90H[A(B[0;7mWrite to File: manifests/postgres/04-client-pod.yaml                                                  [49;53H(B[m[?12l[?25h[?25l[49;44H[1K (B[0;7m[ Writing... ](B[m[K[1;75H(B[0;7m [101G(B[m[49;43H(B[0;7m[ Wrote 50 lines ](B[m[50;15H(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut  [57G(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51;2H(B[0;7mX(B[m Exit       (B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste      (B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[?12l[?25h[25;24H[?25l[49d[J[51d[?12l[?25h[51;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl apply \[27m
+[7m  -f /home/rkart/projects/hw4/manifests/postgres/[27m[Akubectl apply \
+  -f /home/rkart/projects/hw4/manifests/postgres/
+[?2004lconfigmap/counter-postgres-init created
+service/counter-postgres created
+statefulset.apps/counter-postgres created
+pod/counter-postgres-client created
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter rollout status \[27m
+[7m  statefulset/counter-postgres \[27m
+[7m  --timeout=180s[27m[A[A]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ kubectl -n counter rollout status \
+  statefulset/counter-postgres \
+  --timeout=180s
+[?2004lWaiting for 1 pods to be ready...
+partitioned roll out complete: 1 new pods have been updated...
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter wait \[27m
+[7m  --for=condition=Ready \[27m
+[7m  pod/counter-postgres-client \[27m
+[7m  --timeout=180s[27m[A[A[A]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ kubectl -n counter wait \
+  --for=condition=Ready \
+  pod/counter-postgres-client \
+  --timeout=180s
+[?2004lpod/counter-postgres-client condition met
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter get statefulset counter-postgres[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ckubectl -n counter get statefulset counter-postgres
+[?2004lNAME               READY   AGE
+counter-postgres   1/1     34s
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter get pods -l app=counter-postgres -o wide[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ckubectl -n counter get pods -l app=counter-postgres -o wide
+[?2004lNAME                 READY   STATUS    RESTARTS   AGE   IP           NODE             NOMINATED NODE   READINESS GATES
+counter-postgres-0   1/1     Running   0          39s   10.244.1.7   course-worker2   <none>           <none>
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter get pod counter-postgres-client[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ckubectl -n counter get pod counter-postgres-client
+[?2004lNAME                      READY   STATUS    RESTARTS   AGE
+counter-postgres-client   1/1     Running   0          46s
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter get service counter-postgres[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ckubectl -n counter get service counter-postgres
+[?2004lNAME               TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)    AGE
+counter-postgres   ClusterIP   None         <none>        5432/TCP   52s
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter get pvc[27mkubectl -n counter get pvc
+[?2004lNAME                      STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+data-counter-postgres-0   Bound    pvc-e521c24f-173d-497f-a021-87e449c90cc7   1Gi        RWO            standard       <unset>                 63s
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl get pv[27mkubectl get pv
+[?2004lNAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                             STORAGECLASS   VOLUMEATTRIBUTESCLASS   REASON   AGE
+pvc-e521c24f-173d-497f-a021-87e449c90cc7   1Gi        RWO            Delete           Bound    counter/data-counter-postgres-0   standard       <unset>                          70s
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter exec counter-postgres-client -- \[27m
+[7m  getent hosts counter-postgres-0.counter-postgres.counter.svc.cluster.local[27m[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ckubectl -n counter exec counter-postgres-client -- \
+  getent hosts counter-postgres-0.counter-postgres.counter.svc.cluster.local
+[?2004l10.244.1.7      counter-postgres-0.counter-postgres.counter.svc.cluster.local
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter exec counter-postgres-client -- \[27m
+[7m  psql -X -v ON_ERROR_STOP=1 \[27m
+[7m  -c 'SELECT current_database(), current_user, inet_server_addr(), inet_server_port();' \[27m
+[7m  -c '\dt public.*' \[27m
+[7m  -c 'SELECT * FROM public.counters;'[27m[A[A[A[Akubectl -n counter exec counter-postgres-client -- \
+  psql -X -v ON_ERROR_STOP=1 \
+  -c 'SELECT current_database(), current_user, inet_server_addr(), inet_server_port();' \
+  -c '\dt public.*' \
+  -c 'SELECT * FROM public.counters;'
+[?2004lpsql: error: connection to server at "counter-postgres-0.counter-postgres.counter.svc.cluster.local" (10.244.1.7), port 5432 failed: FATAL:  password authentication failed for user "counteradmin"
+command terminated with exit code 2
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter exec counter-postgres-client -- \[27m
+[7m  psql -X -v ON_ERROR_STOP=1 \[27m
+[7m  -c 'SELECT current_database(), current_user, inet_server_addr(), inet_server_port();' \[27m
+[7m  -c '\dt public.*' \[27m
+[7m  -c 'SELECT * FROM public.counters;'[27m[A[A[A[Akubectl -n counter exec counter-postgres-client -- \
+  psql -X -v ON_ERROR_STOP=1 \
+  -c 'SELECT current_database(), current_user, inet_server_addr(), inet_server_port();' \
+  -c '\dt public.*' \
+  -c 'SELECT * FROM public.counters;'
+[?2004lpsql: error: connection to server at "counter-postgres-0.counter-postgres.counter.svc.cluster.local" (10.244.1.7), port 5432 failed: FATAL:  password authentication failed for user "counteradmin"
+command terminated with exit code 2
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter get pod counter-postgres-client \[27m
+[7m  -o jsonpath='{range .spec.containers[*].env[*]}{.name}{" -> "}{.valueFrom.secretKeyRef.name}{"/"}{.v[27m[7ma[27m[7mlueFrom.secretKeyRef.key}{"\n"}{end}'[27m[A[Akubectl -n counter get pod counter-postgres-client \
+  -o jsonpath='{range .spec.containers[*].env[*]}{.name}{" -> "}{.valueFrom.secretKeyRef.name}{"/"}{.valueFrom.secretKeyRef.key}{"\n"}{end}'
+[?2004lPGHOST -> /
+PGPORT -> /
+PGDATABASE -> /
+PGUSER -> /
+PGCONNECT_TIMEOUT -> /
+PGPASSWORD -> counter-postgres-secret/password
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter get pod counter-postgres-0 \[27m
+[7m  -o jsonpath='{range .spec.containers[*].env[*]}{.name}{" -> "}{.valueFrom.secretKeyRef.name}{"/"}{.v[27m[7ma[27m[7mlueFrom.secretKeyRef.key}{"\n"}{end}'[27m[A[Akubectl -n counter get pod counter-postgres-0 \
+  -o jsonpath='{range .spec.containers[*].env[*]}{.name}{" -> "}{.valueFrom.secretKeyRef.name}{"/"}{.valueFrom.secretKeyRef.key}{"\n"}{end}'
+[?2004lPOSTGRES_DB -> /
+POSTGRES_USER -> /
+POSTGRES_PASSWORD_FILE -> /
+PGDATA -> /
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter exec counter-postgres-0 -- \[27m
+[7m  psql -X -w \[27m
+[7m    -h /var/run/postgresql \[27m
+[7m    -U counteradmin \[27m
+[7m    -d postgres \[27m
+[7m    -c 'SELECT current_user;'[27m[A[A[A[A[A]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ kubectl -n counter exec counter-postgres-0 -- \
+  psql -X -w \
+    -h /var/run/postgresql \
+    -U counteradmin \
+    -d postgres \
+    -c 'SELECT current_user;'
+[?2004l current_user 
+--------------
+ counteradmin
+(1 row)
+
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter exec counter-postgres-0 -- \[27m
+[7m  sh -eu -c 'cat "$POSTGRES_PASSWORD_FILE"' |[27m
+[7mkubectl -n counter exec -i counter-postgres-client -- \[27m
+[7m  sh -eu -c '[27m
+[7m    PGPASSWORD="$(cat)"[27m
+[7m    export PGPASSWORD[27m
+[7m    exec psql -X -w -v ON_ERROR_STOP=1 \[27m
+[7m      -c "SELECT current_database(), current_user;"[27m
+[7m  '[27m[A[A[A[A[A[A[A[A]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ kubectl -n counter exec counter-postgres-0 -- \
+  sh -eu -c 'cat "$POSTGRES_PASSWORD_FILE"' |
+kubectl -n counter exec -i counter-postgres-client -- \
+  sh -eu -c '
+    PGPASSWORD="$(cat)"
+    export PGPASSWORD
+    exec psql -X -w -v ON_ERROR_STOP=1 \
+      -c "SELECT current_database(), current_user;"
+  '
+[?2004l current_database | current_user 
+------------------+--------------
+ counterdb        | counteradmin
+(1 row)
+
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mgrep -rl \[27m
+[7m  --include='*.yaml' \[27m
+[7m  --include='*.yml' \[27m
+[7m  'name: counter-postgres-client' \[27m
+[7m  manifests/[27m[A[A[A[A]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ grep -rl \
+  --include='*.yaml' \
+  --include='*.yml' \
+  'name: counter-postgres-client' \
+  manifests/
+[?2004l[35m[Kmanifests/postgres/04-client-pod.yaml[m[K
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ cat manifests/postgres/04-client-pod.yaml 
+[?2004lapiVersion: v1
+kind: Pod
+metadata:
+  name: counter-postgres-client
+  namespace: counter
+  labels:
+    app: counter-postgres-client
+spec:
+  automountServiceAccountToken: false
+  restartPolicy: Always
+
+  containers:
+    - name: client
+      image: postgres:18.6-bookworm
+      imagePullPolicy: Never
+
+      command:
+        - sh
+        - -c
+        - sleep infinity
+
+      env:
+        - name: PGHOST
+          value: counter-postgres-0.counter-postgres.counter.svc.cluster.local
+
+        - name: PGPORT
+          value: "5432"
+
+        - name: PGDATABASE
+          value: counterdb
+
+        - name: PGUSER
+          value: counteradmin
+
+        - name: PGCONNECT_TIMEOUT
+          value: "5"
+
+        - name: PGPASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: counter-postgres-secret
+              key: password
+
+      resources:
+        requests:
+          cpu: 10m
+          memory: 32Mi
+        limits:
+          cpu: 100m
+          memory: 128Mi
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter delete pod counter-postgres-client &&[27m
+[7mkubectl -n counter apply -f manifests/postgres/04-client-pod.yaml &&[27m
+[7mkubectl -n counter wait --for=condition=Ready \[27m
+[7m  pod/counter-postgres-client --timeout=120s[27m[A[A[Akubectl -n counter delete pod counter-postgres-client &&
+kubectl -n counter apply -f manifests/postgres/04-client-pod.yaml &&
+kubectl -n counter wait --for=condition=Ready \
+  pod/counter-postgres-client --timeout=120s
+[?2004lpod "counter-postgres-client" deleted from counter namespace
+pod/counter-postgres-client created
+pod/counter-postgres-client condition met
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter exec counter-postgres-client -- \[27m
+[7m  psql -X -w -v ON_ERROR_STOP=1 \[27m
+[7m  -c 'SELECT current_database(), current_user, inet_server_addr(), inet_server_port();' \[27m
+[7m  -c '\dt public.*' \[27m
+[7m  -c 'SELECT * FROM public.counters;'[27m[A[A[A[Akubectl -n counter exec counter-postgres-client -- \
+  psql -X -w -v ON_ERROR_STOP=1 \
+  -c 'SELECT current_database(), current_user, inet_server_addr(), inet_server_port();' \
+  -c '\dt public.*' \
+  -c 'SELECT * FROM public.counters;'
+[?2004lpsql: error: connection to server at "counter-postgres-0.counter-postgres.counter.svc.cluster.local" (10.244.1.7), port 5432 failed: FATAL:  password authentication failed for user "counteradmin"
+command terminated with exit code 2
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter exec counter-postgres-0 -- \[27m
+[7m  sh -c 'printf "%s\n" "$POSTGRES_PASSWORD_FILE"'[27m[Akubectl -n counter exec counter-postgres-0 -- \
+  sh -c 'printf "%s\n" "$POSTGRES_PASSWORD_FILE"'
+[?2004l/run/secrets/postgres/password
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter get pod counter-postgres-0 \[27m
+[7m  -o jsonpath='{range .spec.volumes[*]}{.name}{" -> Secret: "}{.secret.secretName}{"\n"}{end}'[27m[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ckubectl -n counter get pod counter-postgres-0 \
+  -o jsonpath='{range .spec.volumes[*]}{.name}{" -> Secret: "}{.secret.secretName}{"\n"}{end}'
+[?2004ldata -> Secret: 
+init-sql -> Secret: 
+postgres-password -> Secret: counter-postgres-secret
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter get pod counter-postgres-0 \[27m
+[7m  -o jsonpath='{range .spec.containers[*].volumeMounts[*]}{.name}{" -> "}{.mountPath}{"; subPath="}{.s[27m[7mu[27m[7mbPath}{"\n"}{end}'[27m[A[A]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ kubectl -n counter get pod counter-postgres-0 \
+  -o jsonpath='{range .spec.containers[*].volumeMounts[*]}{.name}{" -> "}{.mountPath}{"; subPath="}{.subPath}{"\n"}{end}'
+[?2004ldata -> /var/lib/postgresql; subPath=
+init-sql -> /docker-entrypoint-initdb.d; subPath=
+postgres-password -> /run/secrets/postgres; subPath=
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter exec counter-postgres-client -- \[27m
+[7m  sh -eu -c '[27m
+[7m    cleaned="$(printf "%s" "$PGPASSWORD")"[27m
+
+[7m    if [ "$PGPASSWORD" = "$cleaned" ]; then[27m
+[7m      printf "Завершающих переводов строк нет\n"[27m
+[7m    else[27m
+[7m      printf "Найдены завершающие переводы строк\n"[27m
+[7m    fi[27m
+
+[7m    PGPASSWORD="$cleaned"[27m
+[7m    export PGPASSWORD[27m
+
+[7m    exec psql -X -w -v ON_ERROR_STOP=1 \[27m
+[7m      -c "SELECT current_database(), current_user;" \[27m
+[7m      -c "\dt public.*" \[27m
+[7m      -c "SELECT * FROM public.counters;"[27m
+[7m  '[27m[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ kubectl -n counter exec counter-postgres-client -- \
+  sh -eu -c '
+    cleaned="$(printf "%s" "$PGPASSWORD")"
+
+    if [ "$PGPASSWORD" = "$cleaned" ]; then
+      printf "Завершающих переводов строк нет\n"
+    else
+      printf "Найдены завершающие переводы строк\n"
+    fi
+
+    PGPASSWORD="$cleaned"
+    export PGPASSWORD
+
+    exec psql -X -w -v ON_ERROR_STOP=1 \
+      -c "SELECT current_database(), current_user;" \
+      -c "\dt public.*" \
+      -c "SELECT * FROM public.counters;"
+  '
+[?2004lНайдены завершающие переводы строк
+ current_database | current_user 
+------------------+--------------
+ counterdb        | counteradmin
+(1 row)
+
+              List of tables
+ Schema |   Name   | Type  |    Owner     
+--------+----------+-------+--------------
+ public | counters | table | counteradmin
+(1 row)
+
+ id | value 
+----+-------
+  1 |     0
+(1 row)
+
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter exec counter-postgres-client -- \[27m
+[7m  sh -eu -c '[27m
+[7m    cleaned="$(printf "%s" "$PGPASSWORD")"[27m
+[7m    [ -n "$cleaned" ][27m
+[7m    encoded="$(printf "%s" "$cleaned" | base64 | tr -d "\n")"[27m
+[7m    printf "{\"data\":{\"password\":\"%s\"}}\n" "$encoded"[27m
+[7m  ' |[27m
+[7mkubectl -n counter patch secret counter-postgres-secret \[27m
+[7m  --type=merge --patch-file=/dev/stdin[27m[A[A[A[A[A[A[A[Akubectl -n counter exec counter-postgres-client -- \
+  sh -eu -c '
+    cleaned="$(printf "%s" "$PGPASSWORD")"
+    [ -n "$cleaned" ]
+    encoded="$(printf "%s" "$cleaned" | base64 | tr -d "\n")"
+    printf "{\"data\":{\"password\":\"%s\"}}\n" "$encoded"
+  ' |
+kubectl -n counter patch secret counter-postgres-secret \
+  --type=merge --patch-file=/dev/stdin
+[?2004lsecret/counter-postgres-secret patched
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter delete pod counter-postgres-client &&[27m
+[7mkubectl -n counter apply -f manifests/postgres/04-client-pod.yaml &&[27m
+[7mkubectl -n counter wait --for=condition=Ready \[27m
+[7m  pod/counter-postgres-client --timeout=120s[27m[A[A[Akubectl -n counter delete pod counter-postgres-client &&
+kubectl -n counter apply -f manifests/postgres/04-client-pod.yaml &&
+kubectl -n counter wait --for=condition=Ready \
+  pod/counter-postgres-client --timeout=120s
+[?2004lpod "counter-postgres-client" deleted from counter namespace
+pod/counter-postgres-client created
+pod/counter-postgres-client condition met
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter exec counter-postgres-client -- \[27m
+[7m  psql -X -w -v ON_ERROR_STOP=1 \[27m
+[7m  -c 'SELECT current_database(), current_user;' \[27m
+[7m  -c 'SELECT * FROM public.counters;'[27m[A[A[Akubectl -n counter exec counter-postgres-client -- \
+  psql -X -w -v ON_ERROR_STOP=1 \
+  -c 'SELECT current_database(), current_user;' \
+  -c 'SELECT * FROM public.counters;'
+[?2004l current_database | current_user 
+------------------+--------------
+ counterdb        | counteradmin
+(1 row)
+
+ id | value 
+----+-------
+  1 |     0
+(1 row)
+
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter exec counter-postgres-client -- \[27m
+[7m  psql -X -v ON_ERROR_STOP=1 \[27m
+[7m  -c 'SELECT current_database(), current_user, inet_server_addr(), inet_server_port();' \[27m
+[7m  -c '\dt public.*' \[27m
+[7m  -c 'SELECT * FROM public.counters;'[27m[A[A[A[Akubectl -n counter exec counter-postgres-client -- \
+  psql -X -v ON_ERROR_STOP=1 \
+  -c 'SELECT current_database(), current_user, inet_server_addr(), inet_server_port();' \
+  -c '\dt public.*' \
+  -c 'SELECT * FROM public.counters;'
+[?2004l current_database | current_user | inet_server_addr | inet_server_port 
+------------------+--------------+------------------+------------------
+ counterdb        | counteradmin | 10.244.1.7       |             5432
+(1 row)
+
+              List of tables
+ Schema |   Name   | Type  |    Owner     
+--------+----------+-------+--------------
+ public | counters | table | counteradmin
+(1 row)
+
+ id | value 
+----+-------
+  1 |     0
+(1 row)
+
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter logs counter-postgres-0[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ckubectl -n counter logs counter-postgres-0
+[?2004lThe files belonging to this database system will be owned by user "postgres".
+This user must also own the server process.
+
+The database cluster will be initialized with locale "en_US.utf8".
+The default database encoding has accordingly been set to "UTF8".
+The default text search configuration will be set to "english".
+
+Data page checksums are enabled.
+
+fixing permissions on existing directory /var/lib/postgresql/18/docker ... ok
+creating subdirectories ... ok
+selecting dynamic shared memory implementation ... posix
+selecting default "max_connections" ... 100
+selecting default "shared_buffers" ... 128MB
+selecting default time zone ... Etc/UTC
+creating configuration files ... ok
+running bootstrap script ... ok
+performing post-bootstrap initialization ... ok
+initdb: warning: enabling "trust" authentication for local connections
+initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+syncing data to disk ... ok
+
+
+Success. You can now start the database server using:
+
+    pg_ctl -D /var/lib/postgresql/18/docker -l logfile start
+
+waiting for server to start....2026-10-24 21:08:25.312 UTC [64] LOG:  starting PostgreSQL 18.6 (Debian 18.6-1.pgdg12+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+2026-10-24 21:08:25.319 UTC [64] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2026-10-24 21:08:25.341 UTC [70] LOG:  database system was shut down at 2026-10-24 21:08:24 UTC
+2026-10-24 21:08:25.352 UTC [64] LOG:  database system is ready to accept connections
+ done
+server started
+CREATE DATABASE
+
+
+/usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/01-init.sql
+CREATE TABLE
+INSERT 0 1
+
+
+waiting for server to shut down....2026-10-24 21:08:25.608 UTC [64] LOG:  received fast shutdown request
+2026-10-24 21:08:25.613 UTC [64] LOG:  aborting any active transactions
+2026-10-24 21:08:25.615 UTC [64] LOG:  background worker "logical replication launcher" (PID 73) exited with exit code 1
+2026-10-24 21:08:25.615 UTC [68] LOG:  shutting down
+2026-10-24 21:08:25.620 UTC [68] LOG:  checkpoint starting: shutdown immediate
+2026-10-24 21:08:25.960 UTC [68] LOG:  checkpoint complete: wrote 947 buffers (5.8%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.018 s, sync=0.305 s, total=0.345 s; sync files=305, longest=0.012 s, average=0.001 s; distance=4348 kB, estimate=4348 kB; lsn=0/1B984E8, redo lsn=0/1B984E8
+2026-10-24 21:08:25.975 UTC [64] LOG:  database system is shut down
+ done
+server stopped
+
+PostgreSQL init process complete; ready for start up.
+
+2026-10-24 21:08:26.034 UTC [1] LOG:  starting PostgreSQL 18.6 (Debian 18.6-1.pgdg12+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+2026-10-24 21:08:26.034 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2026-10-24 21:08:26.034 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+2026-10-24 21:08:26.044 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2026-10-24 21:08:26.056 UTC [88] LOG:  database system was shut down at 2026-10-24 21:08:25 UTC
+2026-10-24 21:08:26.065 UTC [1] LOG:  database system is ready to accept connections
+2026-10-24 21:11:28.114 UTC [551] FATAL:  password authentication failed for user "counteradmin"
+2026-10-24 21:11:28.114 UTC [551] DETAIL:  Connection matched file "/var/lib/postgresql/18/docker/pg_hba.conf" line 128: "host all all all scram-sha-256"
+2026-10-24 21:11:40.707 UTC [576] FATAL:  password authentication failed for user "counteradmin"
+2026-10-24 21:11:40.707 UTC [576] DETAIL:  Connection matched file "/var/lib/postgresql/18/docker/pg_hba.conf" line 128: "host all all all scram-sha-256"
+2026-10-24 21:13:26.154 UTC [86] LOG:  checkpoint starting: time
+2026-10-24 21:13:30.487 UTC [86] LOG:  checkpoint complete: wrote 42 buffers (0.3%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=4.273 s, sync=0.025 s, total=4.333 s; sync files=12, longest=0.006 s, average=0.003 s; distance=332 kB, estimate=332 kB; lsn=0/1BEB7A0, redo lsn=0/1BEB710
+2026-10-24 21:34:45.950 UTC [3992] FATAL:  password authentication failed for user "counteradmin"
+2026-10-24 21:34:45.950 UTC [3992] DETAIL:  Connection matched file "/var/lib/postgresql/18/docker/pg_hba.conf" line 128: "host all all all scram-sha-256"
+2026-10-24 21:43:26.872 UTC [86] LOG:  checkpoint starting: time
+2026-10-24 21:43:27.014 UTC [86] LOG:  checkpoint complete: wrote 1 buffers (0.0%), wrote 0 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.102 s, sync=0.006 s, total=0.143 s; sync files=1, longest=0.006 s, average=0.006 s; distance=0 kB, estimate=299 kB; lsn=0/1BEB958, redo lsn=0/1BEB900
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter exec counter-postgres-client -- \[27m
+[7m  psql -X -v ON_ERROR_STOP=1 \[27m
+[7m  -c 'UPDATE public.counters SET value = 42 WHERE id = 1;' \[27m
+[7m  -c 'SELECT * FROM public.counters;'[27m[A[A[Akubectl -n counter exec counter-postgres-client -- \
+  psql -X -v ON_ERROR_STOP=1 \
+  -c 'UPDATE public.counters SET value = 42 WHERE id = 1;' \
+  -c 'SELECT * FROM public.counters;'
+[?2004lUPDATE 1
+ id | value 
+----+-------
+  1 |    42
+(1 row)
+
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mOLD_POD_UID=$(kubectl -n counter get pod counter-postgres-0 \[27m
+[7m  -o jsonpath='{.metadata.uid}')[27m
+
+[7mOLD_STS_UID=$(kubectl -n counter get statefulset counter-postgres \[27m
+[7m  -o jsonpath='{.metadata.uid}')[27m
+
+[7mOLD_PVC_UID=$(kubectl -n counter get pvc data-counter-postgres-0 \[27m
+[7m  -o jsonpath='{.metadata.uid}')[27m
+
+[7mOLD_PV_NAME=$(kubectl -n counter get pvc data-counter-postgres-0 \[27m
+[7m  -o jsonpath='{.spec.volumeName}')[27m[A[A[A[A[A[A[A[A[A[AOLD_POD_UID=$(kubectl -n counter get pod counter-postgres-0 \
+  -o jsonpath='{.metadata.uid}')
+
+OLD_STS_UID=$(kubectl -n counter get statefulset counter-postgres \
+  -o jsonpath='{.metadata.uid}')
+
+OLD_PVC_UID=$(kubectl -n counter get pvc data-counter-postgres-0 \
+  -o jsonpath='{.metadata.uid}')
+
+OLD_PV_NAME=$(kubectl -n counter get pvc data-counter-postgres-0 \
+  -o jsonpath='{.spec.volumeName}')
+[?2004l[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mprintf 'Pod UID: %s\nStatefulSet UID: %s\nPVC UID: %s\nPV: %s\n' \[27m
+[7m  "$OLD_POD_UID" "$OLD_STS_UID" "$OLD_PVC_UID" "$OLD_PV_NAME"[27m[Aprintf 'Pod UID: %s\nStatefulSet UID: %s\nPVC UID: %s\nPV: %s\n' \
+  "$OLD_POD_UID" "$OLD_STS_UID" "$OLD_PVC_UID" "$OLD_PV_NAME"
+[?2004lPod UID: 193688ec-7574-4511-84f9-bb0ed195f675
+StatefulSet UID: d6d153b5-0adc-48fc-9360-3b9877e19028
+PVC UID: e521c24f-173d-497f-a021-87e449c90cc7
+PV: pvc-e521c24f-173d-497f-a021-87e449c90cc7
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter delete pod counter-postgres-0[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ckubectl -n counter delete pod counter-postgres-0
+[?2004lpod "counter-postgres-0" deleted from counter namespace
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter wait \[27m
+[7m  --for=create \[27m
+[7m  pod/counter-postgres-0 \[27m
+[7m  --timeout=60s[27m[A[A[A]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ kubectl -n counter wait \
+  --for=create \
+  pod/counter-postgres-0 \
+  --timeout=60s
+[?2004lpod/counter-postgres-0 condition met
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter wait \[27m
+[7m  --for=condition=Ready \[27m
+[7m  pod/counter-postgres-0 \[27m
+[7m  --timeout=180s[27m[A[A[A]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ kubectl -n counter wait \
+  --for=condition=Ready \
+  pod/counter-postgres-0 \
+  --timeout=180s
+[?2004lpod/counter-postgres-0 condition met
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter get pod counter-postgres-0 -o wide[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ckubectl -n counter get pod counter-postgres-0 -o wide
+[?2004lNAME                 READY   STATUS    RESTARTS   AGE   IP           NODE             NOMINATED NODE   READINESS GATES
+counter-postgres-0   1/1     Running   0          26s   10.244.1.8   course-worker2   <none>           <none>
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mNEW_POD_UID=$(kubectl -n counter get pod counter-postgres-0 \[27m
+[7m  -o jsonpath='{.metadata.uid}')[27m
+
+[7mprintf 'Pod UID до:    %s\nPod UID после: %s\n' \[27m
+[7m  "$OLD_POD_UID" "$NEW_POD_UID"[27m
+
+[7mtest "$OLD_POD_UID" != "$NEW_POD_UID" \[27m
+[7m  && printf 'OK: под пересоздан.\n'[27m[A[A[A[A[A[A[ANEW_POD_UID=$(kubectl -n counter get pod counter-postgres-0 \
+  -o jsonpath='{.metadata.uid}')
+
+printf 'Pod UID до:    %s\nPod UID после: %s\n' \
+  "$OLD_POD_UID" "$NEW_POD_UID"
+
+test "$OLD_POD_UID" != "$NEW_POD_UID" \
+  && printf 'OK: под пересоздан.\n'
+[?2004lPod UID до:    193688ec-7574-4511-84f9-bb0ed195f675
+Pod UID после: 5ff72c8b-17a1-4b89-af52-099d976e0a4b
+OK: под пересоздан.
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter exec counter-postgres-client -- \[27m
+[7m  psql -X -v ON_ERROR_STOP=1 \[27m
+[7m  -c 'SELECT * FROM public.counters;'[27m[A[Akubectl -n counter exec counter-postgres-client -- \
+  psql -X -v ON_ERROR_STOP=1 \
+  -c 'SELECT * FROM public.counters;'
+[?2004l id | value 
+----+-------
+  1 |    42
+(1 row)
+
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mCURRENT_PVC_UID=$(kubectl -n counter get pvc data-counter-postgres-0 \[27m
+[7m  -o jsonpath='{.metadata.uid}')[27m
+
+[7mtest "$OLD_PVC_UID" = "$CURRENT_PVC_UID" \[27m
+[7m  && printf 'OK: используется прежний PVC.\n'[27m[A[A[A[ACURRENT_PVC_UID=$(kubectl -n counter get pvc data-counter-postgres-0 \
+  -o jsonpath='{.metadata.uid}')
+
+test "$OLD_PVC_UID" = "$CURRENT_PVC_UID" \
+  && printf 'OK: используется прежний PVC.\n'
+[?2004lOK: используется прежний PVC.
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter delete statefulset counter-postgres \[27m
+[7m  --cascade=foreground \[27m
+[7m  --wait=true[27m[A[A]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ kubectl -n counter delete statefulset counter-postgres \
+  --cascade=foreground \
+  --wait=true
+[?2004lstatefulset.apps "counter-postgres" deleted from counter namespace
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter get statefulset counter-postgres[27m
+[7mkubectl -n counter get pods -l app=counter-postgres[27m
+[7mkubectl -n counter get pvc data-counter-postgres-0[27m
+[7mkubectl get pv "$OLD_PV_NAME"[27m[A[A[A]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ kubectl -n counter get statefulset counter-postgres
+kubectl -n counter get pods -l app=counter-postgres
+kubectl -n counter get pvc data-counter-postgres-0
+kubectl get pv "$OLD_PV_NAME"
+[?2004lError from server (NotFound): statefulsets.apps "counter-postgres" not found
+No resources found in counter namespace.
+NAME                      STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+data-counter-postgres-0   Bound    pvc-e521c24f-173d-497f-a021-87e449c90cc7   1Gi        RWO            standard       <unset>                 41m
+NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                             STORAGECLASS   VOLUMEATTRIBUTESCLASS   REASON   AGE
+pvc-e521c24f-173d-497f-a021-87e449c90cc7   1Gi        RWO            Delete           Bound    counter/data-counter-postgres-0   standard       <unset>                          41m
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl apply \[27m
+[7m  -f /home/rkart/projects/hw4/manifests/postgres/03-statefulset.yaml[27m[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ckubectl apply \
+  -f /home/rkart/projects/hw4/manifests/postgres/03-statefulset.yaml
+[?2004lstatefulset.apps/counter-postgres created
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter rollout status \[27m
+[7m  statefulset/counter-postgres \[27m
+[7m  --timeout=180s[27m[A[A]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ kubectl -n counter rollout status \
+  statefulset/counter-postgres \
+  --timeout=180s
+[?2004lpartitioned roll out complete: 1 new pods have been updated...
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mNEW_STS_UID=$(kubectl -n counter get statefulset counter-postgres \[27m
+[7m  -o jsonpath='{.metadata.uid}')[27m
+
+[7mCURRENT_PVC_UID=$(kubectl -n counter get pvc data-counter-postgres-0 \[27m
+[7m  -o jsonpath='{.metadata.uid}')[27m
+
+[7mCURRENT_PV_NAME=$(kubectl -n counter get pvc data-counter-postgres-0 \[27m
+[7m  -o jsonpath='{.spec.volumeName}')[27m
+
+[7mprintf 'StatefulSet UID до:    %s\nStatefulSet UID после: %s\n' \[27m
+[7m  "$OLD_STS_UID" "$NEW_STS_UID"[27m
+
+[7mtest "$OLD_STS_UID" != "$NEW_STS_UID" \[27m
+[7m  && printf 'OK: StatefulSet создан заново.\n'[27m
+
+[7mtest "$OLD_PVC_UID" = "$CURRENT_PVC_UID" \[27m
+[7m  && printf 'OK: PVC сохранился.\n'[27m
+
+[7mtest "$OLD_PV_NAME" = "$CURRENT_PV_NAME" \[27m
+[7m  && printf 'OK: используется прежний PV.\n'[27m[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[ANEW_STS_UID=$(kubectl -n counter get statefulset counter-postgres \
+  -o jsonpath='{.metadata.uid}')
+
+CURRENT_PVC_UID=$(kubectl -n counter get pvc data-counter-postgres-0 \
+  -o jsonpath='{.metadata.uid}')
+
+CURRENT_PV_NAME=$(kubectl -n counter get pvc data-counter-postgres-0 \
+  -o jsonpath='{.spec.volumeName}')
+
+printf 'StatefulSet UID до:    %s\nStatefulSet UID после: %s\n' \
+  "$OLD_STS_UID" "$NEW_STS_UID"
+
+test "$OLD_STS_UID" != "$NEW_STS_UID" \
+  && printf 'OK: StatefulSet создан заново.\n'
+
+test "$OLD_PVC_UID" = "$CURRENT_PVC_UID" \
+  && printf 'OK: PVC сохранился.\n'
+
+test "$OLD_PV_NAME" = "$CURRENT_PV_NAME" \
+  && printf 'OK: используется прежний PV.\n'
+[?2004lStatefulSet UID до:    d6d153b5-0adc-48fc-9360-3b9877e19028
+StatefulSet UID после: 435f9cc5-a81a-44f4-80d7-a3c938485c4e
+OK: StatefulSet создан заново.
+OK: PVC сохранился.
+OK: используется прежний PV.
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter exec counter-postgres-client -- \[27m
+[7m  getent hosts counter-postgres-0.counter-postgres.counter.svc.cluster.local[27m[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ckubectl -n counter exec counter-postgres-client -- \
+  getent hosts counter-postgres-0.counter-postgres.counter.svc.cluster.local
+[?2004l10.244.1.9      counter-postgres-0.counter-postgres.counter.svc.cluster.local
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter exec counter-postgres-client -- \[27m
+[7m  psql -X -v ON_ERROR_STOP=1 \[27m
+[7m  -c 'SELECT * FROM public.counters;'[27m[A[Akubectl -n counter exec counter-postgres-client -- \
+  psql -X -v ON_ERROR_STOP=1 \
+  -c 'SELECT * FROM public.counters;'
+[?2004l id | value 
+----+-------
+  1 |    42
+(1 row)
+
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mPV_NAME=$(kubectl -n counter get pvc data-counter-postgres-0 \[27m
+[7m  -o jsonpath='{.spec.volumeName}')[27m[APV_NAME=$(kubectl -n counter get pvc data-counter-postgres-0 \
+  -o jsonpath='{.spec.volumeName}')
+[?2004l[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl get pv "$PV_NAME" -o yaml[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ckubectl get pv "$PV_NAME" -o yaml
+[?2004lapiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    local.path.provisioner/selected-node: course-worker2
+    pv.kubernetes.io/provisioned-by: rancher.io/local-path
+  creationTimestamp: "2026-10-24T21:08:21Z"
+  finalizers:
+  - kubernetes.io/pv-protection
+  name: pvc-e521c24f-173d-497f-a021-87e449c90cc7
+  resourceVersion: "42652"
+  uid: 85d2474e-a036-4882-9a95-127ea88f136d
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  claimRef:
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    name: data-counter-postgres-0
+    namespace: counter
+    resourceVersion: "42625"
+    uid: e521c24f-173d-497f-a021-87e449c90cc7
+  hostPath:
+    path: /var/local-path-provisioner/pvc-e521c24f-173d-497f-a021-87e449c90cc7_counter_data-counter-postgres-0
+    type: DirectoryOrCreate
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - course-worker2
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: standard
+  volumeMode: Filesystem
+status:
+  lastPhaseTransitionTime: "2026-10-24T21:08:21Z"
+  phase: Bound
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl get pv "$PV_NAME" \[27m
+[7m  -o jsonpath='{.spec.hostPath.path}{"\n"}'[27m[Akubectl get pv "$PV_NAME" \
+  -o jsonpath='{.spec.hostPath.path}{"\n"}'
+[?2004l/var/local-path-provisioner/pvc-e521c24f-173d-497f-a021-87e449c90cc7_counter_data-counter-postgres-0
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mDB_NODE=$(kubectl -n counter get pod counter-postgres-0 \[27m
+[7m  -o jsonpath='{.spec.nodeName}')[27m
+
+[7mPV_PATH=$(kubectl get pv "$PV_NAME" \[27m
+[7m  -o jsonpath='{.spec.hostPath.path}')[27m
+
+[7mprintf 'Нода: %s\nКаталог тома: %s\n' "$DB_NODE" "$PV_PATH"[27m
+
+[7mdocker exec "$DB_NODE" ls -ld "$PV_PATH"[27m
+[7mdocker exec "$DB_NODE" ls -la "$PV_PATH/18/docker"[27m[A[A[A[A[A[A[A[A[ADB_NODE=$(kubectl -n counter get pod counter-postgres-0 \
+  -o jsonpath='{.spec.nodeName}')
+
+PV_PATH=$(kubectl get pv "$PV_NAME" \
+  -o jsonpath='{.spec.hostPath.path}')
+
+printf 'Нода: %s\nКаталог тома: %s\n' "$DB_NODE" "$PV_PATH"
+
+docker exec "$DB_NODE" ls -ld "$PV_PATH"
+docker exec "$DB_NODE" ls -la "$PV_PATH/18/docker"
+[?2004lНода: course-worker2
+Каталог тома: /var/local-path-provisioner/pvc-e521c24f-173d-497f-a021-87e449c90cc7_counter_data-counter-postgres-0
+drwxrwxrwx 3 root root 4096 Oct 24 21:08 /var/local-path-provisioner/pvc-e521c24f-173d-497f-a021-87e449c90cc7_counter_data-counter-postgres-0
+total 136
+drwx------ 19  999 root             4096 Oct 24 21:50 .
+drwxr-xr-x  3 root root             4096 Oct 24 21:08 ..
+-rw-------  1  999 systemd-journal     3 Oct 24 21:08 PG_VERSION
+drwx------  6  999 systemd-journal  4096 Oct 24 21:08 base
+drwx------  2  999 systemd-journal  4096 Oct 24 21:51 global
+drwx------  2  999 systemd-journal  4096 Oct 24 21:08 pg_commit_ts
+drwx------  2  999 systemd-journal  4096 Oct 24 21:08 pg_dynshmem
+-rw-------  1  999 systemd-journal  5753 Oct 24 21:08 pg_hba.conf
+-rw-------  1  999 systemd-journal  2681 Oct 24 21:08 pg_ident.conf
+drwx------  4  999 systemd-journal  4096 Oct 24 21:50 pg_logical
+drwx------  4  999 systemd-journal  4096 Oct 24 21:08 pg_multixact
+drwx------  2  999 systemd-journal  4096 Oct 24 21:08 pg_notify
+drwx------  2  999 systemd-journal  4096 Oct 24 21:08 pg_replslot
+drwx------  2  999 systemd-journal  4096 Oct 24 21:08 pg_serial
+drwx------  2  999 systemd-journal  4096 Oct 24 21:08 pg_snapshots
+drwx------  2  999 systemd-journal  4096 Oct 24 21:50 pg_stat
+drwx------  2  999 systemd-journal  4096 Oct 24 21:08 pg_stat_tmp
+drwx------  2  999 systemd-journal  4096 Oct 24 21:08 pg_subtrans
+drwx------  2  999 systemd-journal  4096 Oct 24 21:08 pg_tblspc
+drwx------  2  999 systemd-journal  4096 Oct 24 21:08 pg_twophase
+drwx------  4  999 systemd-journal  4096 Oct 24 21:08 pg_wal
+drwx------  2  999 systemd-journal  4096 Oct 24 21:08 pg_xact
+-rw-------  1  999 systemd-journal    88 Oct 24 21:08 postgresql.auto.conf
+-rw-------  1  999 systemd-journal 32657 Oct 24 21:08 postgresql.conf
+-rw-------  1  999 systemd-journal    36 Oct 24 21:50 postmaster.opts
+-rw-------  1  999 systemd-journal    99 Oct 24 21:50 postmaster.pid
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter get statefulset counter-postgres[27m
+[7mkubectl -n counter get pod counter-postgres-0 -o wide[27m
+[7mkubectl -n counter get pod counter-postgres-client[27m
+[7mkubectl -n counter get service counter-postgres[27m
+[7mkubectl -n counter get pvc data-counter-postgres-0[27m
+[7mkubectl get pv "$PV_NAME"[27m[A[A[A[A[A]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ kubectl -n counter get statefulset counter-postgres
+kubectl -n counter get pod counter-postgres-0 -o wide
+kubectl -n counter get pod counter-postgres-client
+kubectl -n counter get service counter-postgres
+kubectl -n counter get pvc data-counter-postgres-0
+kubectl get pv "$PV_NAME"
+[?2004lNAME               READY   AGE
+counter-postgres   1/1     4m37s
+NAME                 READY   STATUS    RESTARTS   AGE     IP           NODE             NOMINATED NODE   READINESS GATES
+counter-postgres-0   1/1     Running   0          4m37s   10.244.1.9   course-worker2   <none>           <none>
+NAME                      READY   STATUS    RESTARTS   AGE
+counter-postgres-client   1/1     Running   0          14m
+NAME               TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)    AGE
+counter-postgres   ClusterIP   None         <none>        5432/TCP   47m
+NAME                      STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+data-counter-postgres-0   Bound    pvc-e521c24f-173d-497f-a021-87e449c90cc7   1Gi        RWO            standard       <unset>                 47m
+NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                             STORAGECLASS   VOLUMEATTRIBUTESCLASS   REASON   AGE
+pvc-e521c24f-173d-497f-a021-87e449c90cc7   1Gi        RWO            Delete           Bound    counter/data-counter-postgres-0   standard       <unset>                          47m
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ [7mkubectl -n counter exec counter-postgres-client -- \[27m
+[7m  psql -X -v ON_ERROR_STOP=1 \[27m
+[7m  -c 'SELECT * FROM public.counters;'[27m[A[Akubectl -n counter exec counter-postgres-client -- \
+  psql -X -v ON_ERROR_STOP=1 \
+  -c 'SELECT * FROM public.counters;'
+[?2004l id | value 
+----+-------
+  1 |    42
+(1 row)
+
+[?2004h]0;rkart@TIRoman: ~/projects/hw4[01;32mrkart@TIRoman[00m:[01;34m~/projects/hw4[00m$ exit
+[?2004lexit
+
+Script done on 2026-10-25 00:55:40+03:00 [COMMAND_EXIT_CODE="0"]

@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: counter-postgres-client
+  namespace: counter
+  labels:
+    app: counter-postgres-client
+spec:
+  automountServiceAccountToken: false
+  restartPolicy: Always
+
+  containers:
+    - name: client
+      image: postgres:18.6-bookworm
+      imagePullPolicy: Never
+
+      command:
+        - sh
+        - -c
+        - sleep infinity
+
+      env:
+        - name: PGHOST
+          value: counter-postgres-0.counter-postgres.counter.svc.cluster.local
+
+        - name: PGPORT
+          value: "5432"
+
+        - name: PGDATABASE
+          value: counterdb
+
+        - name: PGUSER
+          value: counteradmin
+
+        - name: PGCONNECT_TIMEOUT
+          value: "5"
+
+        - name: PGPASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: counter-postgres-secret
+              key: password
+
+      resources:
+        requests:
+          cpu: 10m
+          memory: 32Mi
+        limits:
+          cpu: 100m
+          memory: 128Mi
