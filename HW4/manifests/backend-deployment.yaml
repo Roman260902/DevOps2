@@ -1,0 +1,105 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: counter-backend
+  namespace: counter
+  annotations:
+    kubernetes.io/change-cause: "Change backend port from 8081 to 8082 without rebuilding"
+
+spec:
+  replicas: 1
+  revisionHistoryLimit: 5
+  minReadySeconds: 5
+  progressDeadlineSeconds: 120
+
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+
+  selector:
+    matchLabels:
+      app: counter-backend
+
+  template:
+    metadata:
+      labels:
+        app: counter-backend
+
+    spec:
+      terminationGracePeriodSeconds: 30
+
+      containers:
+        - name: backend
+          image: counter-backend:hw4-v1
+          imagePullPolicy: Never
+
+          env:
+            - name: HOST
+              value: "0.0.0.0"
+
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: counter-backend-config
+                  key: PORT
+
+          ports:
+            - name: http
+              containerPort: 8082
+              protocol: TCP
+
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 250m
+              memory: 128Mi
+
+          startupProbe:
+            httpGet:
+              path: /api/counter
+              port: http
+            periodSeconds: 2
+            timeoutSeconds: 2
+            failureThreshold: 30
+
+          readinessProbe:
+            exec:
+              command:
+                - python
+                - -c
+                - |
+                  import os
+                  import urllib.request
+
+                  if os.path.exists("/tmp/force-unready"):
+                      raise SystemExit(1)
+
+                  urllib.request.urlopen(
+                      "http://127.0.0.1:" + os.environ["PORT"] + "/api/counter",
+                      timeout=1
+                  ).close()
+            periodSeconds: 5
+            timeoutSeconds: 2
+            failureThreshold: 1
+            successThreshold: 1
+
+          livenessProbe:
+            httpGet:
+              path: /api/counter
+              port: http
+            periodSeconds: 10
+            timeoutSeconds: 2
+            failureThreshold: 3
+
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                  - sh
+                  - -c
+                  - sleep 5
