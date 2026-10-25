@@ -1,0 +1,793 @@
+Script started on 2026-10-25 19:05:44+03:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="102" LINES="51"]
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ cd url-probe/
+[?2004l[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ la
+[?2004l.dockrignore  README.md:Zone.Identifier  urls-demo.txt
+Dockerfile    probe.py                   urls.txt
+README.md     probe.py:Zone.Identifier   urls.txt:Zone.Identifier
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ la
+[?2004l.dockerignore  README.md:Zone.Identifier  urls-demo.txt
+Dockerfile     probe.py                   urls.txt
+README.md      probe.py:Zone.Identifier   urls.txt:Zone.Identifier
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ cd..[1@ [C
+[?2004l[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mnano url-probe/crontab[27mnano url-probe/crontab
+[?2004l[?2004h[?1049h[22;0;0t[1;51r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[49;46H(B[0;7m[ New File ](B[m[H(B[0;7m  GNU nano 8.7.1                              url-probe/crontab                                       [1;101H(B[m[50d(B[0;7m^G(B[m Help[15G(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut[50;57H(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste[57G(B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[2d[?12l[?25h[?25l[49d[K[1;65H(B[0;7m*[101G(B[m[2d* * * * * python3 /app/probe.py /config/urls.txt[?12l[?25h[?25l[3d[?12l[?25h[?25l[2;49H[?12l[?25h[?25l[50;15H      (B[0;7mM-D(B[m DOS Format      (B[0;7mM-A(B[m Append[57G    (B[0;7mM-B(B[m Backup File     (B[0;7m^T(B[m Browse[K[51;2H(B[0;7mC(B[m Cancel           (B[0;7mM-M(B[m Mac Format      (B[0;7mM-P(B[m Prepend         (B[0;7m^Q(B[m Discard buffer[K[50;90H[A(B[0;7mWrite to File: url-probe/crontab                                                                      [49;33H(B[m[?12l[?25h[?25l[49;44H[1K (B[0;7m[ Writing... ](B[m[K[1;65H(B[0;7m [101G(B[m[49;44H(B[0;7m[ Wrote 1 line ](B[m[50;15H(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut  [57G(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51;2H(B[0;7mX(B[m Exit       (B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste      (B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[?12l[?25h[2;49H[?25l[49d[J[51d[?12l[?25h[51;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mnano url-probe/Dockerfile[27mnano url-probe/Dockerfile
+[?2004l[?2004h[?1049h[22;0;0t[1;51r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[49;45H(B[0;7m[ Reading... ](B[m[49;43H(B[0;7m[ Read 25 lines ](B[m[H(B[0;7m  GNU nano 8.7.1                            url-probe/Dockerfile                                      [1;101H(B[m[50d(B[0;7m^G(B[m Help[15G(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut[50;57H(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste[57G(B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[2dFROM python:3.11.6-alpine3.18[4dSHELL ["/bin/sh", "-eu", "-c"][6dARG APP_USER=appuser[7dARG APP_UID=1001[8dARG APP_GID=1001[9dARG APP_HOME=/app[11dRUN addgroup -S -g "${APP_GID}" "${APP_USER}" \[12;5H&& adduser -S -D -H \[13;9H-u "${APP_UID}" \[14;9H-G "${APP_USER}" \[15;9H"${APP_USER}" \[16;5H&& mkdir -p "${APP_HOME}" /config \[17;5H&& chown -R "${APP_USER}:${APP_USER}" "${APP_HOME}" /config[19dWORKDIR ${APP_HOME}[21dCOPY --chown=${APP_UID}:${APP_GID} probe.py ./probe.py[23dUSER ${APP_USER}[25dENTRYPOINT ["python3", "/app/probe.py"][26dCMD ["/config/urls.txt"][2d[?12l[?25h[?25l[1;66H(B[0;7m*[101G(B[m[2d[5P[?12l[?25h[?25l[7P[?12l[?25h[?25l[2P[?12l[?25h[?25l[3P[?12l[?25h[?25l[2P[?12l[?25h[?25l18[K[?12l[?25h[?25l[K[?12l[?25h[?25l[2;48r[48;1H[2S[1;51r[2;1H[?12l[?25h[?25l[9P[?12l[?25h[?25l[4P[?12l[?25h[?25l[7P[?12l[?25h[?25lc"][K[?12l[?25h[?25l[K[?12l[?25h[?25l[2;48r[48;1H[2S[1;51r[2;1H[?12l[?25h[?25l[4P[?12l[?25h[?25l[4P[?12l[?25h[?25l[5P[?12l[?25h[?25l[K[?12l[?25h[?25l[2;48r[48;1H
+[1;51r[2;1H[?12l[?25h[?25l[4P[49d[K[2d[?12l[?25h[?25l[4P[?12l[?25h[?25l1001[K[?12l[?25h[?25l[K[?12l[?25h[?25l[2;49r[49;1H
+[1;51r[2;1H[?12l[?25h[?25l[4P[?12l[?25h[?25l[4P[?12l[?25h[?25l1001[K[?12l[?25h[?25l[K[?12l[?25h[?25l[2;49r[49;1H
+[1;51r[2;1H[?12l[?25h[?25l[4P[?12l[?25h[?25l[4P[?12l[?25h[?25lapp[K[?12l[?25h[?25l[K[?12l[?25h[?25l[2;49r[49;1H[2S[1;51r[2;1H[?12l[?25h[?25l[4P[?12l[?25h[?25l[10P[?12l[?25h[?25l[3P[?12l[?25h[?25l[5P[?12l[?25h[?25l[4P[?12l[?25h[?25l[9P[?12l[?25h[?25l[4P[?12l[?25h[?25l[K[?12l[?25h[?25l[3;49r[49;1H
+[1;51r[2;1Hadduser -S -D -H \[?12l[?25h[?25l[9P[?12l[?25h[?25l[3P[?12l[?25h[?25lH \[K[?12l[?25h[?25l[K[?12l[?25h[?25l[3;49r[49;1H
+[1;51r[2;1Hu "${APP_UID}" \[?12l[?25h[?25l[5P[?12l[?25h[?25l[4P[?12l[?25h[?25l[K[?12l[?25h[?25l[3;49r[49;1H
+[1;51r[2;1HG "${APP_USER}" \[?12l[?25h[?25l[5P[?12l[?25h[?25l[4P[?12l[?25h[?25l[K[?12l[?25h[?25l[3;49r[49;1H
+[1;51r[2;1HAPP_USER}" \[?12l[?25h[?25l[4P[?12l[?25h[?25l[K[?12l[?25h[?25l[3;49r[49;1H
+[1;51r[2;1Hmkdir -p "${APP_HOME}" /config \[?12l[?25h[?25l[7P[?12l[?25h[?25l[5P[?12l[?25h[?25l[4P[?12l[?25h[?25l[8P[?12l[?25h[?25l[K[?12l[?25h[?25l[3;49r[49;1H
+[1;51r[2;1Hchown -R "${APP_USER}:${APP_USER}" "${APP_HOME}" /config[?12l[?25h[?25l[7P[?12l[?25h[?25l[5P[?12l[?25h[?25l[4P[?12l[?25h[?25l[8P[?12l[?25h[?25l[4P[?12l[?25h[?25l[10P[?12l[?25h[?25l[4P[?12l[?25h[?25l[8P[?12l[?25h[?25l[K[?12l[?25h[?25l[2;49r[49;1H[2S[1;51r[2;1H[?12l[?25h[?25l[10P[?12l[?25h[?25lHOME}[K[?12l[?25h[?25l[K[?12l[?25h[?25l[2;49r[49;1H[2S[1;51r[2;1H[?12l[?25h[?25l[7P[?12l[?25h[?25l[8P[?12l[?25h[?25l[4P[?12l[?25h[?25l[7P[?12l[?25h[?25l[4P[?12l[?25h[?25l[5P[?12l[?25h[?25l[6P[?12l[?25h[?25l[5P[?12l[?25h[?25lpy[K[?12l[?25h[?25l[K[?12l[?25h[?25l[2;49r[49;1H[2S[1;51r[2;1H[?12l[?25h[?25l[7P[?12l[?25h[?25lUSER}[K[?12l[?25h[?25l[K[?12l[?25h[?25l[2;49r[49;1H[2S[1;51r[2;1H[?12l[?25h[?25l[13P[?12l[?25h[?25l[12P[?12l[?25h[?25l[4P[?12l[?25h[?25lpy"][K[?12l[?25h[?25l[K[?12l[?25h[?25l[2;49r[49;1H
+[1;51r[2;1H[?12l[?25h[?25l[7P[?12l[?25h[?25l[7P[?12l[?25h[?25ltxt"][K[?12l[?25h[?25l[K[?12l[?25h[?25l[?12l[?25h[?25l[49;42H(B[0;7m[ Nothing was cut ](B[m[?12l[?25h[2d[?25l[49;61H[?12l[?25h[2d[?25l[49;61H[?12l[?25h[2d[?25l[49;61H[?12l[?25h[2d[?25l[49;61H[?12l[?25h[2d[?25l[49;61H[?12l[?25h[2d[?25l[49;61H[?12l[?25h[2d[?25l[49;61H[?12l[?25h[2d[?25l[49;61H[?12l[?25h[2d[?25l[49;61H[?12l[?25h[2d[?25l[49;61H[?12l[?25h[2d[?25l[49;61H[?12l[?25h[2d[?25l[49;61H[?12l[?25h[2d[?25l[49d[K[2dFROM alpine:3.18 AS supercronic-download[4dARG SUPERCRONIC_VERSION=v0.2.51[5dARG SUPERCRONIC_SHA1SUM=1692066e350a88ff4d7d6474fe3c7a6c41ec5e89[7dRUN apk add --no-cache curl \[8;5H&& curl -fsSL \[9;9H"[94mhttps://github.com/aptible/supercronic/releases/download/${SUPERCRONIC_VERSION}/supercronic-[39m(B[0;7m>[10;9H(B[m-o /usr/local/bin/supercronic \[11;5H&& echo "${SUPERCRONIC_SHA1SUM}  /usr/local/bin/supercronic" \[12;9H| sha1sum -c - \[13;5H&& chmod +x /usr/local/bin/supercronic[16dFROM python:3.11.6-alpine3.18[18dSHELL ["/bin/sh", "-eu", "-c"][20dARG APP_USER=appuser[21dARG APP_UID=1001[22dARG APP_GID=1001[23dARG APP_HOME=/app[25dRUN addgroup -S -g "${APP_GID}" "${APP_USER}" \[26;5H&& adduser -S -D -H \[27;9H-u "${APP_UID}" \[28;9H-G "${APP_USER}" \[29;9H"${APP_USER}" \[30;5H&& mkdir -p "${APP_HOME}" /config \[31;5H&& chown -R "${APP_USER}:${APP_USER}" "${APP_HOME}" /config[33dCOPY --from=supercronic-download \[34;5H/usr/local/bin/supercronic \[35;5H/usr/local/bin/supercronic[37dWORKDIR ${APP_HOME}[39dCOPY --chown=${APP_UID}:${APP_GID} probe.py ./probe.py[40dCOPY --chown=${APP_UID}:${APP_GID} crontab ./crontab[42dRUN supercronic -test /app/crontab[44dUSER ${APP_USER}[46dCMD ["supercronic", "-split-logs", "/app/crontab"][?12l[?25h[?25l[50;15H      (B[0;7mM-D(B[m DOS Format      (B[0;7mM-A(B[m Append[57G    (B[0;7mM-B(B[m Backup File     (B[0;7m^T(B[m Browse[K[51;2H(B[0;7mC(B[m Cancel           (B[0;7mM-M(B[m Mac Format      (B[0;7mM-P(B[m Prepend         (B[0;7m^Q(B[m Discard buffer[K[50;90H[A(B[0;7mWrite to File: url-probe/Dockerfile                                                                   [49;36H(B[m[?12l[?25h[?25l[49;44H[1K (B[0;7m[ Writing... ](B[m[K[1;66H(B[0;7m [101G(B[m[49;43H(B[0;7m[ Wrote 45 lines ](B[m[50;15H(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut  [57G(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51;2H(B[0;7mX(B[m Exit       (B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste      (B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[?12l[?25h[46;51H[?25l[49d[J[51d[?12l[?25h[51;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ 
+[?2004l[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mnano compose.yaml[27mnano compose.yaml
+[?2004l[?2004h[?1049h[22;0;0t[1;51r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[49;46H(B[0;7m[ New File ](B[m[H(B[0;7m  GNU nano 8.7.1                                compose.yaml                                          [1;101H(B[m[50d(B[0;7m^G(B[m Help[15G(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut[50;57H(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste[57G(B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[2d[?12l[?25h[?25l[49d[K[1;62H(B[0;7m*[101G(B[m[2d[92mservices[39m:[3;3H[92murl-probe[39m:[4;5H[92mbuild[39m:[5;7H[92mcontext[39m: (B[m./url-probe[6;5H[92mimage[39m: (B[mbonus-url-probe:task2[7;5H[92menvironment[39m:[8;7H[92mPROBE_TIMEOUT[39m: [95m"$[33m{[95mPROBE_TIMEOUT:-2[33m}[95m"[9;5H[92mvolumes[39m:[10;6H(B[0;1m[33m[1K - [39m(B[m./url-probe/urls.txt:/config/urls.txt:ro[11;5H[92mrestart[39m: (B[munless-stopped[?12l[?25h[?25l[50;15H      (B[0;7mM-D(B[m DOS Format      (B[0;7mM-A(B[m Append[57G    (B[0;7mM-B(B[m Backup File     (B[0;7m^T(B[m Browse[K[51;2H(B[0;7mC(B[m Cancel           (B[0;7mM-M(B[m Mac Format      (B[0;7mM-P(B[m Prepend         (B[0;7m^Q(B[m Discard buffer[K[50;90H[A(B[0;7mWrite to File: compose.yaml                                                                           [49;28H(B[m[?12l[?25h[?25l[49;44H[1K (B[0;7m[ Writing... ](B[m[K[1;62H(B[0;7m [101G(B[m[49;43H(B[0;7m[ Wrote 10 lines ](B[m[50;15H(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut  [57G(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51;2H(B[0;7mX(B[m Exit       (B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste      (B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[?12l[?25h[11;28H[?25l[49d[J[51d[?12l[?25h[51;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mnano .env[27mnano .env
+[?2004l[?2004h[?1049h[22;0;0t[1;51r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[49;46H(B[0;7m[ New File ](B[m[H(B[0;7m  GNU nano 8.7.1                                    .env                                              [1;101H(B[m[50d(B[0;7m^G(B[m Help[15G(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut[50;57H(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste[57G(B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[2d[?12l[?25h[?25l[1;58H(B[0;7m*[101G(B[m[2dPROBE_TIMEOUT=1[49d[K[2;16H[?12l[?25h[?25l[3d[?12l[?25h[?25l[2;16H[?12l[?25h[?25l[50;15H      (B[0;7mM-D(B[m DOS Format      (B[0;7mM-A(B[m Append[57G    (B[0;7mM-B(B[m Backup File     (B[0;7m^T(B[m Browse[K[51;2H(B[0;7mC(B[m Cancel           (B[0;7mM-M(B[m Mac Format      (B[0;7mM-P(B[m Prepend         (B[0;7m^Q(B[m Discard buffer[K[50;90H[A(B[0;7mWrite to File: .env                                                                                   [49;20H(B[m[?12l[?25h[?25l[49;44H[1K (B[0;7m[ Writing... ](B[m[K[1;58H(B[0;7m [101G(B[m[49;44H(B[0;7m[ Wrote 1 line ](B[m[50;15H(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut  [57G(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51;2H(B[0;7mX(B[m Exit       (B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste      (B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[?12l[?25h[2;16H[?25l[49d[J[51d[?12l[?25h[51;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mdocker compose config[27mdocker compose config
+[?2004lname: bonus_hw
+services:
+  url-probe:
+    build:
+      context: /home/rkart/projects/bonus_hw/url-probe
+      dockerfile: Dockerfile
+    environment:
+      PROBE_TIMEOUT: "1"
+    image: bonus-url-probe:task2
+    networks:
+      default: null
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /home/rkart/projects/bonus_hw/url-probe/urls.txt
+        target: /config/urls.txt
+        read_only: true
+        bind:
+          create_host_path: true
+networks:
+  default:
+    name: bonus_hw_default
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mdocker compose build --progress=plain url-probe[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cdocker compose build --progress=plain url-probe
+[?2004l--progress is a global compose flag, better use `docker compose --progress xx build ...
+#1 [internal] load local bake definitions
+#1 reading from stdin 548B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.25kB done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.11.6-alpine3.18
+#3 DONE 0.9s
+
+#4 [internal] load metadata for docker.io/library/alpine:3.18
+#4 DONE 1.7s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 88B done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 DONE 0.0s
+
+#7 [supercronic-download 1/2] FROM docker.io/library/alpine:3.18@sha256:de0eb0b3f2a47ba1eb89389859a9bd88b28e82f5826b6969ad604979713c2d4f
+#7 resolve docker.io/library/alpine:3.18@sha256:de0eb0b3f2a47ba1eb89389859a9bd88b28e82f5826b6969ad604979713c2d4f 0.1s done
+#7 DONE 0.1s
+
+#8 [stage-1 1/7] FROM docker.io/library/python:3.11.6-alpine3.18@sha256:64bf6d40f8bbb4f7565642494bb267aa92f1ce1beade6c1a8a3581688abf7a52
+#8 resolve docker.io/library/python:3.11.6-alpine3.18@sha256:64bf6d40f8bbb4f7565642494bb267aa92f1ce1beade6c1a8a3581688abf7a52 0.1s done
+#8 DONE 0.1s
+
+#9 [stage-1 2/7] RUN addgroup -S -g "1001" "appuser"     && adduser -S -D -H         -u "1001"         -G "appuser"         "appuser"     && mkdir -p "/app" /config     && chown -R "appuser:appuser" "/app" /config
+#9 CACHED
+
+#6 [internal] load build context
+#6 transferring context: 111B done
+#6 DONE 0.1s
+
+#7 [supercronic-download 1/2] FROM docker.io/library/alpine:3.18@sha256:de0eb0b3f2a47ba1eb89389859a9bd88b28e82f5826b6969ad604979713c2d4f
+#7 sha256:44cf07d57ee4424189f012074a59110ee2065adfdde9c7d9826bebdffce0a885 0B / 3.42MB 0.2s
+#7 sha256:44cf07d57ee4424189f012074a59110ee2065adfdde9c7d9826bebdffce0a885 2.10MB / 3.42MB 0.6s
+#7 sha256:44cf07d57ee4424189f012074a59110ee2065adfdde9c7d9826bebdffce0a885 3.42MB / 3.42MB 0.6s done
+#7 extracting sha256:44cf07d57ee4424189f012074a59110ee2065adfdde9c7d9826bebdffce0a885 0.1s done
+#7 DONE 0.9s
+
+#10 [supercronic-download 2/2] RUN apk add --no-cache curl     && curl -fsSL         "https://github.com/aptible/supercronic/releases/download/v0.2.51/supercronic-linux-amd64"         -o /usr/local/bin/supercronic     && echo "1692066e350a88ff4d7d6474fe3c7a6c41ec5e89  /usr/local/bin/supercronic"         | sha1sum -c -     && chmod +x /usr/local/bin/supercronic
+#10 0.250 fetch https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/APKINDEX.tar.gz
+#10 0.574 fetch https://dl-cdn.alpinelinux.org/alpine/v3.18/community/x86_64/APKINDEX.tar.gz
+#10 0.809 (1/8) Installing ca-certificates (20261020-r0)
+#10 0.856 (2/8) Installing brotli-libs (1.0.9-r14)
+#10 0.910 (3/8) Installing libunistring (1.1-r1)
+#10 0.976 (4/8) Installing libidn2 (2.3.4-r1)
+#10 1.014 (5/8) Installing nghttp2-libs (1.57.0-r0)
+#10 1.057 (6/8) Installing libpsl (0.21.5-r0)
+#10 1.096 (7/8) Installing libcurl (8.12.1-r0)
+#10 1.153 (8/8) Installing curl (8.12.1-r0)
+#10 1.199 Executing busybox-1.36.1-r7.trigger
+#10 1.203 Executing ca-certificates-20261020-r0.trigger
+#10 1.227 OK: 12 MiB in 23 packages
+#10 3.162 /usr/local/bin/supercronic: OK
+#10 DONE 3.2s
+
+#11 [stage-1 3/7] COPY --from=supercronic-download     /usr/local/bin/supercronic     /usr/local/bin/supercronic
+#11 DONE 0.1s
+
+#12 [stage-1 4/7] WORKDIR /app
+#12 DONE 0.1s
+
+#13 [stage-1 5/7] COPY --chown=1001:1001 probe.py ./probe.py
+#13 DONE 0.1s
+
+#14 [stage-1 6/7] COPY --chown=1001:1001 crontab ./crontab
+#14 DONE 0.1s
+
+#15 [stage-1 7/7] RUN supercronic -test /app/crontab
+#15 0.252 time="2026-10-25T16:12:19Z" level=info msg="reaping dead processes"
+#15 0.257 time="2026-10-25T16:12:19Z" level=info msg="read crontab: /app/crontab"
+#15 0.257 time="2026-10-25T16:12:19Z" level=info msg="crontab is valid"
+#15 DONE 0.3s
+
+#16 exporting to image
+#16 exporting layers
+#16 exporting layers 0.7s done
+#16 exporting manifest sha256:2564c4d16cc438a10373e85c237a3fa0542f21d50d676c3a25ffcc3a99d05016 0.0s done
+#16 exporting config sha256:22fe161e69f4c6ffc9476ed997ccdd4aa5dda0ba77b7288f19739919c687ea9f 0.0s done
+#16 exporting attestation manifest sha256:f1c6ffa7010300008e3bda1e0cd9ca550947969d8d4de6dff54ae657c2df4551
+#16 exporting attestation manifest sha256:f1c6ffa7010300008e3bda1e0cd9ca550947969d8d4de6dff54ae657c2df4551 0.1s done
+#16 exporting manifest list sha256:5337797bfc67d2374e1ff18df5648fd1c4a5365909c84ebc498b03b1950ccfa6 0.0s done
+#16 naming to docker.io/library/bonus-url-probe:task2
+#16 naming to docker.io/library/bonus-url-probe:task2 done
+#16 unpacking to docker.io/library/bonus-url-probe:task2
+#16 unpacking to docker.io/library/bonus-url-probe:task2 0.2s done
+#16 DONE 1.1s
+
+#17 resolving provenance for metadata file
+#17 DONE 0.0s
+ bonus-url-probe:task2  Built
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mdocker image ls bonus-url-probe:task2[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cdocker image ls bonus-url-probe:task2
+[?2004l                                                                                  [1m[106m[30mi[0m[0m [96mInfo → [0m[0m [38;5;0m[48;5;14m U [0m In Use
+[39m[1mIMAGE[0m                   [39m[1mID[0m             [39m[1mDISK USAGE[0m   [39m[1mCONTENT SIZE[0m   [39m[1mEXTRA[0m
+[34m[1mbonus-url-probe:task2[0m   [39m5337797bfc67[0m        [39m105MB[0m         [39m28.2MB[0m        
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mdocker run --rm \[27m
+[7m  --entrypoint supercronic \[27m
+[7m  bonus-url-probe:task2 \[27m
+[7m  -test /app/crontab[27m[A[A[A]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ docker run --rm \
+  --entrypoint supercronic \
+  bonus-url-probe:task2 \
+  -test /app/crontab
+[?2004ltime="2026-10-25T16:12:41Z" level=info msg="reaping dead processes"
+time="2026-10-25T16:12:41Z" level=info msg="read crontab: /app/crontab"
+time="2026-10-25T16:12:41Z" level=info msg="crontab is valid"
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mdocker compose up -d url-probe[27m
+[7mdocker compose ps[27m[A]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ docker compose up -d url-probe
+docker compose ps
+[?2004l[1A[1B[0G[?25l[+] Running 1/2
+ [32m✔[0m Network bonus_hw_default        [32mCreated[0m                                                       [34m0.0s [0m
+ [33m⠋[0m Container bonus_hw-url-probe-1  Creating                                                      [34m0.0s [0m
+[?25h[1A[1A[1A[0G[?25l[+] Running 1/2
+ [32m✔[0m Network bonus_hw_default        [32mCreated[0m                                                       [34m0.0s [0m
+ [33m⠙[0m Container bonus_hw-url-probe-1  Starting                                                      [34m0.1s [0m
+[?25h[1A[1A[1A[0G[?25l[+] Running 1/2
+ [32m✔[0m Network bonus_hw_default        [32mCreated[0m                                                       [34m0.0s [0m
+ [33m⠹[0m Container bonus_hw-url-probe-1  Starting                                                      [34m0.2s [0m
+[?25h[1A[1A[1A[0G[?25l[34m[+] Running 2/2[0m
+ [32m✔[0m Network bonus_hw_default        [32mCreated[0m                                                       [34m0.0s [0m
+ [32m✔[0m Container bonus_hw-url-probe-1  [32mStarted[0m                                                       [34m0.3s [0m
+[?25hNAME                   IMAGE                   COMMAND                  SERVICE     CREATED                  STATUS                  PORTS
+bonus_hw-url-probe-1   bonus-url-probe:task2   "supercronic -split-…"   url-probe   Less than a second ago   Up Less than a second   
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mdocker compose exec url-probe id[27mdocker compose exec url-probe id
+[?2004luid=1001(appuser) gid=1001(appuser) groups=1001(appuser)
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mdocker compose exec url-probe ps[27mdocker compose exec url-probe ps
+[?2004lPID   USER     TIME  COMMAND
+    1 appuser   0:00 supercronic -split-logs /app/crontab
+   11 appuser   0:00 /usr/local/bin/supercronic -no-reap -split-logs /app/crontab
+   27 appuser   0:00 ps
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mdocker compose logs \[27m
+[7m  --follow \[27m
+[7m  --timestamps \[27m
+[7m  url-probe[27m[A[A[A]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ docker compose logs \
+  --follow \
+  --timestamps \
+  url-probe
+[?2004l[36murl-probe-1  | [0m2026-10-25T16:13:05.340429126Z time="2026-10-25T16:13:05Z" level=info msg="reaping dead processes"
+[36murl-probe-1  | [0m2026-10-25T16:13:05.344947076Z time="2026-10-25T16:13:05Z" level=info msg="read crontab: /app/crontab"
+[36murl-probe-1  | [0m2026-10-25T16:14:00.053349698Z time="2026-10-25T16:14:00Z" level=info msg=starting iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:00.374127615Z time="2026-10-25T16:14:00Z" level=info msg="OK   200  0.137s https://example.com" channel=stderr iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:00.490786612Z time="2026-10-25T16:14:00Z" level=info msg="FAIL 404  0.116s https://example.com/no-such-page" channel=stderr iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:00.503956726Z time="2026-10-25T16:14:00Z" level=info msg="http://no-such-host.invalid: <urlopen error [Errno -2] Name does not resolve>" channel=stderr iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:00.503998922Z time="2026-10-25T16:14:00Z" level=info msg="FAIL   0  0.013s http://no-such-host.invalid" channel=stderr iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.504999783Z time="2026-10-25T16:14:01Z" level=info msg="http://10.255.255.1: <urlopen error timed out>" channel=stderr iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505028586Z time="2026-10-25T16:14:01Z" level=info msg="FAIL   0  1.001s http://10.255.255.1" channel=stderr iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505310086Z time="2026-10-25T16:14:01Z" level=info msg="# HELP probe_success 1, если получен ответ с кодом 2xx/3xx, иначе 0" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505325818Z time="2026-10-25T16:14:01Z" level=info msg="# TYPE probe_success gauge" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505328368Z time="2026-10-25T16:14:01Z" level=info msg="probe_success{url=\"https://example.com\"} 1" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505330195Z time="2026-10-25T16:14:01Z" level=info msg="probe_success{url=\"https://example.com/no-such-page\"} 0" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505331765Z time="2026-10-25T16:14:01Z" level=info msg="probe_success{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505333335Z time="2026-10-25T16:14:01Z" level=info msg="probe_success{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505441326Z time="2026-10-25T16:14:01Z" level=info msg="# HELP probe_http_status_code Код ответа HTTP, 0 - ответа нет" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505456150Z time="2026-10-25T16:14:01Z" level=info msg="# TYPE probe_http_status_code gauge" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505457570Z time="2026-10-25T16:14:01Z" level=info msg="probe_http_status_code{url=\"https://example.com\"} 200" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505458883Z time="2026-10-25T16:14:01Z" level=info msg="probe_http_status_code{url=\"https://example.com/no-such-page\"} 404" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505460053Z time="2026-10-25T16:14:01Z" level=info msg="probe_http_status_code{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505461233Z time="2026-10-25T16:14:01Z" level=info msg="probe_http_status_code{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505504448Z time="2026-10-25T16:14:01Z" level=info msg="# HELP probe_duration_seconds Сколько заняла проверка" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505507588Z time="2026-10-25T16:14:01Z" level=info msg="# TYPE probe_duration_seconds gauge" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505508776Z time="2026-10-25T16:14:01Z" level=info msg="probe_duration_seconds{url=\"https://example.com\"} 0.137" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505509942Z time="2026-10-25T16:14:01Z" level=info msg="probe_duration_seconds{url=\"https://example.com/no-such-page\"} 0.116" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505571818Z time="2026-10-25T16:14:01Z" level=info msg="probe_duration_seconds{url=\"http://no-such-host.invalid\"} 0.013" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505582850Z time="2026-10-25T16:14:01Z" level=info msg="probe_duration_seconds{url=\"http://10.255.255.1\"} 1.001" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505585925Z time="2026-10-25T16:14:01Z" level=info msg="# HELP probe_last_run_timestamp_seconds Время последнего запуска" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505642956Z time="2026-10-25T16:14:01Z" level=info msg="# TYPE probe_last_run_timestamp_seconds gauge" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505665896Z time="2026-10-25T16:14:01Z" level=info msg="probe_last_run_timestamp_seconds 1792944842" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.512868565Z time="2026-10-25T16:14:01Z" level=error msg="error running command: exit status 1" iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:00.036901224Z time="2026-10-25T16:15:00Z" level=info msg=starting iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:00.347019341Z time="2026-10-25T16:15:00Z" level=info msg="OK   200  0.132s https://example.com" channel=stderr iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:00.465335804Z time="2026-10-25T16:15:00Z" level=info msg="FAIL 404  0.118s https://example.com/no-such-page" channel=stderr iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:00.479628505Z time="2026-10-25T16:15:00Z" level=info msg="http://no-such-host.invalid: <urlopen error [Errno -2] Name does not resolve>" channel=stderr iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:00.479735849Z time="2026-10-25T16:15:00Z" level=info msg="FAIL   0  0.014s http://no-such-host.invalid" channel=stderr iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481003225Z time="2026-10-25T16:15:01Z" level=info msg="http://10.255.255.1: <urlopen error timed out>" channel=stderr iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481138854Z time="2026-10-25T16:15:01Z" level=info msg="FAIL   0  1.001s http://10.255.255.1" channel=stderr iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481213237Z time="2026-10-25T16:15:01Z" level=info msg="# HELP probe_success 1, если получен ответ с кодом 2xx/3xx, иначе 0" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481252464Z time="2026-10-25T16:15:01Z" level=info msg="# TYPE probe_success gauge" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481261180Z time="2026-10-25T16:15:01Z" level=info msg="probe_success{url=\"https://example.com\"} 1" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481266079Z time="2026-10-25T16:15:01Z" level=info msg="probe_success{url=\"https://example.com/no-such-page\"} 0" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481269333Z time="2026-10-25T16:15:01Z" level=info msg="probe_success{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481287426Z time="2026-10-25T16:15:01Z" level=info msg="probe_success{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481289930Z time="2026-10-25T16:15:01Z" level=info msg="# HELP probe_http_status_code Код ответа HTTP, 0 - ответа нет" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481292206Z time="2026-10-25T16:15:01Z" level=info msg="# TYPE probe_http_status_code gauge" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481294121Z time="2026-10-25T16:15:01Z" level=info msg="probe_http_status_code{url=\"https://example.com\"} 200" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481296844Z time="2026-10-25T16:15:01Z" level=info msg="probe_http_status_code{url=\"https://example.com/no-such-page\"} 404" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481298870Z time="2026-10-25T16:15:01Z" level=info msg="probe_http_status_code{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481301042Z time="2026-10-25T16:15:01Z" level=info msg="probe_http_status_code{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481302990Z time="2026-10-25T16:15:01Z" level=info msg="# HELP probe_duration_seconds Сколько заняла проверка" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481305042Z time="2026-10-25T16:15:01Z" level=info msg="# TYPE probe_duration_seconds gauge" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481306866Z time="2026-10-25T16:15:01Z" level=info msg="probe_duration_seconds{url=\"https://example.com\"} 0.132" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481308835Z time="2026-10-25T16:15:01Z" level=info msg="probe_duration_seconds{url=\"https://example.com/no-such-page\"} 0.118" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481310761Z time="2026-10-25T16:15:01Z" level=info msg="probe_duration_seconds{url=\"http://no-such-host.invalid\"} 0.014" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481312898Z time="2026-10-25T16:15:01Z" level=info msg="probe_duration_seconds{url=\"http://10.255.255.1\"} 1.001" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481325745Z time="2026-10-25T16:15:01Z" level=info msg="# HELP probe_last_run_timestamp_seconds Время последнего запуска" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481328206Z time="2026-10-25T16:15:01Z" level=info msg="# TYPE probe_last_run_timestamp_seconds gauge" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481330249Z time="2026-10-25T16:15:01Z" level=info msg="probe_last_run_timestamp_seconds 1792944901" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.488861168Z time="2026-10-25T16:15:01Z" level=error msg="error running command: exit status 1" iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+^C
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mdocker compose exec url-probe printenv PROBE_TIMEOUT[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cdocker compose exec url-probe printenv PROBE_TIMEOUT
+[?2004l1
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mdocker compose logs \[27m
+[7m  --follow \[27m
+[7m  --timestamps \[27m
+[7m  url-probe[27m[A[A[A]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ docker compose logs \
+  --follow \
+  --timestamps \
+  url-probe
+[?2004l[36murl-probe-1  | [0m2026-10-25T16:13:05.340429126Z time="2026-10-25T16:13:05Z" level=info msg="reaping dead processes"
+[36murl-probe-1  | [0m2026-10-25T16:13:05.344947076Z time="2026-10-25T16:13:05Z" level=info msg="read crontab: /app/crontab"
+[36murl-probe-1  | [0m2026-10-25T16:14:00.053349698Z time="2026-10-25T16:14:00Z" level=info msg=starting iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:00.374127615Z time="2026-10-25T16:14:00Z" level=info msg="OK   200  0.137s https://example.com" channel=stderr iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:00.490786612Z time="2026-10-25T16:14:00Z" level=info msg="FAIL 404  0.116s https://example.com/no-such-page" channel=stderr iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:00.503956726Z time="2026-10-25T16:14:00Z" level=info msg="http://no-such-host.invalid: <urlopen error [Errno -2] Name does not resolve>" channel=stderr iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:00.503998922Z time="2026-10-25T16:14:00Z" level=info msg="FAIL   0  0.013s http://no-such-host.invalid" channel=stderr iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.504999783Z time="2026-10-25T16:14:01Z" level=info msg="http://10.255.255.1: <urlopen error timed out>" channel=stderr iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505028586Z time="2026-10-25T16:14:01Z" level=info msg="FAIL   0  1.001s http://10.255.255.1" channel=stderr iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505310086Z time="2026-10-25T16:14:01Z" level=info msg="# HELP probe_success 1, если получен ответ с кодом 2xx/3xx, иначе 0" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505325818Z time="2026-10-25T16:14:01Z" level=info msg="# TYPE probe_success gauge" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505328368Z time="2026-10-25T16:14:01Z" level=info msg="probe_success{url=\"https://example.com\"} 1" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505330195Z time="2026-10-25T16:14:01Z" level=info msg="probe_success{url=\"https://example.com/no-such-page\"} 0" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505331765Z time="2026-10-25T16:14:01Z" level=info msg="probe_success{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505333335Z time="2026-10-25T16:14:01Z" level=info msg="probe_success{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505441326Z time="2026-10-25T16:14:01Z" level=info msg="# HELP probe_http_status_code Код ответа HTTP, 0 - ответа нет" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505456150Z time="2026-10-25T16:14:01Z" level=info msg="# TYPE probe_http_status_code gauge" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505457570Z time="2026-10-25T16:14:01Z" level=info msg="probe_http_status_code{url=\"https://example.com\"} 200" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505458883Z time="2026-10-25T16:14:01Z" level=info msg="probe_http_status_code{url=\"https://example.com/no-such-page\"} 404" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505460053Z time="2026-10-25T16:14:01Z" level=info msg="probe_http_status_code{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505461233Z time="2026-10-25T16:14:01Z" level=info msg="probe_http_status_code{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505504448Z time="2026-10-25T16:14:01Z" level=info msg="# HELP probe_duration_seconds Сколько заняла проверка" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505507588Z time="2026-10-25T16:14:01Z" level=info msg="# TYPE probe_duration_seconds gauge" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505508776Z time="2026-10-25T16:14:01Z" level=info msg="probe_duration_seconds{url=\"https://example.com\"} 0.137" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505509942Z time="2026-10-25T16:14:01Z" level=info msg="probe_duration_seconds{url=\"https://example.com/no-such-page\"} 0.116" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505571818Z time="2026-10-25T16:14:01Z" level=info msg="probe_duration_seconds{url=\"http://no-such-host.invalid\"} 0.013" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505582850Z time="2026-10-25T16:14:01Z" level=info msg="probe_duration_seconds{url=\"http://10.255.255.1\"} 1.001" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505585925Z time="2026-10-25T16:14:01Z" level=info msg="# HELP probe_last_run_timestamp_seconds Время последнего запуска" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505642956Z time="2026-10-25T16:14:01Z" level=info msg="# TYPE probe_last_run_timestamp_seconds gauge" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.505665896Z time="2026-10-25T16:14:01Z" level=info msg="probe_last_run_timestamp_seconds 1792944842" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:14:01.512868565Z time="2026-10-25T16:14:01Z" level=error msg="error running command: exit status 1" iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:00.036901224Z time="2026-10-25T16:15:00Z" level=info msg=starting iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:00.347019341Z time="2026-10-25T16:15:00Z" level=info msg="OK   200  0.132s https://example.com" channel=stderr iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:00.465335804Z time="2026-10-25T16:15:00Z" level=info msg="FAIL 404  0.118s https://example.com/no-such-page" channel=stderr iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:00.479628505Z time="2026-10-25T16:15:00Z" level=info msg="http://no-such-host.invalid: <urlopen error [Errno -2] Name does not resolve>" channel=stderr iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:00.479735849Z time="2026-10-25T16:15:00Z" level=info msg="FAIL   0  0.014s http://no-such-host.invalid" channel=stderr iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481003225Z time="2026-10-25T16:15:01Z" level=info msg="http://10.255.255.1: <urlopen error timed out>" channel=stderr iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481138854Z time="2026-10-25T16:15:01Z" level=info msg="FAIL   0  1.001s http://10.255.255.1" channel=stderr iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481213237Z time="2026-10-25T16:15:01Z" level=info msg="# HELP probe_success 1, если получен ответ с кодом 2xx/3xx, иначе 0" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481252464Z time="2026-10-25T16:15:01Z" level=info msg="# TYPE probe_success gauge" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481261180Z time="2026-10-25T16:15:01Z" level=info msg="probe_success{url=\"https://example.com\"} 1" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481266079Z time="2026-10-25T16:15:01Z" level=info msg="probe_success{url=\"https://example.com/no-such-page\"} 0" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481269333Z time="2026-10-25T16:15:01Z" level=info msg="probe_success{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481287426Z time="2026-10-25T16:15:01Z" level=info msg="probe_success{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481289930Z time="2026-10-25T16:15:01Z" level=info msg="# HELP probe_http_status_code Код ответа HTTP, 0 - ответа нет" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481292206Z time="2026-10-25T16:15:01Z" level=info msg="# TYPE probe_http_status_code gauge" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481294121Z time="2026-10-25T16:15:01Z" level=info msg="probe_http_status_code{url=\"https://example.com\"} 200" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481296844Z time="2026-10-25T16:15:01Z" level=info msg="probe_http_status_code{url=\"https://example.com/no-such-page\"} 404" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481298870Z time="2026-10-25T16:15:01Z" level=info msg="probe_http_status_code{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481301042Z time="2026-10-25T16:15:01Z" level=info msg="probe_http_status_code{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481302990Z time="2026-10-25T16:15:01Z" level=info msg="# HELP probe_duration_seconds Сколько заняла проверка" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481305042Z time="2026-10-25T16:15:01Z" level=info msg="# TYPE probe_duration_seconds gauge" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481306866Z time="2026-10-25T16:15:01Z" level=info msg="probe_duration_seconds{url=\"https://example.com\"} 0.132" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481308835Z time="2026-10-25T16:15:01Z" level=info msg="probe_duration_seconds{url=\"https://example.com/no-such-page\"} 0.118" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481310761Z time="2026-10-25T16:15:01Z" level=info msg="probe_duration_seconds{url=\"http://no-such-host.invalid\"} 0.014" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481312898Z time="2026-10-25T16:15:01Z" level=info msg="probe_duration_seconds{url=\"http://10.255.255.1\"} 1.001" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481325745Z time="2026-10-25T16:15:01Z" level=info msg="# HELP probe_last_run_timestamp_seconds Время последнего запуска" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481328206Z time="2026-10-25T16:15:01Z" level=info msg="# TYPE probe_last_run_timestamp_seconds gauge" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.481330249Z time="2026-10-25T16:15:01Z" level=info msg="probe_last_run_timestamp_seconds 1792944901" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:15:01.488861168Z time="2026-10-25T16:15:01Z" level=error msg="error running command: exit status 1" iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:00.055485156Z time="2026-10-25T16:16:00Z" level=info msg=starting iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:00.355527350Z time="2026-10-25T16:16:00Z" level=info msg="OK   200  0.124s https://example.com" channel=stderr iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:00.474688013Z time="2026-10-25T16:16:00Z" level=info msg="FAIL 404  0.119s https://example.com/no-such-page" channel=stderr iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:00.487528965Z time="2026-10-25T16:16:00Z" level=info msg="http://no-such-host.invalid: <urlopen error [Errno -2] Name does not resolve>" channel=stderr iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:00.487585850Z time="2026-10-25T16:16:00Z" level=info msg="FAIL   0  0.013s http://no-such-host.invalid" channel=stderr iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:01.489107039Z time="2026-10-25T16:16:01Z" level=info msg="http://10.255.255.1: <urlopen error timed out>" channel=stderr iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:01.489154130Z time="2026-10-25T16:16:01Z" level=info msg="FAIL   0  1.002s http://10.255.255.1" channel=stderr iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:01.489156978Z time="2026-10-25T16:16:01Z" level=info msg="# HELP probe_success 1, если получен ответ с кодом 2xx/3xx, иначе 0" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:01.489159638Z time="2026-10-25T16:16:01Z" level=info msg="# TYPE probe_success gauge" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:01.489161404Z time="2026-10-25T16:16:01Z" level=info msg="probe_success{url=\"https://example.com\"} 1" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:01.489163376Z time="2026-10-25T16:16:01Z" level=info msg="probe_success{url=\"https://example.com/no-such-page\"} 0" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:01.489178989Z time="2026-10-25T16:16:01Z" level=info msg="probe_success{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:01.489180298Z time="2026-10-25T16:16:01Z" level=info msg="probe_success{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:01.489181505Z time="2026-10-25T16:16:01Z" level=info msg="# HELP probe_http_status_code Код ответа HTTP, 0 - ответа нет" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:01.489183914Z time="2026-10-25T16:16:01Z" level=info msg="# TYPE probe_http_status_code gauge" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:01.489185034Z time="2026-10-25T16:16:01Z" level=info msg="probe_http_status_code{url=\"https://example.com\"} 200" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:01.489186169Z time="2026-10-25T16:16:01Z" level=info msg="probe_http_status_code{url=\"https://example.com/no-such-page\"} 404" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:01.489187311Z time="2026-10-25T16:16:01Z" level=info msg="probe_http_status_code{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:01.489188485Z time="2026-10-25T16:16:01Z" level=info msg="probe_http_status_code{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:01.489189625Z time="2026-10-25T16:16:01Z" level=info msg="# HELP probe_duration_seconds Сколько заняла проверка" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:01.489190842Z time="2026-10-25T16:16:01Z" level=info msg="# TYPE probe_duration_seconds gauge" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:01.489191888Z time="2026-10-25T16:16:01Z" level=info msg="probe_duration_seconds{url=\"https://example.com\"} 0.124" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:01.489193036Z time="2026-10-25T16:16:01Z" level=info msg="probe_duration_seconds{url=\"https://example.com/no-such-page\"} 0.119" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:01.489194418Z time="2026-10-25T16:16:01Z" level=info msg="probe_duration_seconds{url=\"http://no-such-host.invalid\"} 0.013" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:01.489197769Z time="2026-10-25T16:16:01Z" level=info msg="probe_duration_seconds{url=\"http://10.255.255.1\"} 1.002" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:01.489198933Z time="2026-10-25T16:16:01Z" level=info msg="# HELP probe_last_run_timestamp_seconds Время последнего запуска" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:01.489200186Z time="2026-10-25T16:16:01Z" level=info msg="# TYPE probe_last_run_timestamp_seconds gauge" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:01.489201275Z time="2026-10-25T16:16:01Z" level=info msg="probe_last_run_timestamp_seconds 1792944961" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:16:01.497123458Z time="2026-10-25T16:16:01Z" level=error msg="error running command: exit status 1" iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:00.039082663Z time="2026-10-25T16:17:00Z" level=info msg=starting iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:00.364351079Z time="2026-10-25T16:17:00Z" level=info msg="OK   200  0.149s https://example.com" channel=stderr iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:00.481294925Z time="2026-10-25T16:17:00Z" level=info msg="FAIL 404  0.117s https://example.com/no-such-page" channel=stderr iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:00.493854989Z time="2026-10-25T16:17:00Z" level=info msg="http://no-such-host.invalid: <urlopen error [Errno -2] Name does not resolve>" channel=stderr iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:00.493891507Z time="2026-10-25T16:17:00Z" level=info msg="FAIL   0  0.013s http://no-such-host.invalid" channel=stderr iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:01.495188627Z time="2026-10-25T16:17:01Z" level=info msg="http://10.255.255.1: <urlopen error timed out>" channel=stderr iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:01.495215867Z time="2026-10-25T16:17:01Z" level=info msg="FAIL   0  1.001s http://10.255.255.1" channel=stderr iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:01.495400690Z time="2026-10-25T16:17:01Z" level=info msg="# HELP probe_success 1, если получен ответ с кодом 2xx/3xx, иначе 0" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:01.495417147Z time="2026-10-25T16:17:01Z" level=info msg="# TYPE probe_success gauge" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:01.495435924Z time="2026-10-25T16:17:01Z" level=info msg="probe_success{url=\"https://example.com\"} 1" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:01.495438510Z time="2026-10-25T16:17:01Z" level=info msg="probe_success{url=\"https://example.com/no-such-page\"} 0" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:01.495440617Z time="2026-10-25T16:17:01Z" level=info msg="probe_success{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:01.495442578Z time="2026-10-25T16:17:01Z" level=info msg="probe_success{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:01.495444485Z time="2026-10-25T16:17:01Z" level=info msg="# HELP probe_http_status_code Код ответа HTTP, 0 - ответа нет" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:01.495446719Z time="2026-10-25T16:17:01Z" level=info msg="# TYPE probe_http_status_code gauge" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:01.495448659Z time="2026-10-25T16:17:01Z" level=info msg="probe_http_status_code{url=\"https://example.com\"} 200" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:01.495454802Z time="2026-10-25T16:17:01Z" level=info msg="probe_http_status_code{url=\"https://example.com/no-such-page\"} 404" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:01.495459927Z time="2026-10-25T16:17:01Z" level=info msg="probe_http_status_code{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:01.495461407Z time="2026-10-25T16:17:01Z" level=info msg="probe_http_status_code{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:01.495462657Z time="2026-10-25T16:17:01Z" level=info msg="# HELP probe_duration_seconds Сколько заняла проверка" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:01.495464176Z time="2026-10-25T16:17:01Z" level=info msg="# TYPE probe_duration_seconds gauge" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:01.495465361Z time="2026-10-25T16:17:01Z" level=info msg="probe_duration_seconds{url=\"https://example.com\"} 0.149" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:01.495466521Z time="2026-10-25T16:17:01Z" level=info msg="probe_duration_seconds{url=\"https://example.com/no-such-page\"} 0.117" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:01.495475369Z time="2026-10-25T16:17:01Z" level=info msg="probe_duration_seconds{url=\"http://no-such-host.invalid\"} 0.013" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:01.495476805Z time="2026-10-25T16:17:01Z" level=info msg="probe_duration_seconds{url=\"http://10.255.255.1\"} 1.001" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:01.495478418Z time="2026-10-25T16:17:01Z" level=info msg="# HELP probe_last_run_timestamp_seconds Время последнего запуска" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:01.495479706Z time="2026-10-25T16:17:01Z" level=info msg="# TYPE probe_last_run_timestamp_seconds gauge" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:01.495480899Z time="2026-10-25T16:17:01Z" level=info msg="probe_last_run_timestamp_seconds 1792945021" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:17:01.503617791Z time="2026-10-25T16:17:01Z" level=error msg="error running command: exit status 1" iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+^C
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mnano .env[27mnano .env
+[?2004l[?2004h[?1049h[22;0;0t[1;51r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[49;45H(B[0;7m[ Reading... ](B[m[49;44H(B[0;7m[ Read 1 line ](B[m[H(B[0;7m  GNU nano 8.7.1                                    .env                                              [1;101H(B[m[50d(B[0;7m^G(B[m Help[15G(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut[50;57H(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste[57G(B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[2dPROBE_TIMEOUT=1[?12l[?25h[?25l[?12l[?25h[7G[?25l[?12l[?25h[2;15H[?25l[?12l[?25h[3d[?25l[?12l[?25h[2;16H[?25l[1;58H(B[0;7m*[101G(B[m[?12l[?25h[2;15H [?25l[?12l[?25h5[?25l[50;15H      (B[0;7mM-D(B[m DOS Format      (B[0;7mM-A(B[m Append[57G    (B[0;7mM-B(B[m Backup File     (B[0;7m^T(B[m Browse[K[51;2H(B[0;7mC(B[m Cancel           (B[0;7mM-M(B[m Mac Format      (B[0;7mM-P(B[m Prepend         (B[0;7m^Q(B[m Discard buffer[K[50;90H[A(B[0;7mWrite to File: .env                                                                                   [49;20H(B[m[?12l[?25h[?25l[49;44H[1K (B[0;7m[ Writing... ](B[m[K[1;58H(B[0;7m [101G(B[m[49;44H(B[0;7m[ Wrote 1 line ](B[m[50;15H(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut  [57G(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51;2H(B[0;7mX(B[m Exit       (B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste      (B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[?12l[?25h[2;16H[?25l[49d[J[51d[?12l[?25h[51;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mdocker compose up -d \[27m
+[7m  --force-recreate \[27m
+[7m  url-probe[27m[A[A]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ docker compose up -d \
+  --force-recreate \
+  url-probe
+[?2004l[1A[1B[0G[?25l[+] Running 0/1
+ [33m⠋[0m Container bonus_hw-url-probe-1  Recreate                                                      [34m0.1s [0m
+[?25h[1A[1A[0G[?25l[+] Running 0/1
+ [33m⠙[0m Container bonus_hw-url-probe-1  Recreate                                                      [34m0.2s [0m
+[?25h[1A[1A[0G[?25l[+] Running 0/1
+ [33m⠹[0m Container bonus_hw-url-probe-1  Recreate                                                      [34m0.3s [0m
+[?25h[1A[1A[0G[?25l[+] Running 0/1
+ [33m⠸[0m Container bonus_hw-url-probe-1  Recreate                                                      [34m0.4s [0m
+[?25h[1A[1A[0G[?25l[+] Running 0/1
+ [33m⠼[0m Container bonus_hw-url-probe-1  Starting                                                      [34m0.5s [0m
+[?25h[1A[1A[0G[?25l[34m[+] Running 1/1[0m
+ [32m✔[0m Container bonus_hw-url-probe-1  [32mStarted[0m                                                       [34m0.6s [0m
+[?25h[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mdocker compose exec url-probe printenv PROBE_TIMEOUT[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cdocker compose exec url-probe printenv PROBE_TIMEOUT
+[?2004l5
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mdocker compose logs \[27m
+[7m  --follow \[27m
+[7m  --timestamps \[27m
+[7m  url-probe[27m[A[A[A]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ docker compose logs \
+  --follow \
+  --timestamps \
+  url-probe
+[?2004l[36murl-probe-1  | [0m2026-10-25T16:17:58.101689712Z time="2026-10-25T16:17:58Z" level=info msg="reaping dead processes"
+[36murl-probe-1  | [0m2026-10-25T16:17:58.107168002Z time="2026-10-25T16:17:58Z" level=info msg="read crontab: /app/crontab"
+[36murl-probe-1  | [0m2026-10-25T16:18:00.001455186Z time="2026-10-25T16:18:00Z" level=info msg=starting iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:00.320308101Z time="2026-10-25T16:18:00Z" level=info msg="OK   200  0.132s https://example.com" channel=stderr iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:00.452066721Z time="2026-10-25T16:18:00Z" level=info msg="FAIL 404  0.132s https://example.com/no-such-page" channel=stderr iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:00.498127039Z time="2026-10-25T16:18:00Z" level=info msg="http://no-such-host.invalid: <urlopen error [Errno -2] Name does not resolve>" channel=stderr iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:00.498157824Z time="2026-10-25T16:18:00Z" level=info msg="FAIL   0  0.046s http://no-such-host.invalid" channel=stderr iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503458934Z time="2026-10-25T16:18:05Z" level=info msg="http://10.255.255.1: <urlopen error timed out>" channel=stderr iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503491447Z time="2026-10-25T16:18:05Z" level=info msg="FAIL   0  5.005s http://10.255.255.1" channel=stderr iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503743371Z time="2026-10-25T16:18:05Z" level=info msg="# HELP probe_success 1, если получен ответ с кодом 2xx/3xx, иначе 0" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503767171Z time="2026-10-25T16:18:05Z" level=info msg="# TYPE probe_success gauge" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503771486Z time="2026-10-25T16:18:05Z" level=info msg="probe_success{url=\"https://example.com\"} 1" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503774677Z time="2026-10-25T16:18:05Z" level=info msg="probe_success{url=\"https://example.com/no-such-page\"} 0" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503777531Z time="2026-10-25T16:18:05Z" level=info msg="probe_success{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503780253Z time="2026-10-25T16:18:05Z" level=info msg="probe_success{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503783104Z time="2026-10-25T16:18:05Z" level=info msg="# HELP probe_http_status_code Код ответа HTTP, 0 - ответа нет" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503801430Z time="2026-10-25T16:18:05Z" level=info msg="# TYPE probe_http_status_code gauge" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503803847Z time="2026-10-25T16:18:05Z" level=info msg="probe_http_status_code{url=\"https://example.com\"} 200" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503806599Z time="2026-10-25T16:18:05Z" level=info msg="probe_http_status_code{url=\"https://example.com/no-such-page\"} 404" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503808777Z time="2026-10-25T16:18:05Z" level=info msg="probe_http_status_code{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503810690Z time="2026-10-25T16:18:05Z" level=info msg="probe_http_status_code{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503812611Z time="2026-10-25T16:18:05Z" level=info msg="# HELP probe_duration_seconds Сколько заняла проверка" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503814660Z time="2026-10-25T16:18:05Z" level=info msg="# TYPE probe_duration_seconds gauge" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503816537Z time="2026-10-25T16:18:05Z" level=info msg="probe_duration_seconds{url=\"https://example.com\"} 0.132" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503818518Z time="2026-10-25T16:18:05Z" level=info msg="probe_duration_seconds{url=\"https://example.com/no-such-page\"} 0.132" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503820473Z time="2026-10-25T16:18:05Z" level=info msg="probe_duration_seconds{url=\"http://no-such-host.invalid\"} 0.046" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503822414Z time="2026-10-25T16:18:05Z" level=info msg="probe_duration_seconds{url=\"http://10.255.255.1\"} 5.005" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503824765Z time="2026-10-25T16:18:05Z" level=info msg="# HELP probe_last_run_timestamp_seconds Время последнего запуска" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503826849Z time="2026-10-25T16:18:05Z" level=info msg="# TYPE probe_last_run_timestamp_seconds gauge" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503831884Z time="2026-10-25T16:18:05Z" level=info msg="probe_last_run_timestamp_seconds 1792945086" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.511986784Z time="2026-10-25T16:18:05Z" level=error msg="error running command: exit status 1" iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:00.045035777Z time="2026-10-25T16:19:00Z" level=info msg=starting iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:00.373141611Z time="2026-10-25T16:19:00Z" level=info msg="OK   200  0.159s https://example.com" channel=stderr iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:00.485559296Z time="2026-10-25T16:19:00Z" level=info msg="FAIL 404  0.112s https://example.com/no-such-page" channel=stderr iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:00.524782736Z time="2026-10-25T16:19:00Z" level=info msg="http://no-such-host.invalid: <urlopen error [Errno -2] Name does not resolve>" channel=stderr iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:00.524829563Z time="2026-10-25T16:19:00Z" level=info msg="FAIL   0  0.039s http://no-such-host.invalid" channel=stderr iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526121623Z time="2026-10-25T16:19:05Z" level=info msg="http://10.255.255.1: <urlopen error timed out>" channel=stderr iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526157636Z time="2026-10-25T16:19:05Z" level=info msg="FAIL   0  5.001s http://10.255.255.1" channel=stderr iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526352127Z time="2026-10-25T16:19:05Z" level=info msg="# HELP probe_success 1, если получен ответ с кодом 2xx/3xx, иначе 0" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526369107Z time="2026-10-25T16:19:05Z" level=info msg="# TYPE probe_success gauge" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526371611Z time="2026-10-25T16:19:05Z" level=info msg="probe_success{url=\"https://example.com\"} 1" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526373365Z time="2026-10-25T16:19:05Z" level=info msg="probe_success{url=\"https://example.com/no-such-page\"} 0" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526375134Z time="2026-10-25T16:19:05Z" level=info msg="probe_success{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526387245Z time="2026-10-25T16:19:05Z" level=info msg="probe_success{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526388597Z time="2026-10-25T16:19:05Z" level=info msg="# HELP probe_http_status_code Код ответа HTTP, 0 - ответа нет" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526389897Z time="2026-10-25T16:19:05Z" level=info msg="# TYPE probe_http_status_code gauge" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526390966Z time="2026-10-25T16:19:05Z" level=info msg="probe_http_status_code{url=\"https://example.com\"} 200" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526392465Z time="2026-10-25T16:19:05Z" level=info msg="probe_http_status_code{url=\"https://example.com/no-such-page\"} 404" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526393704Z time="2026-10-25T16:19:05Z" level=info msg="probe_http_status_code{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526394842Z time="2026-10-25T16:19:05Z" level=info msg="probe_http_status_code{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526396057Z time="2026-10-25T16:19:05Z" level=info msg="# HELP probe_duration_seconds Сколько заняла проверка" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526397256Z time="2026-10-25T16:19:05Z" level=info msg="# TYPE probe_duration_seconds gauge" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526398317Z time="2026-10-25T16:19:05Z" level=info msg="probe_duration_seconds{url=\"https://example.com\"} 0.159" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526399446Z time="2026-10-25T16:19:05Z" level=info msg="probe_duration_seconds{url=\"https://example.com/no-such-page\"} 0.112" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526400711Z time="2026-10-25T16:19:05Z" level=info msg="probe_duration_seconds{url=\"http://no-such-host.invalid\"} 0.039" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526401851Z time="2026-10-25T16:19:05Z" level=info msg="probe_duration_seconds{url=\"http://10.255.255.1\"} 5.001" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526404786Z time="2026-10-25T16:19:05Z" level=info msg="# HELP probe_last_run_timestamp_seconds Время последнего запуска" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526406058Z time="2026-10-25T16:19:05Z" level=info msg="# TYPE probe_last_run_timestamp_seconds gauge" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526407181Z time="2026-10-25T16:19:05Z" level=info msg="probe_last_run_timestamp_seconds 1792945146" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.534447039Z time="2026-10-25T16:19:05Z" level=error msg="error running command: exit status 1" iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+^C
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mCID_BEFORE=$(docker compose ps -q url-probe)[27m
+[7mSTARTED_BEFORE=$(docker inspect \[27m
+[7m  --format '{{.State.StartedAt}}' \[27m
+[7m  "$CID_BEFORE")[27m
+
+[7mprintf 'container_before=%s\nstarted_before=%s\n' \[27m
+[7m  "$CID_BEFORE" \[27m
+[7m  "$STARTED_BEFORE"[27m[A[A[A[A[A[A[A]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ CID_BEFORE=$(docker compose ps -q url-probe)
+STARTED_BEFORE=$(docker inspect \
+  --format '{{.State.StartedAt}}' \
+  "$CID_BEFORE")
+
+printf 'container_before=%s\nstarted_before=%s\n' \
+  "$CID_BEFORE" \
+  "$STARTED_BEFORE"
+[?2004lcontainer_before=3287bf43e5c5985706e28e13aeb803f32b30f402ce8c2a86706b52b17ca78346
+started_before=2026-10-25T16:17:57.951652414Z
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mnano url-probe/urls.txt[27mnano url-probe/urls.txt
+[?2004l[?2004h[?1049h[22;0;0t[1;51r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[49;45H(B[0;7m[ Reading... ](B[m[49;44H(B[0;7m[ Read 5 lines ](B[m[H(B[0;7m  GNU nano 8.7.1                             url-probe/urls.txt                                       [1;101H(B[m[50d(B[0;7m^G(B[m Help[15G(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut[50;57H(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste[57G(B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[2d[36m# Один URL на строку. Пустые строки и строки с # пропускаются.[3d[94mhttps://example.com[4dhttps://example.com/no-such-page[5dhttp://no-such-host.invalid[6dhttp://10.255.255.1[2d[39m(B[m[?12l[?25h[?25l[?12l[?25h[3d[?25l[?12l[?25h[4d[?25l[?12l[?25h[5d[?25l[?12l[?25h[6d[?25l[?12l[?25h[7d[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[1;65H(B[0;7m*[49d(B[m[K[1;101H[7d[94mhttps://example.org[39m(B[m[?12l[?25h[?25l[50;15H      (B[0;7mM-D(B[m DOS Format      (B[0;7mM-A(B[m Append[57G    (B[0;7mM-B(B[m Backup File     (B[0;7m^T(B[m Browse[K[51;2H(B[0;7mC(B[m Cancel           (B[0;7mM-M(B[m Mac Format      (B[0;7mM-P(B[m Prepend         (B[0;7m^Q(B[m Discard buffer[K[50;90H[A(B[0;7mWrite to File: url-probe/urls.txt                                                                     [49;34H(B[m[?12l[?25h[?25l[49;44H[1K (B[0;7m[ Writing... ](B[m[K[1;65H(B[0;7m [101G(B[m[49;43H(B[0;7m[ Wrote 6 lines ](B[m[50;15H(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut  [57G(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51;2H(B[0;7mX(B[m Exit       (B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste      (B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[?12l[?25h[7;20H[?25l[49d[J[51d[?12l[?25h[51;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mdocker compose exec url-probe \[27m
+[7m  tail -n 3 /config/urls.txt[27m[A]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ docker compose exec url-probe \
+  tail -n 3 /config/urls.txt
+[?2004lhttp://no-such-host.invalid
+http://10.255.255.1
+https://example.org
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mdocker compose logs \[27m
+[7m  --follow \[27m
+[7m  --timestamps \[27m
+[7m  url-probe[27m[A[A[A]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ docker compose logs \
+  --follow \
+  --timestamps \
+  url-probe
+[?2004l[36murl-probe-1  | [0m2026-10-25T16:17:58.101689712Z time="2026-10-25T16:17:58Z" level=info msg="reaping dead processes"
+[36murl-probe-1  | [0m2026-10-25T16:17:58.107168002Z time="2026-10-25T16:17:58Z" level=info msg="read crontab: /app/crontab"
+[36murl-probe-1  | [0m2026-10-25T16:18:00.001455186Z time="2026-10-25T16:18:00Z" level=info msg=starting iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:00.320308101Z time="2026-10-25T16:18:00Z" level=info msg="OK   200  0.132s https://example.com" channel=stderr iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:00.452066721Z time="2026-10-25T16:18:00Z" level=info msg="FAIL 404  0.132s https://example.com/no-such-page" channel=stderr iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:00.498127039Z time="2026-10-25T16:18:00Z" level=info msg="http://no-such-host.invalid: <urlopen error [Errno -2] Name does not resolve>" channel=stderr iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:00.498157824Z time="2026-10-25T16:18:00Z" level=info msg="FAIL   0  0.046s http://no-such-host.invalid" channel=stderr iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503458934Z time="2026-10-25T16:18:05Z" level=info msg="http://10.255.255.1: <urlopen error timed out>" channel=stderr iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503491447Z time="2026-10-25T16:18:05Z" level=info msg="FAIL   0  5.005s http://10.255.255.1" channel=stderr iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503743371Z time="2026-10-25T16:18:05Z" level=info msg="# HELP probe_success 1, если получен ответ с кодом 2xx/3xx, иначе 0" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503767171Z time="2026-10-25T16:18:05Z" level=info msg="# TYPE probe_success gauge" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503771486Z time="2026-10-25T16:18:05Z" level=info msg="probe_success{url=\"https://example.com\"} 1" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503774677Z time="2026-10-25T16:18:05Z" level=info msg="probe_success{url=\"https://example.com/no-such-page\"} 0" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503777531Z time="2026-10-25T16:18:05Z" level=info msg="probe_success{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503780253Z time="2026-10-25T16:18:05Z" level=info msg="probe_success{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503783104Z time="2026-10-25T16:18:05Z" level=info msg="# HELP probe_http_status_code Код ответа HTTP, 0 - ответа нет" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503801430Z time="2026-10-25T16:18:05Z" level=info msg="# TYPE probe_http_status_code gauge" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503803847Z time="2026-10-25T16:18:05Z" level=info msg="probe_http_status_code{url=\"https://example.com\"} 200" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503806599Z time="2026-10-25T16:18:05Z" level=info msg="probe_http_status_code{url=\"https://example.com/no-such-page\"} 404" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503808777Z time="2026-10-25T16:18:05Z" level=info msg="probe_http_status_code{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503810690Z time="2026-10-25T16:18:05Z" level=info msg="probe_http_status_code{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503812611Z time="2026-10-25T16:18:05Z" level=info msg="# HELP probe_duration_seconds Сколько заняла проверка" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503814660Z time="2026-10-25T16:18:05Z" level=info msg="# TYPE probe_duration_seconds gauge" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503816537Z time="2026-10-25T16:18:05Z" level=info msg="probe_duration_seconds{url=\"https://example.com\"} 0.132" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503818518Z time="2026-10-25T16:18:05Z" level=info msg="probe_duration_seconds{url=\"https://example.com/no-such-page\"} 0.132" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503820473Z time="2026-10-25T16:18:05Z" level=info msg="probe_duration_seconds{url=\"http://no-such-host.invalid\"} 0.046" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503822414Z time="2026-10-25T16:18:05Z" level=info msg="probe_duration_seconds{url=\"http://10.255.255.1\"} 5.005" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503824765Z time="2026-10-25T16:18:05Z" level=info msg="# HELP probe_last_run_timestamp_seconds Время последнего запуска" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503826849Z time="2026-10-25T16:18:05Z" level=info msg="# TYPE probe_last_run_timestamp_seconds gauge" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.503831884Z time="2026-10-25T16:18:05Z" level=info msg="probe_last_run_timestamp_seconds 1792945086" channel=stdout iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:18:05.511986784Z time="2026-10-25T16:18:05Z" level=error msg="error running command: exit status 1" iteration=0 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:00.045035777Z time="2026-10-25T16:19:00Z" level=info msg=starting iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:00.373141611Z time="2026-10-25T16:19:00Z" level=info msg="OK   200  0.159s https://example.com" channel=stderr iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:00.485559296Z time="2026-10-25T16:19:00Z" level=info msg="FAIL 404  0.112s https://example.com/no-such-page" channel=stderr iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:00.524782736Z time="2026-10-25T16:19:00Z" level=info msg="http://no-such-host.invalid: <urlopen error [Errno -2] Name does not resolve>" channel=stderr iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:00.524829563Z time="2026-10-25T16:19:00Z" level=info msg="FAIL   0  0.039s http://no-such-host.invalid" channel=stderr iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526121623Z time="2026-10-25T16:19:05Z" level=info msg="http://10.255.255.1: <urlopen error timed out>" channel=stderr iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526157636Z time="2026-10-25T16:19:05Z" level=info msg="FAIL   0  5.001s http://10.255.255.1" channel=stderr iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526352127Z time="2026-10-25T16:19:05Z" level=info msg="# HELP probe_success 1, если получен ответ с кодом 2xx/3xx, иначе 0" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526369107Z time="2026-10-25T16:19:05Z" level=info msg="# TYPE probe_success gauge" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526371611Z time="2026-10-25T16:19:05Z" level=info msg="probe_success{url=\"https://example.com\"} 1" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526373365Z time="2026-10-25T16:19:05Z" level=info msg="probe_success{url=\"https://example.com/no-such-page\"} 0" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526375134Z time="2026-10-25T16:19:05Z" level=info msg="probe_success{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526387245Z time="2026-10-25T16:19:05Z" level=info msg="probe_success{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526388597Z time="2026-10-25T16:19:05Z" level=info msg="# HELP probe_http_status_code Код ответа HTTP, 0 - ответа нет" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526389897Z time="2026-10-25T16:19:05Z" level=info msg="# TYPE probe_http_status_code gauge" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526390966Z time="2026-10-25T16:19:05Z" level=info msg="probe_http_status_code{url=\"https://example.com\"} 200" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526392465Z time="2026-10-25T16:19:05Z" level=info msg="probe_http_status_code{url=\"https://example.com/no-such-page\"} 404" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526393704Z time="2026-10-25T16:19:05Z" level=info msg="probe_http_status_code{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526394842Z time="2026-10-25T16:19:05Z" level=info msg="probe_http_status_code{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526396057Z time="2026-10-25T16:19:05Z" level=info msg="# HELP probe_duration_seconds Сколько заняла проверка" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526397256Z time="2026-10-25T16:19:05Z" level=info msg="# TYPE probe_duration_seconds gauge" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526398317Z time="2026-10-25T16:19:05Z" level=info msg="probe_duration_seconds{url=\"https://example.com\"} 0.159" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526399446Z time="2026-10-25T16:19:05Z" level=info msg="probe_duration_seconds{url=\"https://example.com/no-such-page\"} 0.112" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526400711Z time="2026-10-25T16:19:05Z" level=info msg="probe_duration_seconds{url=\"http://no-such-host.invalid\"} 0.039" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526401851Z time="2026-10-25T16:19:05Z" level=info msg="probe_duration_seconds{url=\"http://10.255.255.1\"} 5.001" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526404786Z time="2026-10-25T16:19:05Z" level=info msg="# HELP probe_last_run_timestamp_seconds Время последнего запуска" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526406058Z time="2026-10-25T16:19:05Z" level=info msg="# TYPE probe_last_run_timestamp_seconds gauge" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.526407181Z time="2026-10-25T16:19:05Z" level=info msg="probe_last_run_timestamp_seconds 1792945146" channel=stdout iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:19:05.534447039Z time="2026-10-25T16:19:05Z" level=error msg="error running command: exit status 1" iteration=1 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:00.044311142Z time="2026-10-25T16:20:00Z" level=info msg=starting iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:00.389250560Z time="2026-10-25T16:20:00Z" level=info msg="OK   200  0.150s https://example.com" channel=stderr iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:00.539169050Z time="2026-10-25T16:20:00Z" level=info msg="FAIL 404  0.150s https://example.com/no-such-page" channel=stderr iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:00.553032066Z time="2026-10-25T16:20:00Z" level=info msg="http://no-such-host.invalid: <urlopen error [Errno -2] Name does not resolve>" channel=stderr iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:00.553065706Z time="2026-10-25T16:20:00Z" level=info msg="FAIL   0  0.014s http://no-such-host.invalid" channel=stderr iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:05.557104468Z time="2026-10-25T16:20:05Z" level=info msg="http://10.255.255.1: <urlopen error timed out>" channel=stderr iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:05.557142677Z time="2026-10-25T16:20:05Z" level=info msg="FAIL   0  5.004s http://10.255.255.1" channel=stderr iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:05.557295700Z time="2026-10-25T16:20:05Z" level=info msg="# HELP probe_success 1, если получен ответ с кодом 2xx/3xx, иначе 0" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:05.557316859Z time="2026-10-25T16:20:05Z" level=info msg="# TYPE probe_success gauge" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:05.557319162Z time="2026-10-25T16:20:05Z" level=info msg="probe_success{url=\"https://example.com\"} 1" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:05.557361111Z time="2026-10-25T16:20:05Z" level=info msg="probe_success{url=\"https://example.com/no-such-page\"} 0" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:05.557377973Z time="2026-10-25T16:20:05Z" level=info msg="probe_success{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:05.557379358Z time="2026-10-25T16:20:05Z" level=info msg="probe_success{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:05.557380841Z time="2026-10-25T16:20:05Z" level=info msg="# HELP probe_http_status_code Код ответа HTTP, 0 - ответа нет" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:05.557382191Z time="2026-10-25T16:20:05Z" level=info msg="# TYPE probe_http_status_code gauge" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:05.557383263Z time="2026-10-25T16:20:05Z" level=info msg="probe_http_status_code{url=\"https://example.com\"} 200" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:05.557384484Z time="2026-10-25T16:20:05Z" level=info msg="probe_http_status_code{url=\"https://example.com/no-such-page\"} 404" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:05.557385682Z time="2026-10-25T16:20:05Z" level=info msg="probe_http_status_code{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:05.557474096Z time="2026-10-25T16:20:05Z" level=info msg="probe_http_status_code{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:05.557484241Z time="2026-10-25T16:20:05Z" level=info msg="# HELP probe_duration_seconds Сколько заняла проверка" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:05.557487349Z time="2026-10-25T16:20:05Z" level=info msg="# TYPE probe_duration_seconds gauge" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:05.557489378Z time="2026-10-25T16:20:05Z" level=info msg="probe_duration_seconds{url=\"https://example.com\"} 0.15" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:05.557491391Z time="2026-10-25T16:20:05Z" level=info msg="probe_duration_seconds{url=\"https://example.com/no-such-page\"} 0.15" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:05.557493500Z time="2026-10-25T16:20:05Z" level=info msg="probe_duration_seconds{url=\"http://no-such-host.invalid\"} 0.014" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:05.557507430Z time="2026-10-25T16:20:05Z" level=info msg="probe_duration_seconds{url=\"http://10.255.255.1\"} 5.004" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:05.557509886Z time="2026-10-25T16:20:05Z" level=info msg="# HELP probe_last_run_timestamp_seconds Время последнего запуска" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:05.557512109Z time="2026-10-25T16:20:05Z" level=info msg="# TYPE probe_last_run_timestamp_seconds gauge" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:05.557514469Z time="2026-10-25T16:20:05Z" level=info msg="probe_last_run_timestamp_seconds 1792945206" channel=stdout iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:20:05.565737966Z time="2026-10-25T16:20:05Z" level=error msg="error running command: exit status 1" iteration=2 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:00.042339268Z time="2026-10-25T16:21:00Z" level=info msg=starting iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:00.434926156Z time="2026-10-25T16:21:00Z" level=info msg="OK   200  0.202s https://example.com" channel=stderr iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:00.560163250Z time="2026-10-25T16:21:00Z" level=info msg="FAIL 404  0.125s https://example.com/no-such-page" channel=stderr iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:00.574071897Z time="2026-10-25T16:21:00Z" level=info msg="http://no-such-host.invalid: <urlopen error [Errno -2] Name does not resolve>" channel=stderr iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:00.574104369Z time="2026-10-25T16:21:00Z" level=info msg="FAIL   0  0.014s http://no-such-host.invalid" channel=stderr iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.575083356Z time="2026-10-25T16:21:05Z" level=info msg="http://10.255.255.1: <urlopen error timed out>" channel=stderr iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.575126542Z time="2026-10-25T16:21:05Z" level=info msg="FAIL   0  5.001s http://10.255.255.1" channel=stderr iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.705892059Z time="2026-10-25T16:21:05Z" level=info msg="OK   200  0.130s https://example.org" channel=stderr iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.705926569Z time="2026-10-25T16:21:05Z" level=info msg="# HELP probe_success 1, если получен ответ с кодом 2xx/3xx, иначе 0" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.705944377Z time="2026-10-25T16:21:05Z" level=info msg="# TYPE probe_success gauge" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.705946883Z time="2026-10-25T16:21:05Z" level=info msg="probe_success{url=\"https://example.com\"} 1" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.705948997Z time="2026-10-25T16:21:05Z" level=info msg="probe_success{url=\"https://example.com/no-such-page\"} 0" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.705950965Z time="2026-10-25T16:21:05Z" level=info msg="probe_success{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.705953026Z time="2026-10-25T16:21:05Z" level=info msg="probe_success{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.705954962Z time="2026-10-25T16:21:05Z" level=info msg="probe_success{url=\"https://example.org\"} 1" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.705956826Z time="2026-10-25T16:21:05Z" level=info msg="# HELP probe_http_status_code Код ответа HTTP, 0 - ответа нет" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.705960109Z time="2026-10-25T16:21:05Z" level=info msg="# TYPE probe_http_status_code gauge" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.705962054Z time="2026-10-25T16:21:05Z" level=info msg="probe_http_status_code{url=\"https://example.com\"} 200" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.705964008Z time="2026-10-25T16:21:05Z" level=info msg="probe_http_status_code{url=\"https://example.com/no-such-page\"} 404" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.705965991Z time="2026-10-25T16:21:05Z" level=info msg="probe_http_status_code{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.705967898Z time="2026-10-25T16:21:05Z" level=info msg="probe_http_status_code{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.705969853Z time="2026-10-25T16:21:05Z" level=info msg="probe_http_status_code{url=\"https://example.org\"} 200" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.705971776Z time="2026-10-25T16:21:05Z" level=info msg="# HELP probe_duration_seconds Сколько заняла проверка" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.705984124Z time="2026-10-25T16:21:05Z" level=info msg="# TYPE probe_duration_seconds gauge" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.705986311Z time="2026-10-25T16:21:05Z" level=info msg="probe_duration_seconds{url=\"https://example.com\"} 0.202" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.705988595Z time="2026-10-25T16:21:05Z" level=info msg="probe_duration_seconds{url=\"https://example.com/no-such-page\"} 0.125" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.705990724Z time="2026-10-25T16:21:05Z" level=info msg="probe_duration_seconds{url=\"http://no-such-host.invalid\"} 0.014" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.705992665Z time="2026-10-25T16:21:05Z" level=info msg="probe_duration_seconds{url=\"http://10.255.255.1\"} 5.001" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.705994593Z time="2026-10-25T16:21:05Z" level=info msg="probe_duration_seconds{url=\"https://example.org\"} 0.13" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.705996591Z time="2026-10-25T16:21:05Z" level=info msg="# HELP probe_last_run_timestamp_seconds Время последнего запуска" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.705998663Z time="2026-10-25T16:21:05Z" level=info msg="# TYPE probe_last_run_timestamp_seconds gauge" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.706000569Z time="2026-10-25T16:21:05Z" level=info msg="probe_last_run_timestamp_seconds 1792945266" channel=stdout iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:21:05.714306049Z time="2026-10-25T16:21:05Z" level=error msg="error running command: exit status 1" iteration=3 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:00.007900060Z time="2026-10-25T16:22:00Z" level=info msg=starting iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:00.310931869Z time="2026-10-25T16:22:00Z" level=info msg="OK   200  0.133s https://example.com" channel=stderr iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:00.441413604Z time="2026-10-25T16:22:00Z" level=info msg="FAIL 404  0.130s https://example.com/no-such-page" channel=stderr iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:00.454366476Z time="2026-10-25T16:22:00Z" level=info msg="http://no-such-host.invalid: <urlopen error [Errno -2] Name does not resolve>" channel=stderr iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:00.454426046Z time="2026-10-25T16:22:00Z" level=info msg="FAIL   0  0.013s http://no-such-host.invalid" channel=stderr iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.459931512Z time="2026-10-25T16:22:05Z" level=info msg="http://10.255.255.1: <urlopen error timed out>" channel=stderr iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.459975711Z time="2026-10-25T16:22:05Z" level=info msg="FAIL   0  5.005s http://10.255.255.1" channel=stderr iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.609848118Z time="2026-10-25T16:22:05Z" level=info msg="OK   200  0.150s https://example.org" channel=stderr iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.609890238Z time="2026-10-25T16:22:05Z" level=info msg="# HELP probe_success 1, если получен ответ с кодом 2xx/3xx, иначе 0" channel=stdout iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.609893615Z time="2026-10-25T16:22:05Z" level=info msg="# TYPE probe_success gauge" channel=stdout iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.609895263Z time="2026-10-25T16:22:05Z" level=info msg="probe_success{url=\"https://example.com\"} 1" channel=stdout iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.609896917Z time="2026-10-25T16:22:05Z" level=info msg="probe_success{url=\"https://example.com/no-such-page\"} 0" channel=stdout iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.609898525Z time="2026-10-25T16:22:05Z" level=info msg="probe_success{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.609900074Z time="2026-10-25T16:22:05Z" level=info msg="probe_success{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.609901597Z time="2026-10-25T16:22:05Z" level=info msg="probe_success{url=\"https://example.org\"} 1" channel=stdout iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.609903259Z time="2026-10-25T16:22:05Z" level=info msg="# HELP probe_http_status_code Код ответа HTTP, 0 - ответа нет" channel=stdout iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.609905929Z time="2026-10-25T16:22:05Z" level=info msg="# TYPE probe_http_status_code gauge" channel=stdout iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.609922417Z time="2026-10-25T16:22:05Z" level=info msg="probe_http_status_code{url=\"https://example.com\"} 200" channel=stdout iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.609923683Z time="2026-10-25T16:22:05Z" level=info msg="probe_http_status_code{url=\"https://example.com/no-such-page\"} 404" channel=stdout iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.609924889Z time="2026-10-25T16:22:05Z" level=info msg="probe_http_status_code{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.609926031Z time="2026-10-25T16:22:05Z" level=info msg="probe_http_status_code{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.609927140Z time="2026-10-25T16:22:05Z" level=info msg="probe_http_status_code{url=\"https://example.org\"} 200" channel=stdout iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.609928303Z time="2026-10-25T16:22:05Z" level=info msg="# HELP probe_duration_seconds Сколько заняла проверка" channel=stdout iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.609929544Z time="2026-10-25T16:22:05Z" level=info msg="# TYPE probe_duration_seconds gauge" channel=stdout iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.609930609Z time="2026-10-25T16:22:05Z" level=info msg="probe_duration_seconds{url=\"https://example.com\"} 0.133" channel=stdout iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.609931992Z time="2026-10-25T16:22:05Z" level=info msg="probe_duration_seconds{url=\"https://example.com/no-such-page\"} 0.13" channel=stdout iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.609933171Z time="2026-10-25T16:22:05Z" level=info msg="probe_duration_seconds{url=\"http://no-such-host.invalid\"} 0.013" channel=stdout iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.609934285Z time="2026-10-25T16:22:05Z" level=info msg="probe_duration_seconds{url=\"http://10.255.255.1\"} 5.005" channel=stdout iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.609935398Z time="2026-10-25T16:22:05Z" level=info msg="probe_duration_seconds{url=\"https://example.org\"} 0.15" channel=stdout iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.609936528Z time="2026-10-25T16:22:05Z" level=info msg="# HELP probe_last_run_timestamp_seconds Время последнего запуска" channel=stdout iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.609937708Z time="2026-10-25T16:22:05Z" level=info msg="# TYPE probe_last_run_timestamp_seconds gauge" channel=stdout iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.609940374Z time="2026-10-25T16:22:05Z" level=info msg="probe_last_run_timestamp_seconds 1792945326" channel=stdout iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+[36murl-probe-1  | [0m2026-10-25T16:22:05.617427688Z time="2026-10-25T16:22:05Z" level=error msg="error running command: exit status 1" iteration=4 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+^C
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mCID_AFTER=$(docker compose ps -q url-probe)[27m
+[7mSTARTED_AFTER=$(docker inspect \[27m
+[7m  --format '{{.State.StartedAt}}' \[27m
+[7m  "$CID_AFTER")[27m
+
+[7mprintf 'container_after=%s\nstarted_after=%s\n' \[27m
+[7m  "$CID_AFTER" \[27m
+[7m  "$STARTED_AFTER"[27m[A[A[A[A[A[A[A]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ CID_AFTER=$(docker compose ps -q url-probe)
+STARTED_AFTER=$(docker inspect \
+  --format '{{.State.StartedAt}}' \
+  "$CID_AFTER")
+
+printf 'container_after=%s\nstarted_after=%s\n' \
+  "$CID_AFTER" \
+  "$STARTED_AFTER"
+[?2004lcontainer_after=3287bf43e5c5985706e28e13aeb803f32b30f402ce8c2a86706b52b17ca78346
+started_after=2026-10-25T16:17:57.951652414Z
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mtest "$CID_BEFORE" = "$CID_AFTER" \[27m
+[7m  && echo "OK: container ID unchanged"[27m
+
+[7mtest "$STARTED_BEFORE" = "$STARTED_AFTER" \[27m
+[7m  && echo "OK: StartedAt unchanged"[27m[A[A[A[Atest "$CID_BEFORE" = "$CID_AFTER" \
+  && echo "OK: container ID unchanged"
+
+test "$STARTED_BEFORE" = "$STARTED_AFTER" \
+  && echo "OK: StartedAt unchanged"
+[?2004lOK: container ID unchanged
+OK: StartedAt unchanged
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mCID=$(docker compose ps -q url-probe)[27m
+
+[7mdocker inspect "$CID" \[27m
+[7m  --format 'restart={{.HostConfig.RestartPolicy.Name}} started={{.State.StartedAt}} restarts={{.Restar[27m[7mt[27m[7mCount}}'[27m[A[A[A[A]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ CID=$(docker compose ps -q url-probe)
+
+docker inspect "$CID" \
+  --format 'restart={{.HostConfig.RestartPolicy.Name}} started={{.State.StartedAt}} restarts={{.RestartCount}}'
+[?2004lrestart=unless-stopped started=2026-10-25T16:17:57.951652414Z restarts=0
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mdocker compose exec url-probe \[27m
+[7m  sh -c 'kill -9 1'[27m[A]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ docker compose exec url-probe \
+  sh -c 'kill -9 1'
+[?2004l[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7msleep 5[27msleep 5
+[?2004l[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mdocker compose ps[27m
+
+[7mCID=$(docker compose ps -q url-probe)[27m
+
+[7mdocker inspect "$CID" \[27m
+[7m  --format 'status={{.State.Status}} started={{.State.StartedAt}} restarts={{.RestartCount}}'[27m[A[A[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cdocker compose ps
+
+CID=$(docker compose ps -q url-probe)
+
+docker inspect "$CID" \
+  --format 'status={{.State.Status}} started={{.State.StartedAt}} restarts={{.RestartCount}}'
+[?2004lNAME                   IMAGE                   COMMAND                  SERVICE     CREATED         STATUS         PORTS
+bonus_hw-url-probe-1   bonus-url-probe:task2   "supercronic -split-…"   url-probe   6 minutes ago   Up 6 minutes   
+status=running started=2026-10-25T16:17:57.951652414Z restarts=0
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mCID=$(docker compose ps -q url-probe)[27m
+
+[7mdocker inspect "$CID" \[27m
+[7m  --format 'before: status={{.State.Status}} started={{.State.StartedAt}} restarts={{.RestartCount}}'[27m
+
+[7mdocker compose exec url-probe \[27m
+[7m  sh -c 'kill -TERM 1'[27m
+
+[7msleep 5[27m
+
+[7mCID=$(docker compose ps -q url-probe)[27m
+
+[7mdocker inspect "$CID" \[27m
+[7m  --format 'after: status={{.State.Status}} started={{.State.StartedAt}} restarts={{.RestartCount}}'[27m[A[A[A[A[A[A[A[A[A[A[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CCID=$(docker compose ps -q url-probe)
+
+docker inspect "$CID" \
+  --format 'before: status={{.State.Status}} started={{.State.StartedAt}} restarts={{.RestartCount}}'
+
+docker compose exec url-probe \
+  sh -c 'kill -TERM 1'
+
+sleep 5
+
+CID=$(docker compose ps -q url-probe)
+
+docker inspect "$CID" \
+  --format 'after: status={{.State.Status}} started={{.State.StartedAt}} restarts={{.RestartCount}}'
+[?2004lbefore: status=running started=2026-10-25T16:17:57.951652414Z restarts=0
+after: status=running started=2026-10-25T16:26:25.638290184Z restarts=1
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ [7mdocker compose logs \[27m
+[7m  --no-color \[27m
+[7m  --timestamps \[27m
+[7m  --since=2m \[27m
+[7m  url-probe \[27m
+[7m  | tail -n 40[27m[A[A[A[A[A]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ docker compose logs \
+  --no-color \
+  --timestamps \
+  --since=2m \
+  url-probe \
+  | tail -n 40
+[?2004lurl-probe-1  | 2026-10-25T16:25:05.686704211Z time="2026-10-25T16:25:05Z" level=info msg="probe_last_run_timestamp_seconds 1792945506" channel=stdout iteration=7 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:25:05.695080639Z time="2026-10-25T16:25:05Z" level=error msg="error running command: exit status 1" iteration=7 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:00.049195198Z time="2026-10-25T16:26:00Z" level=info msg=starting iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:00.352617470Z time="2026-10-25T16:26:00Z" level=info msg="OK   200  0.134s https://example.com" channel=stderr iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:00.465181547Z time="2026-10-25T16:26:00Z" level=info msg="FAIL 404  0.112s https://example.com/no-such-page" channel=stderr iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:00.476160897Z time="2026-10-25T16:26:00Z" level=info msg="http://no-such-host.invalid: <urlopen error [Errno -2] Name does not resolve>" channel=stderr iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:00.476195017Z time="2026-10-25T16:26:00Z" level=info msg="FAIL   0  0.011s http://no-such-host.invalid" channel=stderr iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.478905300Z time="2026-10-25T16:26:05Z" level=info msg="http://10.255.255.1: <urlopen error timed out>" channel=stderr iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.478934342Z time="2026-10-25T16:26:05Z" level=info msg="FAIL   0  5.003s http://10.255.255.1" channel=stderr iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.601825408Z time="2026-10-25T16:26:05Z" level=info msg="OK   200  0.123s https://example.org" channel=stderr iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.601864709Z time="2026-10-25T16:26:05Z" level=info msg="# HELP probe_success 1, если получен ответ с кодом 2xx/3xx, иначе 0" channel=stdout iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.602046187Z time="2026-10-25T16:26:05Z" level=info msg="# TYPE probe_success gauge" channel=stdout iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.602049527Z time="2026-10-25T16:26:05Z" level=info msg="probe_success{url=\"https://example.com\"} 1" channel=stdout iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.602057472Z time="2026-10-25T16:26:05Z" level=info msg="probe_success{url=\"https://example.com/no-such-page\"} 0" channel=stdout iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.602058806Z time="2026-10-25T16:26:05Z" level=info msg="probe_success{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.602059975Z time="2026-10-25T16:26:05Z" level=info msg="probe_success{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.602061083Z time="2026-10-25T16:26:05Z" level=info msg="probe_success{url=\"https://example.org\"} 1" channel=stdout iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.602062625Z time="2026-10-25T16:26:05Z" level=info msg="# HELP probe_http_status_code Код ответа HTTP, 0 - ответа нет" channel=stdout iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.602064001Z time="2026-10-25T16:26:05Z" level=info msg="# TYPE probe_http_status_code gauge" channel=stdout iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.602065076Z time="2026-10-25T16:26:05Z" level=info msg="probe_http_status_code{url=\"https://example.com\"} 200" channel=stdout iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.602066492Z time="2026-10-25T16:26:05Z" level=info msg="probe_http_status_code{url=\"https://example.com/no-such-page\"} 404" channel=stdout iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.602067678Z time="2026-10-25T16:26:05Z" level=info msg="probe_http_status_code{url=\"http://no-such-host.invalid\"} 0" channel=stdout iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.602068858Z time="2026-10-25T16:26:05Z" level=info msg="probe_http_status_code{url=\"http://10.255.255.1\"} 0" channel=stdout iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.602069958Z time="2026-10-25T16:26:05Z" level=info msg="probe_http_status_code{url=\"https://example.org\"} 200" channel=stdout iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.602071080Z time="2026-10-25T16:26:05Z" level=info msg="# HELP probe_duration_seconds Сколько заняла проверка" channel=stdout iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.602088568Z time="2026-10-25T16:26:05Z" level=info msg="# TYPE probe_duration_seconds gauge" channel=stdout iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.602096548Z time="2026-10-25T16:26:05Z" level=info msg="probe_duration_seconds{url=\"https://example.com\"} 0.134" channel=stdout iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.602098247Z time="2026-10-25T16:26:05Z" level=info msg="probe_duration_seconds{url=\"https://example.com/no-such-page\"} 0.112" channel=stdout iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.602138394Z time="2026-10-25T16:26:05Z" level=info msg="probe_duration_seconds{url=\"http://no-such-host.invalid\"} 0.011" channel=stdout iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.602142899Z time="2026-10-25T16:26:05Z" level=info msg="probe_duration_seconds{url=\"http://10.255.255.1\"} 5.003" channel=stdout iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.602144147Z time="2026-10-25T16:26:05Z" level=info msg="probe_duration_seconds{url=\"https://example.org\"} 0.123" channel=stdout iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.602145351Z time="2026-10-25T16:26:05Z" level=info msg="# HELP probe_last_run_timestamp_seconds Время последнего запуска" channel=stdout iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.602146621Z time="2026-10-25T16:26:05Z" level=info msg="# TYPE probe_last_run_timestamp_seconds gauge" channel=stdout iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.602179744Z time="2026-10-25T16:26:05Z" level=info msg="probe_last_run_timestamp_seconds 1792945566" channel=stdout iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:05.610912092Z time="2026-10-25T16:26:05Z" level=error msg="error running command: exit status 1" iteration=8 job.command="python3 /app/probe.py /config/urls.txt" job.position=0 job.schedule="* * * * *"
+url-probe-1  | 2026-10-25T16:26:25.385194463Z time="2026-10-25T16:26:25Z" level=info msg="received terminated, shutting down"
+url-probe-1  | 2026-10-25T16:26:25.385304856Z time="2026-10-25T16:26:25Z" level=info msg="waiting for jobs to finish"
+url-probe-1  | 2026-10-25T16:26:25.385318042Z time="2026-10-25T16:26:25Z" level=info msg=exiting
+url-probe-1  | 2026-10-25T16:26:25.782016771Z time="2026-10-25T16:26:25Z" level=info msg="reaping dead processes"
+url-probe-1  | 2026-10-25T16:26:25.786215069Z time="2026-10-25T16:26:25Z" level=info msg="read crontab: /app/crontab"
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ exit
+[?2004lexit
+
+Script done on 2026-10-25 19:27:07+03:00 [COMMAND_EXIT_CODE="0"]

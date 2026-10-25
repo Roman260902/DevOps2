@@ -1,0 +1,10 @@
+services:
+  url-probe:
+    build:
+      context: ./url-probe
+    image: bonus-url-probe:task2
+    environment:
+      PROBE_TIMEOUT: "${PROBE_TIMEOUT:-2}"
+    volumes:
+      - ./url-probe/urls.txt:/config/urls.txt:ro
+    restart: unless-stopped

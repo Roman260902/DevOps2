@@ -1,0 +1,255 @@
+Script started on 2026-10-25 18:39:28+03:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="102" LINES="51"]
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ exitdocker build --progress=plain   -t bonus-url-probe:task1 .[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[32Psed -n '1,200p' Dockerfile[11Pnano[C[C[C[C[C[C[C[C[C[C[C[2@.dockrignor[C
+[?2004l[?2004h[?1049h[22;0;0t[1;51r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[49;46H(B[0;7m[ New File ](B[m[H(B[0;7m  GNU nano 8.7.1                                .dockrignore                                          [1;101H(B[m[50d(B[0;7m^G(B[m Help[15G(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut[50;57H(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste[57G(B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[2d[?12l[?25h[?25l[49d[J[51d[?12l[?25h[51;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ cd p[K
+logs/      url-probe/ 
+]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ cd 
+logs/      url-probe/ 
+]0;rkart@TIRoman: ~/projects/bonus_hw[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw[00m$ cd url-probe/
+[?2004l[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ nanocd url-probe/nano .dockrignoreexit[Kdocker build --progress=plain   -t bonus-url-probe:task1 .[A]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ exit[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cnano .dockrignore
+[?2004l[?2004h[?1049h[22;0;0t[1;51r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[49;46H(B[0;7m[ New File ](B[m[H(B[0;7m  GNU nano 8.7.1                                .dockrignore                                          [1;101H(B[m[50d(B[0;7m^G(B[m Help[15G(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut[50;57H(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste[57G(B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[2d[?12l[?25h[?25l[49d[K[1;62H(B[0;7m*[101G(B[m[2d.git[3d__pycache__[4d*.pyc[5dlogs[6durls*.txt[7dREADME.md[?12l[?25h[?25l[50;15H      (B[0;7mM-D(B[m DOS Format      (B[0;7mM-A(B[m Append[57G    (B[0;7mM-B(B[m Backup File     (B[0;7m^T(B[m Browse[K[51;2H(B[0;7mC(B[m Cancel           (B[0;7mM-M(B[m Mac Format      (B[0;7mM-P(B[m Prepend         (B[0;7m^Q(B[m Discard buffer[K[50;90H[A(B[0;7mWrite to File: .dockrignore                                                                           [49;28H(B[m[?12l[?25h[?25l[49;44H[1K (B[0;7m[ Writing... ](B[m[K[1;62H(B[0;7m [101G(B[m[49;43H(B[0;7m[ Wrote 6 lines ](B[m[50;15H(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut  [57G(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51;2H(B[0;7mX(B[m Exit       (B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste      (B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[?12l[?25h[7;10H[?25l[49d[J[51d[?12l[?25h[51;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ [7mnano Dockerfile[27mnano Dockerfile
+[?2004l[?2004h[?1049h[22;0;0t[1;51r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[49;46H(B[0;7m[ New File ](B[m[H(B[0;7m  GNU nano 8.7.1                                 Dockerfile                                           [1;101H(B[m[50d(B[0;7m^G(B[m Help[15G(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut[50;57H(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste[57G(B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[2d[?12l[?25h[?25l[49d[K[1;61H(B[0;7m*[101G(B[m[2dFROM python:3.11.6-slim-bookworm[4dSHELL ["/bin/sh", "-eu", "-c"][6dARG APP_USER=appuser[7dARG APP_UID=1001[8dARG APP_GID=1001[9dARG APP_HOME=/app[11dRUN addgroup --gid "${APP_GID}" "${APP_USER}" \[12;5H&& adduser --disabled-password --gecos "" \[13;9H--home "${APP_HOME}" \[14;9H--ingroup "${APP_USER}" \[15;9H--uid "${APP_UID}" \[16;9H"${APP_USER}" \[17;5H&& mkdir -p /config \[18;5H&& chown "${APP_USER}:${APP_USER}" /config[20dWORKDIR ${APP_HOME}[22dCOPY --chown=${APP_UID}:${APP_GID} probe.py ./probe.py[24dUSER ${APP_USER}[26dENTRYPOINT ["python", "/app/probe.py"][27dCMD ["/config/urls.txt"][?12l[?25h[?25l[50;15H      (B[0;7mM-D(B[m DOS Format      (B[0;7mM-A(B[m Append[57G    (B[0;7mM-B(B[m Backup File     (B[0;7m^T(B[m Browse[K[51;2H(B[0;7mC(B[m Cancel           (B[0;7mM-M(B[m Mac Format      (B[0;7mM-P(B[m Prepend         (B[0;7m^Q(B[m Discard buffer[K[50;90H[A(B[0;7mWrite to File: Dockerfile                                                                             [49;26H(B[m[?12l[?25h[?25l[49;44H[1K (B[0;7m[ Writing... ](B[m[K[1;61H(B[0;7m [101G(B[m[49;43H(B[0;7m[ Wrote 26 lines ](B[m[50;15H(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut  [57G(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51;2H(B[0;7mX(B[m Exit       (B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste      (B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[?12l[?25h[27;25H[?25l[49d[J[51d[?12l[?25h[51;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ [7mdocker build --progress=plain \[27m
+[7m  -t bonus-url-probe:task1 .[27m[A]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ docker build --progress=plain \
+  -t bonus-url-probe:task1 .
+[?2004l#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 626B done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/python:3.11.6-slim-bookworm
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [internal] load build context
+#4 transferring context: 3.95kB done
+#4 DONE 0.1s
+
+#5 [1/4] FROM docker.io/library/python:3.11.6-slim-bookworm@sha256:cc758519481092eb5a4a5ab0c1b303e288880d59afc601958d19e95b300bc86b
+#5 resolve docker.io/library/python:3.11.6-slim-bookworm@sha256:cc758519481092eb5a4a5ab0c1b303e288880d59afc601958d19e95b300bc86b 0.1s done
+#5 CACHED
+
+#6 [2/4] RUN addgroup --gid "1001" "appuser"     && adduser --disabled-password --gecos ""         --home "/app"         --ingroup "appuser"         --uid "1001"         "appuser"     && mkdir -p /config     && chown "appuser:appuser" /config
+#6 0.294 Adding group `appuser' (GID 1001) ...
+#6 0.340 Done.
+#6 0.357 Adding user `appuser' ...
+#6 0.357 Adding new user `appuser' (1001) with group `appuser (1001)' ...
+#6 0.443 Creating home directory `/app' ...
+#6 0.443 Copying files from `/etc/skel' ...
+#6 0.468 Adding new user `appuser' to supplemental / extra groups `users' ...
+#6 0.468 Adding user `appuser' to group `users' ...
+#6 DONE 0.5s
+
+#7 [3/4] WORKDIR /app
+#7 DONE 0.1s
+
+#8 [4/4] COPY --chown=1001:1001 probe.py ./probe.py
+#8 DONE 0.1s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 0.4s done
+#9 exporting manifest sha256:9f636450048a5b1d40370166e7b48be71f53a94ec0342125ab74e22c564b5536 0.0s done
+#9 exporting config sha256:017da163725aa651be50a3e67a09077964abab60ed3a7ec92f8b538575071d57 0.0s done
+#9 exporting attestation manifest sha256:078752f6dc995638696403b58e8738ec256f1a1a08f6a58da7a62008dc033eeb 0.1s done
+#9 exporting manifest list sha256:7f14b0fbfeff2eb9fda296903de660c6e8b37e7cfe9f2b55328a22b050ab4ad8
+#9 exporting manifest list sha256:7f14b0fbfeff2eb9fda296903de660c6e8b37e7cfe9f2b55328a22b050ab4ad8 0.0s done
+#9 naming to docker.io/library/bonus-url-probe:task1 done
+#9 unpacking to docker.io/library/bonus-url-probe:task1 0.1s done
+#9 DONE 0.8s
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ [7mdocker image ls bonus-url-probe:task1[27mdocker image ls bonus-url-probe:task1
+[?2004l                                                                                  [1m[106m[30mi[0m[0m [96mInfo → [0m[0m [38;5;0m[48;5;14m U [0m In Use
+[39m[1mIMAGE[0m                   [39m[1mID[0m             [39m[1mDISK USAGE[0m   [39m[1mCONTENT SIZE[0m   [39m[1mEXTRA[0m
+[34m[1mbonus-url-probe:task1[0m   [39m7f14b0fbfeff[0m        [39m195MB[0m         [39m48.5MB[0m        
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ [7mdocker image inspect bonus-url-probe:task1 \[27m
+[7m  --format 'Configured user: {{.Config.User}}'[27m[Adocker image inspect bonus-url-probe:task1 \
+  --format 'Configured user: {{.Config.User}}'
+[?2004lConfigured user: appuser
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ [7mdocker run --rm \[27m
+[7m  --entrypoint /bin/sh \[27m
+[7m  bonus-url-probe:task1 \[27m
+[7m  -c 'id'[27m[A[A[A]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ docker run --rm \
+  --entrypoint /bin/sh \
+  bonus-url-probe:task1 \
+  -c 'id'
+[?2004luid=1001(appuser) gid=1001(appuser) groups=1001(appuser),100(users)
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ docker run --rm   --entrypoint /bin/sh   bonus-url-probe:task1   -c 'id'[A]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ [C[C[C[C[C[C[Cimage inspect bonus-url-probe:task1   --format 'Con[17@figured user: {{.Config.User}}[C[A]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ [C[C[C[C[C[C[Crun --rm   --entrypoint /bin/sh   bonus-url-probe:t[17Pask1   -c 'id[C[A]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ [C[C[C[C[C[C[Cimage inspect bonus-url-probe:task1   --format 'Con[17@figured user: {{.Config.User}}[C[A]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[20Pls bonus-url-probe:task1
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[?2004l                                                                                  [1m[106m[30mi[0m[0m [96mInfo → [0m[0m [38;5;0m[48;5;14m U [0m In Use
+[39m[1mIMAGE[0m                   [39m[1mID[0m             [39m[1mDISK USAGE[0m   [39m[1mCONTENT SIZE[0m   [39m[1mEXTRA[0m
+[34m[1mbonus-url-probe:task1[0m   [39m7f14b0fbfeff[0m        [39m195MB[0m         [39m48.5MB[0m        
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ docker image ls bonus-url-probe:task1run --rm   --entrypoint /bin/sh   bonus-url-probe:task1   -c 'id'[A]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ [C[C[C[C[C[C[Cimage inspect bonus-url-probe:task1   --format 'Con[17@figured user: {{.Config.User}}[C[A]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[20Pls bonus-url-probe:task1
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cbuild --progress=plain   -t bonus-url-probe:task1 .[A]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ nano Dockerfile[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[?2004l[?2004h[?1049h[22;0;0t[1;51r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[49;45H(B[0;7m[ Reading... ](B[m[49;43H(B[0;7m[ Read 26 lines ](B[m[H(B[0;7m  GNU nano 8.7.1                                 Dockerfile                                           [1;101H(B[m[50d(B[0;7m^G(B[m Help[15G(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut[50;57H(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste[57G(B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[2dFROM python:3.11.6-slim-bookworm[4dSHELL ["/bin/sh", "-eu", "-c"][6dARG APP_USER=appuser[7dARG APP_UID=1001[8dARG APP_GID=1001[9dARG APP_HOME=/app[11dRUN addgroup --gid "${APP_GID}" "${APP_USER}" \[12;5H&& adduser --disabled-password --gecos "" \[13;9H--home "${APP_HOME}" \[14;9H--ingroup "${APP_USER}" \[15;9H--uid "${APP_UID}" \[16;9H"${APP_USER}" \[17;5H&& mkdir -p /config \[18;5H&& chown "${APP_USER}:${APP_USER}" /config[20dWORKDIR ${APP_HOME}[22dCOPY --chown=${APP_UID}:${APP_GID} probe.py ./probe.py[24dUSER ${APP_USER}[26dENTRYPOINT ["python", "/app/probe.py"][27dCMD ["/config/urls.txt"][2d[?12l[?25h[?25l[?12l[?25h[3d[?25l[?12l[?25h[4d[?25l[?12l[?25h[5d[?25l[?12l[?25h[6d[?25l[?12l[?25h[7d[?25l[?12l[?25h[8d[?25l[?12l[?25h[9d[?25l[?12l[?25h[10d[?25l[?12l[?25h[11d[?25l[?12l[?25h[12d[?25l[?12l[?25h[13d[?25l[?12l[?25h[14d[?25l[?12l[?25h[15d[?25l[?12l[?25h[16d[?25l[?12l[?25h[17d[?25l[?12l[?25h[18d[?25l[?12l[?25h[19d[?25l[?12l[?25h[20d[?25l[?12l[?25h[21d[?25l[49d[K[?12l[?25h[22d[?25l[?12l[?25h[23d[?25l[?12l[?25h[24d[?25l[?12l[?25h[25d[?25l[?12l[?25h[26d[?25l[?12l[?25h[27d[?25l[?12l[?25h[28d[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[27;25H[?25l[1;61H(B[0;7m*[101G(B[m[?12l[?25h[27;24H [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[K[?25l[26;39H[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[K[?25l[A[?12l[?25h[?25l[24;17H[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[K[?25l[A[?12l[?25h[?25l[22;55H[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[K[?25l[A[?12l[?25h[?25l[20;20H[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[K[?25l[A[?12l[?25h[?25l[18;47H[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h[K    [?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[17;26H[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h[K    [?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[16;24H[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[K[16;9H[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[15;29H[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[K[15;9H[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[14;34H[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[K[14;9H[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[13;31H[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[K[13;9H[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[12;48H[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h[K    [?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[11;48H[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[K[?25l[A[?12l[?25h[?25l[9;18H[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[K[?25l[8;17H[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[K[?25l[7;17H[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[K[?25l[6;21H[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[K[?25l[A[?12l[?25h[?25l[4;31H[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[K[?25l[A[?12l[?25h[?25l[2;33H[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[K[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25lFROM python:3.11.6-alpine3.18[4dSHELL ["/bin/sh", "-eu", "-c"][6dARG APP_USER=appuser[7dARG APP_UID=1001[8dARG APP_GID=1001[9dARG APP_HOME=/app[11dRUN addgroup -S -g "${APP_GID}" "${APP_USER}" \[12;5H&& adduser -S -D -H \[13;9H-u "${APP_UID}" \[14;9H-G "${APP_USER}" \[15;9H"${APP_USER}" \[16;5H&& mkdir -p "${APP_HOME}" /config \[17;5H&& chown -R "${APP_USER}:${APP_USER}" "${APP_HOME}" /config[19dWORKDIR ${APP_HOME}[21dCOPY --chown=${APP_UID}:${APP_GID} probe.py ./probe.py[23dUSER ${APP_USER}[25dENTRYPOINT ["python3", "/app/probe.py"][26dCMD ["/config/urls.txt"][?12l[?25h[?25l[50;15H      (B[0;7mM-D(B[m DOS Format      (B[0;7mM-A(B[m Append[57G    (B[0;7mM-B(B[m Backup File     (B[0;7m^T(B[m Browse[K[51;2H(B[0;7mC(B[m Cancel           (B[0;7mM-M(B[m Mac Format      (B[0;7mM-P(B[m Prepend         (B[0;7m^Q(B[m Discard buffer[K[50;90H[A(B[0;7mWrite to File: Dockerfile                                                                             [49;26H(B[m[?12l[?25h[?25l[49;44H[1K (B[0;7m[ Writing... ](B[m[K[1;61H(B[0;7m [101G(B[m[49;43H(B[0;7m[ Wrote 25 lines ](B[m[50;15H(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut  [57G(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51;2H(B[0;7mX(B[m Exit       (B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste      (B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[?12l[?25h[26;25H[?25l[49d[J[51d[?12l[?25h[51;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ nano Dockerfiledocker image ls bonus-url-probe:task1run --rm   --entrypoint /bin/sh   bonus-url-probe:task1   -c 'id'[A]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ [C[C[C[C[C[C[Cimage inspect bonus-url-probe:task1   --format 'Con[17@figured user: {{.Config.User}}[C[A]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[20Pls bonus-url-probe:task1
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cbuild --progress=plain   -t bonus-url-probe:task1 .[A]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ nano Dockerfile[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cdocker build --progress=plain   -t bonus-url-probe:task1 .
+[?2004l#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 592B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.11.6-alpine3.18
+#2 DONE 1.7s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 30B done
+#4 DONE 0.0s
+
+#5 [1/4] FROM docker.io/library/python:3.11.6-alpine3.18@sha256:64bf6d40f8bbb4f7565642494bb267aa92f1ce1beade6c1a8a3581688abf7a52
+#5 resolve docker.io/library/python:3.11.6-alpine3.18@sha256:64bf6d40f8bbb4f7565642494bb267aa92f1ce1beade6c1a8a3581688abf7a52 0.0s done
+#5 DONE 0.3s
+
+#5 [1/4] FROM docker.io/library/python:3.11.6-alpine3.18@sha256:64bf6d40f8bbb4f7565642494bb267aa92f1ce1beade6c1a8a3581688abf7a52
+#5 sha256:d1d49b9ce9f16f5ba9893a6f6d39747010afe1e16cecda8162ab1d647b53f130 0B / 3.11MB 0.2s
+#5 sha256:fb73809a2e148f663e747077e8b645d2f2359adee10ad2e63ec02f22f77591a6 0B / 229B 0.2s
+#5 sha256:c938744c93e16a380846b0420fb605f6b8e25c7f8fedeee1a2fc608278e8b3a6 0B / 12.46MB 0.2s
+#5 sha256:2bcb605b85d2003069c45f91cfda5f7425467172cbc6948511af1b32466482e4 0B / 622.49kB 0.2s
+#5 sha256:d1d49b9ce9f16f5ba9893a6f6d39747010afe1e16cecda8162ab1d647b53f130 1.05MB / 3.11MB 0.5s
+#5 sha256:d1d49b9ce9f16f5ba9893a6f6d39747010afe1e16cecda8162ab1d647b53f130 3.11MB / 3.11MB 0.6s done
+#5 sha256:fb73809a2e148f663e747077e8b645d2f2359adee10ad2e63ec02f22f77591a6 229B / 229B 0.4s done
+#5 sha256:2bcb605b85d2003069c45f91cfda5f7425467172cbc6948511af1b32466482e4 622.49kB / 622.49kB 0.6s done
+#5 sha256:c926b61bad3b94ae7351bafd0c184c159ebf0643b085f7ef1d47ecdc7316833c 0B / 3.40MB 0.3s
+#5 sha256:c938744c93e16a380846b0420fb605f6b8e25c7f8fedeee1a2fc608278e8b3a6 2.10MB / 12.46MB 0.9s
+#5 sha256:c938744c93e16a380846b0420fb605f6b8e25c7f8fedeee1a2fc608278e8b3a6 4.19MB / 12.46MB 1.1s
+#5 sha256:c926b61bad3b94ae7351bafd0c184c159ebf0643b085f7ef1d47ecdc7316833c 1.05MB / 3.40MB 0.8s
+#5 sha256:c938744c93e16a380846b0420fb605f6b8e25c7f8fedeee1a2fc608278e8b3a6 6.29MB / 12.46MB 1.2s
+#5 sha256:c938744c93e16a380846b0420fb605f6b8e25c7f8fedeee1a2fc608278e8b3a6 7.34MB / 12.46MB 1.4s
+#5 sha256:c926b61bad3b94ae7351bafd0c184c159ebf0643b085f7ef1d47ecdc7316833c 2.10MB / 3.40MB 1.1s
+#5 sha256:c938744c93e16a380846b0420fb605f6b8e25c7f8fedeee1a2fc608278e8b3a6 9.44MB / 12.46MB 1.5s
+#5 sha256:c938744c93e16a380846b0420fb605f6b8e25c7f8fedeee1a2fc608278e8b3a6 12.46MB / 12.46MB 1.8s done
+#5 sha256:c926b61bad3b94ae7351bafd0c184c159ebf0643b085f7ef1d47ecdc7316833c 3.40MB / 3.40MB 1.4s done
+#5 extracting sha256:c926b61bad3b94ae7351bafd0c184c159ebf0643b085f7ef1d47ecdc7316833c 0.1s done
+#5 DONE 2.2s
+
+#5 [1/4] FROM docker.io/library/python:3.11.6-alpine3.18@sha256:64bf6d40f8bbb4f7565642494bb267aa92f1ce1beade6c1a8a3581688abf7a52
+#5 extracting sha256:2bcb605b85d2003069c45f91cfda5f7425467172cbc6948511af1b32466482e4 0.1s done
+#5 DONE 2.4s
+
+#5 [1/4] FROM docker.io/library/python:3.11.6-alpine3.18@sha256:64bf6d40f8bbb4f7565642494bb267aa92f1ce1beade6c1a8a3581688abf7a52
+#5 extracting sha256:c938744c93e16a380846b0420fb605f6b8e25c7f8fedeee1a2fc608278e8b3a6
+#5 extracting sha256:c938744c93e16a380846b0420fb605f6b8e25c7f8fedeee1a2fc608278e8b3a6 0.2s done
+#5 DONE 2.6s
+
+#5 [1/4] FROM docker.io/library/python:3.11.6-alpine3.18@sha256:64bf6d40f8bbb4f7565642494bb267aa92f1ce1beade6c1a8a3581688abf7a52
+#5 extracting sha256:fb73809a2e148f663e747077e8b645d2f2359adee10ad2e63ec02f22f77591a6 0.0s done
+#5 extracting sha256:d1d49b9ce9f16f5ba9893a6f6d39747010afe1e16cecda8162ab1d647b53f130 0.1s done
+#5 DONE 2.8s
+
+#6 [2/4] RUN addgroup -S -g "1001" "appuser"     && adduser -S -D -H         -u "1001"         -G "appuser"         "appuser"     && mkdir -p "/app" /config     && chown -R "appuser:appuser" "/app" /config
+#6 DONE 0.4s
+
+#7 [3/4] WORKDIR /app
+#7 DONE 0.1s
+
+#8 [4/4] COPY --chown=1001:1001 probe.py ./probe.py
+#8 DONE 0.1s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 0.4s done
+#9 exporting manifest sha256:3457318cf33a144424b31db776f158b097b24177826e10e17986a18feed02349 0.0s done
+#9 exporting config sha256:13ccfa97e7d3ce88d482cf13c85c9fd4ad5a1ec12194ed9ebb72023d991e4f8a 0.0s done
+#9 exporting attestation manifest sha256:17f4b05b8e40d1bbe2180d95593068dfb295b7409af89925e3a62a4c4e3203af 0.1s done
+#9 exporting manifest list sha256:96d1d65ca4f288b8ae94783ee0d424988eddf7e74bb99de39dd64770376ff629
+#9 exporting manifest list sha256:96d1d65ca4f288b8ae94783ee0d424988eddf7e74bb99de39dd64770376ff629 0.0s done
+#9 naming to docker.io/library/bonus-url-probe:task1 done
+#9 unpacking to docker.io/library/bonus-url-probe:task1 0.1s done
+#9 DONE 0.7s
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ [7mdocker image ls bonus-url-probe:task1[27mdocker image ls bonus-url-probe:task1
+[?2004l                                                                                  [1m[106m[30mi[0m[0m [96mInfo → [0m[0m [38;5;0m[48;5;14m U [0m In Use
+[39m[1mIMAGE[0m                   [39m[1mID[0m             [39m[1mDISK USAGE[0m   [39m[1mCONTENT SIZE[0m   [39m[1mEXTRA[0m
+[34m[1mbonus-url-probe:task1[0m   [39m96d1d65ca4f2[0m       [39m80.9MB[0m         [39m19.6MB[0m        
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ [7mdocker run --rm \[27m
+[7m  --entrypoint /bin/sh \[27m
+[7m  bonus-url-probe:task1 \[27m
+[7m  -c 'id'[27m[A[A[A]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ docker run --rm \
+  --entrypoint /bin/sh \
+  bonus-url-probe:task1 \
+  -c 'id'
+[?2004luid=1001(appuser) gid=1001(appuser) groups=1001(appuser),1001(appuser)
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ [7mdocker image inspect bonus-url-probe:task1 \[27m
+[7m  --format 'image_id={{.Id}}'[27m[A]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ docker image inspect bonus-url-probe:task1 \
+  --format 'image_id={{.Id}}'
+[?2004limage_id=sha256:96d1d65ca4f288b8ae94783ee0d424988eddf7e74bb99de39dd64770376ff629
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ [7mdocker run --rm \[27m
+[7m  --mount type=bind,src="$PWD/urls.txt",dst=/config/urls.txt,readonly \[27m
+[7m  --env PROBE_TIMEOUT=2 \[27m
+[7m  bonus-url-probe:task1[27m
+
+[7mecho "exit_code=$?"[27m[A[A[A[A[A]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ docker run --rm \
+  --mount type=bind,src="$PWD/urls.txt",dst=/config/urls.txt,readonly \
+  --env PROBE_TIMEOUT=2 \
+  bonus-url-probe:task1
+
+echo "exit_code=$?"
+[?2004lOK   200  0.129s https://example.com
+FAIL 404  0.113s https://example.com/no-such-page
+http://no-such-host.invalid: <urlopen error [Errno -2] Name does not resolve>
+FAIL   0  0.013s http://no-such-host.invalid
+http://10.255.255.1: <urlopen error timed out>
+FAIL   0  2.001s http://10.255.255.1
+# HELP probe_success 1, если получен ответ с кодом 2xx/3xx, иначе 0
+# TYPE probe_success gauge
+probe_success{url="https://example.com"} 1
+probe_success{url="https://example.com/no-such-page"} 0
+probe_success{url="http://no-such-host.invalid"} 0
+probe_success{url="http://10.255.255.1"} 0
+# HELP probe_http_status_code Код ответа HTTP, 0 - ответа нет
+# TYPE probe_http_status_code gauge
+probe_http_status_code{url="https://example.com"} 200
+probe_http_status_code{url="https://example.com/no-such-page"} 404
+probe_http_status_code{url="http://no-such-host.invalid"} 0
+probe_http_status_code{url="http://10.255.255.1"} 0
+# HELP probe_duration_seconds Сколько заняла проверка
+# TYPE probe_duration_seconds gauge
+probe_duration_seconds{url="https://example.com"} 0.129
+probe_duration_seconds{url="https://example.com/no-such-page"} 0.113
+probe_duration_seconds{url="http://no-such-host.invalid"} 0.013
+probe_duration_seconds{url="http://10.255.255.1"} 2.001
+# HELP probe_last_run_timestamp_seconds Время последнего запуска
+# TYPE probe_last_run_timestamp_seconds gauge
+probe_last_run_timestamp_seconds 1792943202
+exit_code=1
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ [7mnano urls-demo.txt[27mnano urls-demo.txt
+[?2004l[?2004h[?1049h[22;0;0t[1;51r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[49;46H(B[0;7m[ New File ](B[m[H(B[0;7m  GNU nano 8.7.1                                urls-demo.txt                                         [1;101H(B[m[50d(B[0;7m^G(B[m Help[15G(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut[50;57H(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51d(B[0;7m^X(B[m Exit[15G(B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste[57G(B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[2d[?12l[?25h[?25l[1;63H(B[0;7m*[49d(B[m[K[1;101H[2d[94mhttps://example.org[39m(B[m[?12l[?25h[?25l[50;15H      (B[0;7mM-D(B[m DOS Format      (B[0;7mM-A(B[m Append[57G    (B[0;7mM-B(B[m Backup File     (B[0;7m^T(B[m Browse[K[51;2H(B[0;7mC(B[m Cancel           (B[0;7mM-M(B[m Mac Format      (B[0;7mM-P(B[m Prepend         (B[0;7m^Q(B[m Discard buffer[K[50;90H[A(B[0;7mWrite to File: urls-demo.txt                                                                          [49;29H(B[m[?12l[?25h[?25l[49;44H[1K (B[0;7m[ Writing... ](B[m[K[1;63H(B[0;7m [101G(B[m[49;44H(B[0;7m[ Wrote 1 line ](B[m[50;15H(B[0;7m^O(B[m Write Out  (B[0;7m^F(B[m Where Is   (B[0;7m^K(B[m Cut  [57G(B[0;7m^T(B[m Execute    (B[0;7m^C(B[m Location   (B[0;7mM-U(B[m Undo[51;2H(B[0;7mX(B[m Exit       (B[0;7m^R(B[m Read File  (B[0;7m^\(B[m Replace    (B[0;7m^U(B[m Paste      (B[0;7m^J(B[m Justify    (B[0;7m^/(B[m Go To Line (B[0;7mM-E(B[m Redo[?12l[?25h[2;20H[?25l[49d[J[51d[?12l[?25h[51;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ [7mdocker run --rm \[27m
+[7m  --mount type=bind,src="$PWD/urls-demo.txt",dst=/config/urls.txt,readonly \[27m
+[7m  --env PROBE_TIMEOUT=1 \[27m
+[7m  bonus-url-probe:task1[27m
+
+[7mecho "exit_code=$?"[27m[A[A[A[A[A]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ docker run --rm \
+  --mount type=bind,src="$PWD/urls-demo.txt",dst=/config/urls.txt,readonly \
+  --env PROBE_TIMEOUT=1 \
+  bonus-url-probe:task1
+
+echo "exit_code=$?"
+[?2004l# HELP probe_success 1, если получен ответ с кодом 2xx/3xx, иначе 0
+# TYPE probe_success gauge
+probe_success{url="https://example.org"} 1
+# HELP probe_http_status_code Код ответа HTTP, 0 - ответа нет
+# TYPE probe_http_status_code gauge
+probe_http_status_code{url="https://example.org"} 200
+# HELP probe_duration_seconds Сколько заняла проверка
+# TYPE probe_duration_seconds gauge
+probe_duration_seconds{url="https://example.org"} 0.139
+# HELP probe_last_run_timestamp_seconds Время последнего запуска
+# TYPE probe_last_run_timestamp_seconds gauge
+probe_last_run_timestamp_seconds 1792943233
+OK   200  0.139s https://example.org
+exit_code=0
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ [7mdocker image inspect bonus-url-probe:task1 \[27m
+[7m  --format 'image_id={{.Id}}'[27m[A]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ docker image inspect bonus-url-probe:task1 \
+  --format 'image_id={{.Id}}'
+[?2004limage_id=sha256:96d1d65ca4f288b8ae94783ee0d424988eddf7e74bb99de39dd64770376ff629
+[?2004h]0;rkart@TIRoman: ~/projects/bonus_hw/url-probe[01;32mrkart@TIRoman[00m:[01;34m~/projects/bonus_hw/url-probe[00m$ [7mexit[27mexit
+[?2004lexit
+
+Script done on 2026-10-25 18:47:30+03:00 [COMMAND_EXIT_CODE="0"]

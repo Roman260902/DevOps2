@@ -1,0 +1,6 @@
+.git
+__pycache__
+*.pyc
+logs
+urls*.txt
+README.md
