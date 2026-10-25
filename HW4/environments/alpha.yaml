@@ -1,0 +1,10 @@
+ingress:
+  host: alpha.localtest.me
+
+backend:
+  replicas: 1
+  port: 8082
+
+frontend:
+  replicas: 2
+  port: 8080

@@ -1,0 +1,70 @@
+backend:
+  replicas: 1
+  image:
+    repository: counter-backend
+    tag: hw4-v1
+    pullPolicy: Never
+  host: "0.0.0.0"
+  port: 8082
+  servicePort: 80
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 250m
+      memory: 128Mi
+
+frontend:
+  replicas: 2
+  image:
+    repository: counter-frontend
+    tag: hw4-v2
+    pullPolicy: Never
+  host: "0.0.0.0"
+  port: 8080
+  servicePort: 80
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+rollout:
+  revisionHistoryLimit: 5
+  minReadySeconds: 5
+  progressDeadlineSeconds: 120
+  terminationGracePeriodSeconds: 30
+  maxSurge: 1
+  maxUnavailable: 0
+
+ingress:
+  className: traefik
+  host: ""
+  controllerService: traefik.traefik.svc.cluster.local
+  controllerPort: 443
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+
+tls:
+  crt: ""
+  key: ""
+  caCrt: ""
+
+tests:
+  image:
+    repository: curlimages/curl
+    tag: "8.23.0"
+    pullPolicy: IfNotPresent
+  runAsUser: 10001
+  runAsGroup: 10001
+  resources:
+    requests:
+      cpu: 10m
+      memory: 16Mi
+    limits:
+      cpu: 100m
+      memory: 64Mi

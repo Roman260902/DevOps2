@@ -1,0 +1,92 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "counter.fullname" . }}-smoke
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "counter.labels" . | nindent 4 }}
+    app.kubernetes.io/component: smoke-test
+  annotations:
+    helm.sh/hook: post-install,post-upgrade,post-rollback,test
+    helm.sh/hook-weight: "10"
+    helm.sh/hook-delete-policy: before-hook-creation
+spec:
+  backoffLimit: 0
+  activeDeadlineSeconds: 240
+  ttlSecondsAfterFinished: 86400
+  template:
+    metadata:
+      labels:
+        {{- include "counter.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/component: smoke-test
+    spec:
+      automountServiceAccountToken: false
+      restartPolicy: Never
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: {{ .Values.tests.runAsUser }}
+        runAsGroup: {{ .Values.tests.runAsGroup }}
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: smoke
+          image: {{ printf "%s:%s" .Values.tests.image.repository .Values.tests.image.tag | quote }}
+          imagePullPolicy: {{ .Values.tests.image.pullPolicy }}
+          command:
+            - sh
+            - -eu
+            - -c
+            - |
+              request() {
+                curl --silent --show-error --fail \
+                  --retry 10 --retry-delay 2 --retry-all-errors \
+                  --connect-timeout 3 --max-time 10 \
+                  --noproxy '*' "$@"
+              }
+
+              body="$(request "$BACKEND_URL/api/counter")"
+              printf '%s\n' "$body" | grep -Eq '"count"[[:space:]]*:[[:space:]]*[0-9]+'
+              printf 'PASS backend Service: %s\n' "$body"
+
+              request --output /dev/null "$FRONTEND_URL/"
+              printf 'PASS frontend Service\n'
+
+              request --output /dev/null \
+                --cacert /etc/counter-ca/ca.crt \
+                --connect-to "$INGRESS_HOST:443:$INGRESS_SERVICE:$INGRESS_PORT" \
+                "https://$INGRESS_HOST/"
+              printf 'PASS HTTPS frontend: %s\n' "$INGRESS_HOST"
+
+              body="$(request \
+                --cacert /etc/counter-ca/ca.crt \
+                --connect-to "$INGRESS_HOST:443:$INGRESS_SERVICE:$INGRESS_PORT" \
+                "https://$INGRESS_HOST/api/counter")"
+              printf '%s\n' "$body" | grep -Eq '"count"[[:space:]]*:[[:space:]]*[0-9]+'
+              printf 'PASS HTTPS API: %s\n' "$body"
+              printf 'PASS release smoke test\n'
+          env:
+            - name: BACKEND_URL
+              value: {{ printf "http://%s-backend:%v" (include "counter.fullname" .) .Values.backend.servicePort | quote }}
+            - name: FRONTEND_URL
+              value: {{ printf "http://%s-frontend:%v" (include "counter.fullname" .) .Values.frontend.servicePort | quote }}
+            - name: INGRESS_HOST
+              value: {{ .Values.ingress.host | quote }}
+            - name: INGRESS_SERVICE
+              value: {{ .Values.ingress.controllerService | quote }}
+            - name: INGRESS_PORT
+              value: {{ .Values.ingress.controllerPort | quote }}
+          resources:
+            {{- toYaml .Values.tests.resources | nindent 12 }}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          volumeMounts:
+            - name: ca
+              mountPath: /etc/counter-ca
+              readOnly: true
+      volumes:
+        - name: ca
+          configMap:
+            name: {{ include "counter.fullname" . }}-tls-ca

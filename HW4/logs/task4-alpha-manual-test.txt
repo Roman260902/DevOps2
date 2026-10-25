@@ -1,0 +1,5 @@
+PASS backend Service: {"count": 0}
+PASS frontend Service
+PASS HTTPS frontend: alpha.localtest.me
+PASS HTTPS API: {"count": 0}
+PASS release smoke test

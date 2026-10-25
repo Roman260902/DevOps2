@@ -1,0 +1,9 @@
+Release: {{ .Release.Name }}
+Namespace: {{ .Release.Namespace }}
+URL: https://{{ .Values.ingress.host }}
+
+Automatic smoke test:
+  kubectl -n {{ .Release.Namespace }} logs job/{{ include "counter.fullname" . }}-smoke
+
+Run the test again:
+  helm test {{ .Release.Name }} -n {{ .Release.Namespace }} --logs

@@ -1,0 +1,5 @@
+PASS backend Service: {"count": 1}
+PASS frontend Service
+PASS HTTPS frontend: beta.localtest.me
+PASS HTTPS API: {"count": 1}
+PASS release smoke test

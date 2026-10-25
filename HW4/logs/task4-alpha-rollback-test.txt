@@ -1,0 +1,6 @@
+curl: (7) Failed to connect to alpha-backend:80 after 0 ms: Could not connect to server
+PASS backend Service: {"count": 0}
+PASS frontend Service
+PASS HTTPS frontend: alpha.localtest.me
+PASS HTTPS API: {"count": 0}
+PASS release smoke test

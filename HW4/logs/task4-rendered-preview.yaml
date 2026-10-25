@@ -1,0 +1,432 @@
+---
+# Source: counter/templates/tls-secret.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: alpha-tls
+  namespace: hw4-helm
+  labels:
+    app.kubernetes.io/name: counter
+    app.kubernetes.io/instance: alpha
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: "counter-0.1.0"
+type: kubernetes.io/tls
+data:
+  tls.crt: "cHJldmlldy1jcnQ="
+  tls.key: "cHJldmlldy1rZXk="
+---
+# Source: counter/templates/backend-configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: alpha-backend-config
+  namespace: hw4-helm
+  labels:
+    app.kubernetes.io/name: counter
+    app.kubernetes.io/instance: alpha
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: "counter-0.1.0"
+data:
+  HOST: "0.0.0.0"
+  PORT: "8082"
+---
+# Source: counter/templates/frontend-configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: alpha-frontend-config
+  namespace: hw4-helm
+  labels:
+    app.kubernetes.io/name: counter
+    app.kubernetes.io/instance: alpha
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: "counter-0.1.0"
+data:
+  HOSTNAME: "0.0.0.0"
+  PORT: "8080"
+---
+# Source: counter/templates/tls-secret.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: alpha-tls-ca
+  namespace: hw4-helm
+  labels:
+    app.kubernetes.io/name: counter
+    app.kubernetes.io/instance: alpha
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: "counter-0.1.0"
+data:
+  ca.crt: |
+    preview-ca
+---
+# Source: counter/templates/services.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: alpha-backend
+  namespace: hw4-helm
+  labels:
+    app.kubernetes.io/name: counter
+    app.kubernetes.io/instance: alpha
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: "counter-0.1.0"
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: counter
+    app.kubernetes.io/instance: alpha
+    app.kubernetes.io/component: backend
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8082
+---
+# Source: counter/templates/services.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: alpha-frontend
+  namespace: hw4-helm
+  labels:
+    app.kubernetes.io/name: counter
+    app.kubernetes.io/instance: alpha
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: "counter-0.1.0"
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: counter
+    app.kubernetes.io/instance: alpha
+    app.kubernetes.io/component: frontend
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
+---
+# Source: counter/templates/backend-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alpha-backend
+  namespace: hw4-helm
+  labels:
+    app.kubernetes.io/name: counter
+    app.kubernetes.io/instance: alpha
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: "counter-0.1.0"
+    app.kubernetes.io/component: backend
+spec:
+  replicas: 1
+  revisionHistoryLimit: 5
+  minReadySeconds: 5
+  progressDeadlineSeconds: 120
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: counter
+      app.kubernetes.io/instance: alpha
+      app.kubernetes.io/component: backend
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: counter
+        app.kubernetes.io/instance: alpha
+        app.kubernetes.io/component: backend
+      annotations:
+        checksum/config: "70eaf36e67901bcca961f3017b9306bea43300bfb823c0b3cf7dc35762d1924c"
+    spec:
+      automountServiceAccountToken: false
+      terminationGracePeriodSeconds: 30
+      containers:
+        - name: backend
+          image: "counter-backend:hw4-v1"
+          imagePullPolicy: Never
+          envFrom:
+            - configMapRef:
+                name: alpha-backend-config
+          resources:
+            limits:
+              cpu: 250m
+              memory: 128Mi
+            requests:
+              cpu: 50m
+              memory: 64Mi
+          startupProbe:
+            exec:
+              command:
+                - python
+                - -c
+                - |
+                  import os
+                  import urllib.request
+                  urllib.request.urlopen(
+                      "http://127.0.0.1:" + os.environ["PORT"] + "/api/counter",
+                      timeout=1
+                  ).close()
+            periodSeconds: 2
+            timeoutSeconds: 2
+            failureThreshold: 30
+          readinessProbe:
+            exec:
+              command:
+                - python
+                - -c
+                - |
+                  import os
+                  import urllib.request
+                  if os.path.exists("/tmp/force-unready"):
+                      raise SystemExit(1)
+                  urllib.request.urlopen(
+                      "http://127.0.0.1:" + os.environ["PORT"] + "/api/counter",
+                      timeout=1
+                  ).close()
+            periodSeconds: 5
+            timeoutSeconds: 2
+            failureThreshold: 1
+          livenessProbe:
+            exec:
+              command:
+                - python
+                - -c
+                - |
+                  import os
+                  import urllib.request
+                  urllib.request.urlopen(
+                      "http://127.0.0.1:" + os.environ["PORT"] + "/api/counter",
+                      timeout=1
+                  ).close()
+            periodSeconds: 10
+            timeoutSeconds: 2
+            failureThreshold: 3
+          lifecycle:
+            preStop:
+              exec:
+                command: ["sh", "-c", "sleep 5"]
+---
+# Source: counter/templates/frontend-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alpha-frontend
+  namespace: hw4-helm
+  labels:
+    app.kubernetes.io/name: counter
+    app.kubernetes.io/instance: alpha
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: "counter-0.1.0"
+    app.kubernetes.io/component: frontend
+spec:
+  replicas: 2
+  revisionHistoryLimit: 5
+  minReadySeconds: 5
+  progressDeadlineSeconds: 120
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: counter
+      app.kubernetes.io/instance: alpha
+      app.kubernetes.io/component: frontend
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: counter
+        app.kubernetes.io/instance: alpha
+        app.kubernetes.io/component: frontend
+      annotations:
+        checksum/config: "20430b369af66177223a0c1516dc63b93b2bcdae349dc012ddbc54f9604725af"
+    spec:
+      automountServiceAccountToken: false
+      terminationGracePeriodSeconds: 30
+      containers:
+        - name: frontend
+          image: "counter-frontend:hw4-v2"
+          imagePullPolicy: Never
+          envFrom:
+            - configMapRef:
+                name: alpha-frontend-config
+          ports:
+            - name: http
+              containerPort: 8080
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          startupProbe:
+            httpGet:
+              path: /
+              port: http
+            periodSeconds: 2
+            timeoutSeconds: 2
+            failureThreshold: 30
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            periodSeconds: 5
+            timeoutSeconds: 2
+            failureThreshold: 2
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+            periodSeconds: 10
+            timeoutSeconds: 2
+            failureThreshold: 3
+          lifecycle:
+            preStop:
+              exec:
+                command: ["sh", "-c", "sleep 5"]
+---
+# Source: counter/templates/ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: alpha-ingress
+  namespace: hw4-helm
+  labels:
+    app.kubernetes.io/name: counter
+    app.kubernetes.io/instance: alpha
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: "counter-0.1.0"
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+spec:
+  ingressClassName: "traefik"
+  tls:
+    - hosts:
+        - "alpha.localtest.me"
+      secretName: alpha-tls
+  rules:
+    - host: "alpha.localtest.me"
+      http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: alpha-backend
+                port:
+                  name: http
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: alpha-frontend
+                port:
+                  name: http
+---
+# Source: counter/templates/smoke-test.yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: alpha-smoke
+  namespace: hw4-helm
+  labels:
+    app.kubernetes.io/name: counter
+    app.kubernetes.io/instance: alpha
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: "counter-0.1.0"
+    app.kubernetes.io/component: smoke-test
+  annotations:
+    helm.sh/hook: post-install,post-upgrade,post-rollback,test
+    helm.sh/hook-weight: "10"
+    helm.sh/hook-delete-policy: before-hook-creation
+spec:
+  backoffLimit: 0
+  activeDeadlineSeconds: 240
+  ttlSecondsAfterFinished: 86400
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: counter
+        app.kubernetes.io/instance: alpha
+        app.kubernetes.io/component: smoke-test
+    spec:
+      automountServiceAccountToken: false
+      restartPolicy: Never
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: smoke
+          image: "curlimages/curl:8.23.0"
+          imagePullPolicy: IfNotPresent
+          command:
+            - sh
+            - -eu
+            - -c
+            - |
+              request() {
+                curl --silent --show-error --fail \
+                  --retry 10 --retry-delay 2 --retry-all-errors \
+                  --connect-timeout 3 --max-time 10 \
+                  --noproxy '*' "$@"
+              }
+
+              body="$(request "$BACKEND_URL/api/counter")"
+              printf '%s\n' "$body" | grep -Eq '"count"[[:space:]]*:[[:space:]]*[0-9]+'
+              printf 'PASS backend Service: %s\n' "$body"
+
+              request --output /dev/null "$FRONTEND_URL/"
+              printf 'PASS frontend Service\n'
+
+              request --output /dev/null \
+                --cacert /etc/counter-ca/ca.crt \
+                --connect-to "$INGRESS_HOST:443:$INGRESS_SERVICE:$INGRESS_PORT" \
+                "https://$INGRESS_HOST/"
+              printf 'PASS HTTPS frontend: %s\n' "$INGRESS_HOST"
+
+              body="$(request \
+                --cacert /etc/counter-ca/ca.crt \
+                --connect-to "$INGRESS_HOST:443:$INGRESS_SERVICE:$INGRESS_PORT" \
+                "https://$INGRESS_HOST/api/counter")"
+              printf '%s\n' "$body" | grep -Eq '"count"[[:space:]]*:[[:space:]]*[0-9]+'
+              printf 'PASS HTTPS API: %s\n' "$body"
+              printf 'PASS release smoke test\n'
+          env:
+            - name: BACKEND_URL
+              value: "http://alpha-backend:80"
+            - name: FRONTEND_URL
+              value: "http://alpha-frontend:80"
+            - name: INGRESS_HOST
+              value: "alpha.localtest.me"
+            - name: INGRESS_SERVICE
+              value: "traefik.traefik.svc.cluster.local"
+            - name: INGRESS_PORT
+              value: "443"
+          resources:
+            limits:
+              cpu: 100m
+              memory: 64Mi
+            requests:
+              cpu: 10m
+              memory: 16Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          volumeMounts:
+            - name: ca
+              mountPath: /etc/counter-ca
+              readOnly: true
+      volumes:
+        - name: ca
+          configMap:
+            name: alpha-tls-ca

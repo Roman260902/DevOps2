@@ -1,0 +1,10 @@
+ingress:
+  host: beta.localtest.me
+
+backend:
+  replicas: 1
+  port: 8092
+
+frontend:
+  replicas: 1
+  port: 8090
